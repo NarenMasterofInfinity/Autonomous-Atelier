@@ -1,0 +1,45 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "art_director": {
+      "default": false,
+      "title": "Art Director",
+      "type": "boolean"
+    },
+    "identity_id": {
+      "title": "Identity Id",
+      "type": "string"
+    },
+    "kind": {
+      "const": "build_reference_composition",
+      "default": "build_reference_composition",
+      "title": "Kind",
+      "type": "string"
+    },
+    "reference_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 12,
+      "minItems": 1,
+      "title": "Reference Ids",
+      "type": "array"
+    },
+    "reference_project": {
+      "default": "m10a-references",
+      "title": "Reference Project",
+      "type": "string"
+    },
+    "story_id": {
+      "title": "Story Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "story_id",
+    "identity_id",
+    "reference_ids"
+  ],
+  "title": "BuildReferenceCompositionCommand",
+  "type": "object"
+}

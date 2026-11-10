@@ -1,0 +1,43 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "contact_sheet_asset_id": {
+      "title": "Contact Sheet Asset Id",
+      "type": "string"
+    },
+    "human_approval": {
+      "default": false,
+      "title": "Human Approval",
+      "type": "boolean"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "pdf_asset_id": {
+      "title": "Pdf Asset Id",
+      "type": "string"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "reference_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Reference Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "reference_ids",
+    "pdf_asset_id",
+    "contact_sheet_asset_id"
+  ],
+  "title": "ReferenceAtlas",
+  "type": "object"
+}

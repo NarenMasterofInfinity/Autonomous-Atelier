@@ -1,0 +1,37 @@
+{
+  "$defs": {
+    "CriticVerdict": {
+      "enum": [
+        "ACCEPT",
+        "REVISE",
+        "RECOMPOSE",
+        "RECONCEPT",
+        "REPLAN"
+      ],
+      "title": "CriticVerdict",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "decision_id": {
+      "title": "Decision Id",
+      "type": "string"
+    },
+    "kind": {
+      "const": "decision",
+      "default": "decision",
+      "title": "Kind",
+      "type": "string"
+    },
+    "verdict": {
+      "$ref": "#/$defs/CriticVerdict"
+    }
+  },
+  "required": [
+    "decision_id",
+    "verdict"
+  ],
+  "title": "DecisionEvent",
+  "type": "object"
+}

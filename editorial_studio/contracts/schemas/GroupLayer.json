@@ -1,0 +1,121 @@
+{
+  "$defs": {
+    "BlendMode": {
+      "enum": [
+        "normal",
+        "multiply",
+        "screen",
+        "overlay",
+        "darken",
+        "lighten"
+      ],
+      "title": "BlendMode",
+      "type": "string"
+    },
+    "BoundsMM": {
+      "additionalProperties": false,
+      "properties": {
+        "height_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Height Mm",
+          "type": "number"
+        },
+        "width_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Width Mm",
+          "type": "number"
+        },
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm",
+        "width_mm",
+        "height_mm"
+      ],
+      "title": "BoundsMM",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "blend_mode": {
+      "$ref": "#/$defs/BlendMode",
+      "default": "normal"
+    },
+    "bounds": {
+      "$ref": "#/$defs/BoundsMM"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "layer_type": {
+      "const": "group",
+      "default": "group",
+      "title": "Layer Type",
+      "type": "string"
+    },
+    "member_layer_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Member Layer Ids",
+      "type": "array"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "opacity": {
+      "default": 1.0,
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Opacity",
+      "type": "number"
+    },
+    "owner_skill_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Owner Skill Id"
+    },
+    "semantic_role": {
+      "title": "Semantic Role",
+      "type": "string"
+    },
+    "visible": {
+      "default": true,
+      "title": "Visible",
+      "type": "boolean"
+    },
+    "z_index": {
+      "title": "Z Index",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "semantic_role",
+    "z_index",
+    "bounds",
+    "member_layer_ids"
+  ],
+  "title": "GroupLayer",
+  "type": "object"
+}

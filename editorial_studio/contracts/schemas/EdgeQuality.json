@@ -1,0 +1,63 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "components": {
+      "minimum": 0,
+      "title": "Components",
+      "type": "integer"
+    },
+    "edge_gradient": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Edge Gradient",
+      "type": "number"
+    },
+    "findings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "foreground_fraction": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Foreground Fraction",
+      "type": "number"
+    },
+    "passed": {
+      "title": "Passed",
+      "type": "boolean"
+    },
+    "reference_iou": {
+      "anyOf": [
+        {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reference Iou"
+    },
+    "soft_edge_fraction": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Soft Edge Fraction",
+      "type": "number"
+    }
+  },
+  "required": [
+    "foreground_fraction",
+    "soft_edge_fraction",
+    "edge_gradient",
+    "components",
+    "passed",
+    "findings"
+  ],
+  "title": "EdgeQuality",
+  "type": "object"
+}

@@ -1,0 +1,81 @@
+{
+  "$defs": {
+    "PageSide": {
+      "enum": [
+        "left",
+        "right"
+      ],
+      "title": "PageSide",
+      "type": "string"
+    },
+    "PhysicalPage": {
+      "additionalProperties": false,
+      "properties": {
+        "folio_text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Folio Text"
+        },
+        "is_cover": {
+          "default": false,
+          "title": "Is Cover",
+          "type": "boolean"
+        },
+        "number": {
+          "minimum": 1,
+          "title": "Number",
+          "type": "integer"
+        },
+        "side": {
+          "$ref": "#/$defs/PageSide"
+        },
+        "spread_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Spread Id"
+        }
+      },
+      "required": [
+        "number",
+        "side"
+      ],
+      "title": "PhysicalPage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "pages": {
+      "items": {
+        "$ref": "#/$defs/PhysicalPage"
+      },
+      "minItems": 1,
+      "title": "Pages",
+      "type": "array"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "project_id",
+    "pages"
+  ],
+  "title": "PageMap",
+  "type": "object"
+}

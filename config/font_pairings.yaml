@@ -1,0 +1,13 @@
+pairings:
+  - id: quiet-serif
+    name: Quiet serif / clear sans
+    headline_font_id: DejaVuSerif
+    body_font_id: DejaVuSerif
+    detail_font_id: DejaVuSans
+    intent: Spacious literary features with clear supporting labels.
+  - id: direct-sans
+    name: Direct sans / reading serif
+    headline_font_id: DejaVuSans
+    body_font_id: DejaVuSerif
+    detail_font_id: DejaVuSans
+    intent: Direct section openings with a contrasting reading texture.

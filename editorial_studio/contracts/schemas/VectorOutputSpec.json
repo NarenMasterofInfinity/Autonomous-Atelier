@@ -1,0 +1,24 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "editable_paths_required": {
+      "default": true,
+      "title": "Editable Paths Required",
+      "type": "boolean"
+    },
+    "format": {
+      "const": "svg",
+      "default": "svg",
+      "title": "Format",
+      "type": "string"
+    },
+    "kind": {
+      "const": "vector",
+      "default": "vector",
+      "title": "Kind",
+      "type": "string"
+    }
+  },
+  "title": "VectorOutputSpec",
+  "type": "object"
+}

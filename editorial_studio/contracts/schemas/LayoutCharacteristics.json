@@ -1,0 +1,85 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "background_color": {
+      "title": "Background Color",
+      "type": "string"
+    },
+    "display_fonts": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Display Fonts",
+      "type": "array"
+    },
+    "display_sizes_pt": {
+      "items": {
+        "type": "number"
+      },
+      "title": "Display Sizes Pt",
+      "type": "array"
+    },
+    "layer_order": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Layer Order",
+      "type": "array"
+    },
+    "mechanisms": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Mechanisms",
+      "type": "array"
+    },
+    "paint_modes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Paint Modes",
+      "type": "array"
+    },
+    "photographic_area_fraction": {
+      "title": "Photographic Area Fraction",
+      "type": "number"
+    },
+    "reading_regions": {
+      "items": {
+        "items": {
+          "type": "number"
+        },
+        "type": "array"
+      },
+      "title": "Reading Regions",
+      "type": "array"
+    },
+    "rotations_deg": {
+      "items": {
+        "type": "number"
+      },
+      "title": "Rotations Deg",
+      "type": "array"
+    },
+    "source_metrics": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "title": "Source Metrics",
+      "type": "object"
+    }
+  },
+  "required": [
+    "background_color",
+    "display_sizes_pt",
+    "display_fonts",
+    "paint_modes",
+    "rotations_deg",
+    "photographic_area_fraction",
+    "mechanisms",
+    "layer_order",
+    "reading_regions"
+  ],
+  "title": "LayoutCharacteristics",
+  "type": "object"
+}

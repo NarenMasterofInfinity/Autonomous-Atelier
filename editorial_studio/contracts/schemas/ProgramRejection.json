@@ -1,0 +1,19 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "program_id": {
+      "title": "Program Id",
+      "type": "string"
+    },
+    "reason": {
+      "title": "Reason",
+      "type": "string"
+    }
+  },
+  "required": [
+    "program_id",
+    "reason"
+  ],
+  "title": "ProgramRejection",
+  "type": "object"
+}

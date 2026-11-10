@@ -1,0 +1,72 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "error": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "issue_id": {
+      "title": "Issue Id",
+      "type": "string"
+    },
+    "preparation_version": {
+      "default": "native-issue-fit-v1",
+      "title": "Preparation Version",
+      "type": "string"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "proposal_json": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Proposal Json"
+    },
+    "provider_call_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Provider Call Id"
+    },
+    "slot_index": {
+      "maximum": 5,
+      "minimum": 0,
+      "title": "Slot Index",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "issue_id",
+    "slot_index"
+  ],
+  "title": "IssueComposeAttempt",
+  "type": "object"
+}

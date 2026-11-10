@@ -1,0 +1,23 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "x": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "X",
+      "type": "number"
+    },
+    "y": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Y",
+      "type": "number"
+    }
+  },
+  "required": [
+    "x",
+    "y"
+  ],
+  "title": "NormalizedPoint",
+  "type": "object"
+}

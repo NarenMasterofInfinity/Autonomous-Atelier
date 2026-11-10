@@ -1,0 +1,37 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "derived_text_id": {
+      "title": "Derived Text Id",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "layer_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Layer Ids",
+      "type": "array"
+    },
+    "scene_id": {
+      "title": "Scene Id",
+      "type": "string"
+    },
+    "scene_version": {
+      "title": "Scene Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "derived_text_id",
+    "scene_id",
+    "scene_version",
+    "layer_ids"
+  ],
+  "title": "TextPlacementBinding",
+  "type": "object"
+}

@@ -1,0 +1,27 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "height_px": {
+      "exclusiveMinimum": 0,
+      "title": "Height Px",
+      "type": "integer"
+    },
+    "kind": {
+      "const": "mask",
+      "default": "mask",
+      "title": "Kind",
+      "type": "string"
+    },
+    "width_px": {
+      "exclusiveMinimum": 0,
+      "title": "Width Px",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "width_px",
+    "height_px"
+  ],
+  "title": "MaskOutputSpec",
+  "type": "object"
+}

@@ -1,0 +1,30 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "expected_parent_version": {
+      "title": "Expected Parent Version",
+      "type": "string"
+    },
+    "kind": {
+      "const": "rollback_scene",
+      "default": "rollback_scene",
+      "title": "Kind",
+      "type": "string"
+    },
+    "restored_version": {
+      "title": "Restored Version",
+      "type": "string"
+    },
+    "scene_id": {
+      "title": "Scene Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "scene_id",
+    "expected_parent_version",
+    "restored_version"
+  ],
+  "title": "RollbackSceneCommand",
+  "type": "object"
+}

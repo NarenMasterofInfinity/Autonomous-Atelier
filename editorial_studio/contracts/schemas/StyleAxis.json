@@ -1,0 +1,20 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "tag": {
+      "pattern": "^[A-Za-z0-9]{4}$",
+      "title": "Tag",
+      "type": "string"
+    },
+    "value": {
+      "title": "Value",
+      "type": "number"
+    }
+  },
+  "required": [
+    "tag",
+    "value"
+  ],
+  "title": "StyleAxis",
+  "type": "object"
+}

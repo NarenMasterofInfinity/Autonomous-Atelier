@@ -1,0 +1,25 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "expected_evidence_fingerprint": {
+      "title": "Expected Evidence Fingerprint",
+      "type": "string"
+    },
+    "issue_id": {
+      "title": "Issue Id",
+      "type": "string"
+    },
+    "kind": {
+      "const": "export_production",
+      "default": "export_production",
+      "title": "Kind",
+      "type": "string"
+    }
+  },
+  "required": [
+    "issue_id",
+    "expected_evidence_fingerprint"
+  ],
+  "title": "ExportProductionCommand",
+  "type": "object"
+}

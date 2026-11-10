@@ -1,0 +1,29 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "scene_id": {
+      "title": "Scene Id",
+      "type": "string"
+    },
+    "version": {
+      "title": "Version",
+      "type": "string"
+    },
+    "version_record_id": {
+      "title": "Version Record Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "scene_id",
+    "project_id",
+    "version",
+    "version_record_id"
+  ],
+  "title": "SceneHead",
+  "type": "object"
+}

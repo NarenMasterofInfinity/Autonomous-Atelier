@@ -1,0 +1,60 @@
+project: flagship-proof
+story:
+  id: human-scale-authored
+  title: THE HUMAN SCALE OF SPACE
+  deck: "PORTRAIT / 01\nBefore the mission,\na person.\nEileen Collins. Photograph: NASA."
+  author: Original studio editorial study; not an interview
+  paragraphs:
+  - >-
+    Space is usually pictured at a distance. A bright point leaves the ground. A planet becomes a disc. A machine travels beyond the edge of what we can see. The scale is difficult to hold in the mind, and the person doing the travelling can disappear inside the achievement. A portrait brings that person back into view. Here, before any account of a mission, there is a face looking directly towards us.
+  - >-
+    The orange suit takes up almost as much space as the person wearing it. Its collar is a hard circle around a familiar expression; its fabric gathers into ordinary folds. Beside it, the dark surface of a helmet holds a small room of reflected light. These are the materials of an extraordinary task, photographed at the distance of a conversation. We can follow a seam, recognise the weight of an object, or notice a hand resting against an edge. The photograph gives a vast subject a place to begin: the scale of a person.
+fonts:
+  - id: Anton
+    family: Anton
+    path: data/flagship/Anton-Regular.ttf
+    sha256: a4ba3a92350ebb031da0cb47630ac49eb265082ca1bc0450442f4a83ab947cab
+  - id: Newsreader
+    family: Newsreader
+    path: data/flagship/Newsreader.ttf
+    sha256: 8a08d13f8a6c0d51be379a60af84f945f65369a67e509ee3c3bdcc421254d7c1
+    axes: {opsz: 14, wght: 400}
+styles:
+  - {name: flagship.the, font_id: Anton, font_size_pt: 21, color: '#d94a23', min_paragraph_lines: 1}
+  - {name: flagship.human, font_id: Anton, font_size_pt: 260, color: '#202b35', min_paragraph_lines: 1, line_spacing: 1}
+  - {name: flagship.scale, font_id: Anton, font_size_pt: 214, color: '#202b35', min_paragraph_lines: 1, line_spacing: 1}
+  - {name: flagship.space, font_id: Anton, font_size_pt: 28, color: '#d94a23', min_paragraph_lines: 1}
+  - {name: flagship.section, font_id: DejaVuSans, font_size_pt: 9, color: '#202b35', min_paragraph_lines: 1}
+  - {name: flagship.deck, font_id: Newsreader, font_size_pt: 20, color: '#202b35', min_paragraph_lines: 1, line_spacing: 1.04}
+  - {name: flagship.credit, font_id: DejaVuSans, font_size_pt: 11, color: '#202b35', min_paragraph_lines: 1}
+  - {name: flagship.body, font_id: Newsreader, font_size_pt: 11, color: '#202b35', min_paragraph_lines: 2, baseline_step_mm: 4.55}
+text_frames:
+  - {id: title-the, role: headline, text: 'THE ', style: flagship.the, bounds: [196, 11, 30, 14], z: 2}
+  - {id: title-human, role: headline, text: 'HUMAN ', style: flagship.human, bounds: [132, 0, 276, 140], z: 2}
+  - {id: title-scale, role: headline, text: 'SCALE ', style: flagship.scale, bounds: [216, 89, 192, 116], z: 2}
+  - {id: title-space, role: headline, text: 'OF SPACE', style: flagship.space, bounds: [254, 181, 150, 19], z: 4}
+  - {id: section, role: deck, text: "PORTRAIT / 01\n", style: flagship.section, bounds: [254, 14, 148, 10], z: 4}
+  - {id: deck, role: deck, text: "Before the mission,\na person.\n", style: flagship.deck, bounds: [254, 202, 148, 25], z: 4}
+  - {id: credit, role: deck, text: 'Eileen Collins. Photograph: NASA.', style: flagship.credit, bounds: [16, 281, 175, 9], z: 5}
+  - {id: body-one, role: body, paragraph: 0, style: flagship.body, bounds: [254, 229, 68, 64], z: 4}
+  - {id: body-two, role: body, paragraph: 1, style: flagship.body, bounds: [330, 229, 74, 64], z: 4}
+photo_bounds: [0, 0, 242, 297]
+fade_start_mm: 155
+fade_end_mm: 242
+paper: '#eeeae2'
+asset_sources:
+  - filename: collins-original.jpg
+    url: https://images-assets.nasa.gov/image/S99-00858/S99-00858~orig.jpg
+    sha256: 752846bd7bc6496b66ee4aebf1799635b676ba15b2c06adb6cf7be6da1eb91bb
+    metadata_url: https://images-api.nasa.gov/search?nasa_id=S99-00858&media_type=image
+    credit: NASA / S99-00858
+  - filename: Anton-Regular.ttf
+    url: https://raw.githubusercontent.com/google/fonts/main/ofl/anton/Anton-Regular.ttf
+  - filename: Newsreader.ttf
+    url: https://raw.githubusercontent.com/google/fonts/main/ofl/newsreader/Newsreader%5Bopsz%2Cwght%5D.ttf
+  - filename: Anton-OFL.txt
+    url: https://raw.githubusercontent.com/google/fonts/main/ofl/anton/OFL.txt
+    sha256: ee67e6ee22790b7929f1a3769ca2801d565c64b5a9096942c1adf5596de9c9e4
+  - filename: Newsreader-OFL.txt
+    url: https://raw.githubusercontent.com/google/fonts/main/ofl/newsreader/OFL.txt
+    sha256: fdfad38143ec470553cae82a1e45320bdd1b9ec70415d37bd0171051d8a4ded8

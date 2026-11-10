@@ -1,0 +1,20 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "program_id": {
+      "title": "Program Id",
+      "type": "string"
+    },
+    "rationale": {
+      "minLength": 1,
+      "title": "Rationale",
+      "type": "string"
+    }
+  },
+  "required": [
+    "program_id",
+    "rationale"
+  ],
+  "title": "ReferenceChoice",
+  "type": "object"
+}

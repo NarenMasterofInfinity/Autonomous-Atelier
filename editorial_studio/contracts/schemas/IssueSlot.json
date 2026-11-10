@@ -1,0 +1,71 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "composition_mandate": {
+      "minLength": 1,
+      "title": "Composition Mandate",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "left_page": {
+      "maximum": 12,
+      "minimum": 1,
+      "title": "Left Page",
+      "type": "integer"
+    },
+    "narrative_goal": {
+      "minLength": 1,
+      "title": "Narrative Goal",
+      "type": "string"
+    },
+    "phase": {
+      "enum": [
+        "cover",
+        "opening",
+        "feature",
+        "essay",
+        "interlude",
+        "closing"
+      ],
+      "title": "Phase",
+      "type": "string"
+    },
+    "right_page": {
+      "maximum": 12,
+      "minimum": 1,
+      "title": "Right Page",
+      "type": "integer"
+    },
+    "story_id": {
+      "title": "Story Id",
+      "type": "string"
+    },
+    "visual_energy": {
+      "maximum": 5,
+      "minimum": 1,
+      "title": "Visual Energy",
+      "type": "integer"
+    },
+    "visual_metaphor": {
+      "minLength": 1,
+      "title": "Visual Metaphor",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "story_id",
+    "phase",
+    "left_page",
+    "right_page",
+    "visual_energy",
+    "visual_metaphor",
+    "narrative_goal",
+    "composition_mandate"
+  ],
+  "title": "IssueSlot",
+  "type": "object"
+}

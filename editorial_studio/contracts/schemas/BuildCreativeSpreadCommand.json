@@ -1,0 +1,30 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "identity_id": {
+      "title": "Identity Id",
+      "type": "string"
+    },
+    "kind": {
+      "const": "build_creative_spread",
+      "default": "build_creative_spread",
+      "title": "Kind",
+      "type": "string"
+    },
+    "mandate": {
+      "default": "Find the visual metaphor in the story.",
+      "title": "Mandate",
+      "type": "string"
+    },
+    "story_id": {
+      "title": "Story Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "story_id",
+    "identity_id"
+  ],
+  "title": "BuildCreativeSpreadCommand",
+  "type": "object"
+}

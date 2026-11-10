@@ -1,0 +1,41 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "asset_id": {
+      "title": "Asset Id",
+      "type": "string"
+    },
+    "effective_ppi": {
+      "exclusiveMinimum": 0,
+      "title": "Effective Ppi",
+      "type": "number"
+    },
+    "layer_id": {
+      "title": "Layer Id",
+      "type": "string"
+    },
+    "native_ppi": {
+      "exclusiveMinimum": 0,
+      "title": "Native Ppi",
+      "type": "number"
+    },
+    "native_source_asset_id": {
+      "title": "Native Source Asset Id",
+      "type": "string"
+    },
+    "scene_id": {
+      "title": "Scene Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "scene_id",
+    "layer_id",
+    "asset_id",
+    "native_source_asset_id",
+    "effective_ppi",
+    "native_ppi"
+  ],
+  "title": "ImageSampling",
+  "type": "object"
+}

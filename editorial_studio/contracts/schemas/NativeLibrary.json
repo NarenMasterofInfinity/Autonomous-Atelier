@@ -1,0 +1,19 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "filename": {
+      "title": "Filename",
+      "type": "string"
+    },
+    "sha256": {
+      "title": "Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "filename",
+    "sha256"
+  ],
+  "title": "NativeLibrary",
+  "type": "object"
+}

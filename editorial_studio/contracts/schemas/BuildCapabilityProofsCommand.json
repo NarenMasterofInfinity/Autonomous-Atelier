@@ -1,0 +1,13 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "build_capability_proofs",
+      "default": "build_capability_proofs",
+      "title": "Kind",
+      "type": "string"
+    }
+  },
+  "title": "BuildCapabilityProofsCommand",
+  "type": "object"
+}

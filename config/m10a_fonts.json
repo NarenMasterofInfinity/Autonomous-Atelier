@@ -1,0 +1,16 @@
+{
+  "fonts": [
+    {
+      "id": "NewsreaderItalic",
+      "family": "Newsreader",
+      "path": "data/m10a/Newsreader-Italic.ttf",
+      "sha256": "796668611f80b64d5adf182fde3b6f29ed83b4e7cbec7b96937e84ac01364792",
+      "slant": "italic",
+      "axes": {
+        "opsz": 72,
+        "wght": 400
+      }
+    }
+  ],
+  "source_url": "https://raw.githubusercontent.com/google/fonts/main/ofl/newsreader/Newsreader-Italic%5Bopsz%2Cwght%5D.ttf"
+}

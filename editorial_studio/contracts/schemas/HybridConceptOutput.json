@@ -1,0 +1,534 @@
+{
+  "$defs": {
+    "ArtifactRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_type": {
+          "$ref": "#/$defs/AssetType"
+        },
+        "color_constraints": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Color Constraints",
+          "type": "array"
+        },
+        "generation_spec": {
+          "title": "Generation Spec",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "integration_method": {
+          "enum": [
+            "clipping",
+            "masking",
+            "blending",
+            "direct"
+          ],
+          "title": "Integration Method",
+          "type": "string"
+        },
+        "output": {
+          "discriminator": {
+            "mapping": {
+              "composite": "#/$defs/CompositeOutputSpec",
+              "mask": "#/$defs/MaskOutputSpec",
+              "raster": "#/$defs/RasterOutputSpec",
+              "text_path": "#/$defs/TextPathOutputSpec",
+              "vector": "#/$defs/VectorOutputSpec"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/RasterOutputSpec"
+            },
+            {
+              "$ref": "#/$defs/VectorOutputSpec"
+            },
+            {
+              "$ref": "#/$defs/MaskOutputSpec"
+            },
+            {
+              "$ref": "#/$defs/TextPathOutputSpec"
+            },
+            {
+              "$ref": "#/$defs/CompositeOutputSpec"
+            }
+          ],
+          "title": "Output"
+        },
+        "preferred_generation_method": {
+          "title": "Preferred Generation Method",
+          "type": "string"
+        },
+        "provenance_notes": {
+          "title": "Provenance Notes",
+          "type": "string"
+        },
+        "target_layer_dependency_id": {
+          "title": "Target Layer Dependency Id",
+          "type": "string"
+        },
+        "target_region": {
+          "$ref": "#/$defs/NormalizedRegion"
+        },
+        "visual_acceptance_checks": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Visual Acceptance Checks",
+          "type": "array"
+        },
+        "visual_role": {
+          "title": "Visual Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "asset_type",
+        "visual_role",
+        "generation_spec",
+        "target_region",
+        "color_constraints",
+        "preferred_generation_method",
+        "target_layer_dependency_id",
+        "integration_method",
+        "output",
+        "provenance_notes"
+      ],
+      "title": "ArtifactRequest",
+      "type": "object"
+    },
+    "AssetType": {
+      "enum": [
+        "raster",
+        "vector",
+        "mask",
+        "text_path",
+        "composite"
+      ],
+      "title": "AssetType",
+      "type": "string"
+    },
+    "CompositeOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "editable_layer_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Editable Layer Ids",
+          "type": "array"
+        },
+        "kind": {
+          "const": "composite",
+          "default": "composite",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "editable_layer_ids"
+      ],
+      "title": "CompositeOutputSpec",
+      "type": "object"
+    },
+    "ConceptBrief": {
+      "additionalProperties": false,
+      "properties": {
+        "compositional_structure": {
+          "title": "Compositional Structure",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "narrative_expression": {
+          "title": "Narrative Expression",
+          "type": "string"
+        },
+        "photography_treatment": {
+          "title": "Photography Treatment",
+          "type": "string"
+        },
+        "project_id": {
+          "title": "Project Id",
+          "type": "string"
+        },
+        "spread_id": {
+          "title": "Spread Id",
+          "type": "string"
+        },
+        "visual_metaphor": {
+          "title": "Visual Metaphor",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "project_id",
+        "spread_id",
+        "visual_metaphor",
+        "compositional_structure",
+        "photography_treatment",
+        "narrative_expression"
+      ],
+      "title": "ConceptBrief",
+      "type": "object"
+    },
+    "ConceptNode": {
+      "additionalProperties": false,
+      "properties": {
+        "derived_text_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Derived Text Id"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "image",
+            "text",
+            "subject",
+            "vector",
+            "mask",
+            "texture",
+            "group"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "source_asset_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Asset Id"
+        },
+        "target_region": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/NormalizedRegion"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "z_order_hint": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Z Order Hint"
+        }
+      },
+      "required": [
+        "id",
+        "role"
+      ],
+      "title": "ConceptNode",
+      "type": "object"
+    },
+    "ConceptRelationship": {
+      "additionalProperties": false,
+      "properties": {
+        "rationale": {
+          "title": "Rationale",
+          "type": "string"
+        },
+        "relation": {
+          "enum": [
+            "behind",
+            "above",
+            "overlaps",
+            "avoids",
+            "aligns_to",
+            "flows_around",
+            "spans_gutter",
+            "follows_path",
+            "clips_to"
+          ],
+          "title": "Relation",
+          "type": "string"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "target_id": {
+          "title": "Target Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "target_id",
+        "relation",
+        "rationale"
+      ],
+      "title": "ConceptRelationship",
+      "type": "object"
+    },
+    "ConceptSketch": {
+      "additionalProperties": false,
+      "properties": {
+        "aspect_ratio": {
+          "exclusiveMinimum": 0,
+          "title": "Aspect Ratio",
+          "type": "number"
+        },
+        "asset_id": {
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "concept_brief_id": {
+          "title": "Concept Brief Id",
+          "type": "string"
+        },
+        "source_photo_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Source Photo Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "asset_id",
+        "concept_brief_id",
+        "aspect_ratio",
+        "source_photo_ids"
+      ],
+      "title": "ConceptSketch",
+      "type": "object"
+    },
+    "MaskOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "height_px": {
+          "exclusiveMinimum": 0,
+          "title": "Height Px",
+          "type": "integer"
+        },
+        "kind": {
+          "const": "mask",
+          "default": "mask",
+          "title": "Kind",
+          "type": "string"
+        },
+        "width_px": {
+          "exclusiveMinimum": 0,
+          "title": "Width Px",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "width_px",
+        "height_px"
+      ],
+      "title": "MaskOutputSpec",
+      "type": "object"
+    },
+    "NormalizedRegion": {
+      "additionalProperties": false,
+      "properties": {
+        "height": {
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "title": "Height",
+          "type": "number"
+        },
+        "width": {
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "title": "Width",
+          "type": "number"
+        },
+        "x": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "X",
+          "type": "number"
+        },
+        "y": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Y",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "title": "NormalizedRegion",
+      "type": "object"
+    },
+    "RasterOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "alpha_required": {
+          "default": false,
+          "title": "Alpha Required",
+          "type": "boolean"
+        },
+        "height_px": {
+          "exclusiveMinimum": 0,
+          "title": "Height Px",
+          "type": "integer"
+        },
+        "kind": {
+          "const": "raster",
+          "default": "raster",
+          "title": "Kind",
+          "type": "string"
+        },
+        "width_px": {
+          "exclusiveMinimum": 0,
+          "title": "Width Px",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "width_px",
+        "height_px"
+      ],
+      "title": "RasterOutputSpec",
+      "type": "object"
+    },
+    "SpatialConceptGraph": {
+      "additionalProperties": false,
+      "properties": {
+        "nodes": {
+          "items": {
+            "$ref": "#/$defs/ConceptNode"
+          },
+          "title": "Nodes",
+          "type": "array"
+        },
+        "relationships": {
+          "items": {
+            "$ref": "#/$defs/ConceptRelationship"
+          },
+          "title": "Relationships",
+          "type": "array"
+        }
+      },
+      "required": [
+        "nodes",
+        "relationships"
+      ],
+      "title": "SpatialConceptGraph",
+      "type": "object"
+    },
+    "TextPathOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "format": {
+          "const": "svg",
+          "default": "svg",
+          "title": "Format",
+          "type": "string"
+        },
+        "kind": {
+          "const": "text_path",
+          "default": "text_path",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "title": "TextPathOutputSpec",
+      "type": "object"
+    },
+    "VectorOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "editable_paths_required": {
+          "default": true,
+          "title": "Editable Paths Required",
+          "type": "boolean"
+        },
+        "format": {
+          "const": "svg",
+          "default": "svg",
+          "title": "Format",
+          "type": "string"
+        },
+        "kind": {
+          "const": "vector",
+          "default": "vector",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "title": "VectorOutputSpec",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifact_requirements": {
+      "items": {
+        "$ref": "#/$defs/ArtifactRequest"
+      },
+      "title": "Artifact Requirements",
+      "type": "array"
+    },
+    "concept_brief": {
+      "$ref": "#/$defs/ConceptBrief"
+    },
+    "required_capabilities": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Required Capabilities",
+      "type": "array"
+    },
+    "sketch": {
+      "$ref": "#/$defs/ConceptSketch"
+    },
+    "spatial_concept_graph": {
+      "$ref": "#/$defs/SpatialConceptGraph"
+    }
+  },
+  "required": [
+    "concept_brief",
+    "spatial_concept_graph",
+    "sketch",
+    "artifact_requirements",
+    "required_capabilities"
+  ],
+  "title": "HybridConceptOutput",
+  "type": "object"
+}

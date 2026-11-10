@@ -1,0 +1,795 @@
+{
+  "$defs": {
+    "ArtDirectionBible": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_state": {
+          "enum": [
+            "provisional",
+            "final",
+            "revision_required"
+          ],
+          "title": "Approval State",
+          "type": "string"
+        },
+        "approved_visual_examples": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Approved Visual Examples",
+          "type": "array"
+        },
+        "artistic_boundaries": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Artistic Boundaries",
+          "type": "array"
+        },
+        "conceptual_identity": {
+          "title": "Conceptual Identity",
+          "type": "string"
+        },
+        "final_proof_spread_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Final Proof Spread Ids",
+          "type": "array"
+        },
+        "font_pairing_id": {
+          "title": "Font Pairing Id",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "narrative_progression": {
+          "items": {
+            "$ref": "#/$defs/IssuePhaseDirection"
+          },
+          "title": "Narrative Progression",
+          "type": "array"
+        },
+        "palette": {
+          "items": {
+            "$ref": "#/$defs/PaletteToken"
+          },
+          "title": "Palette",
+          "type": "array"
+        },
+        "photographic_character": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Photographic Character",
+          "type": "array"
+        },
+        "provisional_proof_spread_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Provisional Proof Spread Ids",
+          "type": "array"
+        },
+        "recurring_motifs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Recurring Motifs",
+          "type": "array"
+        },
+        "signature_behaviors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Signature Behaviors",
+          "type": "array"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "approval_state",
+        "conceptual_identity",
+        "font_pairing_id",
+        "palette",
+        "photographic_character",
+        "signature_behaviors",
+        "narrative_progression",
+        "recurring_motifs",
+        "artistic_boundaries",
+        "approved_visual_examples"
+      ],
+      "title": "ArtDirectionBible",
+      "type": "object"
+    },
+    "BaselineStory": {
+      "additionalProperties": false,
+      "properties": {
+        "author": {
+          "minLength": 1,
+          "title": "Author",
+          "type": "string"
+        },
+        "deck": {
+          "minLength": 1,
+          "title": "Deck",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "layout": {
+          "enum": [
+            "feature",
+            "essay",
+            "interview"
+          ],
+          "title": "Layout",
+          "type": "string"
+        },
+        "paragraphs": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Paragraphs",
+          "type": "array"
+        },
+        "photo_asset_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Photo Asset Id"
+        },
+        "section": {
+          "minLength": 1,
+          "title": "Section",
+          "type": "string"
+        },
+        "title": {
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "deck",
+        "paragraphs",
+        "author",
+        "section",
+        "layout"
+      ],
+      "title": "BaselineStory",
+      "type": "object"
+    },
+    "DesignTokens": {
+      "additionalProperties": false,
+      "properties": {
+        "body_span_columns": {
+          "default": 2,
+          "minimum": 1,
+          "title": "Body Span Columns",
+          "type": "integer"
+        },
+        "grid": {
+          "$ref": "#/$defs/GridSpec"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "minimum_body_pt": {
+          "maximum": 16,
+          "minimum": 9,
+          "title": "Minimum Body Pt",
+          "type": "number"
+        },
+        "palette": {
+          "items": {
+            "$ref": "#/$defs/PaletteToken"
+          },
+          "title": "Palette",
+          "type": "array"
+        },
+        "prefer_paragraph_breaks": {
+          "default": false,
+          "title": "Prefer Paragraph Breaks",
+          "type": "boolean"
+        },
+        "rule_width_mm": {
+          "exclusiveMinimum": 0,
+          "maximum": 2,
+          "title": "Rule Width Mm",
+          "type": "number"
+        },
+        "type_scale": {
+          "$ref": "#/$defs/ModularTypeScale"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "grid",
+        "type_scale",
+        "palette",
+        "rule_width_mm",
+        "minimum_body_pt"
+      ],
+      "title": "DesignTokens",
+      "type": "object"
+    },
+    "FontConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "fonts": {
+          "items": {
+            "$ref": "#/$defs/FontSpec"
+          },
+          "title": "Fonts",
+          "type": "array"
+        },
+        "styles": {
+          "items": {
+            "$ref": "#/$defs/TypeStyle"
+          },
+          "title": "Styles",
+          "type": "array"
+        }
+      },
+      "required": [
+        "fonts",
+        "styles"
+      ],
+      "title": "FontConfiguration",
+      "type": "object"
+    },
+    "FontPairing": {
+      "additionalProperties": false,
+      "properties": {
+        "body_font_id": {
+          "title": "Body Font Id",
+          "type": "string"
+        },
+        "detail_font_id": {
+          "title": "Detail Font Id",
+          "type": "string"
+        },
+        "headline_font_id": {
+          "title": "Headline Font Id",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "intent": {
+          "title": "Intent",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "headline_font_id",
+        "body_font_id",
+        "detail_font_id",
+        "intent"
+      ],
+      "title": "FontPairing",
+      "type": "object"
+    },
+    "FontSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "axes": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Axes",
+          "type": "object"
+        },
+        "fallback": {
+          "default": false,
+          "title": "Fallback",
+          "type": "boolean"
+        },
+        "family": {
+          "title": "Family",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "path": {
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "title": "Sha256",
+          "type": "string"
+        },
+        "slant": {
+          "default": "normal",
+          "enum": [
+            "normal",
+            "italic"
+          ],
+          "title": "Slant",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "family",
+        "path",
+        "sha256"
+      ],
+      "title": "FontSpec",
+      "type": "object"
+    },
+    "GridSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_origin_mm": {
+          "default": 20,
+          "minimum": 0,
+          "title": "Baseline Origin Mm",
+          "type": "number"
+        },
+        "baseline_step_mm": {
+          "default": 5,
+          "exclusiveMinimum": 0,
+          "title": "Baseline Step Mm",
+          "type": "number"
+        },
+        "baseline_tolerance_mm": {
+          "default": 0.01,
+          "exclusiveMinimum": 0,
+          "maximum": 0.05,
+          "title": "Baseline Tolerance Mm",
+          "type": "number"
+        },
+        "bottom_margin_mm": {
+          "default": 20,
+          "minimum": 0,
+          "title": "Bottom Margin Mm",
+          "type": "number"
+        },
+        "column_gap_mm": {
+          "default": 6,
+          "minimum": 0,
+          "title": "Column Gap Mm",
+          "type": "number"
+        },
+        "columns_per_page": {
+          "default": 3,
+          "maximum": 12,
+          "minimum": 1,
+          "title": "Columns Per Page",
+          "type": "integer"
+        },
+        "fold_safe_mm": {
+          "default": 10,
+          "minimum": 0,
+          "title": "Fold Safe Mm",
+          "type": "number"
+        },
+        "height_mm": {
+          "default": 297,
+          "exclusiveMinimum": 0,
+          "title": "Height Mm",
+          "type": "number"
+        },
+        "outer_margin_mm": {
+          "default": 20,
+          "minimum": 0,
+          "title": "Outer Margin Mm",
+          "type": "number"
+        },
+        "page_width_mm": {
+          "default": 210,
+          "exclusiveMinimum": 0,
+          "title": "Page Width Mm",
+          "type": "number"
+        },
+        "top_margin_mm": {
+          "default": 20,
+          "minimum": 0,
+          "title": "Top Margin Mm",
+          "type": "number"
+        },
+        "width_mm": {
+          "default": 420,
+          "exclusiveMinimum": 0,
+          "title": "Width Mm",
+          "type": "number"
+        }
+      },
+      "title": "GridSpec",
+      "type": "object"
+    },
+    "IssuePhaseDirection": {
+      "additionalProperties": false,
+      "properties": {
+        "emotional_role": {
+          "title": "Emotional Role",
+          "type": "string"
+        },
+        "phase_name": {
+          "title": "Phase Name",
+          "type": "string"
+        },
+        "visual_behavior": {
+          "title": "Visual Behavior",
+          "type": "string"
+        }
+      },
+      "required": [
+        "phase_name",
+        "emotional_role",
+        "visual_behavior"
+      ],
+      "title": "IssuePhaseDirection",
+      "type": "object"
+    },
+    "LayoutGuidelines": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_step_mm": {
+          "title": "Baseline Step Mm",
+          "type": "number"
+        },
+        "body_size_pt": {
+          "title": "Body Size Pt",
+          "type": "number"
+        },
+        "columns_per_page": {
+          "title": "Columns Per Page",
+          "type": "integer"
+        },
+        "composition_rules": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Composition Rules",
+          "type": "array"
+        },
+        "copyfit_actions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Copyfit Actions",
+          "type": "array"
+        },
+        "fold_safe_mm": {
+          "title": "Fold Safe Mm",
+          "type": "number"
+        },
+        "font_pairing_id": {
+          "title": "Font Pairing Id",
+          "type": "string"
+        },
+        "headline_size_pt": {
+          "title": "Headline Size Pt",
+          "type": "number"
+        },
+        "identity_stage": {
+          "const": "provisional",
+          "default": "provisional",
+          "title": "Identity Stage",
+          "type": "string"
+        },
+        "palette_roles": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Palette Roles",
+          "type": "object"
+        },
+        "photographic_character": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Photographic Character",
+          "type": "array"
+        },
+        "reference_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reference Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "font_pairing_id",
+        "body_size_pt",
+        "headline_size_pt",
+        "baseline_step_mm",
+        "fold_safe_mm",
+        "columns_per_page",
+        "palette_roles",
+        "photographic_character",
+        "composition_rules",
+        "copyfit_actions",
+        "reference_ids"
+      ],
+      "title": "LayoutGuidelines",
+      "type": "object"
+    },
+    "ModularTypeScale": {
+      "additionalProperties": false,
+      "properties": {
+        "body_pt": {
+          "maximum": 16,
+          "minimum": 9,
+          "title": "Body Pt",
+          "type": "number"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "ratio": {
+          "exclusiveMinimum": 1,
+          "maximum": 2,
+          "title": "Ratio",
+          "type": "number"
+        },
+        "role_steps": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Role Steps",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "body_pt",
+        "ratio",
+        "role_steps"
+      ],
+      "title": "ModularTypeScale",
+      "type": "object"
+    },
+    "PaletteToken": {
+      "additionalProperties": false,
+      "properties": {
+        "hex_color": {
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "title": "Hex Color",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "hex_color"
+      ],
+      "title": "PaletteToken",
+      "type": "object"
+    },
+    "StyleAxis": {
+      "additionalProperties": false,
+      "properties": {
+        "tag": {
+          "pattern": "^[A-Za-z0-9]{4}$",
+          "title": "Tag",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "title": "StyleAxis",
+      "type": "object"
+    },
+    "TypeStyle": {
+      "additionalProperties": false,
+      "properties": {
+        "alignment": {
+          "default": "left",
+          "enum": [
+            "left",
+            "center",
+            "right"
+          ],
+          "title": "Alignment",
+          "type": "string"
+        },
+        "baseline_step_mm": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Baseline Step Mm"
+        },
+        "color": {
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "title": "Color",
+          "type": "string"
+        },
+        "font_axes": {
+          "items": {
+            "$ref": "#/$defs/StyleAxis"
+          },
+          "title": "Font Axes",
+          "type": "array"
+        },
+        "font_id": {
+          "title": "Font Id",
+          "type": "string"
+        },
+        "font_size_pt": {
+          "exclusiveMinimum": 0,
+          "title": "Font Size Pt",
+          "type": "number"
+        },
+        "line_spacing": {
+          "default": 1.2,
+          "minimum": 1,
+          "title": "Line Spacing",
+          "type": "number"
+        },
+        "min_paragraph_lines": {
+          "default": 2,
+          "minimum": 1,
+          "title": "Min Paragraph Lines",
+          "type": "integer"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "paint": {
+          "default": "fill",
+          "enum": [
+            "fill",
+            "stroke",
+            "fill_stroke"
+          ],
+          "title": "Paint",
+          "type": "string"
+        },
+        "stroke_color": {
+          "anyOf": [
+            {
+              "pattern": "^#[0-9a-fA-F]{6}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Stroke Color"
+        },
+        "stroke_width_pt": {
+          "default": 0,
+          "maximum": 12,
+          "minimum": 0,
+          "title": "Stroke Width Pt",
+          "type": "number"
+        },
+        "tracking_pt": {
+          "default": 0,
+          "maximum": 48,
+          "minimum": -12,
+          "title": "Tracking Pt",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "font_id",
+        "font_size_pt",
+        "color"
+      ],
+      "title": "TypeStyle",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "bible": {
+      "$ref": "#/$defs/ArtDirectionBible"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "font_configuration": {
+      "$ref": "#/$defs/FontConfiguration"
+    },
+    "guidelines": {
+      "$ref": "#/$defs/LayoutGuidelines"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "pairing": {
+      "$ref": "#/$defs/FontPairing"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "render_dpi": {
+      "default": 144,
+      "exclusiveMinimum": 0,
+      "maximum": 1200,
+      "title": "Render Dpi",
+      "type": "number"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "stories": {
+      "items": {
+        "$ref": "#/$defs/BaselineStory"
+      },
+      "title": "Stories",
+      "type": "array"
+    },
+    "tokens": {
+      "$ref": "#/$defs/DesignTokens"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "run_id",
+    "bible",
+    "tokens",
+    "pairing",
+    "font_configuration",
+    "stories",
+    "guidelines",
+    "created_at"
+  ],
+  "title": "IdentityBuildCheckpoint",
+  "type": "object"
+}

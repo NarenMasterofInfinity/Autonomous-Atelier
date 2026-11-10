@@ -1,0 +1,41 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "brightness": {
+      "default": 0.0,
+      "maximum": 1,
+      "minimum": -1,
+      "title": "Brightness",
+      "type": "number"
+    },
+    "contrast": {
+      "default": 1.0,
+      "maximum": 4,
+      "minimum": 0,
+      "title": "Contrast",
+      "type": "number"
+    },
+    "layer_id": {
+      "title": "Layer Id",
+      "type": "string"
+    },
+    "op": {
+      "const": "color_adjust",
+      "default": "color_adjust",
+      "title": "Op",
+      "type": "string"
+    },
+    "saturation": {
+      "default": 1.0,
+      "maximum": 4,
+      "minimum": 0,
+      "title": "Saturation",
+      "type": "number"
+    }
+  },
+  "required": [
+    "layer_id"
+  ],
+  "title": "ColorAdjustOp",
+  "type": "object"
+}

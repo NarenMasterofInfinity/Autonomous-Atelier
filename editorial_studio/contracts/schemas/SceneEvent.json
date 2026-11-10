@@ -1,0 +1,37 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "scene",
+      "default": "scene",
+      "title": "Kind",
+      "type": "string"
+    },
+    "patch_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Patch Id"
+    },
+    "scene_id": {
+      "title": "Scene Id",
+      "type": "string"
+    },
+    "scene_version": {
+      "title": "Scene Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "scene_id",
+    "scene_version"
+  ],
+  "title": "SceneEvent",
+  "type": "object"
+}

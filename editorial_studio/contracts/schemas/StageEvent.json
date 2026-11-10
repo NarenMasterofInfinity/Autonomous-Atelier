@@ -1,0 +1,37 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "from_stage": {
+      "title": "From Stage",
+      "type": "string"
+    },
+    "kind": {
+      "const": "stage",
+      "default": "stage",
+      "title": "Kind",
+      "type": "string"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason"
+    },
+    "to_stage": {
+      "title": "To Stage",
+      "type": "string"
+    }
+  },
+  "required": [
+    "from_stage",
+    "to_stage"
+  ],
+  "title": "StageEvent",
+  "type": "object"
+}

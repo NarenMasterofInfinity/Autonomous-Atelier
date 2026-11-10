@@ -1,0 +1,13 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "cmd": {
+      "const": "Z",
+      "default": "Z",
+      "title": "Cmd",
+      "type": "string"
+    }
+  },
+  "title": "ClosePath",
+  "type": "object"
+}

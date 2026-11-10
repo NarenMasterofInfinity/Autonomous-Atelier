@@ -1,0 +1,21 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "blur",
+      "default": "blur",
+      "title": "Kind",
+      "type": "string"
+    },
+    "radius_mm": {
+      "exclusiveMinimum": 0,
+      "title": "Radius Mm",
+      "type": "number"
+    }
+  },
+  "required": [
+    "radius_mm"
+  ],
+  "title": "BlurFilter",
+  "type": "object"
+}

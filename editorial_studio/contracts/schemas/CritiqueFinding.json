@@ -1,0 +1,47 @@
+{
+  "$defs": {
+    "Severity": {
+      "enum": [
+        "CRITICAL",
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ],
+      "title": "Severity",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "actionable_fix": {
+      "title": "Actionable Fix",
+      "type": "string"
+    },
+    "category": {
+      "title": "Category",
+      "type": "string"
+    },
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "severity": {
+      "$ref": "#/$defs/Severity"
+    },
+    "target_layer_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Target Layer Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "category",
+    "severity",
+    "description",
+    "actionable_fix"
+  ],
+  "title": "CritiqueFinding",
+  "type": "object"
+}

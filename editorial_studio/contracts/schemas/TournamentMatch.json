@@ -1,0 +1,94 @@
+{
+  "$defs": {
+    "ComparativeAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "concrete_changes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Concrete Changes",
+          "type": "array"
+        },
+        "preferred_image": {
+          "enum": [
+            "A",
+            "B",
+            "tie"
+          ],
+          "title": "Preferred Image",
+          "type": "string"
+        },
+        "rationale": {
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "preferred_image",
+        "rationale",
+        "concrete_changes"
+      ],
+      "title": "ComparativeAssessment",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "assessment": {
+      "$ref": "#/$defs/ComparativeAssessment"
+    },
+    "candidate_a": {
+      "title": "Candidate A",
+      "type": "string"
+    },
+    "candidate_b": {
+      "title": "Candidate B",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "provider_call_id": {
+      "title": "Provider Call Id",
+      "type": "string"
+    },
+    "tie_break": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Tie Break"
+    },
+    "tournament_id": {
+      "title": "Tournament Id",
+      "type": "string"
+    },
+    "winner_id": {
+      "title": "Winner Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "tournament_id",
+    "candidate_a",
+    "candidate_b",
+    "winner_id",
+    "assessment",
+    "provider_call_id"
+  ],
+  "title": "TournamentMatch",
+  "type": "object"
+}

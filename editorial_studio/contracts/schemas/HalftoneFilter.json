@@ -1,0 +1,26 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "angle_deg": {
+      "default": 0.0,
+      "title": "Angle Deg",
+      "type": "number"
+    },
+    "dot_spacing_mm": {
+      "exclusiveMinimum": 0,
+      "title": "Dot Spacing Mm",
+      "type": "number"
+    },
+    "kind": {
+      "const": "halftone",
+      "default": "halftone",
+      "title": "Kind",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dot_spacing_mm"
+  ],
+  "title": "HalftoneFilter",
+  "type": "object"
+}

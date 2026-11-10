@@ -1,0 +1,63 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "agent_name": {
+      "title": "Agent Name",
+      "type": "string"
+    },
+    "parent_call_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Parent Call Id"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "prompt_version": {
+      "default": "m0-v1",
+      "title": "Prompt Version",
+      "type": "string"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "v6",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "spread_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Spread Id"
+    },
+    "stage": {
+      "title": "Stage",
+      "type": "string"
+    }
+  },
+  "required": [
+    "project_id",
+    "run_id",
+    "agent_name",
+    "stage"
+  ],
+  "title": "CallContext",
+  "type": "object"
+}

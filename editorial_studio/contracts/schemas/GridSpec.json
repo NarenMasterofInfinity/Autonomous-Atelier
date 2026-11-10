@@ -1,0 +1,81 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "baseline_origin_mm": {
+      "default": 20,
+      "minimum": 0,
+      "title": "Baseline Origin Mm",
+      "type": "number"
+    },
+    "baseline_step_mm": {
+      "default": 5,
+      "exclusiveMinimum": 0,
+      "title": "Baseline Step Mm",
+      "type": "number"
+    },
+    "baseline_tolerance_mm": {
+      "default": 0.01,
+      "exclusiveMinimum": 0,
+      "maximum": 0.05,
+      "title": "Baseline Tolerance Mm",
+      "type": "number"
+    },
+    "bottom_margin_mm": {
+      "default": 20,
+      "minimum": 0,
+      "title": "Bottom Margin Mm",
+      "type": "number"
+    },
+    "column_gap_mm": {
+      "default": 6,
+      "minimum": 0,
+      "title": "Column Gap Mm",
+      "type": "number"
+    },
+    "columns_per_page": {
+      "default": 3,
+      "maximum": 12,
+      "minimum": 1,
+      "title": "Columns Per Page",
+      "type": "integer"
+    },
+    "fold_safe_mm": {
+      "default": 10,
+      "minimum": 0,
+      "title": "Fold Safe Mm",
+      "type": "number"
+    },
+    "height_mm": {
+      "default": 297,
+      "exclusiveMinimum": 0,
+      "title": "Height Mm",
+      "type": "number"
+    },
+    "outer_margin_mm": {
+      "default": 20,
+      "minimum": 0,
+      "title": "Outer Margin Mm",
+      "type": "number"
+    },
+    "page_width_mm": {
+      "default": 210,
+      "exclusiveMinimum": 0,
+      "title": "Page Width Mm",
+      "type": "number"
+    },
+    "top_margin_mm": {
+      "default": 20,
+      "minimum": 0,
+      "title": "Top Margin Mm",
+      "type": "number"
+    },
+    "width_mm": {
+      "default": 420,
+      "exclusiveMinimum": 0,
+      "title": "Width Mm",
+      "type": "number"
+    }
+  },
+  "title": "GridSpec",
+  "type": "object"
+}

@@ -1,0 +1,46 @@
+stories:
+  - id: from-here
+    title: FROM HERE
+    deck: "FIELD NOTES / 01\nThe human scale of space.\nPhotographs: NASA. Original studio essays."
+    photo_id: GSFC_20171208_Archive_e001386
+    paragraphs:
+      - >-
+        Distance changes what we notice. A world becomes a circle; a journey becomes a line. This issue moves in the other direction, from the wide view towards the things a person can recognise: a face, a hand, a surface, a horizon. The photographs carry the distances. The words make room to look at them slowly.
+      - >-
+        Begin here, with the shape of home. Then turn towards the person who travels, the ground that falls away, and the unfamiliar edges that come into view. The scale changes from page to page. Attention is the thread that holds it together.
+  - id: leaving-ground
+    title: LEAVING THE GROUND
+    deck: "The first change of scale. Photograph: NASA."
+    photo_id: 89PC-1044
+    paragraphs:
+      - >-
+        A launch photograph holds opposing movements in one frame. The vehicle rises while the plume spreads across the ground. One shape narrows into the sky; another expands until its edges become difficult to follow. The eye understands the direction before it can account for every detail.
+      - >-
+        Look again at the space around that movement. The sky gives the rising form its outline. The ground supplies a measure against which the change can be felt. What first appears as a single dramatic event also becomes a study in light, density and the small intervals between forms.
+  - id: another-horizon
+    title: ANOTHER HORIZON
+    deck: "One edge makes a world. Photograph: NASA / Apollo 8."
+    photo_id: as8-14-2392
+    paragraphs:
+      - >-
+        The foreground is close enough to show its marks, yet it belongs to a landscape outside ordinary experience. Beyond its edge, a smaller shape asks us to reconsider what is distant and what is near. The photograph makes both scales available at once.
+      - >-
+        A horizon can seem like the end of a view. Here it works as a beginning. We follow the rough surface towards its boundary, then cross into a quieter field. The interval between the two forms gives the image its tension. Nothing needs to be added to make that distance felt.
+  - id: long-look
+    title: THE LONG LOOK
+    deck: "Read a landscape one mark at a time. Photograph: NASA / Curiosity."
+    photo_id: PIA18409-clean
+    paragraphs:
+      - >-
+        A wide landscape cannot be taken in at a single pace. The eye moves across it, stops at a change of texture, then continues. A line that first seemed smooth becomes an arrangement of smaller edges. The surface grows more particular as we give it time.
+      - >-
+        This is a different kind of distance from the first view of a whole world. It is travelled through attention rather than measured by the edge of a frame. The photograph can stretch across a page, but its details remain local: a ridge, a hollow, a patch of light. Each offers another place to pause.
+  - id: thin-line
+    title: A THIN LINE
+    deck: "Light describes the edge of home. Photograph: NASA / International Space Station."
+    photo_id: iss071e581260_alt
+    paragraphs:
+      - >-
+        At the edge of the view, light gathers into a narrow band. Above and below it, larger fields seem almost still. That small interval carries a surprising amount of the photograph's movement. The eye keeps returning to it, following its curve beyond the point where individual details can be named.
+      - >-
+        After the faces, machines and surfaces of these pages, this quieter edge brings the sequence back towards home. It does not close the distance by explaining it. It gives us one more way to look: slowly, across a line that makes a vast subject briefly familiar.

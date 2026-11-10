@@ -1,0 +1,72 @@
+{
+  "$defs": {
+    "AxisSetting": {
+      "additionalProperties": false,
+      "properties": {
+        "tag": {
+          "pattern": "^[A-Za-z0-9]{4}$",
+          "title": "Tag",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "title": "AxisSetting",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "axes": {
+      "items": {
+        "$ref": "#/$defs/AxisSetting"
+      },
+      "title": "Axes",
+      "type": "array"
+    },
+    "fallback": {
+      "default": false,
+      "title": "Fallback",
+      "type": "boolean"
+    },
+    "family": {
+      "title": "Family",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "path": {
+      "title": "Path",
+      "type": "string"
+    },
+    "sha256": {
+      "title": "Sha256",
+      "type": "string"
+    },
+    "slant": {
+      "default": "normal",
+      "enum": [
+        "normal",
+        "italic"
+      ],
+      "title": "Slant",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "family",
+    "path",
+    "sha256"
+  ],
+  "title": "ConceptFont",
+  "type": "object"
+}

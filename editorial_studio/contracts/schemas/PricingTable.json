@@ -1,0 +1,158 @@
+{
+  "$defs": {
+    "ModelRates": {
+      "additionalProperties": false,
+      "properties": {
+        "cache_write": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cache Write"
+        },
+        "cached_input": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cached Input"
+        },
+        "image_input": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Image Input"
+        },
+        "image_output": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Image Output"
+        },
+        "input": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Input"
+        },
+        "max_standard_input_tokens": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Standard Input Tokens"
+        },
+        "modality": {
+          "enum": [
+            "text",
+            "image"
+          ],
+          "title": "Modality",
+          "type": "string"
+        },
+        "output": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Output"
+        },
+        "text_input": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Text Input"
+        }
+      },
+      "required": [
+        "modality"
+      ],
+      "title": "ModelRates",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "models": {
+      "additionalProperties": {
+        "$ref": "#/$defs/ModelRates"
+      },
+      "title": "Models",
+      "type": "object"
+    },
+    "source_urls": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Source Urls",
+      "type": "array"
+    },
+    "verified_at": {
+      "title": "Verified At",
+      "type": "string"
+    },
+    "version": {
+      "title": "Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "version",
+    "verified_at",
+    "source_urls",
+    "models"
+  ],
+  "title": "PricingTable",
+  "type": "object"
+}

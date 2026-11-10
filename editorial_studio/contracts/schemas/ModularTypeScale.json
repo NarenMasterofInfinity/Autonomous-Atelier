@@ -1,0 +1,36 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "body_pt": {
+      "maximum": 16,
+      "minimum": 9,
+      "title": "Body Pt",
+      "type": "number"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "ratio": {
+      "exclusiveMinimum": 1,
+      "maximum": 2,
+      "title": "Ratio",
+      "type": "number"
+    },
+    "role_steps": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "title": "Role Steps",
+      "type": "object"
+    }
+  },
+  "required": [
+    "id",
+    "body_pt",
+    "ratio",
+    "role_steps"
+  ],
+  "title": "ModularTypeScale",
+  "type": "object"
+}

@@ -1,0 +1,26 @@
+{
+  "enum": [
+    "add_image",
+    "add_text",
+    "transform_layer",
+    "clip_to_path",
+    "set_z_index",
+    "apply_mask",
+    "add_path",
+    "edit_path",
+    "boolean_path",
+    "text_on_path",
+    "set_glyph_transforms",
+    "flow_text_into_shape",
+    "set_blend_mode",
+    "create_group",
+    "set_clip_stack",
+    "color_adjust",
+    "gradient_mask",
+    "displacement_map",
+    "apply_filter",
+    "bind_asset",
+    "set_opacity"
+  ],
+  "type": "string"
+}

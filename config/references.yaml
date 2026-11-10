@@ -1,0 +1,367 @@
+version: 2026-11-09-manual-v1
+references:
+- id: citizen-09
+  publication: Citizen
+  title: Cosmic caption rhythm
+  source_url: https://www.pentagram.com/work/citizen
+  image_url: https://pentagram-production.imgix.net/a76f0bdc-cb9c-46d7-a720-063605e39999/11_Citizen_Matter.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=0%2C0%2C4000%2C2668&w=640&crop=1&fit=crop&h=427&s=81087305ac9bf37ff5ff810fb594a5fc
+  source_image_name: 11_Citizen_Matter.jpg
+  gallery_index: 9
+  kind: spread
+  tags:
+  - caption
+  - photography
+  - asymmetry
+  observation: Rounded caption units cross the lower spread beneath image panels.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/citizen-09.jpg
+  preview_sha256: b78e3037fa8a1de74a328fb37a54184098546917b13d8e308ab4aded86c6caaa
+  usage: reference_only
+- id: citizen-10
+  publication: Citizen
+  title: Reversed category field
+  source_url: https://www.pentagram.com/work/citizen
+  image_url: https://pentagram-production.imgix.net/a76f0bdc-cb9c-46d7-a720-063605e39999/12_EO_EMO_CitizenMag1_060.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=0%2C0%2C4000%2C2668&w=640&crop=1&fit=crop&h=427&s=4c16a985a44c915366c36772f47cc66a
+  source_image_name: 12_EO_EMO_CitizenMag1_060.jpg
+  gallery_index: 10
+  kind: spread
+  tags:
+  - dark
+  - typography
+  - rhythm
+  observation: Reversed text repeats across a black field with shifting alignment.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/citizen-10.jpg
+  preview_sha256: b8e77f856c5080dc86a763fe0e7d86b806cac59824288ffad75ea3c075719d0b
+  usage: reference_only
+- id: citizen-11
+  publication: Citizen
+  title: In Waiting opener
+  source_url: https://www.pentagram.com/work/citizen
+  image_url: https://pentagram-production.imgix.net/a76f0bdc-cb9c-46d7-a720-063605e39999/13_Citizen_InWaiting.png?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=0%2C0%2C4000%2C2668&w=640&crop=1&fit=crop&h=427&s=f02dc272f0c771c374e120929253abf9
+  source_image_name: 13_Citizen_InWaiting.png
+  gallery_index: 11
+  kind: spread
+  tags:
+  - dark
+  - restraint
+  - opener
+  observation: Small centered titles sit between narrow image strips and black space.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/citizen-11.jpg
+  preview_sha256: aec1d81c91fd4f31baec930edc36722cfc46bb5f406b1dd428e3eec7a2d16175
+  usage: reference_only
+- id: citizen-12
+  publication: Citizen
+  title: Archive on yellow
+  source_url: https://www.pentagram.com/work/citizen
+  image_url: https://pentagram-production.imgix.net/a76f0bdc-cb9c-46d7-a720-063605e39999/15_EO_EMO_CitizenMag1_011.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=0%2C0%2C4000%2C2668&w=640&crop=1&fit=crop&h=427&s=a19f9a5a5f78a890186601868169feb2
+  source_image_name: 15_EO_EMO_CitizenMag1_011.jpg
+  gallery_index: 12
+  kind: spread
+  tags:
+  - color
+  - archive
+  - collage
+  observation: Small archival covers form a yellow-backed field with outlined lettering.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/citizen-12.jpg
+  preview_sha256: 7c8f4bc06d31d58071fb23c2056e0beceb4b77da489531cf5e9aa6814c326e9c
+  usage: reference_only
+- id: citizen-13
+  publication: Citizen
+  title: Paired image frames
+  source_url: https://www.pentagram.com/work/citizen
+  image_url: https://pentagram-production.imgix.net/a76f0bdc-cb9c-46d7-a720-063605e39999/16_EO_EMO_CitizenMag_1_068B.png?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=0%2C0%2C4000%2C2668&w=640&crop=1&fit=crop&h=427&s=84b5fd50beaaf00e2e7a7a7365838fe6
+  source_image_name: 16_EO_EMO_CitizenMag_1_068B.png
+  gallery_index: 13
+  kind: spread
+  tags:
+  - photography
+  - pairing
+  - dark
+  observation: Two framed photographs share a dark spread with contrasting subjects.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/citizen-13.jpg
+  preview_sha256: 34b134dd2288e7fecc86d94200f15ea73f47cd5a4c439ff9f5e507182b8a7768
+  usage: reference_only
+- id: citizen-14
+  publication: Citizen
+  title: Party headline hierarchy
+  source_url: https://www.pentagram.com/work/citizen
+  image_url: https://pentagram-production.imgix.net/a76f0bdc-cb9c-46d7-a720-063605e39999/17_Citizen_LastGreatParty.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=0%2C0%2C4000%2C2668&w=640&crop=1&fit=crop&h=427&s=3cb99546d8e4fb7b8f600fe4f81b6845
+  source_image_name: 17_Citizen_LastGreatParty.jpg
+  gallery_index: 14
+  kind: spread
+  tags:
+  - color
+  - headline
+  - opener
+  observation: Yellow condensed lettering surrounds a portrait and anchors the facing
+    headline.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/citizen-14.jpg
+  preview_sha256: c6ade216e65b5d9f25b341307d52597e47905bf81e243ee8d865696588ee7f0c
+  usage: reference_only
+- id: citizen-16
+  publication: Citizen
+  title: Universal Museum type
+  source_url: https://www.pentagram.com/work/citizen
+  image_url: https://pentagram-production.imgix.net/a76f0bdc-cb9c-46d7-a720-063605e39999/19_Citizen_UniversalMuseum.png?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=0%2C0%2C2968%2C1992&w=640&s=97167ed4c36f1a4b421b1558f4016f2e
+  source_image_name: 19_Citizen_UniversalMuseum.png
+  gallery_index: 16
+  kind: spread
+  tags:
+  - typography
+  - column
+  - headline
+  observation: A tall blue headline contrasts with restrained columns of black text.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/citizen-16.jpg
+  preview_sha256: 67c16123500200225d001e3f6b918148a5159bdc8c498192d4d451c46bef9e6b
+  usage: reference_only
+- id: citizen-18
+  publication: Citizen
+  title: Portrait and reading page
+  source_url: https://www.pentagram.com/work/citizen
+  image_url: https://pentagram-production.imgix.net/a76f0bdc-cb9c-46d7-a720-063605e39999/21_EO_EMO_CitizenMag1_025.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=0%2C0%2C4000%2C2668&w=640&s=8abcd454f960c9c2ca886787efae80bf
+  source_image_name: 21_EO_EMO_CitizenMag1_025.jpg
+  gallery_index: 18
+  kind: spread
+  tags:
+  - portrait
+  - column
+  - restraint
+  observation: A full-page portrait faces narrow reading columns on white.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/citizen-18.jpg
+  preview_sha256: 4f963af23bef14b309eb24335f4e155308a774b76928613e7b65f2861d734c56
+  usage: reference_only
+- id: citizen-20
+  publication: Citizen
+  title: Family Affair edge title
+  source_url: https://www.pentagram.com/work/citizen
+  image_url: https://pentagram-production.imgix.net/a76f0bdc-cb9c-46d7-a720-063605e39999/23_EO_EMO_CitizenMag1_019.png?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=0%2C0%2C4000%2C2668&w=640&crop=1&fit=crop&h=427&s=6a69482736cc2c0a4025ea78393e3c77
+  source_image_name: 23_EO_EMO_CitizenMag1_019.png
+  gallery_index: 20
+  kind: spread
+  tags:
+  - headline
+  - photography
+  - monochrome
+  observation: An edge-running title accompanies monochrome photographs across the
+    spread.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/citizen-20.jpg
+  preview_sha256: 4ba1df56aa382c12027d0d8f895ebbe4b4afa5d81690f7c29e9c181da2b7b170
+  usage: reference_only
+- id: citizen-27
+  publication: Citizen
+  title: Portrait interview opener
+  source_url: https://www.pentagram.com/work/citizen
+  image_url: https://pentagram-production.imgix.net/a76f0bdc-cb9c-46d7-a720-063605e39999/30_EO_EMO_CitizenMag1_034.png?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=0%2C0%2C2968%2C1980&w=640&s=cb372ef88b86d0f0c8393e488b141198
+  source_image_name: 30_EO_EMO_CitizenMag1_034.png
+  gallery_index: 27
+  kind: spread
+  tags:
+  - portrait
+  - interview
+  - opener
+  observation: A close portrait faces a stacked headline with generous white space.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/citizen-27.jpg
+  preview_sha256: 04ec3c5b17c6102034adedd66eadaaa17cd624e9f58e680c432c7b20c6b78a33
+  usage: reference_only
+- id: 413-04
+  publication: 413 / Port
+  title: Folded image sequence
+  source_url: https://www.pentagram.com/work/413
+  image_url: https://pentagram-production.imgix.net/f1648172-edcb-4fa3-81e0-a93bd1b1dca2/AS_413_5.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=0%2C0%2C4958%2C3304&w=640&crop=1&fit=crop&h=426&s=2fa313c845a30dd4eb03041a3813521f
+  source_image_name: AS_413_5.jpg
+  gallery_index: 4
+  kind: spread_series
+  tags:
+  - foldout
+  - photography
+  - sequence
+  observation: Color images extend through a gridded sequence of folded sheets.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/413-04.jpg
+  preview_sha256: 8c4a40f509f63931b624ddabff387ffc8f8062a4c4beae3a1cac2bc3571ee76c
+  usage: reference_only
+- id: 413-05
+  publication: 413 / Port
+  title: Condensed type and image
+  source_url: https://www.pentagram.com/work/413
+  image_url: https://pentagram-production.imgix.net/f1648172-edcb-4fa3-81e0-a93bd1b1dca2/AS_413_6.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=0%2C0%2C4958%2C3304&w=640&crop=1&fit=crop&h=426&s=b4c5545a15e725e55fe7ae20f9b49f36
+  source_image_name: AS_413_6.jpg
+  gallery_index: 5
+  kind: spread_series
+  tags:
+  - headline
+  - foldout
+  - overlap
+  observation: Tall condensed words cross a folded field around a blue image.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/413-05.jpg
+  preview_sha256: a66b843cd3a2460ee9cddfeda395b4e3abeb91a616d60427aa1cd9c92853e1c3
+  usage: reference_only
+- id: 413-06
+  publication: 413 / Port
+  title: Horizontal image bands
+  source_url: https://www.pentagram.com/work/413
+  image_url: https://pentagram-production.imgix.net/f1648172-edcb-4fa3-81e0-a93bd1b1dca2/AS_413_7.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=0%2C0%2C4958%2C3304&w=640&crop=1&fit=crop&h=426&s=1633013d52b61b28e2072f164178523b
+  source_image_name: AS_413_7.jpg
+  gallery_index: 6
+  kind: spread_series
+  tags:
+  - photography
+  - grid
+  - dark
+  observation: Horizontal photographs alternate with black bands and compact reading
+    blocks.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/413-06.jpg
+  preview_sha256: 836ab99f160f63dfb0fe77686fd5c06382628dd312a66685ecc77fa100f80bec
+  usage: reference_only
+- id: 413-07
+  publication: 413 / Port
+  title: Directional type field
+  source_url: https://www.pentagram.com/work/413
+  image_url: https://pentagram-production.imgix.net/f1648172-edcb-4fa3-81e0-a93bd1b1dca2/AS_413_8.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=0%2C0%2C4958%2C3304&w=640&crop=1&fit=crop&h=426&s=89e01decd8343806f5d42ddf73fb087f
+  source_image_name: AS_413_8.jpg
+  gallery_index: 7
+  kind: spread_series
+  tags:
+  - typography
+  - grid
+  - symbols
+  observation: Large arrows and letterforms punctuate a dense folded reading grid.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/413-07.jpg
+  preview_sha256: 5e6d14fb66c2a4cb0e27677dab943438bb1c68cf5025e0ff67ea5be848f3eaba
+  usage: reference_only
+- id: guggenheim-00
+  publication: Guggenheim
+  title: Art on stage opener
+  source_url: https://www.pentagram.com/work/guggenheim
+  image_url: https://pentagram-production.imgix.net/e5290d40-ea3a-4f2e-80b1-bc2779b54d84/am_guggenheimmuseum_04.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=%2C%2C%2C&w=640&crop=1&fit=crop&h=428&s=eb7386e66e464e84e2b428b557e9d6ba
+  source_image_name: am_guggenheimmuseum_04.jpg
+  gallery_index: 0
+  kind: spread
+  tags:
+  - architecture
+  - opener
+  - restraint
+  observation: A building photograph faces a pale text page with a large title.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/guggenheim-00.jpg
+  preview_sha256: 393a387d664a65e1ce7dc7d93251e185e4a755cf4c74275d363da9e7913ae5a0
+  usage: reference_only
+- id: guggenheim-03
+  publication: Guggenheim
+  title: Architecture image hierarchy
+  source_url: https://www.pentagram.com/work/guggenheim
+  image_url: https://pentagram-production.imgix.net/a4ba87e2-684b-4a9e-b332-65ddb05c3da3/am_guggenheimmuseum_18.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=%2C%2C%2C&w=640&crop=1&fit=crop&h=420&s=067c810d98c265b5f95deb93e4a66396
+  source_image_name: am_guggenheimmuseum_18.jpg
+  gallery_index: 3
+  kind: spread
+  tags:
+  - architecture
+  - photography
+  - grid
+  observation: A large architectural image leads smaller photographs and text below.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/guggenheim-03.jpg
+  preview_sha256: 6b97aab811a28b07d74a24388080cb5dee94d0aa3824babcd75c81cdb1219402
+  usage: reference_only
+- id: guggenheim-04
+  publication: Guggenheim
+  title: Pattern and reading space
+  source_url: https://www.pentagram.com/work/guggenheim
+  image_url: https://pentagram-production.imgix.net/6b143d92-cc52-4b2f-9326-2d188cde72ef/am_guggenheimmuseum_09.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=%2C%2C%2C&w=640&s=8eca5c125ad2a88d7e6533f996e357a5
+  source_image_name: am_guggenheimmuseum_09.jpg
+  gallery_index: 4
+  kind: spread
+  tags:
+  - pattern
+  - column
+  - restraint
+  observation: A repeating architectural pattern faces sparse columns on a white page.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/guggenheim-04.jpg
+  preview_sha256: 41866afb7205957969e602bd7a9d4c2c6da2f996be6a8c9484df4b9129a38fd6
+  usage: reference_only
+- id: guggenheim-05
+  publication: Guggenheim
+  title: Art into architecture
+  source_url: https://www.pentagram.com/work/guggenheim
+  image_url: https://pentagram-production.imgix.net/6b143d92-cc52-4b2f-9326-2d188cde72ef/am_guggenheimmuseum_06.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=%2C%2C%2C&w=640&s=9bb4e508b0b1389af82ef8455ac6800a
+  source_image_name: am_guggenheimmuseum_06.jpg
+  gallery_index: 5
+  kind: spread
+  tags:
+  - architecture
+  - headline
+  - collage
+  observation: Angled title words connect photographs with several reading blocks.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/guggenheim-05.jpg
+  preview_sha256: 03a3d66c3ebad49b1518163dff88a40dece8324eb32cb7ed3f9ee4fb8fba2453
+  usage: reference_only
+- id: guggenheim-06
+  publication: Guggenheim
+  title: Perception image system
+  source_url: https://www.pentagram.com/work/guggenheim
+  image_url: https://pentagram-production.imgix.net/e5290d40-ea3a-4f2e-80b1-bc2779b54d84/am_guggenheimmuseum_03.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=%2C%2C%2C&w=640&s=1a7cbdf5990abf8311ea05404e14f331
+  source_image_name: am_guggenheimmuseum_03.jpg
+  gallery_index: 6
+  kind: spread
+  tags:
+  - architecture
+  - photography
+  - grid
+  observation: Curved architectural photographs occupy varied frames above compact
+    text.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/guggenheim-06.jpg
+  preview_sha256: 52bfd656213e6aacfdfae8189c6394d628bddbd880712f273d35a284050fc792
+  usage: reference_only
+- id: guggenheim-07
+  publication: Guggenheim
+  title: Temple of spirit headline
+  source_url: https://www.pentagram.com/work/guggenheim
+  image_url: https://pentagram-production.imgix.net/e5290d40-ea3a-4f2e-80b1-bc2779b54d84/am_guggenheimmuseum_02.jpg?auto=compress%2Cformat&fit=min&fm=jpg&q=80&rect=%2C%2C%2C&w=640&s=51921f0f0fbeaf138ad19aa33d451d01
+  source_image_name: am_guggenheimmuseum_02.jpg
+  gallery_index: 7
+  kind: spread
+  tags:
+  - architecture
+  - headline
+  - overlap
+  observation: A large red headline bridges architectural photography and supporting
+    copy.
+  credit: Pentagram project gallery; original publication and image contributors
+  reviewed_on: '2026-11-09'
+  preview_path: data/references/guggenheim-07.jpg
+  preview_sha256: c6b4d1e1a09c6ec4a54ea1687ae586adcaa25beb4501e20086776a8ddd28d9fb
+  usage: reference_only

@@ -1,0 +1,59 @@
+{
+  "$defs": {
+    "AssetType": {
+      "enum": [
+        "raster",
+        "vector",
+        "mask",
+        "text_path",
+        "composite"
+      ],
+      "title": "AssetType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "asset_type": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/AssetType"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "required": {
+      "default": true,
+      "title": "Required",
+      "type": "boolean"
+    },
+    "value_kind": {
+      "enum": [
+        "asset",
+        "layer",
+        "text",
+        "number",
+        "boolean",
+        "point",
+        "path",
+        "region",
+        "color"
+      ],
+      "title": "Value Kind",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "value_kind"
+  ],
+  "title": "SkillSlot",
+  "type": "object"
+}

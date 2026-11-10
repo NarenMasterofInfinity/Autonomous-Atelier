@@ -1,0 +1,32 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "concrete_changes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Concrete Changes",
+      "type": "array"
+    },
+    "preferred_image": {
+      "enum": [
+        "A",
+        "B",
+        "tie"
+      ],
+      "title": "Preferred Image",
+      "type": "string"
+    },
+    "rationale": {
+      "title": "Rationale",
+      "type": "string"
+    }
+  },
+  "required": [
+    "preferred_image",
+    "rationale",
+    "concrete_changes"
+  ],
+  "title": "ComparativeAssessment",
+  "type": "object"
+}

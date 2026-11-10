@@ -1,0 +1,218 @@
+{
+  "$defs": {
+    "BaselineLayoutReport": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_origin_mm": {
+          "title": "Baseline Origin Mm",
+          "type": "number"
+        },
+        "baseline_step_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Baseline Step Mm",
+          "type": "number"
+        },
+        "baseline_tolerance_mm": {
+          "default": 0.01,
+          "title": "Baseline Tolerance Mm",
+          "type": "number"
+        },
+        "body_baselines_mm": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Body Baselines Mm",
+          "type": "array"
+        },
+        "placements": {
+          "items": {
+            "$ref": "#/$defs/TextPlacement"
+          },
+          "title": "Placements",
+          "type": "array"
+        },
+        "scene_id": {
+          "title": "Scene Id",
+          "type": "string"
+        },
+        "story_id": {
+          "title": "Story Id",
+          "type": "string"
+        },
+        "text_fit": {
+          "items": {
+            "$ref": "#/$defs/TextFitEvidence"
+          },
+          "title": "Text Fit",
+          "type": "array"
+        },
+        "unplaced_body_start": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unplaced Body Start"
+        },
+        "unplaced_fields": {
+          "items": {
+            "enum": [
+              "title",
+              "deck",
+              "body"
+            ],
+            "type": "string"
+          },
+          "title": "Unplaced Fields",
+          "type": "array"
+        }
+      },
+      "required": [
+        "story_id",
+        "scene_id",
+        "placements",
+        "baseline_step_mm",
+        "baseline_origin_mm",
+        "body_baselines_mm"
+      ],
+      "title": "BaselineLayoutReport",
+      "type": "object"
+    },
+    "TextFitEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "consumed_end_char": {
+          "minimum": 0,
+          "title": "Consumed End Char",
+          "type": "integer"
+        },
+        "field": {
+          "enum": [
+            "title",
+            "deck",
+            "body"
+          ],
+          "title": "Field",
+          "type": "string"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "overflow_start_char": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Overflow Start Char"
+        },
+        "source_char_count": {
+          "minimum": 0,
+          "title": "Source Char Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "field",
+        "layer_id",
+        "source_char_count",
+        "consumed_end_char"
+      ],
+      "title": "TextFitEvidence",
+      "type": "object"
+    },
+    "TextPlacement": {
+      "additionalProperties": false,
+      "properties": {
+        "end_char": {
+          "minimum": 0,
+          "title": "End Char",
+          "type": "integer"
+        },
+        "field": {
+          "enum": [
+            "title",
+            "deck",
+            "body"
+          ],
+          "title": "Field",
+          "type": "string"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "start_char": {
+          "minimum": 0,
+          "title": "Start Char",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "field",
+        "layer_id",
+        "start_char",
+        "end_char"
+      ],
+      "title": "TextPlacement",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "document_asset_id": {
+      "title": "Document Asset Id",
+      "type": "string"
+    },
+    "metadata_asset_id": {
+      "title": "Metadata Asset Id",
+      "type": "string"
+    },
+    "pdf_asset_id": {
+      "title": "Pdf Asset Id",
+      "type": "string"
+    },
+    "png_asset_id": {
+      "title": "Png Asset Id",
+      "type": "string"
+    },
+    "report": {
+      "$ref": "#/$defs/BaselineLayoutReport"
+    },
+    "scene_id": {
+      "title": "Scene Id",
+      "type": "string"
+    },
+    "scene_version": {
+      "title": "Scene Version",
+      "type": "string"
+    },
+    "story_id": {
+      "title": "Story Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "story_id",
+    "scene_id",
+    "scene_version",
+    "document_asset_id",
+    "png_asset_id",
+    "pdf_asset_id",
+    "metadata_asset_id",
+    "report"
+  ],
+  "title": "IdentityProof",
+  "type": "object"
+}

@@ -1,0 +1,34 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "credit": {
+      "minLength": 1,
+      "title": "Credit",
+      "type": "string"
+    },
+    "data_base64": {
+      "maxLength": 50000000,
+      "minLength": 1,
+      "title": "Data Base64",
+      "type": "string"
+    },
+    "filename": {
+      "minLength": 1,
+      "title": "Filename",
+      "type": "string"
+    },
+    "source_uri": {
+      "minLength": 1,
+      "title": "Source Uri",
+      "type": "string"
+    }
+  },
+  "required": [
+    "filename",
+    "data_base64",
+    "source_uri",
+    "credit"
+  ],
+  "title": "PhotoInput",
+  "type": "object"
+}

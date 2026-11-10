@@ -1,0 +1,31 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "map_asset_id": {
+      "title": "Map Asset Id",
+      "type": "string"
+    },
+    "op": {
+      "const": "displacement_map",
+      "default": "displacement_map",
+      "title": "Op",
+      "type": "string"
+    },
+    "scale_mm": {
+      "minimum": 0,
+      "title": "Scale Mm",
+      "type": "number"
+    },
+    "target_layer_id": {
+      "title": "Target Layer Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "target_layer_id",
+    "map_asset_id",
+    "scale_mm"
+  ],
+  "title": "DisplacementMapOp",
+  "type": "object"
+}

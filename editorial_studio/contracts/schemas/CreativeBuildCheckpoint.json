@@ -1,0 +1,92 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "identity_id": {
+      "title": "Identity Id",
+      "type": "string"
+    },
+    "identity_snapshot_json": {
+      "title": "Identity Snapshot Json",
+      "type": "string"
+    },
+    "mandate": {
+      "title": "Mandate",
+      "type": "string"
+    },
+    "max_output_tokens": {
+      "title": "Max Output Tokens",
+      "type": "integer"
+    },
+    "maximum_repairs": {
+      "title": "Maximum Repairs",
+      "type": "integer"
+    },
+    "model": {
+      "title": "Model",
+      "type": "string"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "prompt_template": {
+      "title": "Prompt Template",
+      "type": "string"
+    },
+    "prompt_version": {
+      "title": "Prompt Version",
+      "type": "string"
+    },
+    "reasoning_effort": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ],
+      "title": "Reasoning Effort",
+      "type": "string"
+    },
+    "reference_program_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reference Program Id"
+    },
+    "story_id": {
+      "title": "Story Id",
+      "type": "string"
+    },
+    "with_visual_critics": {
+      "title": "With Visual Critics",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "story_id",
+    "identity_id",
+    "identity_snapshot_json",
+    "mandate",
+    "prompt_template",
+    "prompt_version",
+    "model",
+    "reasoning_effort",
+    "max_output_tokens",
+    "maximum_repairs",
+    "with_visual_critics"
+  ],
+  "title": "CreativeBuildCheckpoint",
+  "type": "object"
+}

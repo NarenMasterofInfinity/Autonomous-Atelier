@@ -1,0 +1,42 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "dx_mm": {
+      "default": 0.0,
+      "title": "Dx Mm",
+      "type": "number"
+    },
+    "dy_mm": {
+      "default": 0.0,
+      "title": "Dy Mm",
+      "type": "number"
+    },
+    "glyph_index": {
+      "minimum": 0,
+      "title": "Glyph Index",
+      "type": "integer"
+    },
+    "rotation_deg": {
+      "default": 0.0,
+      "title": "Rotation Deg",
+      "type": "number"
+    },
+    "scale_x": {
+      "default": 1.0,
+      "exclusiveMinimum": 0,
+      "title": "Scale X",
+      "type": "number"
+    },
+    "scale_y": {
+      "default": 1.0,
+      "exclusiveMinimum": 0,
+      "title": "Scale Y",
+      "type": "number"
+    }
+  },
+  "required": [
+    "glyph_index"
+  ],
+  "title": "GlyphTransform",
+  "type": "object"
+}

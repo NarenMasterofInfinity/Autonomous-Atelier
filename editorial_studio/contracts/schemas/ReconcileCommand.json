@@ -1,0 +1,20 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "call_id": {
+      "title": "Call Id",
+      "type": "string"
+    },
+    "kind": {
+      "const": "reconcile",
+      "default": "reconcile",
+      "title": "Kind",
+      "type": "string"
+    }
+  },
+  "required": [
+    "call_id"
+  ],
+  "title": "ReconcileCommand",
+  "type": "object"
+}

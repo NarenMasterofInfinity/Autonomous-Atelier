@@ -1,0 +1,68 @@
+{
+  "$defs": {
+    "BoundsMM": {
+      "additionalProperties": false,
+      "properties": {
+        "height_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Height Mm",
+          "type": "number"
+        },
+        "width_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Width Mm",
+          "type": "number"
+        },
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm",
+        "width_mm",
+        "height_mm"
+      ],
+      "title": "BoundsMM",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "baseline_mm": {
+      "title": "Baseline Mm",
+      "type": "number"
+    },
+    "end_char": {
+      "minimum": 0,
+      "title": "End Char",
+      "type": "integer"
+    },
+    "logical_bounds": {
+      "$ref": "#/$defs/BoundsMM"
+    },
+    "paragraph_start": {
+      "title": "Paragraph Start",
+      "type": "boolean"
+    },
+    "start_char": {
+      "minimum": 0,
+      "title": "Start Char",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "start_char",
+    "end_char",
+    "baseline_mm",
+    "logical_bounds",
+    "paragraph_start"
+  ],
+  "title": "TextLine",
+  "type": "object"
+}

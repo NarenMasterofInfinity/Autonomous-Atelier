@@ -1,0 +1,138 @@
+{
+  "$defs": {
+    "FeatureFlags": {
+      "additionalProperties": false,
+      "properties": {
+        "automated_skill_generator": {
+          "default": false,
+          "title": "Automated Skill Generator",
+          "type": "boolean"
+        },
+        "reference_ingestion": {
+          "default": false,
+          "title": "Reference Ingestion",
+          "type": "boolean"
+        }
+      },
+      "title": "FeatureFlags",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "api_key": {
+      "default": "",
+      "format": "password",
+      "title": "Api Key",
+      "type": "string",
+      "writeOnly": true
+    },
+    "base_url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Base Url"
+    },
+    "creative_reasoning_effort": {
+      "default": "high",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ],
+      "title": "Creative Reasoning Effort",
+      "type": "string"
+    },
+    "data_root": {
+      "default": "/home/naren-root/Documents/rudhra/autonomous-atelier/data/projects",
+      "format": "path",
+      "title": "Data Root",
+      "type": "string"
+    },
+    "features": {
+      "$ref": "#/$defs/FeatureFlags"
+    },
+    "heartbeat_seconds": {
+      "default": 10,
+      "minimum": 1,
+      "title": "Heartbeat Seconds",
+      "type": "integer"
+    },
+    "image_model": {
+      "default": "gpt-image-2",
+      "title": "Image Model",
+      "type": "string"
+    },
+    "image_quality": {
+      "default": "medium",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "auto"
+      ],
+      "title": "Image Quality",
+      "type": "string"
+    },
+    "image_size": {
+      "default": "1024x1024",
+      "title": "Image Size",
+      "type": "string"
+    },
+    "image_timeout_seconds": {
+      "default": 240,
+      "exclusiveMinimum": 0,
+      "title": "Image Timeout Seconds",
+      "type": "number"
+    },
+    "lease_seconds": {
+      "default": 60,
+      "minimum": 10,
+      "title": "Lease Seconds",
+      "type": "integer"
+    },
+    "max_output_tokens": {
+      "default": 512,
+      "exclusiveMinimum": 0,
+      "title": "Max Output Tokens",
+      "type": "integer"
+    },
+    "pricing_path": {
+      "default": "/home/naren-root/Documents/rudhra/autonomous-atelier/config/pricing.yaml",
+      "format": "path",
+      "title": "Pricing Path",
+      "type": "string"
+    },
+    "reasoning_effort": {
+      "default": "medium",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ],
+      "title": "Reasoning Effort",
+      "type": "string"
+    },
+    "text_model": {
+      "default": "gpt-6-luna",
+      "title": "Text Model",
+      "type": "string"
+    },
+    "timeout_seconds": {
+      "default": 120,
+      "exclusiveMinimum": 0,
+      "title": "Timeout Seconds",
+      "type": "number"
+    }
+  },
+  "title": "Settings",
+  "type": "object"
+}

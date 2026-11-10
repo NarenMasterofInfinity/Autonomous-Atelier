@@ -1,0 +1,10 @@
+backend: mobilesam
+model_type: vit_t
+checkpoint: data/models/mobile_sam.pt
+sha256: 6dbb90523a35330fedd7f1d3dfc66f995213d81b29a5ca8108dbcdd4e37d6c2f
+device: cpu
+threads: 4
+refinement_radius: 2
+minimum_foreground_fraction: 0.001
+maximum_foreground_fraction: 0.98
+maximum_edge_gradient: 0.95

@@ -1,0 +1,36 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "title": "Code",
+      "type": "string"
+    },
+    "detail": {
+      "title": "Detail",
+      "type": "string"
+    },
+    "layers": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Layers",
+      "type": "array"
+    },
+    "severity": {
+      "default": "error",
+      "enum": [
+        "error",
+        "review"
+      ],
+      "title": "Severity",
+      "type": "string"
+    }
+  },
+  "required": [
+    "code",
+    "layers",
+    "detail"
+  ],
+  "title": "LayoutFinding",
+  "type": "object"
+}

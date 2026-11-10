@@ -1,0 +1,38 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "offset_mm": {
+      "default": 0.0,
+      "title": "Offset Mm",
+      "type": "number"
+    },
+    "relationship_type": {
+      "enum": [
+        "behind",
+        "above",
+        "align_left",
+        "align_center",
+        "overlaps",
+        "wrap_around",
+        "avoid"
+      ],
+      "title": "Relationship Type",
+      "type": "string"
+    },
+    "source_layer_id": {
+      "title": "Source Layer Id",
+      "type": "string"
+    },
+    "target_layer_id": {
+      "title": "Target Layer Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "source_layer_id",
+    "target_layer_id",
+    "relationship_type"
+  ],
+  "title": "AnchorRelationship",
+  "type": "object"
+}

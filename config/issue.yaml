@@ -1,0 +1,52 @@
+version: m9-v1
+reasoning_effort: medium
+composer_reasoning_effort: low
+architect_max_output_tokens: 7000
+coherence_max_output_tokens: 6500
+maximum_repairs: 2
+architect_prompt: >-
+  Plan a complete twelve-page editorial issue from exactly six supplied stories.
+  Return the typed IssueBlueprint. Each source story appears in exactly one slot.
+  Use the supplied short story IDs verbatim. The first slot is a cover scene with
+  back cover page 12 on the left and front cover page 1 on the right. Its headline
+  and principal cover image belong on the RIGHT page; the left can carry the
+  opening note/body. The remaining five slots are facing pairs 2/3,4/5,6/7,8/9,10/11.
+  Choose their story order, phases, visual energy 1..5, story-specific metaphor,
+  narrative goal and composition mandate. Alternate strong photographic openings
+  with quieter reading. Avoid six variations of the same layout. Preserve a
+  coherent identity and a clear narrative progression. A provided tournament
+  winner can be reused for its story; place it on a suitable interior pair.
+  Keep each metaphor, goal and mandate to one concise sentence.
+composer_prompt: >-
+  Compose the supplied issue slot as an actual editorial spread. The first images
+  are this story's photographs. Subsequent images are the current issue contact
+  sheet and an accepted visual-quality reference: study their level of intention,
+  never paste them into the scene or copy their coordinates. Only the story photo
+  handles are allowed in the graph. Use the typed ConceptProposal, actual supplied
+  short source IDs and hash-pinned fonts. Preserve all source characters once;
+  exact text_range partitions allow multiple headline or body frames. Body >=11pt,
+  measured reading columns normally 65..90mm wide, no affine shrinking, gutter-safe
+  x=200..220mm. Give the display type decisive scale and rhythm: do not put a tiny
+  headline above detached rectangular boxes. Split words into exact source ranges
+  where it serves the story. Keep visible words and faces legible. Native line-box
+  height includes font inset, so give large type sufficient room. Image placement
+  must retain >=300 original-source PPI: use smaller areas when required. Repeated
+  photo/cutout frames must register exactly. Use real photo edges or gradients
+  deliberately. No compulsory texture, ornaments or generated assets. Respect
+  the supplied pacing history and current Bible. Cover scene is pages 12/1:
+  front-cover title and main image RIGHT of the fold, supporting copy LEFT.
+  All target regions are normalized within a 420x297mm canvas. Closed vector paths
+  and gradients use millimeters. Return one treatment per node. spatial_intent
+  mode guided is sufficient; use [] capabilities unless an actual technique needs
+  a CAP_01..CAP_10 identifier. Select a useful native inspection_crop.
+  Keep output compact: typography can be null for supplied named styles, or
+  fonts: [] plus only changed TypeStyles. Native planning merges catalog fonts
+  and styles and measures display copyfit; do not repeat all font metadata.
+coherence_prompt: >-
+  Judge the actual six-spread issue contact sheet and the accompanying twelve
+  physical-page previews. The first scene is the cover wrap (12 left, 1 right),
+  followed by 2/3 through 10/11. Assess narrative progression, pacing, photographic
+  integration, typography and identity across the issue. Do not infer human
+  approval or treat varied box coordinates as design quality. Flag an incoherent
+  spread, unreadable title, broken image edge or weak cover with concrete fixes.
+  Body need not be readable in thumbnails; native typography checks are separate.

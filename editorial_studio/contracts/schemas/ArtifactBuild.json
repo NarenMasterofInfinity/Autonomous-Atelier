@@ -1,0 +1,608 @@
+{
+  "$defs": {
+    "ArtifactRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_type": {
+          "$ref": "#/$defs/AssetType"
+        },
+        "color_constraints": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Color Constraints",
+          "type": "array"
+        },
+        "generation_spec": {
+          "title": "Generation Spec",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "integration_method": {
+          "enum": [
+            "clipping",
+            "masking",
+            "blending",
+            "direct"
+          ],
+          "title": "Integration Method",
+          "type": "string"
+        },
+        "output": {
+          "discriminator": {
+            "mapping": {
+              "composite": "#/$defs/CompositeOutputSpec",
+              "mask": "#/$defs/MaskOutputSpec",
+              "raster": "#/$defs/RasterOutputSpec",
+              "text_path": "#/$defs/TextPathOutputSpec",
+              "vector": "#/$defs/VectorOutputSpec"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/RasterOutputSpec"
+            },
+            {
+              "$ref": "#/$defs/VectorOutputSpec"
+            },
+            {
+              "$ref": "#/$defs/MaskOutputSpec"
+            },
+            {
+              "$ref": "#/$defs/TextPathOutputSpec"
+            },
+            {
+              "$ref": "#/$defs/CompositeOutputSpec"
+            }
+          ],
+          "title": "Output"
+        },
+        "preferred_generation_method": {
+          "title": "Preferred Generation Method",
+          "type": "string"
+        },
+        "provenance_notes": {
+          "title": "Provenance Notes",
+          "type": "string"
+        },
+        "target_layer_dependency_id": {
+          "title": "Target Layer Dependency Id",
+          "type": "string"
+        },
+        "target_region": {
+          "$ref": "#/$defs/NormalizedRegion"
+        },
+        "visual_acceptance_checks": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Visual Acceptance Checks",
+          "type": "array"
+        },
+        "visual_role": {
+          "title": "Visual Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "asset_type",
+        "visual_role",
+        "generation_spec",
+        "target_region",
+        "color_constraints",
+        "preferred_generation_method",
+        "target_layer_dependency_id",
+        "integration_method",
+        "output",
+        "provenance_notes"
+      ],
+      "title": "ArtifactRequest",
+      "type": "object"
+    },
+    "AssetType": {
+      "enum": [
+        "raster",
+        "vector",
+        "mask",
+        "text_path",
+        "composite"
+      ],
+      "title": "AssetType",
+      "type": "string"
+    },
+    "ClosePath": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "Z",
+          "default": "Z",
+          "title": "Cmd",
+          "type": "string"
+        }
+      },
+      "title": "ClosePath",
+      "type": "object"
+    },
+    "CompositeOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "editable_layer_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Editable Layer Ids",
+          "type": "array"
+        },
+        "kind": {
+          "const": "composite",
+          "default": "composite",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "editable_layer_ids"
+      ],
+      "title": "CompositeOutputSpec",
+      "type": "object"
+    },
+    "CubicTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "C",
+          "default": "C",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "control1": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "control2": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "control1",
+        "control2",
+        "p"
+      ],
+      "title": "CubicTo",
+      "type": "object"
+    },
+    "LineTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "L",
+          "default": "L",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "LineTo",
+      "type": "object"
+    },
+    "MaskOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "height_px": {
+          "exclusiveMinimum": 0,
+          "title": "Height Px",
+          "type": "integer"
+        },
+        "kind": {
+          "const": "mask",
+          "default": "mask",
+          "title": "Kind",
+          "type": "string"
+        },
+        "width_px": {
+          "exclusiveMinimum": 0,
+          "title": "Width Px",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "width_px",
+        "height_px"
+      ],
+      "title": "MaskOutputSpec",
+      "type": "object"
+    },
+    "MoveTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "M",
+          "default": "M",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "MoveTo",
+      "type": "object"
+    },
+    "NormalizedRegion": {
+      "additionalProperties": false,
+      "properties": {
+        "height": {
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "title": "Height",
+          "type": "number"
+        },
+        "width": {
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "title": "Width",
+          "type": "number"
+        },
+        "x": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "X",
+          "type": "number"
+        },
+        "y": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Y",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "title": "NormalizedRegion",
+      "type": "object"
+    },
+    "PathGeometry": {
+      "additionalProperties": false,
+      "properties": {
+        "commands": {
+          "items": {
+            "discriminator": {
+              "mapping": {
+                "C": "#/$defs/CubicTo",
+                "L": "#/$defs/LineTo",
+                "M": "#/$defs/MoveTo",
+                "Q": "#/$defs/QuadraticTo",
+                "Z": "#/$defs/ClosePath"
+              },
+              "propertyName": "cmd"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/MoveTo"
+              },
+              {
+                "$ref": "#/$defs/LineTo"
+              },
+              {
+                "$ref": "#/$defs/QuadraticTo"
+              },
+              {
+                "$ref": "#/$defs/CubicTo"
+              },
+              {
+                "$ref": "#/$defs/ClosePath"
+              }
+            ]
+          },
+          "minItems": 2,
+          "title": "Commands",
+          "type": "array"
+        },
+        "fill_rule": {
+          "default": "nonzero",
+          "enum": [
+            "nonzero",
+            "evenodd"
+          ],
+          "title": "Fill Rule",
+          "type": "string"
+        }
+      },
+      "required": [
+        "commands"
+      ],
+      "title": "PathGeometry",
+      "type": "object"
+    },
+    "PointMM": {
+      "additionalProperties": false,
+      "properties": {
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm"
+      ],
+      "title": "PointMM",
+      "type": "object"
+    },
+    "QuadraticTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "Q",
+          "default": "Q",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "control": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "control",
+        "p"
+      ],
+      "title": "QuadraticTo",
+      "type": "object"
+    },
+    "RasterOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "alpha_required": {
+          "default": false,
+          "title": "Alpha Required",
+          "type": "boolean"
+        },
+        "height_px": {
+          "exclusiveMinimum": 0,
+          "title": "Height Px",
+          "type": "integer"
+        },
+        "kind": {
+          "const": "raster",
+          "default": "raster",
+          "title": "Kind",
+          "type": "string"
+        },
+        "width_px": {
+          "exclusiveMinimum": 0,
+          "title": "Width Px",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "width_px",
+        "height_px"
+      ],
+      "title": "RasterOutputSpec",
+      "type": "object"
+    },
+    "TextPathOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "format": {
+          "const": "svg",
+          "default": "svg",
+          "title": "Format",
+          "type": "string"
+        },
+        "kind": {
+          "const": "text_path",
+          "default": "text_path",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "title": "TextPathOutputSpec",
+      "type": "object"
+    },
+    "TracedVector": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/PathGeometry"
+        },
+        "potrace_version": {
+          "title": "Potrace Version",
+          "type": "string"
+        },
+        "reconstructed_iou": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Reconstructed Iou",
+          "type": "number"
+        },
+        "source_asset_id": {
+          "title": "Source Asset Id",
+          "type": "string"
+        },
+        "source_foreground_fraction": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Source Foreground Fraction",
+          "type": "number"
+        },
+        "source_height_px": {
+          "title": "Source Height Px",
+          "type": "integer"
+        },
+        "source_width_px": {
+          "title": "Source Width Px",
+          "type": "integer"
+        },
+        "svg_asset_id": {
+          "title": "Svg Asset Id",
+          "type": "string"
+        },
+        "threshold": {
+          "title": "Threshold",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "source_asset_id",
+        "svg_asset_id",
+        "path",
+        "source_width_px",
+        "source_height_px",
+        "potrace_version",
+        "threshold",
+        "source_foreground_fraction",
+        "reconstructed_iou"
+      ],
+      "title": "TracedVector",
+      "type": "object"
+    },
+    "VectorOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "editable_paths_required": {
+          "default": true,
+          "title": "Editable Paths Required",
+          "type": "boolean"
+        },
+        "format": {
+          "const": "svg",
+          "default": "svg",
+          "title": "Format",
+          "type": "string"
+        },
+        "kind": {
+          "const": "vector",
+          "default": "vector",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "title": "VectorOutputSpec",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "classification": {
+      "title": "Classification",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "output_asset_id": {
+      "title": "Output Asset Id",
+      "type": "string"
+    },
+    "placed_scene_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Placed Scene Id"
+    },
+    "placed_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Placed Version"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "provider_call_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Provider Call Id"
+    },
+    "raster_asset_id": {
+      "title": "Raster Asset Id",
+      "type": "string"
+    },
+    "reference_asset_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reference Asset Ids",
+      "type": "array"
+    },
+    "request": {
+      "$ref": "#/$defs/ArtifactRequest"
+    },
+    "status": {
+      "default": "awaiting_visual_review",
+      "title": "Status",
+      "type": "string"
+    },
+    "traced": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TracedVector"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "request",
+    "reference_asset_ids",
+    "raster_asset_id",
+    "output_asset_id",
+    "classification"
+  ],
+  "title": "ArtifactBuild",
+  "type": "object"
+}

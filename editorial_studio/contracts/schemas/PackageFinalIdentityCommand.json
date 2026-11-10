@@ -1,0 +1,38 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "capability_proof_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Capability Proof Ids",
+      "type": "array"
+    },
+    "identity_id": {
+      "title": "Identity Id",
+      "type": "string"
+    },
+    "kind": {
+      "const": "package_final_identity",
+      "default": "package_final_identity",
+      "title": "Kind",
+      "type": "string"
+    },
+    "spread_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 3,
+      "minItems": 2,
+      "title": "Spread Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "identity_id",
+    "spread_ids",
+    "capability_proof_ids"
+  ],
+  "title": "PackageFinalIdentityCommand",
+  "type": "object"
+}

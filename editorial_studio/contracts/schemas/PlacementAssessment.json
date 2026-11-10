@@ -1,0 +1,90 @@
+{
+  "$defs": {
+    "BoundsMM": {
+      "additionalProperties": false,
+      "properties": {
+        "height_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Height Mm",
+          "type": "number"
+        },
+        "width_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Width Mm",
+          "type": "number"
+        },
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm",
+        "width_mm",
+        "height_mm"
+      ],
+      "title": "BoundsMM",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "effective_ppi": {
+      "exclusiveMinimum": 0,
+      "title": "Effective Ppi",
+      "type": "number"
+    },
+    "frame": {
+      "$ref": "#/$defs/BoundsMM"
+    },
+    "original_ppi": {
+      "exclusiveMinimum": 0,
+      "title": "Original Ppi",
+      "type": "number"
+    },
+    "requires_visual_review": {
+      "title": "Requires Visual Review",
+      "type": "boolean"
+    },
+    "source_asset_id": {
+      "title": "Source Asset Id",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "native",
+        "inspect_crop",
+        "stylize_or_reduce"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "upscale_eligible": {
+      "title": "Upscale Eligible",
+      "type": "boolean"
+    },
+    "visible_source_fraction": {
+      "exclusiveMinimum": 0,
+      "maximum": 1,
+      "title": "Visible Source Fraction",
+      "type": "number"
+    }
+  },
+  "required": [
+    "source_asset_id",
+    "frame",
+    "effective_ppi",
+    "visible_source_fraction",
+    "status",
+    "upscale_eligible",
+    "original_ppi",
+    "requires_visual_review"
+  ],
+  "title": "PlacementAssessment",
+  "type": "object"
+}

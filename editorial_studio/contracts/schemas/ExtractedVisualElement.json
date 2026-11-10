@@ -1,0 +1,50 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "concept_node_id": {
+      "title": "Concept Node Id",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "mapped_asset_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Mapped Asset Id"
+    },
+    "mapped_layer_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Mapped Layer Id"
+    },
+    "mapping_confidence": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Mapping Confidence",
+      "type": "number"
+    }
+  },
+  "required": [
+    "id",
+    "concept_node_id",
+    "mapping_confidence"
+  ],
+  "title": "ExtractedVisualElement",
+  "type": "object"
+}

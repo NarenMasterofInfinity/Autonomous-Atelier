@@ -1,0 +1,117 @@
+{
+  "$defs": {
+    "LayoutFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "detail": {
+          "title": "Detail",
+          "type": "string"
+        },
+        "layers": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Layers",
+          "type": "array"
+        },
+        "severity": {
+          "default": "error",
+          "enum": [
+            "error",
+            "review"
+          ],
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "layers",
+        "detail"
+      ],
+      "title": "LayoutFinding",
+      "type": "object"
+    },
+    "TextVisibility": {
+      "additionalProperties": false,
+      "properties": {
+        "contrast_fraction": {
+          "title": "Contrast Fraction",
+          "type": "number"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "role": {
+          "title": "Role",
+          "type": "string"
+        },
+        "visible_fraction": {
+          "title": "Visible Fraction",
+          "type": "number"
+        }
+      },
+      "required": [
+        "layer_id",
+        "role",
+        "visible_fraction",
+        "contrast_fraction"
+      ],
+      "title": "TextVisibility",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "background_fraction": {
+      "default": 0,
+      "title": "Background Fraction",
+      "type": "number"
+    },
+    "display_ink_fraction": {
+      "default": 0,
+      "title": "Display Ink Fraction",
+      "type": "number"
+    },
+    "display_photo_overlap_fraction": {
+      "default": 0,
+      "title": "Display Photo Overlap Fraction",
+      "type": "number"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/LayoutFinding"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "passed": {
+      "title": "Passed",
+      "type": "boolean"
+    },
+    "scope": {
+      "default": "Rendered visibility, contrast and ink collisions; not aesthetic or professional approval.",
+      "title": "Scope",
+      "type": "string"
+    },
+    "text": {
+      "items": {
+        "$ref": "#/$defs/TextVisibility"
+      },
+      "title": "Text",
+      "type": "array"
+    }
+  },
+  "required": [
+    "passed",
+    "text",
+    "findings"
+  ],
+  "title": "LayoutQuality",
+  "type": "object"
+}

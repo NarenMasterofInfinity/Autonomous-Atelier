@@ -1,0 +1,84 @@
+{
+  "$defs": {
+    "PhotoInput": {
+      "additionalProperties": false,
+      "properties": {
+        "credit": {
+          "minLength": 1,
+          "title": "Credit",
+          "type": "string"
+        },
+        "data_base64": {
+          "maxLength": 50000000,
+          "minLength": 1,
+          "title": "Data Base64",
+          "type": "string"
+        },
+        "filename": {
+          "minLength": 1,
+          "title": "Filename",
+          "type": "string"
+        },
+        "source_uri": {
+          "minLength": 1,
+          "title": "Source Uri",
+          "type": "string"
+        }
+      },
+      "required": [
+        "filename",
+        "data_base64",
+        "source_uri",
+        "credit"
+      ],
+      "title": "PhotoInput",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "author": {
+      "minLength": 1,
+      "title": "Author",
+      "type": "string"
+    },
+    "body": {
+      "minLength": 1,
+      "title": "Body",
+      "type": "string"
+    },
+    "deck": {
+      "minLength": 1,
+      "title": "Deck",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "photos": {
+      "items": {
+        "$ref": "#/$defs/PhotoInput"
+      },
+      "maxItems": 20,
+      "minItems": 1,
+      "title": "Photos",
+      "type": "array"
+    },
+    "title": {
+      "minLength": 1,
+      "title": "Title",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "deck",
+    "body",
+    "author",
+    "photos"
+  ],
+  "title": "StoryInput",
+  "type": "object"
+}

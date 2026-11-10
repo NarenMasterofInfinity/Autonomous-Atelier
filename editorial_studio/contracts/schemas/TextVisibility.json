@@ -1,0 +1,29 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "contrast_fraction": {
+      "title": "Contrast Fraction",
+      "type": "number"
+    },
+    "layer_id": {
+      "title": "Layer Id",
+      "type": "string"
+    },
+    "role": {
+      "title": "Role",
+      "type": "string"
+    },
+    "visible_fraction": {
+      "title": "Visible Fraction",
+      "type": "number"
+    }
+  },
+  "required": [
+    "layer_id",
+    "role",
+    "visible_fraction",
+    "contrast_fraction"
+  ],
+  "title": "TextVisibility",
+  "type": "object"
+}

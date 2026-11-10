@@ -1,0 +1,189 @@
+{
+  "$defs": {
+    "CreativeSpread": {
+      "additionalProperties": false,
+      "properties": {
+        "concept_id": {
+          "title": "Concept Id",
+          "type": "string"
+        },
+        "document_asset_id": {
+          "title": "Document Asset Id",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "identity_id": {
+          "title": "Identity Id",
+          "type": "string"
+        },
+        "metadata_asset_id": {
+          "title": "Metadata Asset Id",
+          "type": "string"
+        },
+        "pdf_asset_id": {
+          "title": "Pdf Asset Id",
+          "type": "string"
+        },
+        "png_asset_id": {
+          "title": "Png Asset Id",
+          "type": "string"
+        },
+        "project_id": {
+          "title": "Project Id",
+          "type": "string"
+        },
+        "review_id": {
+          "title": "Review Id",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "scene_id": {
+          "title": "Scene Id",
+          "type": "string"
+        },
+        "scene_version": {
+          "title": "Scene Version",
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "review",
+            "revision_required",
+            "approved_for_identity_review"
+          ],
+          "title": "State",
+          "type": "string"
+        },
+        "story_id": {
+          "title": "Story Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "project_id",
+        "story_id",
+        "identity_id",
+        "scene_id",
+        "scene_version",
+        "concept_id",
+        "review_id",
+        "png_asset_id",
+        "pdf_asset_id",
+        "document_asset_id",
+        "metadata_asset_id",
+        "state",
+        "run_id"
+      ],
+      "title": "CreativeSpread",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "attempt_index": {
+      "minimum": 0,
+      "title": "Attempt Index",
+      "type": "integer"
+    },
+    "concept_index": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Concept Index",
+      "type": "integer"
+    },
+    "error": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "proposal_json": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Proposal Json"
+    },
+    "provider_call_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Provider Call Id"
+    },
+    "resolution_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Resolution Version"
+    },
+    "spread": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/CreativeSpread"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "tournament_id": {
+      "title": "Tournament Id",
+      "type": "string"
+    },
+    "variation_index": {
+      "maximum": 2,
+      "minimum": 0,
+      "title": "Variation Index",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "tournament_id",
+    "concept_index",
+    "variation_index",
+    "attempt_index"
+  ],
+  "title": "CandidateAttempt",
+  "type": "object"
+}

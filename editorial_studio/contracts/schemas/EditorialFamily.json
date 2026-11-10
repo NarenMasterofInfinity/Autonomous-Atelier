@@ -1,0 +1,72 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "avoid": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Avoid",
+      "type": "array"
+    },
+    "capability_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Capability Ids",
+      "type": "array"
+    },
+    "composition_rules": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Composition Rules",
+      "type": "array"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "principle": {
+      "title": "Principle",
+      "type": "string"
+    },
+    "reference_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Reference Ids",
+      "type": "array"
+    },
+    "suitability": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Suitability",
+      "type": "array"
+    },
+    "version": {
+      "minimum": 1,
+      "title": "Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "version",
+    "name",
+    "principle",
+    "reference_ids",
+    "capability_ids",
+    "suitability",
+    "composition_rules"
+  ],
+  "title": "EditorialFamily",
+  "type": "object"
+}

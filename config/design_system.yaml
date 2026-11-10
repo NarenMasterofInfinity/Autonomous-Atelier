@@ -1,0 +1,31 @@
+id: atelier-foundations
+version: '1'
+grid:
+  width_mm: 420
+  height_mm: 297
+  page_width_mm: 210
+  outer_margin_mm: 20
+  top_margin_mm: 20
+  bottom_margin_mm: 20
+  fold_safe_mm: 10
+  columns_per_page: 3
+  column_gap_mm: 6
+  baseline_step_mm: 5
+  baseline_origin_mm: 20
+type_scale:
+  id: major-third
+  body_pt: 11
+  ratio: 1.25
+  role_steps:
+    headline: 6
+    deck: 1
+    body: 0
+    caption: -1
+palette:
+  - {name: paper, hex_color: '#f4f0e8'}
+  - {name: ink, hex_color: '#22211f'}
+  - {name: muted, hex_color: '#68645b'}
+  - {name: accent, hex_color: '#9e4d32'}
+rule_width_mm: 0.25
+minimum_body_pt: 11
+prefer_paragraph_breaks: true

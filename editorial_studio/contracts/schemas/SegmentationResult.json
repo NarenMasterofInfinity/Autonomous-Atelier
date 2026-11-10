@@ -1,0 +1,243 @@
+{
+  "$defs": {
+    "EdgeQuality": {
+      "additionalProperties": false,
+      "properties": {
+        "components": {
+          "minimum": 0,
+          "title": "Components",
+          "type": "integer"
+        },
+        "edge_gradient": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Edge Gradient",
+          "type": "number"
+        },
+        "findings": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Findings",
+          "type": "array"
+        },
+        "foreground_fraction": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Foreground Fraction",
+          "type": "number"
+        },
+        "passed": {
+          "title": "Passed",
+          "type": "boolean"
+        },
+        "reference_iou": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reference Iou"
+        },
+        "soft_edge_fraction": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Soft Edge Fraction",
+          "type": "number"
+        }
+      },
+      "required": [
+        "foreground_fraction",
+        "soft_edge_fraction",
+        "edge_gradient",
+        "components",
+        "passed",
+        "findings"
+      ],
+      "title": "EdgeQuality",
+      "type": "object"
+    },
+    "NormalizedPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "X",
+          "type": "number"
+        },
+        "y": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Y",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y"
+      ],
+      "title": "NormalizedPoint",
+      "type": "object"
+    },
+    "NormalizedRegion": {
+      "additionalProperties": false,
+      "properties": {
+        "height": {
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "title": "Height",
+          "type": "number"
+        },
+        "width": {
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "title": "Width",
+          "type": "number"
+        },
+        "x": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "X",
+          "type": "number"
+        },
+        "y": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Y",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "title": "NormalizedRegion",
+      "type": "object"
+    },
+    "SegmentPrompt": {
+      "additionalProperties": false,
+      "properties": {
+        "box": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/NormalizedRegion"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "fill_enclosed_holes": {
+          "default": false,
+          "title": "Fill Enclosed Holes",
+          "type": "boolean"
+        },
+        "keep_largest_component": {
+          "default": false,
+          "title": "Keep Largest Component",
+          "type": "boolean"
+        },
+        "labels": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Labels",
+          "type": "array"
+        },
+        "points": {
+          "items": {
+            "$ref": "#/$defs/NormalizedPoint"
+          },
+          "title": "Points",
+          "type": "array"
+        },
+        "source_asset_id": {
+          "title": "Source Asset Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_asset_id"
+      ],
+      "title": "SegmentPrompt",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "alpha_asset_id": {
+      "title": "Alpha Asset Id",
+      "type": "string"
+    },
+    "backend": {
+      "title": "Backend",
+      "type": "string"
+    },
+    "cutout_asset_id": {
+      "title": "Cutout Asset Id",
+      "type": "string"
+    },
+    "human_review_required": {
+      "default": true,
+      "title": "Human Review Required",
+      "type": "boolean"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "mask_asset_id": {
+      "title": "Mask Asset Id",
+      "type": "string"
+    },
+    "model_sha256": {
+      "title": "Model Sha256",
+      "type": "string"
+    },
+    "predicted_iou": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Predicted Iou",
+      "type": "number"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "prompt": {
+      "$ref": "#/$defs/SegmentPrompt"
+    },
+    "quality": {
+      "$ref": "#/$defs/EdgeQuality"
+    },
+    "source_asset_id": {
+      "title": "Source Asset Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "source_asset_id",
+    "prompt",
+    "backend",
+    "model_sha256",
+    "predicted_iou",
+    "mask_asset_id",
+    "alpha_asset_id",
+    "cutout_asset_id",
+    "quality"
+  ],
+  "title": "SegmentationResult",
+  "type": "object"
+}

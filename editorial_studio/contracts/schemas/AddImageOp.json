@@ -1,0 +1,74 @@
+{
+  "$defs": {
+    "BoundsMM": {
+      "additionalProperties": false,
+      "properties": {
+        "height_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Height Mm",
+          "type": "number"
+        },
+        "width_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Width Mm",
+          "type": "number"
+        },
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm",
+        "width_mm",
+        "height_mm"
+      ],
+      "title": "BoundsMM",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "asset_id": {
+      "title": "Asset Id",
+      "type": "string"
+    },
+    "bounds": {
+      "$ref": "#/$defs/BoundsMM"
+    },
+    "layer_id": {
+      "title": "Layer Id",
+      "type": "string"
+    },
+    "op": {
+      "const": "add_image",
+      "default": "add_image",
+      "title": "Op",
+      "type": "string"
+    },
+    "opacity": {
+      "default": 1.0,
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Opacity",
+      "type": "number"
+    },
+    "rotation_deg": {
+      "default": 0.0,
+      "title": "Rotation Deg",
+      "type": "number"
+    }
+  },
+  "required": [
+    "layer_id",
+    "asset_id",
+    "bounds"
+  ],
+  "title": "AddImageOp",
+  "type": "object"
+}

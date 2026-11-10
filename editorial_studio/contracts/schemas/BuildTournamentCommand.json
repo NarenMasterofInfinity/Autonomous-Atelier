@@ -1,0 +1,43 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "authored_reference_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 6,
+      "title": "Authored Reference Ids",
+      "type": "array"
+    },
+    "authored_reference_project": {
+      "default": "m10a-references",
+      "title": "Authored Reference Project",
+      "type": "string"
+    },
+    "identity_id": {
+      "title": "Identity Id",
+      "type": "string"
+    },
+    "kind": {
+      "const": "build_tournament",
+      "default": "build_tournament",
+      "title": "Kind",
+      "type": "string"
+    },
+    "mandate": {
+      "default": "Find the story's strongest visual expression.",
+      "title": "Mandate",
+      "type": "string"
+    },
+    "story_id": {
+      "title": "Story Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "story_id",
+    "identity_id"
+  ],
+  "title": "BuildTournamentCommand",
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+version: '1'
+max_image_pixels: 40000000
+analysis_max_edge: 1024
+sharpness_min: 45.0
+noise_max: 18.0
+contrast_min: 0.1
+native_ppi: 250
+review_ppi: 150
+negative_space_threshold: 0.22
+upscaler:
+  backend: fsrcnn
+  scale: 2
+  path: data/models/FSRCNN_x2.pb
+  sha256: 366b33f0084c7b3f2bf6724f0a2c77bca94fcec9d7b6d72389d330073b380d5c

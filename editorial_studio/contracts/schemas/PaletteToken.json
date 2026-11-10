@@ -1,0 +1,20 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "hex_color": {
+      "pattern": "^#[0-9a-fA-F]{6}$",
+      "title": "Hex Color",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "hex_color"
+  ],
+  "title": "PaletteToken",
+  "type": "object"
+}

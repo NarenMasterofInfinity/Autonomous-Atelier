@@ -1,0 +1,57 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "author": {
+      "title": "Author",
+      "type": "string"
+    },
+    "body_block_id": {
+      "title": "Body Block Id",
+      "type": "string"
+    },
+    "deck_block_id": {
+      "title": "Deck Block Id",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "photo_assessment_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Photo Assessment Ids",
+      "type": "array"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "source_revision_id": {
+      "title": "Source Revision Id",
+      "type": "string"
+    },
+    "title_block_id": {
+      "title": "Title Block Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "source_revision_id",
+    "title_block_id",
+    "deck_block_id",
+    "body_block_id",
+    "photo_assessment_ids",
+    "author",
+    "run_id"
+  ],
+  "title": "IngestedStory",
+  "type": "object"
+}

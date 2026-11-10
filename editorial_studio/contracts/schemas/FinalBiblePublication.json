@@ -1,0 +1,188 @@
+{
+  "$defs": {
+    "ArtDirectionBible": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_state": {
+          "enum": [
+            "provisional",
+            "final",
+            "revision_required"
+          ],
+          "title": "Approval State",
+          "type": "string"
+        },
+        "approved_visual_examples": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Approved Visual Examples",
+          "type": "array"
+        },
+        "artistic_boundaries": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Artistic Boundaries",
+          "type": "array"
+        },
+        "conceptual_identity": {
+          "title": "Conceptual Identity",
+          "type": "string"
+        },
+        "final_proof_spread_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Final Proof Spread Ids",
+          "type": "array"
+        },
+        "font_pairing_id": {
+          "title": "Font Pairing Id",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "narrative_progression": {
+          "items": {
+            "$ref": "#/$defs/IssuePhaseDirection"
+          },
+          "title": "Narrative Progression",
+          "type": "array"
+        },
+        "palette": {
+          "items": {
+            "$ref": "#/$defs/PaletteToken"
+          },
+          "title": "Palette",
+          "type": "array"
+        },
+        "photographic_character": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Photographic Character",
+          "type": "array"
+        },
+        "provisional_proof_spread_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Provisional Proof Spread Ids",
+          "type": "array"
+        },
+        "recurring_motifs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Recurring Motifs",
+          "type": "array"
+        },
+        "signature_behaviors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Signature Behaviors",
+          "type": "array"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "approval_state",
+        "conceptual_identity",
+        "font_pairing_id",
+        "palette",
+        "photographic_character",
+        "signature_behaviors",
+        "narrative_progression",
+        "recurring_motifs",
+        "artistic_boundaries",
+        "approved_visual_examples"
+      ],
+      "title": "ArtDirectionBible",
+      "type": "object"
+    },
+    "IssuePhaseDirection": {
+      "additionalProperties": false,
+      "properties": {
+        "emotional_role": {
+          "title": "Emotional Role",
+          "type": "string"
+        },
+        "phase_name": {
+          "title": "Phase Name",
+          "type": "string"
+        },
+        "visual_behavior": {
+          "title": "Visual Behavior",
+          "type": "string"
+        }
+      },
+      "required": [
+        "phase_name",
+        "emotional_role",
+        "visual_behavior"
+      ],
+      "title": "IssuePhaseDirection",
+      "type": "object"
+    },
+    "PaletteToken": {
+      "additionalProperties": false,
+      "properties": {
+        "hex_color": {
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "title": "Hex Color",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "hex_color"
+      ],
+      "title": "PaletteToken",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "bible": {
+      "$ref": "#/$defs/ArtDirectionBible"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "package_id": {
+      "title": "Package Id",
+      "type": "string"
+    },
+    "package_revision": {
+      "title": "Package Revision",
+      "type": "integer"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "package_id",
+    "package_revision",
+    "bible"
+  ],
+  "title": "FinalBiblePublication",
+  "type": "object"
+}

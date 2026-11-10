@@ -1,0 +1,122 @@
+{
+  "$defs": {
+    "CriticVerdict": {
+      "enum": [
+        "ACCEPT",
+        "REVISE",
+        "RECOMPOSE",
+        "RECONCEPT",
+        "REPLAN"
+      ],
+      "title": "CriticVerdict",
+      "type": "string"
+    },
+    "CritiqueFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "actionable_fix": {
+          "title": "Actionable Fix",
+          "type": "string"
+        },
+        "category": {
+          "title": "Category",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/$defs/Severity"
+        },
+        "target_layer_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Target Layer Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "category",
+        "severity",
+        "description",
+        "actionable_fix"
+      ],
+      "title": "CritiqueFinding",
+      "type": "object"
+    },
+    "RuleBreakEvaluation": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted": {
+          "title": "Accepted",
+          "type": "boolean"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        },
+        "rule": {
+          "title": "Rule",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule",
+        "accepted",
+        "reason"
+      ],
+      "title": "RuleBreakEvaluation",
+      "type": "object"
+    },
+    "Severity": {
+      "enum": [
+        "CRITICAL",
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ],
+      "title": "Severity",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/CritiqueFinding"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "rationale": {
+      "title": "Rationale",
+      "type": "string"
+    },
+    "rule_break_evaluations": {
+      "items": {
+        "$ref": "#/$defs/RuleBreakEvaluation"
+      },
+      "title": "Rule Break Evaluations",
+      "type": "array"
+    },
+    "score": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Score",
+      "type": "number"
+    },
+    "verdict": {
+      "$ref": "#/$defs/CriticVerdict"
+    }
+  },
+  "required": [
+    "verdict",
+    "score",
+    "findings",
+    "rationale"
+  ],
+  "title": "CriticAssessment",
+  "type": "object"
+}

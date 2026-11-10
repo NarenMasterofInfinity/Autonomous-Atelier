@@ -1,0 +1,19 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": "svg",
+      "default": "svg",
+      "title": "Format",
+      "type": "string"
+    },
+    "kind": {
+      "const": "text_path",
+      "default": "text_path",
+      "title": "Kind",
+      "type": "string"
+    }
+  },
+  "title": "TextPathOutputSpec",
+  "type": "object"
+}

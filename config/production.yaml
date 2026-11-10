@@ -1,0 +1,10 @@
+version: m10-v1
+page_width_mm: 210
+page_height_mm: 297
+bleed_mm: 3
+fold_safe_mm: 10
+minimum_native_ppi: 300
+geometry_tolerance_mm: 0.05
+verification_dpi: 96
+maximum_mean_channel_error: 3.0
+minimum_near_pixel_fraction: 0.94

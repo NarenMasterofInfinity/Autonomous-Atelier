@@ -1,0 +1,31 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "enum": [
+        "created",
+        "replaced",
+        "validated",
+        "rejected"
+      ],
+      "title": "Action",
+      "type": "string"
+    },
+    "artifact_id": {
+      "title": "Artifact Id",
+      "type": "string"
+    },
+    "kind": {
+      "const": "artifact",
+      "default": "artifact",
+      "title": "Kind",
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "action"
+  ],
+  "title": "ArtifactEvent",
+  "type": "object"
+}

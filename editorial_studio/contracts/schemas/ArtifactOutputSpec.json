@@ -1,0 +1,157 @@
+{
+  "$defs": {
+    "CompositeOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "editable_layer_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Editable Layer Ids",
+          "type": "array"
+        },
+        "kind": {
+          "const": "composite",
+          "default": "composite",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "editable_layer_ids"
+      ],
+      "title": "CompositeOutputSpec",
+      "type": "object"
+    },
+    "MaskOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "height_px": {
+          "exclusiveMinimum": 0,
+          "title": "Height Px",
+          "type": "integer"
+        },
+        "kind": {
+          "const": "mask",
+          "default": "mask",
+          "title": "Kind",
+          "type": "string"
+        },
+        "width_px": {
+          "exclusiveMinimum": 0,
+          "title": "Width Px",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "width_px",
+        "height_px"
+      ],
+      "title": "MaskOutputSpec",
+      "type": "object"
+    },
+    "RasterOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "alpha_required": {
+          "default": false,
+          "title": "Alpha Required",
+          "type": "boolean"
+        },
+        "height_px": {
+          "exclusiveMinimum": 0,
+          "title": "Height Px",
+          "type": "integer"
+        },
+        "kind": {
+          "const": "raster",
+          "default": "raster",
+          "title": "Kind",
+          "type": "string"
+        },
+        "width_px": {
+          "exclusiveMinimum": 0,
+          "title": "Width Px",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "width_px",
+        "height_px"
+      ],
+      "title": "RasterOutputSpec",
+      "type": "object"
+    },
+    "TextPathOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "format": {
+          "const": "svg",
+          "default": "svg",
+          "title": "Format",
+          "type": "string"
+        },
+        "kind": {
+          "const": "text_path",
+          "default": "text_path",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "title": "TextPathOutputSpec",
+      "type": "object"
+    },
+    "VectorOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "editable_paths_required": {
+          "default": true,
+          "title": "Editable Paths Required",
+          "type": "boolean"
+        },
+        "format": {
+          "const": "svg",
+          "default": "svg",
+          "title": "Format",
+          "type": "string"
+        },
+        "kind": {
+          "const": "vector",
+          "default": "vector",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "title": "VectorOutputSpec",
+      "type": "object"
+    }
+  },
+  "discriminator": {
+    "mapping": {
+      "composite": "#/$defs/CompositeOutputSpec",
+      "mask": "#/$defs/MaskOutputSpec",
+      "raster": "#/$defs/RasterOutputSpec",
+      "text_path": "#/$defs/TextPathOutputSpec",
+      "vector": "#/$defs/VectorOutputSpec"
+    },
+    "propertyName": "kind"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/RasterOutputSpec"
+    },
+    {
+      "$ref": "#/$defs/VectorOutputSpec"
+    },
+    {
+      "$ref": "#/$defs/MaskOutputSpec"
+    },
+    {
+      "$ref": "#/$defs/TextPathOutputSpec"
+    },
+    {
+      "$ref": "#/$defs/CompositeOutputSpec"
+    }
+  ]
+}

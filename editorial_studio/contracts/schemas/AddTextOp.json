@@ -1,0 +1,79 @@
+{
+  "$defs": {
+    "BoundsMM": {
+      "additionalProperties": false,
+      "properties": {
+        "height_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Height Mm",
+          "type": "number"
+        },
+        "width_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Width Mm",
+          "type": "number"
+        },
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm",
+        "width_mm",
+        "height_mm"
+      ],
+      "title": "BoundsMM",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "bounds": {
+      "$ref": "#/$defs/BoundsMM"
+    },
+    "derived_text_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Derived Text Id"
+    },
+    "layer_id": {
+      "title": "Layer Id",
+      "type": "string"
+    },
+    "op": {
+      "const": "add_text",
+      "default": "add_text",
+      "title": "Op",
+      "type": "string"
+    },
+    "style_name": {
+      "title": "Style Name",
+      "type": "string"
+    },
+    "text_content": {
+      "title": "Text Content",
+      "type": "string"
+    }
+  },
+  "required": [
+    "layer_id",
+    "text_content",
+    "style_name",
+    "bounds"
+  ],
+  "title": "AddTextOp",
+  "type": "object"
+}

@@ -1,0 +1,31 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "height_mm": {
+      "exclusiveMinimum": 0,
+      "title": "Height Mm",
+      "type": "number"
+    },
+    "width_mm": {
+      "exclusiveMinimum": 0,
+      "title": "Width Mm",
+      "type": "number"
+    },
+    "x_mm": {
+      "title": "X Mm",
+      "type": "number"
+    },
+    "y_mm": {
+      "title": "Y Mm",
+      "type": "number"
+    }
+  },
+  "required": [
+    "x_mm",
+    "y_mm",
+    "width_mm",
+    "height_mm"
+  ],
+  "title": "BoundsMM",
+  "type": "object"
+}

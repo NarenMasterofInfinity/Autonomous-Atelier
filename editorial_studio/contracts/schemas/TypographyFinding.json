@@ -1,0 +1,46 @@
+{
+  "$defs": {
+    "Severity": {
+      "enum": [
+        "CRITICAL",
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ],
+      "title": "Severity",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "enum": [
+        "UNSUPPORTED_SCRIPT",
+        "FONT_FALLBACK",
+        "PATH_OVERFLOW",
+        "TEXT_OVERFLOW",
+        "UNREADABLE_ORIENTATION",
+        "SHAPE_COLLISION",
+        "UNSATISFIED_WIDOW_ORPHAN",
+        "NARROW_LINE_REGION",
+        "GLYPH_MAPPING_FAILURE"
+      ],
+      "title": "Code",
+      "type": "string"
+    },
+    "detail": {
+      "title": "Detail",
+      "type": "string"
+    },
+    "severity": {
+      "$ref": "#/$defs/Severity"
+    }
+  },
+  "required": [
+    "code",
+    "severity",
+    "detail"
+  ],
+  "title": "TypographyFinding",
+  "type": "object"
+}

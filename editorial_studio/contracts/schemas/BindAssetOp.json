@@ -1,0 +1,42 @@
+{
+  "$defs": {
+    "AssetType": {
+      "enum": [
+        "raster",
+        "vector",
+        "mask",
+        "text_path",
+        "composite"
+      ],
+      "title": "AssetType",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "asset_id": {
+      "title": "Asset Id",
+      "type": "string"
+    },
+    "asset_type": {
+      "$ref": "#/$defs/AssetType"
+    },
+    "layer_id": {
+      "title": "Layer Id",
+      "type": "string"
+    },
+    "op": {
+      "const": "bind_asset",
+      "default": "bind_asset",
+      "title": "Op",
+      "type": "string"
+    }
+  },
+  "required": [
+    "layer_id",
+    "asset_id",
+    "asset_type"
+  ],
+  "title": "BindAssetOp",
+  "type": "object"
+}

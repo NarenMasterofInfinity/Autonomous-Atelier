@@ -1,0 +1,34 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "expected_parent_version": {
+      "title": "Expected Parent Version",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "restored_version": {
+      "title": "Restored Version",
+      "type": "string"
+    },
+    "scene_id": {
+      "title": "Scene Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "scene_id",
+    "project_id",
+    "expected_parent_version",
+    "restored_version"
+  ],
+  "title": "SnapshotRollback",
+  "type": "object"
+}

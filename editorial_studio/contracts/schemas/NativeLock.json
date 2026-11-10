@@ -1,0 +1,38 @@
+{
+  "$defs": {
+    "NativeLibrary": {
+      "additionalProperties": false,
+      "properties": {
+        "filename": {
+          "title": "Filename",
+          "type": "string"
+        },
+        "sha256": {
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "filename",
+        "sha256"
+      ],
+      "title": "NativeLibrary",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "libraries": {
+      "items": {
+        "$ref": "#/$defs/NativeLibrary"
+      },
+      "title": "Libraries",
+      "type": "array"
+    }
+  },
+  "required": [
+    "libraries"
+  ],
+  "title": "NativeLock",
+  "type": "object"
+}

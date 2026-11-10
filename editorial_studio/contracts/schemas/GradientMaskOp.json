@@ -1,0 +1,90 @@
+{
+  "$defs": {
+    "GradientStop": {
+      "additionalProperties": false,
+      "properties": {
+        "offset": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Offset",
+          "type": "number"
+        },
+        "opacity": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Opacity",
+          "type": "number"
+        }
+      },
+      "required": [
+        "offset",
+        "opacity"
+      ],
+      "title": "GradientStop",
+      "type": "object"
+    },
+    "PointMM": {
+      "additionalProperties": false,
+      "properties": {
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm"
+      ],
+      "title": "PointMM",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "end": {
+      "$ref": "#/$defs/PointMM"
+    },
+    "gradient_type": {
+      "enum": [
+        "linear",
+        "radial"
+      ],
+      "title": "Gradient Type",
+      "type": "string"
+    },
+    "op": {
+      "const": "gradient_mask",
+      "default": "gradient_mask",
+      "title": "Op",
+      "type": "string"
+    },
+    "start": {
+      "$ref": "#/$defs/PointMM"
+    },
+    "stops": {
+      "items": {
+        "$ref": "#/$defs/GradientStop"
+      },
+      "minItems": 2,
+      "title": "Stops",
+      "type": "array"
+    },
+    "target_layer_id": {
+      "title": "Target Layer Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "target_layer_id",
+    "gradient_type",
+    "start",
+    "end",
+    "stops"
+  ],
+  "title": "GradientMaskOp",
+  "type": "object"
+}

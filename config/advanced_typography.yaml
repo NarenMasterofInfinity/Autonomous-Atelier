@@ -1,0 +1,5 @@
+curve_flatness_mm: 0.002
+curve_max_depth: 20
+minimum_line_width_mm: 15
+flow_clearance_mm: 0.5
+maximum_flow_lines: 1000

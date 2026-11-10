@@ -1,0 +1,36 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "end_char": {
+      "minimum": 0,
+      "title": "End Char",
+      "type": "integer"
+    },
+    "field": {
+      "enum": [
+        "title",
+        "deck",
+        "body"
+      ],
+      "title": "Field",
+      "type": "string"
+    },
+    "layer_id": {
+      "title": "Layer Id",
+      "type": "string"
+    },
+    "start_char": {
+      "minimum": 0,
+      "title": "Start Char",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "field",
+    "layer_id",
+    "start_char",
+    "end_char"
+  ],
+  "title": "TextPlacement",
+  "type": "object"
+}

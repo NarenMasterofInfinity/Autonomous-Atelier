@@ -1,0 +1,21 @@
+version: '2026-11-09-openai-standard-v1'
+verified_at: '2026-11-09'
+source_urls:
+  - https://developers.openai.com/api/docs/models/gpt-6-luna
+  - https://developers.openai.com/api/docs/models/gpt-image-2
+  - https://developers.openai.com/api/docs/pricing
+# USD per million tokens. Unknown components stay null. Standard short-context only.
+models:
+  gpt-6-luna:
+    modality: text
+    input: 0.10
+    cached_input: 0.01
+    output: 0.50
+    cache_write: 0.125
+    max_standard_input_tokens: 272000
+  gpt-image-2:
+    modality: image
+    text_input: 2.50
+    image_input: 4.00
+    image_output: 15.00
+    # Image cached components are kept in raw usage. Unknown cached splits produce unknown cost.

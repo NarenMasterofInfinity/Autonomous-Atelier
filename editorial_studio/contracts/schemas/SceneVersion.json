@@ -1,0 +1,103 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "document_asset_id": {
+      "title": "Document Asset Id",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "metadata_asset_id": {
+      "title": "Metadata Asset Id",
+      "type": "string"
+    },
+    "parent_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Parent Version"
+    },
+    "patch_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Patch Id"
+    },
+    "pdf_asset_id": {
+      "title": "Pdf Asset Id",
+      "type": "string"
+    },
+    "png_asset_id": {
+      "title": "Png Asset Id",
+      "type": "string"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "run_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Run Id"
+    },
+    "scene_id": {
+      "title": "Scene Id",
+      "type": "string"
+    },
+    "snapshot_asset_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Snapshot Asset Id"
+    },
+    "version": {
+      "title": "Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "scene_id",
+    "version",
+    "parent_version",
+    "document_asset_id",
+    "png_asset_id",
+    "pdf_asset_id",
+    "metadata_asset_id",
+    "created_at"
+  ],
+  "title": "SceneVersion",
+  "type": "object"
+}

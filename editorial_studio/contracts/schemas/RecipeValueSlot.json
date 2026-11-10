@@ -1,0 +1,20 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "slot_ref",
+      "default": "slot_ref",
+      "title": "Kind",
+      "type": "string"
+    },
+    "slot_name": {
+      "title": "Slot Name",
+      "type": "string"
+    }
+  },
+  "required": [
+    "slot_name"
+  ],
+  "title": "RecipeValueSlot",
+  "type": "object"
+}

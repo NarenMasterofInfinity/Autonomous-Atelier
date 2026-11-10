@@ -1,0 +1,101 @@
+{
+  "$defs": {
+    "CompositionUnit": {
+      "enum": [
+        "single_page",
+        "facing_spread",
+        "multi_spread",
+        "cover"
+      ],
+      "title": "CompositionUnit",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "art_direction_bible_id": {
+      "title": "Art Direction Bible Id",
+      "type": "string"
+    },
+    "assigned_photo_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Assigned Photo Ids",
+      "type": "array"
+    },
+    "assigned_story_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Assigned Story Ids",
+      "type": "array"
+    },
+    "composition_unit": {
+      "$ref": "#/$defs/CompositionUnit"
+    },
+    "narrative_role": {
+      "title": "Narrative Role",
+      "type": "string"
+    },
+    "next_spread_thumbnail_asset_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Next Spread Thumbnail Asset Id"
+    },
+    "physical_page_numbers": {
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 1,
+      "title": "Physical Page Numbers",
+      "type": "array"
+    },
+    "previous_spread_thumbnail_asset_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Previous Spread Thumbnail Asset Id"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "reference_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reference Ids",
+      "type": "array"
+    },
+    "spread_id": {
+      "title": "Spread Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "project_id",
+    "spread_id",
+    "composition_unit",
+    "assigned_story_ids",
+    "assigned_photo_ids",
+    "narrative_role",
+    "physical_page_numbers",
+    "art_direction_bible_id"
+  ],
+  "title": "SpreadBrief",
+  "type": "object"
+}

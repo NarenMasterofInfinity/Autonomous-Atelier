@@ -1,0 +1,51 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "assets": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Assets",
+      "type": "object"
+    },
+    "boxes_px": {
+      "additionalProperties": {
+        "maxItems": 4,
+        "minItems": 4,
+        "prefixItems": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "integer"
+          }
+        ],
+        "type": "array"
+      },
+      "title": "Boxes Px",
+      "type": "object"
+    },
+    "dpi": {
+      "title": "Dpi",
+      "type": "number"
+    },
+    "source_png_asset_id": {
+      "title": "Source Png Asset Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "source_png_asset_id",
+    "dpi",
+    "assets",
+    "boxes_px"
+  ],
+  "title": "NativeViews",
+  "type": "object"
+}

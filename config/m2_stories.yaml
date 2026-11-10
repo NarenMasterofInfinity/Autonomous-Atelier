@@ -1,0 +1,35 @@
+stories:
+  - id: quiet-rooms
+    title: Rooms for slow afternoons
+    deck: An ordinary interior becomes a place to notice light, texture, and the passage of time.
+    author: Studio fixture
+    section: Spaces
+    layout: feature
+    paragraphs:
+      - A room changes before anything in it moves. Sunlight crosses the floor, reaches the edge of a table, and withdraws into the wall. The objects remain familiar, yet their relationships are briefly new. A chair becomes a silhouette. A doorway becomes a frame. The empty interval between them begins to feel deliberate.
+      - Looking closely asks for less equipment than we imagine. It asks for a pause long enough to see a surface without naming its material, and a little patience with the ordinary. The grain of plaster and the soft edge of a shadow can hold our attention without becoming a spectacle.
+      - By late afternoon, the room has returned to itself. Nothing has been added. The cup, the chair, and the doorway are still where we left them. What has changed is the care with which we can see them. That attention, small and repeatable, is the beginning of a different kind of richness.
+  - id: useful-objects
+    title: The life of useful things
+    deck: Repair, memory, and the quiet pleasure of keeping an object in service.
+    author: Studio fixture
+    section: Essays
+    layout: essay
+    paragraphs:
+      - The handle on the kitchen drawer has been repaired twice. Its surface carries a line from the first attempt and a different color of finish from the second. Neither repair is invisible. Together they make a record of use that a new handle could not offer. The drawer still opens easily, and the small difference in its appearance has become part of the room.
+      - We often speak about keeping things as a decision made once. In practice it is a sequence of decisions. We tighten a screw, replace a cord, turn a piece of cloth, or learn which part has worn away. Each action returns the object to daily life. Each also makes its construction a little more legible. What first seemed like a single thing reveals a structure of parts and choices.
+      - This kind of attention need not become an argument against change. Some objects cannot be repaired safely. Others no longer serve the person who owns them. Keeping everything would leave no space to live. The useful distinction lies between an object that has reached its end and an object that has merely become less convenient to understand. The second sometimes needs a question before it needs a replacement.
+      - A repair shop makes those questions visible. The shelves hold lamps, bags, radios, and chairs that have temporarily stopped working. Their owners arrive with different explanations and leave with a clearer account of what happened. A broken joint can tell us how weight travels. A worn seam can show where movement is concentrated. The fault becomes information rather than a final verdict.
+      - Objects also gather memories without becoming monuments. A bowl can remind us of a particular breakfast while remaining available for the next one. A repaired jacket can carry the memory of a trip while continuing to keep out the wind. Use protects these associations from becoming too precious. The object stays among other objects, connected to a life that is still unfolding.
+      - The drawer handle will probably need attention again. When it does, the next repair may look different from the last. That possibility is not a failure of the earlier work. It is a reminder that maintenance belongs to time. A useful thing does not have to remain unchanged to remain useful. It needs a way to continue, and someone willing to notice when that way has become difficult.
+  - id: shared-table
+    title: A place at the table
+    deck: A conversation about making room for neighbors without making a performance of hospitality.
+    author: Studio fixture
+    section: Conversations
+    layout: interview
+    paragraphs:
+      - "Q: What makes a table welcoming? A: Usually something small. A chair that is easy to reach, enough light to see the person opposite, and a clear invitation to stay. The arrangement matters because it tells people what they can do before anyone has to explain it."
+      - "Q: Do you prepare differently for familiar guests? A: We prepare less, but we pay attention in the same way. Familiarity makes it easier to remember how someone likes their tea. It should not make us stop asking what they need today. A habit can be generous when it remains open to correction."
+      - "Q: What happens when more people arrive? A: The table changes. Another plate appears, a bench moves, and the conversation shifts with the seating. We try to keep the practical adjustments visible and unremarkable. Making room is part of the gathering rather than an interruption to it."
+      - "Q: What do you hope people remember? A: Not the exact meal or the arrangement of the room. We hope they remember being able to take part. A good table makes participation feel ordinary. It gives everyone a way into the conversation and a reason to return."

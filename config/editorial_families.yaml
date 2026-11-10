@@ -1,0 +1,92 @@
+version: m10a-v1
+families:
+  - id: photo-overlay
+    version: 1
+    name: Photographic display overlay
+    principle: Large typography occupies the photograph's own space and responds to its light and subject.
+    reference_ids: [citizen-14, guggenheim-07]
+    capability_ids: [CAP_07]
+    suitability: [Photographic negative space or controlled contrast zones]
+    composition_rules: [Display type overlaps actual photographic pixels, Keep essential subjects and words recognizable, Use supporting copy as a secondary scale]
+    avoid: [A photo rectangle next to a detached headline]
+  - id: foreground-depth
+    version: 1
+    name: Registered foreground depth
+    principle: One crop contains atmosphere, type and an exactly registered foreground subject.
+    reference_ids: [citizen-14]
+    capability_ids: [CAP_02, CAP_08]
+    suitability: [A reliable foreground alpha and recognizable subject]
+    composition_rules: [Background then display then foreground, Match photograph and cutout geometry, Protect face and word recognition]
+    avoid: [A floating cutout with no shared photographic context]
+  - id: monumental-type
+    version: 1
+    name: Monumental condensed field
+    principle: Giant words become the spread's organizing architecture.
+    reference_ids: [citizen-16, 413-05]
+    capability_ids: [CAP_03]
+    suitability: [Short title with strong word shapes]
+    composition_rules: [Commit to display scale, Arrange exact word groups deliberately, Integrate an image across the typographic field]
+    avoid: [Automatically shrinking a large headline to a small label]
+  - id: editorial-serif
+    version: 1
+    name: Expressive editorial serif
+    principle: Large serif and italic shapes contrast with photographic geometry and small supporting type.
+    reference_ids: [citizen-27, guggenheim-05]
+    capability_ids: []
+    suitability: [A clear photograph and a short headline]
+    composition_rules: [Use a large serif gesture, Contrast roman and italic or weight intentionally, Keep photograph and display related]
+    avoid: [Unrelated fonts on every line]
+  - id: outline-hybrid
+    version: 1
+    name: Solid and outline contrast
+    principle: A photograph passes through the open counters and strokes of large outlined lettering.
+    reference_ids: [citizen-12, 413-05]
+    capability_ids: [CAP_03]
+    suitability: [Strong letterforms and readable photographic contrast]
+    composition_rules: [Combine outline with a solid typographic anchor, Inspect stroke edges at native scale]
+    avoid: [Thin unreadable lettering over busy detail]
+  - id: image-lettering
+    version: 1
+    name: Photographic letterforms
+    principle: The photograph becomes the material of monumental letters.
+    reference_ids: [413-05, citizen-12]
+    capability_ids: [CAP_06]
+    suitability: [Large robust display shapes and detailed source photography]
+    composition_rules: [Clip photograph to actual shaped glyph paths, Preserve source-bound hidden lettering in the editable scene, Give image-filled words decisive scale]
+    avoid: [Tiny photo-filled text]
+  - id: contour-flow
+    version: 1
+    name: Contour and silhouette composition
+    principle: The subject's outline organizes adjacent reading and display shapes.
+    reference_ids: [citizen-14, guggenheim-06]
+    capability_ids: [CAP_01]
+    suitability: [A clean silhouette with enough reading space]
+    composition_rules: [Use actual alpha-derived contour, Preserve comfortable reading measure, Keep a strong display anchor]
+    avoid: [Decorative curves unrelated to the subject]
+  - id: editorial-collage
+    version: 1
+    name: Related photographic fragments
+    principle: Several related views form one composition through shared edges and a typographic anchor.
+    reference_ids: [guggenheim-05, citizen-12]
+    capability_ids: [CAP_09]
+    suitability: [A source with useful contrasting crops]
+    composition_rules: [Use deliberate crop relationships, Connect fragments through alignment or type, Retain one dominant anchor]
+    avoid: [An arbitrary grid of photo cards]
+  - id: reversed-field
+    version: 1
+    name: Reversed photographic field
+    principle: Light display type and photographic shadow form one dark field.
+    reference_ids: [citizen-10, citizen-11, 413-06]
+    capability_ids: [CAP_08]
+    suitability: [Dark photographic areas or a natural tonal transition]
+    composition_rules: [Use light type at confident scale, Blend image atmosphere into the field, Inspect local type contrast]
+    avoid: [Grey unreadable body text]
+  - id: directional-type
+    version: 1
+    name: Directional typographic composition
+    principle: Vertical or turned display shapes guide the eye through the photograph.
+    reference_ids: [citizen-20, 413-07]
+    capability_ids: [CAP_03]
+    suitability: [A photograph with a clear edge or direction]
+    composition_rules: [One strong directional display gesture, Keep reading type upright, Preserve exact source groups]
+    avoid: [Rotating all text without a compositional purpose]

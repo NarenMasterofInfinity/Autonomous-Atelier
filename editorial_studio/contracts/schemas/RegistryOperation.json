@@ -1,0 +1,1238 @@
+{
+  "$defs": {
+    "AddImageOp": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "bounds": {
+          "$ref": "#/$defs/BoundsMM"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "add_image",
+          "default": "add_image",
+          "title": "Op",
+          "type": "string"
+        },
+        "opacity": {
+          "default": 1.0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Opacity",
+          "type": "number"
+        },
+        "rotation_deg": {
+          "default": 0.0,
+          "title": "Rotation Deg",
+          "type": "number"
+        }
+      },
+      "required": [
+        "layer_id",
+        "asset_id",
+        "bounds"
+      ],
+      "title": "AddImageOp",
+      "type": "object"
+    },
+    "AddPathOp": {
+      "additionalProperties": false,
+      "properties": {
+        "fill_color": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fill Color"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "add_path",
+          "default": "add_path",
+          "title": "Op",
+          "type": "string"
+        },
+        "path": {
+          "$ref": "#/$defs/PathGeometry"
+        },
+        "stroke_color": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Stroke Color"
+        },
+        "stroke_width_mm": {
+          "default": 0.5,
+          "minimum": 0,
+          "title": "Stroke Width Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "layer_id",
+        "path"
+      ],
+      "title": "AddPathOp",
+      "type": "object"
+    },
+    "AddTextOp": {
+      "additionalProperties": false,
+      "properties": {
+        "bounds": {
+          "$ref": "#/$defs/BoundsMM"
+        },
+        "derived_text_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Derived Text Id"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "add_text",
+          "default": "add_text",
+          "title": "Op",
+          "type": "string"
+        },
+        "style_name": {
+          "title": "Style Name",
+          "type": "string"
+        },
+        "text_content": {
+          "title": "Text Content",
+          "type": "string"
+        }
+      },
+      "required": [
+        "layer_id",
+        "text_content",
+        "style_name",
+        "bounds"
+      ],
+      "title": "AddTextOp",
+      "type": "object"
+    },
+    "ApplyFilterOp": {
+      "additionalProperties": false,
+      "properties": {
+        "filter": {
+          "discriminator": {
+            "mapping": {
+              "blur": "#/$defs/BlurFilter",
+              "grain": "#/$defs/GrainFilter",
+              "halftone": "#/$defs/HalftoneFilter",
+              "shadow": "#/$defs/ShadowFilter"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/BlurFilter"
+            },
+            {
+              "$ref": "#/$defs/ShadowFilter"
+            },
+            {
+              "$ref": "#/$defs/GrainFilter"
+            },
+            {
+              "$ref": "#/$defs/HalftoneFilter"
+            }
+          ],
+          "title": "Filter"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "apply_filter",
+          "default": "apply_filter",
+          "title": "Op",
+          "type": "string"
+        }
+      },
+      "required": [
+        "layer_id",
+        "filter"
+      ],
+      "title": "ApplyFilterOp",
+      "type": "object"
+    },
+    "ApplyMaskOp": {
+      "additionalProperties": false,
+      "properties": {
+        "invert": {
+          "default": false,
+          "title": "Invert",
+          "type": "boolean"
+        },
+        "mask_asset_id": {
+          "title": "Mask Asset Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "apply_mask",
+          "default": "apply_mask",
+          "title": "Op",
+          "type": "string"
+        },
+        "target_layer_id": {
+          "title": "Target Layer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_layer_id",
+        "mask_asset_id"
+      ],
+      "title": "ApplyMaskOp",
+      "type": "object"
+    },
+    "AssetType": {
+      "enum": [
+        "raster",
+        "vector",
+        "mask",
+        "text_path",
+        "composite"
+      ],
+      "title": "AssetType",
+      "type": "string"
+    },
+    "BindAssetOp": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "asset_type": {
+          "$ref": "#/$defs/AssetType"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "bind_asset",
+          "default": "bind_asset",
+          "title": "Op",
+          "type": "string"
+        }
+      },
+      "required": [
+        "layer_id",
+        "asset_id",
+        "asset_type"
+      ],
+      "title": "BindAssetOp",
+      "type": "object"
+    },
+    "BlendMode": {
+      "enum": [
+        "normal",
+        "multiply",
+        "screen",
+        "overlay",
+        "darken",
+        "lighten"
+      ],
+      "title": "BlendMode",
+      "type": "string"
+    },
+    "BlurFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "blur",
+          "default": "blur",
+          "title": "Kind",
+          "type": "string"
+        },
+        "radius_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Radius Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "radius_mm"
+      ],
+      "title": "BlurFilter",
+      "type": "object"
+    },
+    "BooleanPathOp": {
+      "additionalProperties": false,
+      "properties": {
+        "op": {
+          "const": "boolean_path",
+          "default": "boolean_path",
+          "title": "Op",
+          "type": "string"
+        },
+        "operand_layer_id": {
+          "title": "Operand Layer Id",
+          "type": "string"
+        },
+        "operation_type": {
+          "enum": [
+            "union",
+            "difference",
+            "intersection"
+          ],
+          "title": "Operation Type",
+          "type": "string"
+        },
+        "target_layer_id": {
+          "title": "Target Layer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_layer_id",
+        "operand_layer_id",
+        "operation_type"
+      ],
+      "title": "BooleanPathOp",
+      "type": "object"
+    },
+    "BoundsMM": {
+      "additionalProperties": false,
+      "properties": {
+        "height_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Height Mm",
+          "type": "number"
+        },
+        "width_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Width Mm",
+          "type": "number"
+        },
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm",
+        "width_mm",
+        "height_mm"
+      ],
+      "title": "BoundsMM",
+      "type": "object"
+    },
+    "ClipToPathOp": {
+      "additionalProperties": false,
+      "properties": {
+        "op": {
+          "const": "clip_to_path",
+          "default": "clip_to_path",
+          "title": "Op",
+          "type": "string"
+        },
+        "path": {
+          "$ref": "#/$defs/PathGeometry"
+        },
+        "target_layer_id": {
+          "title": "Target Layer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_layer_id",
+        "path"
+      ],
+      "title": "ClipToPathOp",
+      "type": "object"
+    },
+    "ClosePath": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "Z",
+          "default": "Z",
+          "title": "Cmd",
+          "type": "string"
+        }
+      },
+      "title": "ClosePath",
+      "type": "object"
+    },
+    "ColorAdjustOp": {
+      "additionalProperties": false,
+      "properties": {
+        "brightness": {
+          "default": 0.0,
+          "maximum": 1,
+          "minimum": -1,
+          "title": "Brightness",
+          "type": "number"
+        },
+        "contrast": {
+          "default": 1.0,
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Contrast",
+          "type": "number"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "color_adjust",
+          "default": "color_adjust",
+          "title": "Op",
+          "type": "string"
+        },
+        "saturation": {
+          "default": 1.0,
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Saturation",
+          "type": "number"
+        }
+      },
+      "required": [
+        "layer_id"
+      ],
+      "title": "ColorAdjustOp",
+      "type": "object"
+    },
+    "CreateGroupOp": {
+      "additionalProperties": false,
+      "properties": {
+        "group_layer_id": {
+          "title": "Group Layer Id",
+          "type": "string"
+        },
+        "member_layer_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Member Layer Ids",
+          "type": "array"
+        },
+        "op": {
+          "const": "create_group",
+          "default": "create_group",
+          "title": "Op",
+          "type": "string"
+        }
+      },
+      "required": [
+        "group_layer_id",
+        "member_layer_ids"
+      ],
+      "title": "CreateGroupOp",
+      "type": "object"
+    },
+    "CubicTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "C",
+          "default": "C",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "control1": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "control2": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "control1",
+        "control2",
+        "p"
+      ],
+      "title": "CubicTo",
+      "type": "object"
+    },
+    "DisplacementMapOp": {
+      "additionalProperties": false,
+      "properties": {
+        "map_asset_id": {
+          "title": "Map Asset Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "displacement_map",
+          "default": "displacement_map",
+          "title": "Op",
+          "type": "string"
+        },
+        "scale_mm": {
+          "minimum": 0,
+          "title": "Scale Mm",
+          "type": "number"
+        },
+        "target_layer_id": {
+          "title": "Target Layer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_layer_id",
+        "map_asset_id",
+        "scale_mm"
+      ],
+      "title": "DisplacementMapOp",
+      "type": "object"
+    },
+    "EditPathOp": {
+      "additionalProperties": false,
+      "properties": {
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "edit_path",
+          "default": "edit_path",
+          "title": "Op",
+          "type": "string"
+        },
+        "path": {
+          "$ref": "#/$defs/PathGeometry"
+        }
+      },
+      "required": [
+        "layer_id",
+        "path"
+      ],
+      "title": "EditPathOp",
+      "type": "object"
+    },
+    "FlowTextIntoShapeOp": {
+      "additionalProperties": false,
+      "properties": {
+        "boundary": {
+          "$ref": "#/$defs/PathGeometry"
+        },
+        "exclusion_paths": {
+          "items": {
+            "$ref": "#/$defs/PathGeometry"
+          },
+          "title": "Exclusion Paths",
+          "type": "array"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "flow_text_into_shape",
+          "default": "flow_text_into_shape",
+          "title": "Op",
+          "type": "string"
+        },
+        "style_name": {
+          "title": "Style Name",
+          "type": "string"
+        },
+        "text_content": {
+          "title": "Text Content",
+          "type": "string"
+        }
+      },
+      "required": [
+        "layer_id",
+        "text_content",
+        "style_name",
+        "boundary"
+      ],
+      "title": "FlowTextIntoShapeOp",
+      "type": "object"
+    },
+    "GlyphTransform": {
+      "additionalProperties": false,
+      "properties": {
+        "dx_mm": {
+          "default": 0.0,
+          "title": "Dx Mm",
+          "type": "number"
+        },
+        "dy_mm": {
+          "default": 0.0,
+          "title": "Dy Mm",
+          "type": "number"
+        },
+        "glyph_index": {
+          "minimum": 0,
+          "title": "Glyph Index",
+          "type": "integer"
+        },
+        "rotation_deg": {
+          "default": 0.0,
+          "title": "Rotation Deg",
+          "type": "number"
+        },
+        "scale_x": {
+          "default": 1.0,
+          "exclusiveMinimum": 0,
+          "title": "Scale X",
+          "type": "number"
+        },
+        "scale_y": {
+          "default": 1.0,
+          "exclusiveMinimum": 0,
+          "title": "Scale Y",
+          "type": "number"
+        }
+      },
+      "required": [
+        "glyph_index"
+      ],
+      "title": "GlyphTransform",
+      "type": "object"
+    },
+    "GradientMaskOp": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "gradient_type": {
+          "enum": [
+            "linear",
+            "radial"
+          ],
+          "title": "Gradient Type",
+          "type": "string"
+        },
+        "op": {
+          "const": "gradient_mask",
+          "default": "gradient_mask",
+          "title": "Op",
+          "type": "string"
+        },
+        "start": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "stops": {
+          "items": {
+            "$ref": "#/$defs/GradientStop"
+          },
+          "minItems": 2,
+          "title": "Stops",
+          "type": "array"
+        },
+        "target_layer_id": {
+          "title": "Target Layer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_layer_id",
+        "gradient_type",
+        "start",
+        "end",
+        "stops"
+      ],
+      "title": "GradientMaskOp",
+      "type": "object"
+    },
+    "GradientStop": {
+      "additionalProperties": false,
+      "properties": {
+        "offset": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Offset",
+          "type": "number"
+        },
+        "opacity": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Opacity",
+          "type": "number"
+        }
+      },
+      "required": [
+        "offset",
+        "opacity"
+      ],
+      "title": "GradientStop",
+      "type": "object"
+    },
+    "GrainFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "grain",
+          "default": "grain",
+          "title": "Kind",
+          "type": "string"
+        },
+        "random_seed": {
+          "title": "Random Seed",
+          "type": "integer"
+        },
+        "strength": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Strength",
+          "type": "number"
+        }
+      },
+      "required": [
+        "strength",
+        "random_seed"
+      ],
+      "title": "GrainFilter",
+      "type": "object"
+    },
+    "HalftoneFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "angle_deg": {
+          "default": 0.0,
+          "title": "Angle Deg",
+          "type": "number"
+        },
+        "dot_spacing_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Dot Spacing Mm",
+          "type": "number"
+        },
+        "kind": {
+          "const": "halftone",
+          "default": "halftone",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "dot_spacing_mm"
+      ],
+      "title": "HalftoneFilter",
+      "type": "object"
+    },
+    "LineTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "L",
+          "default": "L",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "LineTo",
+      "type": "object"
+    },
+    "MoveTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "M",
+          "default": "M",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "MoveTo",
+      "type": "object"
+    },
+    "PathGeometry": {
+      "additionalProperties": false,
+      "properties": {
+        "commands": {
+          "items": {
+            "discriminator": {
+              "mapping": {
+                "C": "#/$defs/CubicTo",
+                "L": "#/$defs/LineTo",
+                "M": "#/$defs/MoveTo",
+                "Q": "#/$defs/QuadraticTo",
+                "Z": "#/$defs/ClosePath"
+              },
+              "propertyName": "cmd"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/MoveTo"
+              },
+              {
+                "$ref": "#/$defs/LineTo"
+              },
+              {
+                "$ref": "#/$defs/QuadraticTo"
+              },
+              {
+                "$ref": "#/$defs/CubicTo"
+              },
+              {
+                "$ref": "#/$defs/ClosePath"
+              }
+            ]
+          },
+          "minItems": 2,
+          "title": "Commands",
+          "type": "array"
+        },
+        "fill_rule": {
+          "default": "nonzero",
+          "enum": [
+            "nonzero",
+            "evenodd"
+          ],
+          "title": "Fill Rule",
+          "type": "string"
+        }
+      },
+      "required": [
+        "commands"
+      ],
+      "title": "PathGeometry",
+      "type": "object"
+    },
+    "PointMM": {
+      "additionalProperties": false,
+      "properties": {
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm"
+      ],
+      "title": "PointMM",
+      "type": "object"
+    },
+    "QuadraticTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "Q",
+          "default": "Q",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "control": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "control",
+        "p"
+      ],
+      "title": "QuadraticTo",
+      "type": "object"
+    },
+    "SetBlendModeOp": {
+      "additionalProperties": false,
+      "properties": {
+        "blend_mode": {
+          "$ref": "#/$defs/BlendMode"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "set_blend_mode",
+          "default": "set_blend_mode",
+          "title": "Op",
+          "type": "string"
+        }
+      },
+      "required": [
+        "layer_id",
+        "blend_mode"
+      ],
+      "title": "SetBlendModeOp",
+      "type": "object"
+    },
+    "SetClipStackOp": {
+      "additionalProperties": false,
+      "properties": {
+        "clip_path_layer_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Clip Path Layer Ids",
+          "type": "array"
+        },
+        "op": {
+          "const": "set_clip_stack",
+          "default": "set_clip_stack",
+          "title": "Op",
+          "type": "string"
+        },
+        "target_layer_id": {
+          "title": "Target Layer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_layer_id",
+        "clip_path_layer_ids"
+      ],
+      "title": "SetClipStackOp",
+      "type": "object"
+    },
+    "SetGlyphTransformsOp": {
+      "additionalProperties": false,
+      "properties": {
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "set_glyph_transforms",
+          "default": "set_glyph_transforms",
+          "title": "Op",
+          "type": "string"
+        },
+        "transforms": {
+          "items": {
+            "$ref": "#/$defs/GlyphTransform"
+          },
+          "minItems": 1,
+          "title": "Transforms",
+          "type": "array"
+        }
+      },
+      "required": [
+        "layer_id",
+        "transforms"
+      ],
+      "title": "SetGlyphTransformsOp",
+      "type": "object"
+    },
+    "SetOpacityOp": {
+      "additionalProperties": false,
+      "properties": {
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "set_opacity",
+          "default": "set_opacity",
+          "title": "Op",
+          "type": "string"
+        },
+        "opacity": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Opacity",
+          "type": "number"
+        }
+      },
+      "required": [
+        "layer_id",
+        "opacity"
+      ],
+      "title": "SetOpacityOp",
+      "type": "object"
+    },
+    "SetZIndexOp": {
+      "additionalProperties": false,
+      "properties": {
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "set_z_index",
+          "default": "set_z_index",
+          "title": "Op",
+          "type": "string"
+        },
+        "z_index": {
+          "title": "Z Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "layer_id",
+        "z_index"
+      ],
+      "title": "SetZIndexOp",
+      "type": "object"
+    },
+    "ShadowFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "shadow",
+          "default": "shadow",
+          "title": "Kind",
+          "type": "string"
+        },
+        "offset": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "radius_mm": {
+          "minimum": 0,
+          "title": "Radius Mm",
+          "type": "number"
+        },
+        "rgba_hex": {
+          "pattern": "^#[0-9a-fA-F]{8}$",
+          "title": "Rgba Hex",
+          "type": "string"
+        }
+      },
+      "required": [
+        "offset",
+        "radius_mm",
+        "rgba_hex"
+      ],
+      "title": "ShadowFilter",
+      "type": "object"
+    },
+    "TextOnPathOp": {
+      "additionalProperties": false,
+      "properties": {
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "text_on_path",
+          "default": "text_on_path",
+          "title": "Op",
+          "type": "string"
+        },
+        "path": {
+          "$ref": "#/$defs/PathGeometry"
+        },
+        "side": {
+          "default": "left",
+          "enum": [
+            "left",
+            "right"
+          ],
+          "title": "Side",
+          "type": "string"
+        },
+        "start_offset_mm": {
+          "default": 0.0,
+          "title": "Start Offset Mm",
+          "type": "number"
+        },
+        "style_name": {
+          "title": "Style Name",
+          "type": "string"
+        },
+        "text_content": {
+          "title": "Text Content",
+          "type": "string"
+        }
+      },
+      "required": [
+        "layer_id",
+        "text_content",
+        "style_name",
+        "path"
+      ],
+      "title": "TextOnPathOp",
+      "type": "object"
+    },
+    "TransformLayerOp": {
+      "additionalProperties": false,
+      "properties": {
+        "dx_mm": {
+          "default": 0.0,
+          "title": "Dx Mm",
+          "type": "number"
+        },
+        "dy_mm": {
+          "default": 0.0,
+          "title": "Dy Mm",
+          "type": "number"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "transform_layer",
+          "default": "transform_layer",
+          "title": "Op",
+          "type": "string"
+        },
+        "rotation_deg": {
+          "default": 0.0,
+          "title": "Rotation Deg",
+          "type": "number"
+        },
+        "scale_x": {
+          "default": 1.0,
+          "exclusiveMinimum": 0,
+          "title": "Scale X",
+          "type": "number"
+        },
+        "scale_y": {
+          "default": 1.0,
+          "exclusiveMinimum": 0,
+          "title": "Scale Y",
+          "type": "number"
+        }
+      },
+      "required": [
+        "layer_id"
+      ],
+      "title": "TransformLayerOp",
+      "type": "object"
+    }
+  },
+  "discriminator": {
+    "mapping": {
+      "add_image": "#/$defs/AddImageOp",
+      "add_path": "#/$defs/AddPathOp",
+      "add_text": "#/$defs/AddTextOp",
+      "apply_filter": "#/$defs/ApplyFilterOp",
+      "apply_mask": "#/$defs/ApplyMaskOp",
+      "bind_asset": "#/$defs/BindAssetOp",
+      "boolean_path": "#/$defs/BooleanPathOp",
+      "clip_to_path": "#/$defs/ClipToPathOp",
+      "color_adjust": "#/$defs/ColorAdjustOp",
+      "create_group": "#/$defs/CreateGroupOp",
+      "displacement_map": "#/$defs/DisplacementMapOp",
+      "edit_path": "#/$defs/EditPathOp",
+      "flow_text_into_shape": "#/$defs/FlowTextIntoShapeOp",
+      "gradient_mask": "#/$defs/GradientMaskOp",
+      "set_blend_mode": "#/$defs/SetBlendModeOp",
+      "set_clip_stack": "#/$defs/SetClipStackOp",
+      "set_glyph_transforms": "#/$defs/SetGlyphTransformsOp",
+      "set_opacity": "#/$defs/SetOpacityOp",
+      "set_z_index": "#/$defs/SetZIndexOp",
+      "text_on_path": "#/$defs/TextOnPathOp",
+      "transform_layer": "#/$defs/TransformLayerOp"
+    },
+    "propertyName": "op"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/AddImageOp"
+    },
+    {
+      "$ref": "#/$defs/AddTextOp"
+    },
+    {
+      "$ref": "#/$defs/TransformLayerOp"
+    },
+    {
+      "$ref": "#/$defs/ClipToPathOp"
+    },
+    {
+      "$ref": "#/$defs/SetZIndexOp"
+    },
+    {
+      "$ref": "#/$defs/ApplyMaskOp"
+    },
+    {
+      "$ref": "#/$defs/AddPathOp"
+    },
+    {
+      "$ref": "#/$defs/EditPathOp"
+    },
+    {
+      "$ref": "#/$defs/BooleanPathOp"
+    },
+    {
+      "$ref": "#/$defs/TextOnPathOp"
+    },
+    {
+      "$ref": "#/$defs/SetGlyphTransformsOp"
+    },
+    {
+      "$ref": "#/$defs/FlowTextIntoShapeOp"
+    },
+    {
+      "$ref": "#/$defs/SetBlendModeOp"
+    },
+    {
+      "$ref": "#/$defs/CreateGroupOp"
+    },
+    {
+      "$ref": "#/$defs/SetClipStackOp"
+    },
+    {
+      "$ref": "#/$defs/ColorAdjustOp"
+    },
+    {
+      "$ref": "#/$defs/GradientMaskOp"
+    },
+    {
+      "$ref": "#/$defs/DisplacementMapOp"
+    },
+    {
+      "$ref": "#/$defs/ApplyFilterOp"
+    },
+    {
+      "$ref": "#/$defs/BindAssetOp"
+    },
+    {
+      "$ref": "#/$defs/SetOpacityOp"
+    }
+  ]
+}

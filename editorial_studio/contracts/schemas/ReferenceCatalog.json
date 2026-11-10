@@ -1,0 +1,134 @@
+{
+  "$defs": {
+    "ReferenceEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "credit": {
+          "title": "Credit",
+          "type": "string"
+        },
+        "gallery_index": {
+          "minimum": 0,
+          "title": "Gallery Index",
+          "type": "integer"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "image_url": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Image Url",
+          "type": "string"
+        },
+        "kind": {
+          "default": "spread",
+          "title": "Kind",
+          "type": "string"
+        },
+        "observation": {
+          "minLength": 1,
+          "title": "Observation",
+          "type": "string"
+        },
+        "preview_path": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Preview Path"
+        },
+        "preview_sha256": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Preview Sha256"
+        },
+        "publication": {
+          "title": "Publication",
+          "type": "string"
+        },
+        "reviewed_on": {
+          "title": "Reviewed On",
+          "type": "string"
+        },
+        "source_image_name": {
+          "title": "Source Image Name",
+          "type": "string"
+        },
+        "source_url": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Source Url",
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Tags",
+          "type": "array"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "usage": {
+          "default": "reference_only",
+          "title": "Usage",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "publication",
+        "title",
+        "source_url",
+        "image_url",
+        "source_image_name",
+        "gallery_index",
+        "tags",
+        "observation",
+        "credit",
+        "reviewed_on"
+      ],
+      "title": "ReferenceEntry",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "references": {
+      "items": {
+        "$ref": "#/$defs/ReferenceEntry"
+      },
+      "title": "References",
+      "type": "array"
+    },
+    "version": {
+      "title": "Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "version",
+    "references"
+  ],
+  "title": "ReferenceCatalog",
+  "type": "object"
+}

@@ -1,0 +1,30 @@
+fonts:
+- id: DejaVuSerif
+  family: DejaVu Serif
+  path: data/fonts/DejaVuSerif.ttf
+  sha256: 8f2c103bfa3fd5de71f1b92b18f21906b5a26871fb7e19a9a4c9af539c3cc7ab
+  fallback: false
+- id: DejaVuSans
+  family: DejaVu Sans
+  path: data/fonts/DejaVuSans.ttf
+  sha256: ae7b7855e115a5966d8b1b3f80f254ccc117ec86f9965e202ee2940453837280
+  fallback: true
+styles:
+- name: headline
+  font_id: DejaVuSerif
+  font_size_pt: 42
+  line_spacing: 1.1
+  color: '#22211f'
+  min_paragraph_lines: 1
+- name: body
+  font_id: DejaVuSerif
+  font_size_pt: 11
+  line_spacing: 1.3
+  color: '#33312c'
+  min_paragraph_lines: 2
+- name: caption
+  font_id: DejaVuSans
+  font_size_pt: 8
+  line_spacing: 1.2
+  color: '#55524c'
+  min_paragraph_lines: 1

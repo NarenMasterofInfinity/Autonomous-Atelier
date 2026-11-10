@@ -1,0 +1,35 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "back_left": {
+      "title": "Back Left",
+      "type": "integer"
+    },
+    "back_right": {
+      "title": "Back Right",
+      "type": "integer"
+    },
+    "front_left": {
+      "title": "Front Left",
+      "type": "integer"
+    },
+    "front_right": {
+      "title": "Front Right",
+      "type": "integer"
+    },
+    "sheet": {
+      "minimum": 1,
+      "title": "Sheet",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "sheet",
+    "front_left",
+    "front_right",
+    "back_left",
+    "back_right"
+  ],
+  "title": "PrinterSheet",
+  "type": "object"
+}

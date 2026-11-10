@@ -1,0 +1,63 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "identity_id": {
+      "title": "Identity Id",
+      "type": "string"
+    },
+    "kind": {
+      "const": "build_issue",
+      "default": "build_issue",
+      "title": "Kind",
+      "type": "string"
+    },
+    "prepared_composition_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 6,
+      "title": "Prepared Composition Ids",
+      "type": "array"
+    },
+    "reference_art_director": {
+      "default": true,
+      "title": "Reference Art Director",
+      "type": "boolean"
+    },
+    "reference_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 12,
+      "title": "Reference Ids",
+      "type": "array"
+    },
+    "reference_project": {
+      "default": "m10a-references",
+      "title": "Reference Project",
+      "type": "string"
+    },
+    "story_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 6,
+      "minItems": 6,
+      "title": "Story Ids",
+      "type": "array"
+    },
+    "tournament_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Tournament Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "story_ids",
+    "identity_id"
+  ],
+  "title": "BuildIssueCommand",
+  "type": "object"
+}

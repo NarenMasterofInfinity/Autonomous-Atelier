@@ -1,0 +1,56 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "crop_asset_id": {
+      "title": "Crop Asset Id",
+      "type": "string"
+    },
+    "crop_box_px": {
+      "maxItems": 4,
+      "minItems": 4,
+      "prefixItems": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "integer"
+        }
+      ],
+      "title": "Crop Box Px",
+      "type": "array"
+    },
+    "dpi": {
+      "exclusiveMinimum": 0,
+      "title": "Dpi",
+      "type": "number"
+    },
+    "full_asset_id": {
+      "title": "Full Asset Id",
+      "type": "string"
+    },
+    "source_png_asset_id": {
+      "title": "Source Png Asset Id",
+      "type": "string"
+    },
+    "thumbnail_asset_id": {
+      "title": "Thumbnail Asset Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "source_png_asset_id",
+    "full_asset_id",
+    "thumbnail_asset_id",
+    "crop_asset_id",
+    "crop_box_px",
+    "dpi"
+  ],
+  "title": "InspectionSet",
+  "type": "object"
+}

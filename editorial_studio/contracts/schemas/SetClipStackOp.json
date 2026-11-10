@@ -1,0 +1,28 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "clip_path_layer_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Clip Path Layer Ids",
+      "type": "array"
+    },
+    "op": {
+      "const": "set_clip_stack",
+      "default": "set_clip_stack",
+      "title": "Op",
+      "type": "string"
+    },
+    "target_layer_id": {
+      "title": "Target Layer Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "target_layer_id",
+    "clip_path_layer_ids"
+  ],
+  "title": "SetClipStackOp",
+  "type": "object"
+}

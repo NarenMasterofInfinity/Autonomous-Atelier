@@ -1,0 +1,35 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "op": {
+      "const": "boolean_path",
+      "default": "boolean_path",
+      "title": "Op",
+      "type": "string"
+    },
+    "operand_layer_id": {
+      "title": "Operand Layer Id",
+      "type": "string"
+    },
+    "operation_type": {
+      "enum": [
+        "union",
+        "difference",
+        "intersection"
+      ],
+      "title": "Operation Type",
+      "type": "string"
+    },
+    "target_layer_id": {
+      "title": "Target Layer Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "target_layer_id",
+    "operand_layer_id",
+    "operation_type"
+  ],
+  "title": "BooleanPathOp",
+  "type": "object"
+}

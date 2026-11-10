@@ -1,0 +1,114 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "display_ink_overhang_mm": {
+      "anyOf": [
+        {
+          "maxItems": 4,
+          "minItems": 4,
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ],
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Display Ink Overhang Mm"
+    },
+    "display_line_count": {
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Display Line Count"
+    },
+    "minimum_face_visibility": {
+      "default": 0,
+      "title": "Minimum Face Visibility",
+      "type": "number"
+    },
+    "node_id": {
+      "title": "Node Id",
+      "type": "string"
+    },
+    "photo_index": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Photo Index",
+      "type": "integer"
+    },
+    "reference_crop_fraction": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reference Crop Fraction"
+    },
+    "role": {
+      "enum": [
+        "headline",
+        "deck",
+        "body",
+        "photo",
+        "alpha"
+      ],
+      "title": "Role",
+      "type": "string"
+    },
+    "source_aspect_ratio": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Aspect Ratio"
+    },
+    "source_fraction": {
+      "default": 1,
+      "exclusiveMinimum": 0,
+      "maximum": 1,
+      "title": "Source Fraction",
+      "type": "number"
+    },
+    "source_order": {
+      "default": 0,
+      "title": "Source Order",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "node_id",
+    "role"
+  ],
+  "title": "CompositionSlot",
+  "type": "object"
+}

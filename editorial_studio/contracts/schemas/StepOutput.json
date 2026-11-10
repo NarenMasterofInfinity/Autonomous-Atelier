@@ -1,0 +1,74 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "asset_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Asset Ids",
+      "type": "array"
+    },
+    "call_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Call Id"
+    },
+    "identity_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Identity Id"
+    },
+    "scene_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Scene Id"
+    },
+    "scene_version": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Scene Version"
+    },
+    "visible_text": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Visible Text"
+    }
+  },
+  "title": "StepOutput",
+  "type": "object"
+}

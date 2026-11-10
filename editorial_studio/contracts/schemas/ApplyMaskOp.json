@@ -1,0 +1,30 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "invert": {
+      "default": false,
+      "title": "Invert",
+      "type": "boolean"
+    },
+    "mask_asset_id": {
+      "title": "Mask Asset Id",
+      "type": "string"
+    },
+    "op": {
+      "const": "apply_mask",
+      "default": "apply_mask",
+      "title": "Op",
+      "type": "string"
+    },
+    "target_layer_id": {
+      "title": "Target Layer Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "target_layer_id",
+    "mask_asset_id"
+  ],
+  "title": "ApplyMaskOp",
+  "type": "object"
+}

@@ -1,0 +1,54 @@
+{
+  "$defs": {
+    "ConceptDirection": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "narrative_expression": {
+          "minLength": 1,
+          "title": "Narrative Expression",
+          "type": "string"
+        },
+        "photography_role": {
+          "minLength": 1,
+          "title": "Photography Role",
+          "type": "string"
+        },
+        "visual_metaphor": {
+          "minLength": 1,
+          "title": "Visual Metaphor",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "visual_metaphor",
+        "photography_role",
+        "narrative_expression"
+      ],
+      "title": "ConceptDirection",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "concepts": {
+      "items": {
+        "$ref": "#/$defs/ConceptDirection"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "title": "Concepts",
+      "type": "array"
+    }
+  },
+  "required": [
+    "concepts"
+  ],
+  "title": "ConceptDirections",
+  "type": "object"
+}

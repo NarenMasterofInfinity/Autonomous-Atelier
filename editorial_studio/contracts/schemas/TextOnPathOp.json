@@ -1,0 +1,223 @@
+{
+  "$defs": {
+    "ClosePath": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "Z",
+          "default": "Z",
+          "title": "Cmd",
+          "type": "string"
+        }
+      },
+      "title": "ClosePath",
+      "type": "object"
+    },
+    "CubicTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "C",
+          "default": "C",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "control1": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "control2": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "control1",
+        "control2",
+        "p"
+      ],
+      "title": "CubicTo",
+      "type": "object"
+    },
+    "LineTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "L",
+          "default": "L",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "LineTo",
+      "type": "object"
+    },
+    "MoveTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "M",
+          "default": "M",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "MoveTo",
+      "type": "object"
+    },
+    "PathGeometry": {
+      "additionalProperties": false,
+      "properties": {
+        "commands": {
+          "items": {
+            "discriminator": {
+              "mapping": {
+                "C": "#/$defs/CubicTo",
+                "L": "#/$defs/LineTo",
+                "M": "#/$defs/MoveTo",
+                "Q": "#/$defs/QuadraticTo",
+                "Z": "#/$defs/ClosePath"
+              },
+              "propertyName": "cmd"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/MoveTo"
+              },
+              {
+                "$ref": "#/$defs/LineTo"
+              },
+              {
+                "$ref": "#/$defs/QuadraticTo"
+              },
+              {
+                "$ref": "#/$defs/CubicTo"
+              },
+              {
+                "$ref": "#/$defs/ClosePath"
+              }
+            ]
+          },
+          "minItems": 2,
+          "title": "Commands",
+          "type": "array"
+        },
+        "fill_rule": {
+          "default": "nonzero",
+          "enum": [
+            "nonzero",
+            "evenodd"
+          ],
+          "title": "Fill Rule",
+          "type": "string"
+        }
+      },
+      "required": [
+        "commands"
+      ],
+      "title": "PathGeometry",
+      "type": "object"
+    },
+    "PointMM": {
+      "additionalProperties": false,
+      "properties": {
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm"
+      ],
+      "title": "PointMM",
+      "type": "object"
+    },
+    "QuadraticTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "Q",
+          "default": "Q",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "control": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "control",
+        "p"
+      ],
+      "title": "QuadraticTo",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "layer_id": {
+      "title": "Layer Id",
+      "type": "string"
+    },
+    "op": {
+      "const": "text_on_path",
+      "default": "text_on_path",
+      "title": "Op",
+      "type": "string"
+    },
+    "path": {
+      "$ref": "#/$defs/PathGeometry"
+    },
+    "side": {
+      "default": "left",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "title": "Side",
+      "type": "string"
+    },
+    "start_offset_mm": {
+      "default": 0.0,
+      "title": "Start Offset Mm",
+      "type": "number"
+    },
+    "style_name": {
+      "title": "Style Name",
+      "type": "string"
+    },
+    "text_content": {
+      "title": "Text Content",
+      "type": "string"
+    }
+  },
+  "required": [
+    "layer_id",
+    "text_content",
+    "style_name",
+    "path"
+  ],
+  "title": "TextOnPathOp",
+  "type": "object"
+}

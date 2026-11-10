@@ -1,0 +1,89 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "allowed_operations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Allowed Operations",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "asset_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Asset Ids",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "derived_text_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Derived Text Ids",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "mask_asset_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Mask Asset Ids",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "readable_layer_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Readable Layer Ids",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "renderer_operations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Renderer Operations",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "skill_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Skill Id"
+    },
+    "style_names": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Style Names",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "writable_layer_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Writable Layer Ids",
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "readable_layer_ids",
+    "writable_layer_ids",
+    "allowed_operations",
+    "renderer_operations"
+  ],
+  "title": "RuntimePolicy",
+  "type": "object"
+}

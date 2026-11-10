@@ -1,0 +1,355 @@
+{
+  "$defs": {
+    "CriticAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "findings": {
+          "items": {
+            "$ref": "#/$defs/CritiqueFinding"
+          },
+          "title": "Findings",
+          "type": "array"
+        },
+        "rationale": {
+          "title": "Rationale",
+          "type": "string"
+        },
+        "rule_break_evaluations": {
+          "items": {
+            "$ref": "#/$defs/RuleBreakEvaluation"
+          },
+          "title": "Rule Break Evaluations",
+          "type": "array"
+        },
+        "score": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Score",
+          "type": "number"
+        },
+        "verdict": {
+          "$ref": "#/$defs/CriticVerdict"
+        }
+      },
+      "required": [
+        "verdict",
+        "score",
+        "findings",
+        "rationale"
+      ],
+      "title": "CriticAssessment",
+      "type": "object"
+    },
+    "CriticVerdict": {
+      "enum": [
+        "ACCEPT",
+        "REVISE",
+        "RECOMPOSE",
+        "RECONCEPT",
+        "REPLAN"
+      ],
+      "title": "CriticVerdict",
+      "type": "string"
+    },
+    "CritiqueFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "actionable_fix": {
+          "title": "Actionable Fix",
+          "type": "string"
+        },
+        "category": {
+          "title": "Category",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/$defs/Severity"
+        },
+        "target_layer_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Target Layer Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "category",
+        "severity",
+        "description",
+        "actionable_fix"
+      ],
+      "title": "CritiqueFinding",
+      "type": "object"
+    },
+    "InspectionSet": {
+      "additionalProperties": false,
+      "properties": {
+        "crop_asset_id": {
+          "title": "Crop Asset Id",
+          "type": "string"
+        },
+        "crop_box_px": {
+          "maxItems": 4,
+          "minItems": 4,
+          "prefixItems": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            },
+            {
+              "type": "integer"
+            }
+          ],
+          "title": "Crop Box Px",
+          "type": "array"
+        },
+        "dpi": {
+          "exclusiveMinimum": 0,
+          "title": "Dpi",
+          "type": "number"
+        },
+        "full_asset_id": {
+          "title": "Full Asset Id",
+          "type": "string"
+        },
+        "source_png_asset_id": {
+          "title": "Source Png Asset Id",
+          "type": "string"
+        },
+        "thumbnail_asset_id": {
+          "title": "Thumbnail Asset Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_png_asset_id",
+        "full_asset_id",
+        "thumbnail_asset_id",
+        "crop_asset_id",
+        "crop_box_px",
+        "dpi"
+      ],
+      "title": "InspectionSet",
+      "type": "object"
+    },
+    "ReviewDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "artistic_findings": {
+          "items": {
+            "$ref": "#/$defs/CritiqueFinding"
+          },
+          "title": "Artistic Findings",
+          "type": "array"
+        },
+        "concept_fidelity_findings": {
+          "items": {
+            "$ref": "#/$defs/CritiqueFinding"
+          },
+          "title": "Concept Fidelity Findings",
+          "type": "array"
+        },
+        "execution_findings": {
+          "items": {
+            "$ref": "#/$defs/CritiqueFinding"
+          },
+          "title": "Execution Findings",
+          "type": "array"
+        },
+        "rule_break_evaluations": {
+          "items": {
+            "$ref": "#/$defs/RuleBreakEvaluation"
+          },
+          "title": "Rule Break Evaluations",
+          "type": "array"
+        },
+        "stagnation_detected": {
+          "default": false,
+          "title": "Stagnation Detected",
+          "type": "boolean"
+        },
+        "target_edit_instructions": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Target Edit Instructions"
+        },
+        "verdict": {
+          "$ref": "#/$defs/CriticVerdict"
+        }
+      },
+      "required": [
+        "verdict",
+        "execution_findings",
+        "artistic_findings",
+        "concept_fidelity_findings",
+        "rule_break_evaluations"
+      ],
+      "title": "ReviewDecision",
+      "type": "object"
+    },
+    "RuleBreakEvaluation": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted": {
+          "title": "Accepted",
+          "type": "boolean"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        },
+        "rule": {
+          "title": "Rule",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule",
+        "accepted",
+        "reason"
+      ],
+      "title": "RuleBreakEvaluation",
+      "type": "object"
+    },
+    "Severity": {
+      "enum": [
+        "CRITICAL",
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ],
+      "title": "Severity",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artistic": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/CriticAssessment"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "comparative_preference": {
+      "anyOf": [
+        {
+          "enum": [
+            "current",
+            "previous",
+            "tie"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Comparative Preference"
+    },
+    "concept_id": {
+      "title": "Concept Id",
+      "type": "string"
+    },
+    "decision": {
+      "$ref": "#/$defs/ReviewDecision"
+    },
+    "execution": {
+      "$ref": "#/$defs/CriticAssessment"
+    },
+    "fidelity": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/CriticAssessment"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "human_approval": {
+      "default": false,
+      "title": "Human Approval",
+      "type": "boolean"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "inspection": {
+      "$ref": "#/$defs/InspectionSet"
+    },
+    "model_call_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Model Call Ids",
+      "type": "array"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "run_id": {
+      "default": "",
+      "title": "Run Id",
+      "type": "string"
+    },
+    "scene_id": {
+      "title": "Scene Id",
+      "type": "string"
+    },
+    "scene_version": {
+      "title": "Scene Version",
+      "type": "string"
+    },
+    "visual_change_from_previous": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Visual Change From Previous"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "concept_id",
+    "scene_id",
+    "scene_version",
+    "inspection",
+    "execution",
+    "decision",
+    "model_call_ids"
+  ],
+  "title": "CreativeReview",
+  "type": "object"
+}

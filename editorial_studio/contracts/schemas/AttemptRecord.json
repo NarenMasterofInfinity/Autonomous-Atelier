@@ -1,0 +1,102 @@
+{
+  "$defs": {
+    "AttemptState": {
+      "enum": [
+        "SUBMITTING",
+        "COMPLETED",
+        "FAILED",
+        "CANCELLED_AFTER_SUBMIT",
+        "AMBIGUOUS"
+      ],
+      "title": "AttemptState",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "attempt_id": {
+      "title": "Attempt Id",
+      "type": "string"
+    },
+    "call_id": {
+      "title": "Call Id",
+      "type": "string"
+    },
+    "ended_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ended At"
+    },
+    "model_snapshot": {
+      "title": "Model Snapshot",
+      "type": "string"
+    },
+    "possible_charge_usd": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Possible Charge Usd"
+    },
+    "provider_request_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Provider Request Id"
+    },
+    "reconciliation_status": {
+      "title": "Reconciliation Status",
+      "type": "string"
+    },
+    "request_hash": {
+      "title": "Request Hash",
+      "type": "string"
+    },
+    "state": {
+      "$ref": "#/$defs/AttemptState"
+    },
+    "submitted_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Submitted At"
+    }
+  },
+  "required": [
+    "attempt_id",
+    "call_id",
+    "request_hash",
+    "state",
+    "model_snapshot",
+    "reconciliation_status"
+  ],
+  "title": "AttemptRecord",
+  "type": "object"
+}

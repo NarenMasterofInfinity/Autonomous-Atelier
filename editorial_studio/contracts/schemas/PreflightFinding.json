@@ -1,0 +1,64 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "title": "Code",
+      "type": "string"
+    },
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "layer_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Layer Id"
+    },
+    "page_number": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Page Number"
+    },
+    "scene_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Scene Id"
+    },
+    "severity": {
+      "enum": [
+        "error",
+        "warning"
+      ],
+      "title": "Severity",
+      "type": "string"
+    }
+  },
+  "required": [
+    "code",
+    "severity",
+    "description"
+  ],
+  "title": "PreflightFinding",
+  "type": "object"
+}

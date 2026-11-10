@@ -1,0 +1,37 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "attempt_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Attempt Id"
+    },
+    "call_id": {
+      "title": "Call Id",
+      "type": "string"
+    },
+    "kind": {
+      "const": "call",
+      "default": "call",
+      "title": "Kind",
+      "type": "string"
+    },
+    "new_status": {
+      "title": "New Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "call_id",
+    "new_status"
+  ],
+  "title": "CallEvent",
+  "type": "object"
+}

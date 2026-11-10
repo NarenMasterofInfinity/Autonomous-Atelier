@@ -1,0 +1,40 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "rationale": {
+      "title": "Rationale",
+      "type": "string"
+    },
+    "relation": {
+      "enum": [
+        "behind",
+        "above",
+        "overlaps",
+        "avoids",
+        "aligns_to",
+        "flows_around",
+        "spans_gutter",
+        "follows_path",
+        "clips_to"
+      ],
+      "title": "Relation",
+      "type": "string"
+    },
+    "source_id": {
+      "title": "Source Id",
+      "type": "string"
+    },
+    "target_id": {
+      "title": "Target Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "source_id",
+    "target_id",
+    "relation",
+    "rationale"
+  ],
+  "title": "ConceptRelationship",
+  "type": "object"
+}

@@ -1,0 +1,37 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "a": {
+      "default": 1,
+      "title": "A",
+      "type": "number"
+    },
+    "b": {
+      "default": 0,
+      "title": "B",
+      "type": "number"
+    },
+    "c": {
+      "default": 0,
+      "title": "C",
+      "type": "number"
+    },
+    "d": {
+      "default": 1,
+      "title": "D",
+      "type": "number"
+    },
+    "e_mm": {
+      "default": 0,
+      "title": "E Mm",
+      "type": "number"
+    },
+    "f_mm": {
+      "default": 0,
+      "title": "F Mm",
+      "type": "number"
+    }
+  },
+  "title": "AffineMM",
+  "type": "object"
+}

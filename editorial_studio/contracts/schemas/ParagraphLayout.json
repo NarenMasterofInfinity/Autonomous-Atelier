@@ -1,0 +1,388 @@
+{
+  "$defs": {
+    "BoundsMM": {
+      "additionalProperties": false,
+      "properties": {
+        "height_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Height Mm",
+          "type": "number"
+        },
+        "width_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Width Mm",
+          "type": "number"
+        },
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm",
+        "width_mm",
+        "height_mm"
+      ],
+      "title": "BoundsMM",
+      "type": "object"
+    },
+    "GlyphDetail": {
+      "additionalProperties": false,
+      "properties": {
+        "advance_mm": {
+          "minimum": 0,
+          "title": "Advance Mm",
+          "type": "number"
+        },
+        "cluster_end": {
+          "minimum": 0,
+          "title": "Cluster End",
+          "type": "integer"
+        },
+        "cluster_start": {
+          "minimum": 0,
+          "title": "Cluster Start",
+          "type": "integer"
+        },
+        "glyph_id": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Glyph Id"
+        },
+        "index": {
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
+        },
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "index",
+        "cluster_start",
+        "cluster_end",
+        "x_mm",
+        "y_mm",
+        "advance_mm"
+      ],
+      "title": "GlyphDetail",
+      "type": "object"
+    },
+    "PointMM": {
+      "additionalProperties": false,
+      "properties": {
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm"
+      ],
+      "title": "PointMM",
+      "type": "object"
+    },
+    "Severity": {
+      "enum": [
+        "CRITICAL",
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ],
+      "title": "Severity",
+      "type": "string"
+    },
+    "ShapedGlyphPlacement": {
+      "additionalProperties": false,
+      "properties": {
+        "advance_mm": {
+          "minimum": 0,
+          "title": "Advance Mm",
+          "type": "number"
+        },
+        "cluster_end": {
+          "minimum": 0,
+          "title": "Cluster End",
+          "type": "integer"
+        },
+        "cluster_start": {
+          "minimum": 0,
+          "title": "Cluster Start",
+          "type": "integer"
+        },
+        "glyph_index": {
+          "minimum": 0,
+          "title": "Glyph Index",
+          "type": "integer"
+        },
+        "position": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "tangent_deg": {
+          "default": 0.0,
+          "title": "Tangent Deg",
+          "type": "number"
+        }
+      },
+      "required": [
+        "glyph_index",
+        "cluster_start",
+        "cluster_end",
+        "position",
+        "advance_mm"
+      ],
+      "title": "ShapedGlyphPlacement",
+      "type": "object"
+    },
+    "ShapedRun": {
+      "additionalProperties": false,
+      "properties": {
+        "direction": {
+          "enum": [
+            "ltr",
+            "rtl"
+          ],
+          "title": "Direction",
+          "type": "string"
+        },
+        "font_family": {
+          "title": "Font Family",
+          "type": "string"
+        },
+        "font_hash": {
+          "title": "Font Hash",
+          "type": "string"
+        },
+        "glyphs": {
+          "items": {
+            "$ref": "#/$defs/GlyphDetail"
+          },
+          "title": "Glyphs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "font_family",
+        "font_hash",
+        "direction",
+        "glyphs"
+      ],
+      "title": "ShapedRun",
+      "type": "object"
+    },
+    "TextLayoutResult": {
+      "additionalProperties": false,
+      "properties": {
+        "consumed_end_char": {
+          "minimum": 0,
+          "title": "Consumed End Char",
+          "type": "integer"
+        },
+        "findings": {
+          "items": {
+            "$ref": "#/$defs/TypographyFinding"
+          },
+          "title": "Findings",
+          "type": "array"
+        },
+        "font_hash": {
+          "title": "Font Hash",
+          "type": "string"
+        },
+        "glyphs": {
+          "items": {
+            "$ref": "#/$defs/ShapedGlyphPlacement"
+          },
+          "title": "Glyphs",
+          "type": "array"
+        },
+        "ink_bounds": {
+          "$ref": "#/$defs/BoundsMM"
+        },
+        "line_count": {
+          "minimum": 0,
+          "title": "Line Count",
+          "type": "integer"
+        },
+        "logical_bounds": {
+          "$ref": "#/$defs/BoundsMM"
+        },
+        "overflow_start_char": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Overflow Start Char"
+        },
+        "text_layer_id": {
+          "title": "Text Layer Id",
+          "type": "string"
+        },
+        "writing_direction": {
+          "enum": [
+            "ltr",
+            "rtl",
+            "vertical"
+          ],
+          "title": "Writing Direction",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text_layer_id",
+        "font_hash",
+        "ink_bounds",
+        "logical_bounds",
+        "writing_direction",
+        "consumed_end_char",
+        "line_count"
+      ],
+      "title": "TextLayoutResult",
+      "type": "object"
+    },
+    "TextLine": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_mm": {
+          "title": "Baseline Mm",
+          "type": "number"
+        },
+        "end_char": {
+          "minimum": 0,
+          "title": "End Char",
+          "type": "integer"
+        },
+        "logical_bounds": {
+          "$ref": "#/$defs/BoundsMM"
+        },
+        "paragraph_start": {
+          "title": "Paragraph Start",
+          "type": "boolean"
+        },
+        "start_char": {
+          "minimum": 0,
+          "title": "Start Char",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start_char",
+        "end_char",
+        "baseline_mm",
+        "logical_bounds",
+        "paragraph_start"
+      ],
+      "title": "TextLine",
+      "type": "object"
+    },
+    "TypographyFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "enum": [
+            "UNSUPPORTED_SCRIPT",
+            "FONT_FALLBACK",
+            "PATH_OVERFLOW",
+            "TEXT_OVERFLOW",
+            "UNREADABLE_ORIENTATION",
+            "SHAPE_COLLISION",
+            "UNSATISFIED_WIDOW_ORPHAN",
+            "NARROW_LINE_REGION",
+            "GLYPH_MAPPING_FAILURE"
+          ],
+          "title": "Code",
+          "type": "string"
+        },
+        "detail": {
+          "title": "Detail",
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/$defs/Severity"
+        }
+      },
+      "required": [
+        "code",
+        "severity",
+        "detail"
+      ],
+      "title": "TypographyFinding",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "copyfit_actions": {
+      "items": {
+        "enum": [
+          "editorial_edit",
+          "adjust_frame",
+          "alternate_style",
+          "repaginate"
+        ],
+        "type": "string"
+      },
+      "title": "Copyfit Actions",
+      "type": "array"
+    },
+    "lines": {
+      "items": {
+        "$ref": "#/$defs/TextLine"
+      },
+      "title": "Lines",
+      "type": "array"
+    },
+    "result": {
+      "$ref": "#/$defs/TextLayoutResult"
+    },
+    "runs": {
+      "items": {
+        "$ref": "#/$defs/ShapedRun"
+      },
+      "title": "Runs",
+      "type": "array"
+    },
+    "visible_line_count": {
+      "minimum": 0,
+      "title": "Visible Line Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "result",
+    "lines",
+    "runs",
+    "visible_line_count"
+  ],
+  "title": "ParagraphLayout",
+  "type": "object"
+}

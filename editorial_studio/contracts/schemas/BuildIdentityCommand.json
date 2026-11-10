@@ -1,0 +1,82 @@
+{
+  "$defs": {
+    "PaletteToken": {
+      "additionalProperties": false,
+      "properties": {
+        "hex_color": {
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "title": "Hex Color",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "hex_color"
+      ],
+      "title": "PaletteToken",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "build_identity",
+      "default": "build_identity",
+      "title": "Kind",
+      "type": "string"
+    },
+    "pairing_id": {
+      "default": "quiet-serif",
+      "title": "Pairing Id",
+      "type": "string"
+    },
+    "palette": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/PaletteToken"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Palette"
+    },
+    "photo_asset_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Photo Asset Id"
+    },
+    "reference_ids": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reference Ids"
+    }
+  },
+  "title": "BuildIdentityCommand",
+  "type": "object"
+}

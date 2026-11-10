@@ -1,0 +1,141 @@
+[
+  {
+    "id": "GSFC_20171208_Archive_e001386",
+    "original_filename": "GSFC_20171208_Archive_e001386.jpg",
+    "filename": "prepared-GSFC_20171208_Archive_e001386.png",
+    "url": "https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e001386/GSFC_20171208_Archive_e001386~orig.jpg",
+    "original_sha256": "55924f1759c591b72cf8849d345e5a1ea410302df1050c21beb3dd793ccba27c",
+    "sha256": "48a16822fcb798a221f18a52fced51b5862da30b518323690187359df5509ae8",
+    "original_size": [
+      8000,
+      8000
+    ],
+    "size": [
+      4000,
+      4000
+    ],
+    "normalization": "RGB; downsample-only to a maximum 6000x4000 pixel envelope",
+    "credit": "NASA",
+    "metadata_url": "https://images-api.nasa.gov/search?nasa_id=GSFC_20171208_Archive_e001386&media_type=image"
+  },
+  {
+    "id": "as8-14-2392",
+    "original_filename": "as8-14-2392.jpg",
+    "filename": "prepared-as8-14-2392.png",
+    "url": "https://images-assets.nasa.gov/image/as8-14-2392/as8-14-2392~orig.jpg",
+    "original_sha256": "8d3222bc1bd4fa506a9027a5ff888b9225dd46a6c90073eed3e90c1fe3c88507",
+    "sha256": "e5ea985eab4e2cc5893a177740dd204d22e15523e1111916438999ac58110cf2",
+    "original_size": [
+      4077,
+      4096
+    ],
+    "size": [
+      3981,
+      4000
+    ],
+    "normalization": "RGB; downsample-only to a maximum 6000x4000 pixel envelope",
+    "credit": "NASA",
+    "metadata_url": "https://images-api.nasa.gov/search?nasa_id=as8-14-2392&media_type=image"
+  },
+  {
+    "id": "iss071e581260_alt",
+    "original_filename": "iss071e581260_alt.jpg",
+    "filename": "prepared-iss071e581260_alt.png",
+    "url": "https://images-assets.nasa.gov/image/iss071e581260_alt/iss071e581260_alt~orig.jpg",
+    "original_sha256": "56b8a5f9354748b14c551292e49684181e7b2169988e59cee21843449628e828",
+    "sha256": "521cb3091c58f4f96579a5d44f3bfbda240ccc151def4ddc934dcab6b9a9e7df",
+    "original_size": [
+      8256,
+      5504
+    ],
+    "size": [
+      6000,
+      4000
+    ],
+    "normalization": "RGB; downsample-only to a maximum 6000x4000 pixel envelope",
+    "credit": "NASA",
+    "metadata_url": "https://images-api.nasa.gov/search?nasa_id=iss071e581260_alt&media_type=image"
+  },
+  {
+    "id": "201102240008HQ",
+    "original_filename": "201102240008HQ.tif",
+    "filename": "prepared-201102240008HQ.png",
+    "url": "https://images-assets.nasa.gov/image/201102240008HQ/201102240008HQ~orig.tif",
+    "original_sha256": "98bbf45af05b6243e29d4aeaab0f276b74c8336af5d5da6f78f21c157c03b734",
+    "sha256": "dc956bbddf1779d13aefe79160dd1c64ef56252bf96bd2086e74366aad9231c1",
+    "original_size": [
+      3500,
+      2329
+    ],
+    "size": [
+      3500,
+      2329
+    ],
+    "normalization": "RGB; downsample-only to a maximum 6000x4000 pixel envelope",
+    "credit": "NASA",
+    "metadata_url": "https://images-api.nasa.gov/search?nasa_id=201102240008HQ&media_type=image"
+  },
+  {
+    "id": "PIA18409",
+    "original_filename": "PIA18409.jpg",
+    "filename": "prepared-PIA18409.png",
+    "url": "https://images-assets.nasa.gov/image/PIA18409/PIA18409~orig.jpg",
+    "original_sha256": "78c24dc1367be66abb1db31db66a8273d92dfa9e6e901ca0335e78e7e090d3ea",
+    "sha256": "13f97f4e07b1a4c58b5851ba4f28167b467a8275b81a74b82c33ed70bfbfe63e",
+    "original_size": [
+      7696,
+      1750
+    ],
+    "size": [
+      6000,
+      1364
+    ],
+    "normalization": "RGB; downsample-only to a maximum 6000x4000 pixel envelope",
+    "credit": "NASA",
+    "metadata_url": "https://images-api.nasa.gov/search?nasa_id=PIA18409&media_type=image"
+  },
+  {
+    "id": "89PC-1044",
+    "original_filename": "89PC-1044.jpg",
+    "filename": "prepared-89PC-1044.png",
+    "url": "https://images-assets.nasa.gov/image/89PC-1044/89PC-1044~orig.jpg",
+    "original_sha256": "0e0c288181d6f52d0197073c977e85343ec4a6455a78e228b1d4c83971e17eab",
+    "sha256": "ddf93cacbcc619cd01646d1cd6b86a4ef3972ec3702719acbbdb90c77c71c98c",
+    "original_size": [
+      3000,
+      2400
+    ],
+    "size": [
+      3000,
+      2400
+    ],
+    "normalization": "RGB; downsample-only to maximum 6000x4000 envelope",
+    "credit": "NASA",
+    "metadata_url": "https://images-api.nasa.gov/search?nasa_id=89PC-1044&media_type=image"
+  },
+  {
+    "id": "PIA18409-clean",
+    "original_filename": "PIA18409.jpg",
+    "filename": "prepared-PIA18409-clean.png",
+    "url": "https://images-assets.nasa.gov/image/PIA18409/PIA18409~orig.jpg",
+    "original_sha256": "78c24dc1367be66abb1db31db66a8273d92dfa9e6e901ca0335e78e7e090d3ea",
+    "sha256": "1bfa2b9ddc7481b7681ccae090d33e1b2b4e3311623d124e4ef0a70b66832efc",
+    "original_size": [
+      7696,
+      1750
+    ],
+    "size": [
+      6000,
+      240
+    ],
+    "normalization": "RGB; downsample to 6000x4000 envelope, then exact native-pixel crop; no upsampling",
+    "credit": "NASA",
+    "metadata_url": "https://images-api.nasa.gov/search?nasa_id=PIA18409&media_type=image",
+    "crop_box": [
+      0,
+      190,
+      6000,
+      430
+    ]
+  }
+]

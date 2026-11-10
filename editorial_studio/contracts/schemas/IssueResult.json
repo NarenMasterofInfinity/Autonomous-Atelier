@@ -1,0 +1,742 @@
+{
+  "$defs": {
+    "ArtDirectionBible": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_state": {
+          "enum": [
+            "provisional",
+            "final",
+            "revision_required"
+          ],
+          "title": "Approval State",
+          "type": "string"
+        },
+        "approved_visual_examples": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Approved Visual Examples",
+          "type": "array"
+        },
+        "artistic_boundaries": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Artistic Boundaries",
+          "type": "array"
+        },
+        "conceptual_identity": {
+          "title": "Conceptual Identity",
+          "type": "string"
+        },
+        "final_proof_spread_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Final Proof Spread Ids",
+          "type": "array"
+        },
+        "font_pairing_id": {
+          "title": "Font Pairing Id",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "narrative_progression": {
+          "items": {
+            "$ref": "#/$defs/IssuePhaseDirection"
+          },
+          "title": "Narrative Progression",
+          "type": "array"
+        },
+        "palette": {
+          "items": {
+            "$ref": "#/$defs/PaletteToken"
+          },
+          "title": "Palette",
+          "type": "array"
+        },
+        "photographic_character": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Photographic Character",
+          "type": "array"
+        },
+        "provisional_proof_spread_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Provisional Proof Spread Ids",
+          "type": "array"
+        },
+        "recurring_motifs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Recurring Motifs",
+          "type": "array"
+        },
+        "signature_behaviors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Signature Behaviors",
+          "type": "array"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "approval_state",
+        "conceptual_identity",
+        "font_pairing_id",
+        "palette",
+        "photographic_character",
+        "signature_behaviors",
+        "narrative_progression",
+        "recurring_motifs",
+        "artistic_boundaries",
+        "approved_visual_examples"
+      ],
+      "title": "ArtDirectionBible",
+      "type": "object"
+    },
+    "CreativeSpread": {
+      "additionalProperties": false,
+      "properties": {
+        "concept_id": {
+          "title": "Concept Id",
+          "type": "string"
+        },
+        "document_asset_id": {
+          "title": "Document Asset Id",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "identity_id": {
+          "title": "Identity Id",
+          "type": "string"
+        },
+        "metadata_asset_id": {
+          "title": "Metadata Asset Id",
+          "type": "string"
+        },
+        "pdf_asset_id": {
+          "title": "Pdf Asset Id",
+          "type": "string"
+        },
+        "png_asset_id": {
+          "title": "Png Asset Id",
+          "type": "string"
+        },
+        "project_id": {
+          "title": "Project Id",
+          "type": "string"
+        },
+        "review_id": {
+          "title": "Review Id",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "scene_id": {
+          "title": "Scene Id",
+          "type": "string"
+        },
+        "scene_version": {
+          "title": "Scene Version",
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "review",
+            "revision_required",
+            "approved_for_identity_review"
+          ],
+          "title": "State",
+          "type": "string"
+        },
+        "story_id": {
+          "title": "Story Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "project_id",
+        "story_id",
+        "identity_id",
+        "scene_id",
+        "scene_version",
+        "concept_id",
+        "review_id",
+        "png_asset_id",
+        "pdf_asset_id",
+        "document_asset_id",
+        "metadata_asset_id",
+        "state",
+        "run_id"
+      ],
+      "title": "CreativeSpread",
+      "type": "object"
+    },
+    "CriticAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "findings": {
+          "items": {
+            "$ref": "#/$defs/CritiqueFinding"
+          },
+          "title": "Findings",
+          "type": "array"
+        },
+        "rationale": {
+          "title": "Rationale",
+          "type": "string"
+        },
+        "rule_break_evaluations": {
+          "items": {
+            "$ref": "#/$defs/RuleBreakEvaluation"
+          },
+          "title": "Rule Break Evaluations",
+          "type": "array"
+        },
+        "score": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Score",
+          "type": "number"
+        },
+        "verdict": {
+          "$ref": "#/$defs/CriticVerdict"
+        }
+      },
+      "required": [
+        "verdict",
+        "score",
+        "findings",
+        "rationale"
+      ],
+      "title": "CriticAssessment",
+      "type": "object"
+    },
+    "CriticVerdict": {
+      "enum": [
+        "ACCEPT",
+        "REVISE",
+        "RECOMPOSE",
+        "RECONCEPT",
+        "REPLAN"
+      ],
+      "title": "CriticVerdict",
+      "type": "string"
+    },
+    "CritiqueFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "actionable_fix": {
+          "title": "Actionable Fix",
+          "type": "string"
+        },
+        "category": {
+          "title": "Category",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/$defs/Severity"
+        },
+        "target_layer_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Target Layer Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "category",
+        "severity",
+        "description",
+        "actionable_fix"
+      ],
+      "title": "CritiqueFinding",
+      "type": "object"
+    },
+    "IssueBlueprint": {
+      "additionalProperties": false,
+      "properties": {
+        "slots": {
+          "items": {
+            "$ref": "#/$defs/IssueSlot"
+          },
+          "maxItems": 6,
+          "minItems": 6,
+          "title": "Slots",
+          "type": "array"
+        },
+        "throughline": {
+          "minLength": 1,
+          "title": "Throughline",
+          "type": "string"
+        },
+        "title": {
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "throughline",
+        "slots"
+      ],
+      "title": "IssueBlueprint",
+      "type": "object"
+    },
+    "IssuePhaseDirection": {
+      "additionalProperties": false,
+      "properties": {
+        "emotional_role": {
+          "title": "Emotional Role",
+          "type": "string"
+        },
+        "phase_name": {
+          "title": "Phase Name",
+          "type": "string"
+        },
+        "visual_behavior": {
+          "title": "Visual Behavior",
+          "type": "string"
+        }
+      },
+      "required": [
+        "phase_name",
+        "emotional_role",
+        "visual_behavior"
+      ],
+      "title": "IssuePhaseDirection",
+      "type": "object"
+    },
+    "IssueSlot": {
+      "additionalProperties": false,
+      "properties": {
+        "composition_mandate": {
+          "minLength": 1,
+          "title": "Composition Mandate",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "left_page": {
+          "maximum": 12,
+          "minimum": 1,
+          "title": "Left Page",
+          "type": "integer"
+        },
+        "narrative_goal": {
+          "minLength": 1,
+          "title": "Narrative Goal",
+          "type": "string"
+        },
+        "phase": {
+          "enum": [
+            "cover",
+            "opening",
+            "feature",
+            "essay",
+            "interlude",
+            "closing"
+          ],
+          "title": "Phase",
+          "type": "string"
+        },
+        "right_page": {
+          "maximum": 12,
+          "minimum": 1,
+          "title": "Right Page",
+          "type": "integer"
+        },
+        "story_id": {
+          "title": "Story Id",
+          "type": "string"
+        },
+        "visual_energy": {
+          "maximum": 5,
+          "minimum": 1,
+          "title": "Visual Energy",
+          "type": "integer"
+        },
+        "visual_metaphor": {
+          "minLength": 1,
+          "title": "Visual Metaphor",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "story_id",
+        "phase",
+        "left_page",
+        "right_page",
+        "visual_energy",
+        "visual_metaphor",
+        "narrative_goal",
+        "composition_mandate"
+      ],
+      "title": "IssueSlot",
+      "type": "object"
+    },
+    "IssueSpread": {
+      "additionalProperties": false,
+      "properties": {
+        "bible_after": {
+          "$ref": "#/$defs/ArtDirectionBible"
+        },
+        "bible_before": {
+          "$ref": "#/$defs/ArtDirectionBible"
+        },
+        "contact_sheet_asset_id": {
+          "title": "Contact Sheet Asset Id",
+          "type": "string"
+        },
+        "headline_ink_fraction": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Headline Ink Fraction",
+          "type": "number"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "image_area_fraction": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Image Area Fraction",
+          "type": "number"
+        },
+        "issue_id": {
+          "title": "Issue Id",
+          "type": "string"
+        },
+        "project_id": {
+          "title": "Project Id",
+          "type": "string"
+        },
+        "slot": {
+          "$ref": "#/$defs/IssueSlot"
+        },
+        "source": {
+          "enum": [
+            "tournament",
+            "composer",
+            "retained",
+            "native_repair",
+            "authored_revision",
+            "reference_program"
+          ],
+          "title": "Source",
+          "type": "string"
+        },
+        "spread": {
+          "$ref": "#/$defs/CreativeSpread"
+        },
+        "thumbnail_asset_id": {
+          "title": "Thumbnail Asset Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "project_id",
+        "issue_id",
+        "slot",
+        "spread",
+        "bible_before",
+        "bible_after",
+        "thumbnail_asset_id",
+        "contact_sheet_asset_id",
+        "image_area_fraction",
+        "headline_ink_fraction",
+        "source"
+      ],
+      "title": "IssueSpread",
+      "type": "object"
+    },
+    "PageMap": {
+      "additionalProperties": false,
+      "properties": {
+        "pages": {
+          "items": {
+            "$ref": "#/$defs/PhysicalPage"
+          },
+          "minItems": 1,
+          "title": "Pages",
+          "type": "array"
+        },
+        "project_id": {
+          "title": "Project Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "project_id",
+        "pages"
+      ],
+      "title": "PageMap",
+      "type": "object"
+    },
+    "PageSide": {
+      "enum": [
+        "left",
+        "right"
+      ],
+      "title": "PageSide",
+      "type": "string"
+    },
+    "PaletteToken": {
+      "additionalProperties": false,
+      "properties": {
+        "hex_color": {
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "title": "Hex Color",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "hex_color"
+      ],
+      "title": "PaletteToken",
+      "type": "object"
+    },
+    "PhysicalPage": {
+      "additionalProperties": false,
+      "properties": {
+        "folio_text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Folio Text"
+        },
+        "is_cover": {
+          "default": false,
+          "title": "Is Cover",
+          "type": "boolean"
+        },
+        "number": {
+          "minimum": 1,
+          "title": "Number",
+          "type": "integer"
+        },
+        "side": {
+          "$ref": "#/$defs/PageSide"
+        },
+        "spread_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Spread Id"
+        }
+      },
+      "required": [
+        "number",
+        "side"
+      ],
+      "title": "PhysicalPage",
+      "type": "object"
+    },
+    "PrinterSheet": {
+      "additionalProperties": false,
+      "properties": {
+        "back_left": {
+          "title": "Back Left",
+          "type": "integer"
+        },
+        "back_right": {
+          "title": "Back Right",
+          "type": "integer"
+        },
+        "front_left": {
+          "title": "Front Left",
+          "type": "integer"
+        },
+        "front_right": {
+          "title": "Front Right",
+          "type": "integer"
+        },
+        "sheet": {
+          "minimum": 1,
+          "title": "Sheet",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "sheet",
+        "front_left",
+        "front_right",
+        "back_left",
+        "back_right"
+      ],
+      "title": "PrinterSheet",
+      "type": "object"
+    },
+    "RuleBreakEvaluation": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted": {
+          "title": "Accepted",
+          "type": "boolean"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        },
+        "rule": {
+          "title": "Rule",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule",
+        "accepted",
+        "reason"
+      ],
+      "title": "RuleBreakEvaluation",
+      "type": "object"
+    },
+    "Severity": {
+      "enum": [
+        "CRITICAL",
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ],
+      "title": "Severity",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "blueprint": {
+      "$ref": "#/$defs/IssueBlueprint"
+    },
+    "coherence": {
+      "$ref": "#/$defs/CriticAssessment"
+    },
+    "coherence_call_id": {
+      "title": "Coherence Call Id",
+      "type": "string"
+    },
+    "contact_sheet_asset_id": {
+      "title": "Contact Sheet Asset Id",
+      "type": "string"
+    },
+    "evidence_fingerprint": {
+      "title": "Evidence Fingerprint",
+      "type": "string"
+    },
+    "human_approval": {
+      "default": false,
+      "title": "Human Approval",
+      "type": "boolean"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "identity_id": {
+      "title": "Identity Id",
+      "type": "string"
+    },
+    "page_map": {
+      "$ref": "#/$defs/PageMap"
+    },
+    "printer_sheets": {
+      "items": {
+        "$ref": "#/$defs/PrinterSheet"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "title": "Printer Sheets",
+      "type": "array"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "reader_pdf_asset_id": {
+      "title": "Reader Pdf Asset Id",
+      "type": "string"
+    },
+    "spreads": {
+      "items": {
+        "$ref": "#/$defs/IssueSpread"
+      },
+      "maxItems": 6,
+      "minItems": 6,
+      "title": "Spreads",
+      "type": "array"
+    },
+    "state": {
+      "enum": [
+        "review",
+        "revision_required"
+      ],
+      "title": "State",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "identity_id",
+    "blueprint",
+    "page_map",
+    "printer_sheets",
+    "spreads",
+    "coherence",
+    "coherence_call_id",
+    "reader_pdf_asset_id",
+    "contact_sheet_asset_id",
+    "evidence_fingerprint",
+    "state"
+  ],
+  "title": "IssueResult",
+  "type": "object"
+}

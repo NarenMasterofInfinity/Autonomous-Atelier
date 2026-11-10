@@ -1,0 +1,186 @@
+{
+  "$defs": {
+    "ImageSampling": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "effective_ppi": {
+          "exclusiveMinimum": 0,
+          "title": "Effective Ppi",
+          "type": "number"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "native_ppi": {
+          "exclusiveMinimum": 0,
+          "title": "Native Ppi",
+          "type": "number"
+        },
+        "native_source_asset_id": {
+          "title": "Native Source Asset Id",
+          "type": "string"
+        },
+        "scene_id": {
+          "title": "Scene Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "scene_id",
+        "layer_id",
+        "asset_id",
+        "native_source_asset_id",
+        "effective_ppi",
+        "native_ppi"
+      ],
+      "title": "ImageSampling",
+      "type": "object"
+    },
+    "PreflightFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "layer_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Layer Id"
+        },
+        "page_number": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page Number"
+        },
+        "scene_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Scene Id"
+        },
+        "severity": {
+          "enum": [
+            "error",
+            "warning"
+          ],
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "severity",
+        "description"
+      ],
+      "title": "PreflightFinding",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "checked_scene_versions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Checked Scene Versions",
+      "type": "array"
+    },
+    "configuration_json": {
+      "title": "Configuration Json",
+      "type": "string"
+    },
+    "embedded_font_count": {
+      "minimum": 0,
+      "title": "Embedded Font Count",
+      "type": "integer"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/PreflightFinding"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "issue_evidence_fingerprint": {
+      "title": "Issue Evidence Fingerprint",
+      "type": "string"
+    },
+    "issue_id": {
+      "title": "Issue Id",
+      "type": "string"
+    },
+    "lineage_fingerprint": {
+      "title": "Lineage Fingerprint",
+      "type": "string"
+    },
+    "passed": {
+      "title": "Passed",
+      "type": "boolean"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "sampling": {
+      "items": {
+        "$ref": "#/$defs/ImageSampling"
+      },
+      "title": "Sampling",
+      "type": "array"
+    },
+    "source_issue_hash": {
+      "title": "Source Issue Hash",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "issue_id",
+    "issue_evidence_fingerprint",
+    "source_issue_hash",
+    "lineage_fingerprint",
+    "configuration_json",
+    "findings",
+    "sampling",
+    "checked_scene_versions",
+    "embedded_font_count",
+    "passed"
+  ],
+  "title": "ProductionPreflight",
+  "type": "object"
+}

@@ -1,0 +1,39 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "assets": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Assets",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "created": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Created",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "read": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Read",
+      "type": "array",
+      "uniqueItems": true
+    },
+    "written": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Written",
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "title": "OperationAccess",
+  "type": "object"
+}

@@ -1,0 +1,16 @@
+data_root: data/projects
+pricing_path: config/pricing.yaml
+text_model: gpt-6-luna
+image_model: gpt-image-2
+reasoning_effort: medium
+creative_reasoning_effort: high
+max_output_tokens: 512
+timeout_seconds: 120
+image_timeout_seconds: 240
+image_quality: medium
+image_size: 1024x1024
+lease_seconds: 60
+heartbeat_seconds: 10
+features:
+  reference_ingestion: false
+  automated_skill_generator: false

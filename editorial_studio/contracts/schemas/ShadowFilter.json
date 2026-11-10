@@ -1,0 +1,52 @@
+{
+  "$defs": {
+    "PointMM": {
+      "additionalProperties": false,
+      "properties": {
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm"
+      ],
+      "title": "PointMM",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "shadow",
+      "default": "shadow",
+      "title": "Kind",
+      "type": "string"
+    },
+    "offset": {
+      "$ref": "#/$defs/PointMM"
+    },
+    "radius_mm": {
+      "minimum": 0,
+      "title": "Radius Mm",
+      "type": "number"
+    },
+    "rgba_hex": {
+      "pattern": "^#[0-9a-fA-F]{8}$",
+      "title": "Rgba Hex",
+      "type": "string"
+    }
+  },
+  "required": [
+    "offset",
+    "radius_mm",
+    "rgba_hex"
+  ],
+  "title": "ShadowFilter",
+  "type": "object"
+}

@@ -1,0 +1,59 @@
+{
+  "$defs": {
+    "FontPairing": {
+      "additionalProperties": false,
+      "properties": {
+        "body_font_id": {
+          "title": "Body Font Id",
+          "type": "string"
+        },
+        "detail_font_id": {
+          "title": "Detail Font Id",
+          "type": "string"
+        },
+        "headline_font_id": {
+          "title": "Headline Font Id",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "intent": {
+          "title": "Intent",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "headline_font_id",
+        "body_font_id",
+        "detail_font_id",
+        "intent"
+      ],
+      "title": "FontPairing",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "pairings": {
+      "items": {
+        "$ref": "#/$defs/FontPairing"
+      },
+      "minItems": 1,
+      "title": "Pairings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "pairings"
+  ],
+  "title": "PairingCatalog",
+  "type": "object"
+}

@@ -1,0 +1,173 @@
+{
+  "$defs": {
+    "BlurFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "blur",
+          "default": "blur",
+          "title": "Kind",
+          "type": "string"
+        },
+        "radius_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Radius Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "radius_mm"
+      ],
+      "title": "BlurFilter",
+      "type": "object"
+    },
+    "GrainFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "grain",
+          "default": "grain",
+          "title": "Kind",
+          "type": "string"
+        },
+        "random_seed": {
+          "title": "Random Seed",
+          "type": "integer"
+        },
+        "strength": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Strength",
+          "type": "number"
+        }
+      },
+      "required": [
+        "strength",
+        "random_seed"
+      ],
+      "title": "GrainFilter",
+      "type": "object"
+    },
+    "HalftoneFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "angle_deg": {
+          "default": 0.0,
+          "title": "Angle Deg",
+          "type": "number"
+        },
+        "dot_spacing_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Dot Spacing Mm",
+          "type": "number"
+        },
+        "kind": {
+          "const": "halftone",
+          "default": "halftone",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "dot_spacing_mm"
+      ],
+      "title": "HalftoneFilter",
+      "type": "object"
+    },
+    "PointMM": {
+      "additionalProperties": false,
+      "properties": {
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm"
+      ],
+      "title": "PointMM",
+      "type": "object"
+    },
+    "ShadowFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "shadow",
+          "default": "shadow",
+          "title": "Kind",
+          "type": "string"
+        },
+        "offset": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "radius_mm": {
+          "minimum": 0,
+          "title": "Radius Mm",
+          "type": "number"
+        },
+        "rgba_hex": {
+          "pattern": "^#[0-9a-fA-F]{8}$",
+          "title": "Rgba Hex",
+          "type": "string"
+        }
+      },
+      "required": [
+        "offset",
+        "radius_mm",
+        "rgba_hex"
+      ],
+      "title": "ShadowFilter",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "filter": {
+      "discriminator": {
+        "mapping": {
+          "blur": "#/$defs/BlurFilter",
+          "grain": "#/$defs/GrainFilter",
+          "halftone": "#/$defs/HalftoneFilter",
+          "shadow": "#/$defs/ShadowFilter"
+        },
+        "propertyName": "kind"
+      },
+      "oneOf": [
+        {
+          "$ref": "#/$defs/BlurFilter"
+        },
+        {
+          "$ref": "#/$defs/ShadowFilter"
+        },
+        {
+          "$ref": "#/$defs/GrainFilter"
+        },
+        {
+          "$ref": "#/$defs/HalftoneFilter"
+        }
+      ],
+      "title": "Filter"
+    },
+    "layer_id": {
+      "title": "Layer Id",
+      "type": "string"
+    },
+    "op": {
+      "const": "apply_filter",
+      "default": "apply_filter",
+      "title": "Op",
+      "type": "string"
+    }
+  },
+  "required": [
+    "layer_id",
+    "filter"
+  ],
+  "title": "ApplyFilterOp",
+  "type": "object"
+}

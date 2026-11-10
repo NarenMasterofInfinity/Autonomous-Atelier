@@ -1,0 +1,108 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "elapsed_ms": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Elapsed Ms"
+    },
+    "error_summary": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error Summary"
+    },
+    "input_asset_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Input Asset Id"
+    },
+    "output_asset_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Output Asset Ids",
+      "type": "array"
+    },
+    "parent_call_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Parent Call Id"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "spread_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Spread Id"
+    },
+    "status": {
+      "enum": [
+        "started",
+        "completed",
+        "failed",
+        "cancelled"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "tool_call_id": {
+      "title": "Tool Call Id",
+      "type": "string"
+    },
+    "tool_name": {
+      "title": "Tool Name",
+      "type": "string"
+    }
+  },
+  "required": [
+    "tool_call_id",
+    "project_id",
+    "run_id",
+    "tool_name",
+    "status"
+  ],
+  "title": "ToolExecutionRecord",
+  "type": "object"
+}

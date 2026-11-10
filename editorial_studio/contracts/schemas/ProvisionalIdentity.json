@@ -1,0 +1,1096 @@
+{
+  "$defs": {
+    "ArtDirectionBible": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_state": {
+          "enum": [
+            "provisional",
+            "final",
+            "revision_required"
+          ],
+          "title": "Approval State",
+          "type": "string"
+        },
+        "approved_visual_examples": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Approved Visual Examples",
+          "type": "array"
+        },
+        "artistic_boundaries": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Artistic Boundaries",
+          "type": "array"
+        },
+        "conceptual_identity": {
+          "title": "Conceptual Identity",
+          "type": "string"
+        },
+        "final_proof_spread_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Final Proof Spread Ids",
+          "type": "array"
+        },
+        "font_pairing_id": {
+          "title": "Font Pairing Id",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "narrative_progression": {
+          "items": {
+            "$ref": "#/$defs/IssuePhaseDirection"
+          },
+          "title": "Narrative Progression",
+          "type": "array"
+        },
+        "palette": {
+          "items": {
+            "$ref": "#/$defs/PaletteToken"
+          },
+          "title": "Palette",
+          "type": "array"
+        },
+        "photographic_character": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Photographic Character",
+          "type": "array"
+        },
+        "provisional_proof_spread_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Provisional Proof Spread Ids",
+          "type": "array"
+        },
+        "recurring_motifs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Recurring Motifs",
+          "type": "array"
+        },
+        "signature_behaviors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Signature Behaviors",
+          "type": "array"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "approval_state",
+        "conceptual_identity",
+        "font_pairing_id",
+        "palette",
+        "photographic_character",
+        "signature_behaviors",
+        "narrative_progression",
+        "recurring_motifs",
+        "artistic_boundaries",
+        "approved_visual_examples"
+      ],
+      "title": "ArtDirectionBible",
+      "type": "object"
+    },
+    "BaselineLayoutReport": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_origin_mm": {
+          "title": "Baseline Origin Mm",
+          "type": "number"
+        },
+        "baseline_step_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Baseline Step Mm",
+          "type": "number"
+        },
+        "baseline_tolerance_mm": {
+          "default": 0.01,
+          "title": "Baseline Tolerance Mm",
+          "type": "number"
+        },
+        "body_baselines_mm": {
+          "items": {
+            "type": "number"
+          },
+          "title": "Body Baselines Mm",
+          "type": "array"
+        },
+        "placements": {
+          "items": {
+            "$ref": "#/$defs/TextPlacement"
+          },
+          "title": "Placements",
+          "type": "array"
+        },
+        "scene_id": {
+          "title": "Scene Id",
+          "type": "string"
+        },
+        "story_id": {
+          "title": "Story Id",
+          "type": "string"
+        },
+        "text_fit": {
+          "items": {
+            "$ref": "#/$defs/TextFitEvidence"
+          },
+          "title": "Text Fit",
+          "type": "array"
+        },
+        "unplaced_body_start": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unplaced Body Start"
+        },
+        "unplaced_fields": {
+          "items": {
+            "enum": [
+              "title",
+              "deck",
+              "body"
+            ],
+            "type": "string"
+          },
+          "title": "Unplaced Fields",
+          "type": "array"
+        }
+      },
+      "required": [
+        "story_id",
+        "scene_id",
+        "placements",
+        "baseline_step_mm",
+        "baseline_origin_mm",
+        "body_baselines_mm"
+      ],
+      "title": "BaselineLayoutReport",
+      "type": "object"
+    },
+    "CapabilityCoverage": {
+      "additionalProperties": false,
+      "properties": {
+        "available_operations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Available Operations",
+          "type": "array"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "missing_operations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Missing Operations",
+          "type": "array"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "required_operations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Required Operations",
+          "type": "array"
+        },
+        "validation_complete": {
+          "title": "Validation Complete",
+          "type": "boolean"
+        },
+        "verification_status": {
+          "title": "Verification Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "required_operations",
+        "available_operations",
+        "missing_operations",
+        "validation_complete",
+        "verification_status"
+      ],
+      "title": "CapabilityCoverage",
+      "type": "object"
+    },
+    "DesignTokens": {
+      "additionalProperties": false,
+      "properties": {
+        "body_span_columns": {
+          "default": 2,
+          "minimum": 1,
+          "title": "Body Span Columns",
+          "type": "integer"
+        },
+        "grid": {
+          "$ref": "#/$defs/GridSpec"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "minimum_body_pt": {
+          "maximum": 16,
+          "minimum": 9,
+          "title": "Minimum Body Pt",
+          "type": "number"
+        },
+        "palette": {
+          "items": {
+            "$ref": "#/$defs/PaletteToken"
+          },
+          "title": "Palette",
+          "type": "array"
+        },
+        "prefer_paragraph_breaks": {
+          "default": false,
+          "title": "Prefer Paragraph Breaks",
+          "type": "boolean"
+        },
+        "rule_width_mm": {
+          "exclusiveMinimum": 0,
+          "maximum": 2,
+          "title": "Rule Width Mm",
+          "type": "number"
+        },
+        "type_scale": {
+          "$ref": "#/$defs/ModularTypeScale"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "grid",
+        "type_scale",
+        "palette",
+        "rule_width_mm",
+        "minimum_body_pt"
+      ],
+      "title": "DesignTokens",
+      "type": "object"
+    },
+    "FontConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "fonts": {
+          "items": {
+            "$ref": "#/$defs/FontSpec"
+          },
+          "title": "Fonts",
+          "type": "array"
+        },
+        "styles": {
+          "items": {
+            "$ref": "#/$defs/TypeStyle"
+          },
+          "title": "Styles",
+          "type": "array"
+        }
+      },
+      "required": [
+        "fonts",
+        "styles"
+      ],
+      "title": "FontConfiguration",
+      "type": "object"
+    },
+    "FontPairing": {
+      "additionalProperties": false,
+      "properties": {
+        "body_font_id": {
+          "title": "Body Font Id",
+          "type": "string"
+        },
+        "detail_font_id": {
+          "title": "Detail Font Id",
+          "type": "string"
+        },
+        "headline_font_id": {
+          "title": "Headline Font Id",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "intent": {
+          "title": "Intent",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "headline_font_id",
+        "body_font_id",
+        "detail_font_id",
+        "intent"
+      ],
+      "title": "FontPairing",
+      "type": "object"
+    },
+    "FontSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "axes": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Axes",
+          "type": "object"
+        },
+        "fallback": {
+          "default": false,
+          "title": "Fallback",
+          "type": "boolean"
+        },
+        "family": {
+          "title": "Family",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "path": {
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "title": "Sha256",
+          "type": "string"
+        },
+        "slant": {
+          "default": "normal",
+          "enum": [
+            "normal",
+            "italic"
+          ],
+          "title": "Slant",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "family",
+        "path",
+        "sha256"
+      ],
+      "title": "FontSpec",
+      "type": "object"
+    },
+    "GridSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_origin_mm": {
+          "default": 20,
+          "minimum": 0,
+          "title": "Baseline Origin Mm",
+          "type": "number"
+        },
+        "baseline_step_mm": {
+          "default": 5,
+          "exclusiveMinimum": 0,
+          "title": "Baseline Step Mm",
+          "type": "number"
+        },
+        "baseline_tolerance_mm": {
+          "default": 0.01,
+          "exclusiveMinimum": 0,
+          "maximum": 0.05,
+          "title": "Baseline Tolerance Mm",
+          "type": "number"
+        },
+        "bottom_margin_mm": {
+          "default": 20,
+          "minimum": 0,
+          "title": "Bottom Margin Mm",
+          "type": "number"
+        },
+        "column_gap_mm": {
+          "default": 6,
+          "minimum": 0,
+          "title": "Column Gap Mm",
+          "type": "number"
+        },
+        "columns_per_page": {
+          "default": 3,
+          "maximum": 12,
+          "minimum": 1,
+          "title": "Columns Per Page",
+          "type": "integer"
+        },
+        "fold_safe_mm": {
+          "default": 10,
+          "minimum": 0,
+          "title": "Fold Safe Mm",
+          "type": "number"
+        },
+        "height_mm": {
+          "default": 297,
+          "exclusiveMinimum": 0,
+          "title": "Height Mm",
+          "type": "number"
+        },
+        "outer_margin_mm": {
+          "default": 20,
+          "minimum": 0,
+          "title": "Outer Margin Mm",
+          "type": "number"
+        },
+        "page_width_mm": {
+          "default": 210,
+          "exclusiveMinimum": 0,
+          "title": "Page Width Mm",
+          "type": "number"
+        },
+        "top_margin_mm": {
+          "default": 20,
+          "minimum": 0,
+          "title": "Top Margin Mm",
+          "type": "number"
+        },
+        "width_mm": {
+          "default": 420,
+          "exclusiveMinimum": 0,
+          "title": "Width Mm",
+          "type": "number"
+        }
+      },
+      "title": "GridSpec",
+      "type": "object"
+    },
+    "IdentityProof": {
+      "additionalProperties": false,
+      "properties": {
+        "document_asset_id": {
+          "title": "Document Asset Id",
+          "type": "string"
+        },
+        "metadata_asset_id": {
+          "title": "Metadata Asset Id",
+          "type": "string"
+        },
+        "pdf_asset_id": {
+          "title": "Pdf Asset Id",
+          "type": "string"
+        },
+        "png_asset_id": {
+          "title": "Png Asset Id",
+          "type": "string"
+        },
+        "report": {
+          "$ref": "#/$defs/BaselineLayoutReport"
+        },
+        "scene_id": {
+          "title": "Scene Id",
+          "type": "string"
+        },
+        "scene_version": {
+          "title": "Scene Version",
+          "type": "string"
+        },
+        "story_id": {
+          "title": "Story Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "story_id",
+        "scene_id",
+        "scene_version",
+        "document_asset_id",
+        "png_asset_id",
+        "pdf_asset_id",
+        "metadata_asset_id",
+        "report"
+      ],
+      "title": "IdentityProof",
+      "type": "object"
+    },
+    "IdentityReview": {
+      "additionalProperties": false,
+      "properties": {
+        "actor": {
+          "minLength": 1,
+          "title": "Actor",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "note": {
+          "minLength": 1,
+          "title": "Note",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "reviewed_proof_versions": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 3,
+          "title": "Reviewed Proof Versions",
+          "type": "array"
+        },
+        "verdict": {
+          "enum": [
+            "approved",
+            "revision_required"
+          ],
+          "title": "Verdict",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "actor",
+        "verdict",
+        "note",
+        "reviewed_at",
+        "reviewed_proof_versions"
+      ],
+      "title": "IdentityReview",
+      "type": "object"
+    },
+    "IssuePhaseDirection": {
+      "additionalProperties": false,
+      "properties": {
+        "emotional_role": {
+          "title": "Emotional Role",
+          "type": "string"
+        },
+        "phase_name": {
+          "title": "Phase Name",
+          "type": "string"
+        },
+        "visual_behavior": {
+          "title": "Visual Behavior",
+          "type": "string"
+        }
+      },
+      "required": [
+        "phase_name",
+        "emotional_role",
+        "visual_behavior"
+      ],
+      "title": "IssuePhaseDirection",
+      "type": "object"
+    },
+    "LayoutGuidelines": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_step_mm": {
+          "title": "Baseline Step Mm",
+          "type": "number"
+        },
+        "body_size_pt": {
+          "title": "Body Size Pt",
+          "type": "number"
+        },
+        "columns_per_page": {
+          "title": "Columns Per Page",
+          "type": "integer"
+        },
+        "composition_rules": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Composition Rules",
+          "type": "array"
+        },
+        "copyfit_actions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Copyfit Actions",
+          "type": "array"
+        },
+        "fold_safe_mm": {
+          "title": "Fold Safe Mm",
+          "type": "number"
+        },
+        "font_pairing_id": {
+          "title": "Font Pairing Id",
+          "type": "string"
+        },
+        "headline_size_pt": {
+          "title": "Headline Size Pt",
+          "type": "number"
+        },
+        "identity_stage": {
+          "const": "provisional",
+          "default": "provisional",
+          "title": "Identity Stage",
+          "type": "string"
+        },
+        "palette_roles": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Palette Roles",
+          "type": "object"
+        },
+        "photographic_character": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Photographic Character",
+          "type": "array"
+        },
+        "reference_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reference Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "font_pairing_id",
+        "body_size_pt",
+        "headline_size_pt",
+        "baseline_step_mm",
+        "fold_safe_mm",
+        "columns_per_page",
+        "palette_roles",
+        "photographic_character",
+        "composition_rules",
+        "copyfit_actions",
+        "reference_ids"
+      ],
+      "title": "LayoutGuidelines",
+      "type": "object"
+    },
+    "ModularTypeScale": {
+      "additionalProperties": false,
+      "properties": {
+        "body_pt": {
+          "maximum": 16,
+          "minimum": 9,
+          "title": "Body Pt",
+          "type": "number"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "ratio": {
+          "exclusiveMinimum": 1,
+          "maximum": 2,
+          "title": "Ratio",
+          "type": "number"
+        },
+        "role_steps": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Role Steps",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "body_pt",
+        "ratio",
+        "role_steps"
+      ],
+      "title": "ModularTypeScale",
+      "type": "object"
+    },
+    "PaletteToken": {
+      "additionalProperties": false,
+      "properties": {
+        "hex_color": {
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "title": "Hex Color",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "hex_color"
+      ],
+      "title": "PaletteToken",
+      "type": "object"
+    },
+    "StyleAxis": {
+      "additionalProperties": false,
+      "properties": {
+        "tag": {
+          "pattern": "^[A-Za-z0-9]{4}$",
+          "title": "Tag",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "title": "StyleAxis",
+      "type": "object"
+    },
+    "TextFitEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "consumed_end_char": {
+          "minimum": 0,
+          "title": "Consumed End Char",
+          "type": "integer"
+        },
+        "field": {
+          "enum": [
+            "title",
+            "deck",
+            "body"
+          ],
+          "title": "Field",
+          "type": "string"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "overflow_start_char": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Overflow Start Char"
+        },
+        "source_char_count": {
+          "minimum": 0,
+          "title": "Source Char Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "field",
+        "layer_id",
+        "source_char_count",
+        "consumed_end_char"
+      ],
+      "title": "TextFitEvidence",
+      "type": "object"
+    },
+    "TextPlacement": {
+      "additionalProperties": false,
+      "properties": {
+        "end_char": {
+          "minimum": 0,
+          "title": "End Char",
+          "type": "integer"
+        },
+        "field": {
+          "enum": [
+            "title",
+            "deck",
+            "body"
+          ],
+          "title": "Field",
+          "type": "string"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "start_char": {
+          "minimum": 0,
+          "title": "Start Char",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "field",
+        "layer_id",
+        "start_char",
+        "end_char"
+      ],
+      "title": "TextPlacement",
+      "type": "object"
+    },
+    "TypeStyle": {
+      "additionalProperties": false,
+      "properties": {
+        "alignment": {
+          "default": "left",
+          "enum": [
+            "left",
+            "center",
+            "right"
+          ],
+          "title": "Alignment",
+          "type": "string"
+        },
+        "baseline_step_mm": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Baseline Step Mm"
+        },
+        "color": {
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "title": "Color",
+          "type": "string"
+        },
+        "font_axes": {
+          "items": {
+            "$ref": "#/$defs/StyleAxis"
+          },
+          "title": "Font Axes",
+          "type": "array"
+        },
+        "font_id": {
+          "title": "Font Id",
+          "type": "string"
+        },
+        "font_size_pt": {
+          "exclusiveMinimum": 0,
+          "title": "Font Size Pt",
+          "type": "number"
+        },
+        "line_spacing": {
+          "default": 1.2,
+          "minimum": 1,
+          "title": "Line Spacing",
+          "type": "number"
+        },
+        "min_paragraph_lines": {
+          "default": 2,
+          "minimum": 1,
+          "title": "Min Paragraph Lines",
+          "type": "integer"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "paint": {
+          "default": "fill",
+          "enum": [
+            "fill",
+            "stroke",
+            "fill_stroke"
+          ],
+          "title": "Paint",
+          "type": "string"
+        },
+        "stroke_color": {
+          "anyOf": [
+            {
+              "pattern": "^#[0-9a-fA-F]{6}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Stroke Color"
+        },
+        "stroke_width_pt": {
+          "default": 0,
+          "maximum": 12,
+          "minimum": 0,
+          "title": "Stroke Width Pt",
+          "type": "number"
+        },
+        "tracking_pt": {
+          "default": 0,
+          "maximum": 48,
+          "minimum": -12,
+          "title": "Tracking Pt",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "font_id",
+        "font_size_pt",
+        "color"
+      ],
+      "title": "TypeStyle",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "bible": {
+      "$ref": "#/$defs/ArtDirectionBible"
+    },
+    "capabilities": {
+      "items": {
+        "$ref": "#/$defs/CapabilityCoverage"
+      },
+      "title": "Capabilities",
+      "type": "array"
+    },
+    "contact_sheet_asset_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Contact Sheet Asset Id"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "guidelines": {
+      "$ref": "#/$defs/LayoutGuidelines"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "pairing": {
+      "$ref": "#/$defs/FontPairing"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "proof_book_asset_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Proof Book Asset Id"
+    },
+    "proofs": {
+      "items": {
+        "$ref": "#/$defs/IdentityProof"
+      },
+      "maxItems": 3,
+      "minItems": 3,
+      "title": "Proofs",
+      "type": "array"
+    },
+    "review": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/IdentityReview"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "revision": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Revision",
+      "type": "integer"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "tokens": {
+      "$ref": "#/$defs/DesignTokens"
+    },
+    "typography": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/FontConfiguration"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "run_id",
+    "bible",
+    "pairing",
+    "tokens",
+    "guidelines",
+    "proofs",
+    "capabilities",
+    "created_at"
+  ],
+  "title": "ProvisionalIdentity",
+  "type": "object"
+}

@@ -1,0 +1,38 @@
+{
+  "$defs": {
+    "BlendMode": {
+      "enum": [
+        "normal",
+        "multiply",
+        "screen",
+        "overlay",
+        "darken",
+        "lighten"
+      ],
+      "title": "BlendMode",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "blend_mode": {
+      "$ref": "#/$defs/BlendMode"
+    },
+    "layer_id": {
+      "title": "Layer Id",
+      "type": "string"
+    },
+    "op": {
+      "const": "set_blend_mode",
+      "default": "set_blend_mode",
+      "title": "Op",
+      "type": "string"
+    }
+  },
+  "required": [
+    "layer_id",
+    "blend_mode"
+  ],
+  "title": "SetBlendModeOp",
+  "type": "object"
+}

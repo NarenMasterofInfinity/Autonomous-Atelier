@@ -1,0 +1,313 @@
+{
+  "$defs": {
+    "BlendMode": {
+      "enum": [
+        "normal",
+        "multiply",
+        "screen",
+        "overlay",
+        "darken",
+        "lighten"
+      ],
+      "title": "BlendMode",
+      "type": "string"
+    },
+    "BoundsMM": {
+      "additionalProperties": false,
+      "properties": {
+        "height_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Height Mm",
+          "type": "number"
+        },
+        "width_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Width Mm",
+          "type": "number"
+        },
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm",
+        "width_mm",
+        "height_mm"
+      ],
+      "title": "BoundsMM",
+      "type": "object"
+    },
+    "ClosePath": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "Z",
+          "default": "Z",
+          "title": "Cmd",
+          "type": "string"
+        }
+      },
+      "title": "ClosePath",
+      "type": "object"
+    },
+    "CubicTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "C",
+          "default": "C",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "control1": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "control2": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "control1",
+        "control2",
+        "p"
+      ],
+      "title": "CubicTo",
+      "type": "object"
+    },
+    "LineTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "L",
+          "default": "L",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "LineTo",
+      "type": "object"
+    },
+    "MoveTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "M",
+          "default": "M",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "MoveTo",
+      "type": "object"
+    },
+    "PathGeometry": {
+      "additionalProperties": false,
+      "properties": {
+        "commands": {
+          "items": {
+            "discriminator": {
+              "mapping": {
+                "C": "#/$defs/CubicTo",
+                "L": "#/$defs/LineTo",
+                "M": "#/$defs/MoveTo",
+                "Q": "#/$defs/QuadraticTo",
+                "Z": "#/$defs/ClosePath"
+              },
+              "propertyName": "cmd"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/MoveTo"
+              },
+              {
+                "$ref": "#/$defs/LineTo"
+              },
+              {
+                "$ref": "#/$defs/QuadraticTo"
+              },
+              {
+                "$ref": "#/$defs/CubicTo"
+              },
+              {
+                "$ref": "#/$defs/ClosePath"
+              }
+            ]
+          },
+          "minItems": 2,
+          "title": "Commands",
+          "type": "array"
+        },
+        "fill_rule": {
+          "default": "nonzero",
+          "enum": [
+            "nonzero",
+            "evenodd"
+          ],
+          "title": "Fill Rule",
+          "type": "string"
+        }
+      },
+      "required": [
+        "commands"
+      ],
+      "title": "PathGeometry",
+      "type": "object"
+    },
+    "PointMM": {
+      "additionalProperties": false,
+      "properties": {
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm"
+      ],
+      "title": "PointMM",
+      "type": "object"
+    },
+    "QuadraticTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "Q",
+          "default": "Q",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "control": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "control",
+        "p"
+      ],
+      "title": "QuadraticTo",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "blend_mode": {
+      "$ref": "#/$defs/BlendMode",
+      "default": "normal"
+    },
+    "bounds": {
+      "$ref": "#/$defs/BoundsMM"
+    },
+    "fill_color": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Fill Color"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "layer_type": {
+      "const": "vector",
+      "default": "vector",
+      "title": "Layer Type",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "opacity": {
+      "default": 1.0,
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Opacity",
+      "type": "number"
+    },
+    "owner_skill_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Owner Skill Id"
+    },
+    "path": {
+      "$ref": "#/$defs/PathGeometry"
+    },
+    "semantic_role": {
+      "title": "Semantic Role",
+      "type": "string"
+    },
+    "stroke_color": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Stroke Color"
+    },
+    "visible": {
+      "default": true,
+      "title": "Visible",
+      "type": "boolean"
+    },
+    "z_index": {
+      "title": "Z Index",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "semantic_role",
+    "z_index",
+    "bounds",
+    "path"
+  ],
+  "title": "VectorLayer",
+  "type": "object"
+}

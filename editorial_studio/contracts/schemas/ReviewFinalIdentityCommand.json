@@ -1,0 +1,57 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "actor": {
+      "minLength": 1,
+      "title": "Actor",
+      "type": "string"
+    },
+    "expected_revision": {
+      "minimum": 0,
+      "title": "Expected Revision",
+      "type": "integer"
+    },
+    "kind": {
+      "const": "review_final_identity",
+      "default": "review_final_identity",
+      "title": "Kind",
+      "type": "string"
+    },
+    "note": {
+      "minLength": 1,
+      "title": "Note",
+      "type": "string"
+    },
+    "override_critic_recommendations": {
+      "default": false,
+      "title": "Override Critic Recommendations",
+      "type": "boolean"
+    },
+    "package_id": {
+      "title": "Package Id",
+      "type": "string"
+    },
+    "reviewed_techniques": {
+      "title": "Reviewed Techniques",
+      "type": "boolean"
+    },
+    "verdict": {
+      "enum": [
+        "approved",
+        "revision_required"
+      ],
+      "title": "Verdict",
+      "type": "string"
+    }
+  },
+  "required": [
+    "package_id",
+    "expected_revision",
+    "actor",
+    "note",
+    "verdict",
+    "reviewed_techniques"
+  ],
+  "title": "ReviewFinalIdentityCommand",
+  "type": "object"
+}

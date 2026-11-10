@@ -1,0 +1,69 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "concept_id": {
+      "title": "Concept Id",
+      "type": "string"
+    },
+    "concept_index": {
+      "title": "Concept Index",
+      "type": "integer"
+    },
+    "document_asset_id": {
+      "title": "Document Asset Id",
+      "type": "string"
+    },
+    "metadata_asset_id": {
+      "title": "Metadata Asset Id",
+      "type": "string"
+    },
+    "pdf_asset_id": {
+      "title": "Pdf Asset Id",
+      "type": "string"
+    },
+    "png_asset_id": {
+      "title": "Png Asset Id",
+      "type": "string"
+    },
+    "review_id": {
+      "title": "Review Id",
+      "type": "string"
+    },
+    "scene_id": {
+      "title": "Scene Id",
+      "type": "string"
+    },
+    "scene_version": {
+      "title": "Scene Version",
+      "type": "string"
+    },
+    "slot_id": {
+      "title": "Slot Id",
+      "type": "string"
+    },
+    "spread_id": {
+      "title": "Spread Id",
+      "type": "string"
+    },
+    "variation_index": {
+      "title": "Variation Index",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "slot_id",
+    "concept_index",
+    "variation_index",
+    "spread_id",
+    "scene_id",
+    "scene_version",
+    "concept_id",
+    "review_id",
+    "png_asset_id",
+    "pdf_asset_id",
+    "document_asset_id",
+    "metadata_asset_id"
+  ],
+  "title": "CandidateBinding",
+  "type": "object"
+}

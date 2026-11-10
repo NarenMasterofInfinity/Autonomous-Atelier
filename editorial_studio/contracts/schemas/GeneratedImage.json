@@ -1,0 +1,20 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "data": {
+      "format": "binary",
+      "title": "Data",
+      "type": "string"
+    },
+    "media_type": {
+      "default": "image/png",
+      "title": "Media Type",
+      "type": "string"
+    }
+  },
+  "required": [
+    "data"
+  ],
+  "title": "GeneratedImage",
+  "type": "object"
+}

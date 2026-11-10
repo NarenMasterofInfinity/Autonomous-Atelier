@@ -1,0 +1,31 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "feature": {
+      "title": "Feature",
+      "type": "string"
+    },
+    "proposed_fallback": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Proposed Fallback"
+    },
+    "reason": {
+      "title": "Reason",
+      "type": "string"
+    }
+  },
+  "required": [
+    "feature",
+    "reason"
+  ],
+  "title": "UnsupportedFeature",
+  "type": "object"
+}

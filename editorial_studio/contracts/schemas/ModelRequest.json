@@ -1,0 +1,182 @@
+{
+  "$defs": {
+    "ImageInput": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "data_base64": {
+          "minLength": 1,
+          "title": "Data Base64",
+          "type": "string"
+        },
+        "detail": {
+          "default": "high",
+          "enum": [
+            "auto",
+            "low",
+            "high"
+          ],
+          "title": "Detail",
+          "type": "string"
+        },
+        "media_type": {
+          "default": "image/png",
+          "enum": [
+            "image/png",
+            "image/jpeg",
+            "image/webp"
+          ],
+          "title": "Media Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset_id",
+        "data_base64"
+      ],
+      "title": "ImageInput",
+      "type": "object"
+    },
+    "ImageRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "images": {
+          "items": {
+            "$ref": "#/$defs/ImageInput"
+          },
+          "maxItems": 8,
+          "title": "Images",
+          "type": "array"
+        },
+        "kind": {
+          "const": "image",
+          "default": "image",
+          "title": "Kind",
+          "type": "string"
+        },
+        "model": {
+          "title": "Model",
+          "type": "string"
+        },
+        "prompt": {
+          "title": "Prompt",
+          "type": "string"
+        },
+        "quality": {
+          "default": "medium",
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "auto"
+          ],
+          "title": "Quality",
+          "type": "string"
+        },
+        "size": {
+          "default": "1024x1024",
+          "title": "Size",
+          "type": "string"
+        }
+      },
+      "required": [
+        "model",
+        "prompt"
+      ],
+      "title": "ImageRequest",
+      "type": "object"
+    },
+    "JsonValue": {},
+    "TextRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "images": {
+          "items": {
+            "$ref": "#/$defs/ImageInput"
+          },
+          "maxItems": 12,
+          "title": "Images",
+          "type": "array"
+        },
+        "kind": {
+          "const": "text",
+          "default": "text",
+          "title": "Kind",
+          "type": "string"
+        },
+        "max_output_tokens": {
+          "exclusiveMinimum": 0,
+          "title": "Max Output Tokens",
+          "type": "integer"
+        },
+        "model": {
+          "title": "Model",
+          "type": "string"
+        },
+        "output_contract": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Output Contract"
+        },
+        "output_schema": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "prompt": {
+          "title": "Prompt",
+          "type": "string"
+        },
+        "reasoning_effort": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh"
+          ],
+          "title": "Reasoning Effort",
+          "type": "string"
+        }
+      },
+      "required": [
+        "model",
+        "prompt",
+        "reasoning_effort",
+        "max_output_tokens"
+      ],
+      "title": "TextRequest",
+      "type": "object"
+    }
+  },
+  "discriminator": {
+    "mapping": {
+      "image": "#/$defs/ImageRequest",
+      "text": "#/$defs/TextRequest"
+    },
+    "propertyName": "kind"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/TextRequest"
+    },
+    {
+      "$ref": "#/$defs/ImageRequest"
+    }
+  ]
+}

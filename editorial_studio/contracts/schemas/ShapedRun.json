@@ -1,0 +1,93 @@
+{
+  "$defs": {
+    "GlyphDetail": {
+      "additionalProperties": false,
+      "properties": {
+        "advance_mm": {
+          "minimum": 0,
+          "title": "Advance Mm",
+          "type": "number"
+        },
+        "cluster_end": {
+          "minimum": 0,
+          "title": "Cluster End",
+          "type": "integer"
+        },
+        "cluster_start": {
+          "minimum": 0,
+          "title": "Cluster Start",
+          "type": "integer"
+        },
+        "glyph_id": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Glyph Id"
+        },
+        "index": {
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
+        },
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "index",
+        "cluster_start",
+        "cluster_end",
+        "x_mm",
+        "y_mm",
+        "advance_mm"
+      ],
+      "title": "GlyphDetail",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "direction": {
+      "enum": [
+        "ltr",
+        "rtl"
+      ],
+      "title": "Direction",
+      "type": "string"
+    },
+    "font_family": {
+      "title": "Font Family",
+      "type": "string"
+    },
+    "font_hash": {
+      "title": "Font Hash",
+      "type": "string"
+    },
+    "glyphs": {
+      "items": {
+        "$ref": "#/$defs/GlyphDetail"
+      },
+      "title": "Glyphs",
+      "type": "array"
+    }
+  },
+  "required": [
+    "font_family",
+    "font_hash",
+    "direction",
+    "glyphs"
+  ],
+  "title": "ShapedRun",
+  "type": "object"
+}

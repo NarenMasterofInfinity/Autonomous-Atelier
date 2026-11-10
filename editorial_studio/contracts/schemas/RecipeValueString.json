@@ -1,0 +1,20 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "string",
+      "default": "string",
+      "title": "Kind",
+      "type": "string"
+    },
+    "value": {
+      "title": "Value",
+      "type": "string"
+    }
+  },
+  "required": [
+    "value"
+  ],
+  "title": "RecipeValueString",
+  "type": "object"
+}

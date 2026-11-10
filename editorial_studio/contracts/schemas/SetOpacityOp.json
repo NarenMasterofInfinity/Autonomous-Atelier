@@ -1,0 +1,27 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "layer_id": {
+      "title": "Layer Id",
+      "type": "string"
+    },
+    "op": {
+      "const": "set_opacity",
+      "default": "set_opacity",
+      "title": "Op",
+      "type": "string"
+    },
+    "opacity": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Opacity",
+      "type": "number"
+    }
+  },
+  "required": [
+    "layer_id",
+    "opacity"
+  ],
+  "title": "SetOpacityOp",
+  "type": "object"
+}

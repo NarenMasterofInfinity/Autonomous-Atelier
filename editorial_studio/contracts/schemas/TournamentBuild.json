@@ -1,0 +1,157 @@
+{
+  "$defs": {
+    "ConceptDirection": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "narrative_expression": {
+          "minLength": 1,
+          "title": "Narrative Expression",
+          "type": "string"
+        },
+        "photography_role": {
+          "minLength": 1,
+          "title": "Photography Role",
+          "type": "string"
+        },
+        "visual_metaphor": {
+          "minLength": 1,
+          "title": "Visual Metaphor",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "visual_metaphor",
+        "photography_role",
+        "narrative_expression"
+      ],
+      "title": "ConceptDirection",
+      "type": "object"
+    },
+    "ConceptDirections": {
+      "additionalProperties": false,
+      "properties": {
+        "concepts": {
+          "items": {
+            "$ref": "#/$defs/ConceptDirection"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "title": "Concepts",
+          "type": "array"
+        }
+      },
+      "required": [
+        "concepts"
+      ],
+      "title": "ConceptDirections",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "configuration_json": {
+      "title": "Configuration Json",
+      "type": "string"
+    },
+    "continuation_configuration_json": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Continuation Configuration Json"
+    },
+    "directions": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ConceptDirections"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "directions_call_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Directions Call Id"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "identity_id": {
+      "title": "Identity Id",
+      "type": "string"
+    },
+    "identity_snapshot_json": {
+      "title": "Identity Snapshot Json",
+      "type": "string"
+    },
+    "mandate": {
+      "title": "Mandate",
+      "type": "string"
+    },
+    "materials_json": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Materials Json"
+    },
+    "model": {
+      "title": "Model",
+      "type": "string"
+    },
+    "photo_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Photo Ids",
+      "type": "array"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "story_id": {
+      "title": "Story Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "story_id",
+    "identity_id",
+    "identity_snapshot_json",
+    "mandate",
+    "configuration_json",
+    "model"
+  ],
+  "title": "TournamentBuild",
+  "type": "object"
+}

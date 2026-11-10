@@ -1,0 +1,29 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "group_layer_id": {
+      "title": "Group Layer Id",
+      "type": "string"
+    },
+    "member_layer_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Member Layer Ids",
+      "type": "array"
+    },
+    "op": {
+      "const": "create_group",
+      "default": "create_group",
+      "title": "Op",
+      "type": "string"
+    }
+  },
+  "required": [
+    "group_layer_id",
+    "member_layer_ids"
+  ],
+  "title": "CreateGroupOp",
+  "type": "object"
+}

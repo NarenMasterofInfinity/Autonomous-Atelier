@@ -1,0 +1,137 @@
+{
+  "$defs": {
+    "NormalizedRegion": {
+      "additionalProperties": false,
+      "properties": {
+        "height": {
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "title": "Height",
+          "type": "number"
+        },
+        "width": {
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "title": "Width",
+          "type": "number"
+        },
+        "x": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "X",
+          "type": "number"
+        },
+        "y": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Y",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "title": "NormalizedRegion",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "contrast": {
+      "minimum": 0,
+      "title": "Contrast",
+      "type": "number"
+    },
+    "credit": {
+      "title": "Credit",
+      "type": "string"
+    },
+    "faces": {
+      "items": {
+        "$ref": "#/$defs/NormalizedRegion"
+      },
+      "title": "Faces",
+      "type": "array"
+    },
+    "findings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "height_px": {
+      "exclusiveMinimum": 0,
+      "title": "Height Px",
+      "type": "integer"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "negative_space_asset_id": {
+      "title": "Negative Space Asset Id",
+      "type": "string"
+    },
+    "noise": {
+      "minimum": 0,
+      "title": "Noise",
+      "type": "number"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "saliency_asset_id": {
+      "title": "Saliency Asset Id",
+      "type": "string"
+    },
+    "sharpness": {
+      "minimum": 0,
+      "title": "Sharpness",
+      "type": "number"
+    },
+    "source_asset_id": {
+      "title": "Source Asset Id",
+      "type": "string"
+    },
+    "source_uri": {
+      "title": "Source Uri",
+      "type": "string"
+    },
+    "suggested_negative_space": {
+      "items": {
+        "$ref": "#/$defs/NormalizedRegion"
+      },
+      "title": "Suggested Negative Space",
+      "type": "array"
+    },
+    "width_px": {
+      "exclusiveMinimum": 0,
+      "title": "Width Px",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "source_asset_id",
+    "width_px",
+    "height_px",
+    "sharpness",
+    "noise",
+    "contrast",
+    "faces",
+    "saliency_asset_id",
+    "negative_space_asset_id",
+    "suggested_negative_space",
+    "findings",
+    "source_uri",
+    "credit"
+  ],
+  "title": "PhotoAssessment",
+  "type": "object"
+}

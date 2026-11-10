@@ -1,0 +1,27 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "grain",
+      "default": "grain",
+      "title": "Kind",
+      "type": "string"
+    },
+    "random_seed": {
+      "title": "Random Seed",
+      "type": "integer"
+    },
+    "strength": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Strength",
+      "type": "number"
+    }
+  },
+  "required": [
+    "strength",
+    "random_seed"
+  ],
+  "title": "GrainFilter",
+  "type": "object"
+}

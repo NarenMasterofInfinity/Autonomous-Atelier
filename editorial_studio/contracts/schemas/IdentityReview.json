@@ -1,0 +1,50 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "actor": {
+      "minLength": 1,
+      "title": "Actor",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "note": {
+      "minLength": 1,
+      "title": "Note",
+      "type": "string"
+    },
+    "reviewed_at": {
+      "format": "date-time",
+      "title": "Reviewed At",
+      "type": "string"
+    },
+    "reviewed_proof_versions": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 3,
+      "title": "Reviewed Proof Versions",
+      "type": "array"
+    },
+    "verdict": {
+      "enum": [
+        "approved",
+        "revision_required"
+      ],
+      "title": "Verdict",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "actor",
+    "verdict",
+    "note",
+    "reviewed_at",
+    "reviewed_proof_versions"
+  ],
+  "title": "IdentityReview",
+  "type": "object"
+}

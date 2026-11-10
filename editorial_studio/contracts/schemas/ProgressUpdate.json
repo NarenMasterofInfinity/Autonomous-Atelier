@@ -1,0 +1,36 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "provider_request_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Provider Request Id"
+    },
+    "response_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Response Id"
+    },
+    "text_delta": {
+      "default": "",
+      "title": "Text Delta",
+      "type": "string"
+    }
+  },
+  "title": "ProgressUpdate",
+  "type": "object"
+}

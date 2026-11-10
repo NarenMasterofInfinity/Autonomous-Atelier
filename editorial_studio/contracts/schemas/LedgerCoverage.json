@@ -1,0 +1,67 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "block_id": {
+      "title": "Block Id",
+      "type": "string"
+    },
+    "placed_layer_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Placed Layer Ids",
+      "type": "array"
+    },
+    "represented_ranges": {
+      "items": {
+        "maxItems": 2,
+        "minItems": 2,
+        "prefixItems": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "integer"
+          }
+        ],
+        "type": "array"
+      },
+      "title": "Represented Ranges",
+      "type": "array"
+    },
+    "revision_id": {
+      "title": "Revision Id",
+      "type": "string"
+    },
+    "source_char_count": {
+      "title": "Source Char Count",
+      "type": "integer"
+    },
+    "unassigned_ranges": {
+      "items": {
+        "maxItems": 2,
+        "minItems": 2,
+        "prefixItems": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "integer"
+          }
+        ],
+        "type": "array"
+      },
+      "title": "Unassigned Ranges",
+      "type": "array"
+    }
+  },
+  "required": [
+    "block_id",
+    "revision_id",
+    "source_char_count",
+    "represented_ranges",
+    "unassigned_ranges"
+  ],
+  "title": "LedgerCoverage",
+  "type": "object"
+}

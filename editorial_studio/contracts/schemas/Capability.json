@@ -1,0 +1,44 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "milestone": {
+      "title": "Milestone",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "operation_names": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Operation Names",
+      "type": "array"
+    },
+    "status": {
+      "default": "planned",
+      "enum": [
+        "unsupported",
+        "planned",
+        "technically_verified",
+        "visually_reviewed",
+        "artistically_verified"
+      ],
+      "title": "Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "operation_names",
+    "milestone"
+  ],
+  "title": "Capability",
+  "type": "object"
+}

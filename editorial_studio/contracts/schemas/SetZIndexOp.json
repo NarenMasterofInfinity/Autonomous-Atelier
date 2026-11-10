@@ -1,0 +1,25 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "layer_id": {
+      "title": "Layer Id",
+      "type": "string"
+    },
+    "op": {
+      "const": "set_z_index",
+      "default": "set_z_index",
+      "title": "Op",
+      "type": "string"
+    },
+    "z_index": {
+      "title": "Z Index",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "layer_id",
+    "z_index"
+  ],
+  "title": "SetZIndexOp",
+  "type": "object"
+}

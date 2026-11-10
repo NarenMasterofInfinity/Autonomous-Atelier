@@ -1,0 +1,47 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "actor": {
+      "minLength": 1,
+      "title": "Actor",
+      "type": "string"
+    },
+    "expected_revision": {
+      "minimum": 0,
+      "title": "Expected Revision",
+      "type": "integer"
+    },
+    "identity_id": {
+      "title": "Identity Id",
+      "type": "string"
+    },
+    "kind": {
+      "const": "review_identity",
+      "default": "review_identity",
+      "title": "Kind",
+      "type": "string"
+    },
+    "note": {
+      "minLength": 1,
+      "title": "Note",
+      "type": "string"
+    },
+    "verdict": {
+      "enum": [
+        "approved",
+        "revision_required"
+      ],
+      "title": "Verdict",
+      "type": "string"
+    }
+  },
+  "required": [
+    "identity_id",
+    "expected_revision",
+    "actor",
+    "verdict",
+    "note"
+  ],
+  "title": "ReviewIdentityCommand",
+  "type": "object"
+}

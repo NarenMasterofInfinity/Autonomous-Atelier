@@ -1,0 +1,302 @@
+{
+  "$defs": {
+    "CandidateBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "concept_id": {
+          "title": "Concept Id",
+          "type": "string"
+        },
+        "concept_index": {
+          "title": "Concept Index",
+          "type": "integer"
+        },
+        "document_asset_id": {
+          "title": "Document Asset Id",
+          "type": "string"
+        },
+        "metadata_asset_id": {
+          "title": "Metadata Asset Id",
+          "type": "string"
+        },
+        "pdf_asset_id": {
+          "title": "Pdf Asset Id",
+          "type": "string"
+        },
+        "png_asset_id": {
+          "title": "Png Asset Id",
+          "type": "string"
+        },
+        "review_id": {
+          "title": "Review Id",
+          "type": "string"
+        },
+        "scene_id": {
+          "title": "Scene Id",
+          "type": "string"
+        },
+        "scene_version": {
+          "title": "Scene Version",
+          "type": "string"
+        },
+        "slot_id": {
+          "title": "Slot Id",
+          "type": "string"
+        },
+        "spread_id": {
+          "title": "Spread Id",
+          "type": "string"
+        },
+        "variation_index": {
+          "title": "Variation Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "slot_id",
+        "concept_index",
+        "variation_index",
+        "spread_id",
+        "scene_id",
+        "scene_version",
+        "concept_id",
+        "review_id",
+        "png_asset_id",
+        "pdf_asset_id",
+        "document_asset_id",
+        "metadata_asset_id"
+      ],
+      "title": "CandidateBinding",
+      "type": "object"
+    },
+    "ComparativeAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "concrete_changes": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Concrete Changes",
+          "type": "array"
+        },
+        "preferred_image": {
+          "enum": [
+            "A",
+            "B",
+            "tie"
+          ],
+          "title": "Preferred Image",
+          "type": "string"
+        },
+        "rationale": {
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "preferred_image",
+        "rationale",
+        "concrete_changes"
+      ],
+      "title": "ComparativeAssessment",
+      "type": "object"
+    },
+    "ConceptDirection": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "narrative_expression": {
+          "minLength": 1,
+          "title": "Narrative Expression",
+          "type": "string"
+        },
+        "photography_role": {
+          "minLength": 1,
+          "title": "Photography Role",
+          "type": "string"
+        },
+        "visual_metaphor": {
+          "minLength": 1,
+          "title": "Visual Metaphor",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "visual_metaphor",
+        "photography_role",
+        "narrative_expression"
+      ],
+      "title": "ConceptDirection",
+      "type": "object"
+    },
+    "ConceptDirections": {
+      "additionalProperties": false,
+      "properties": {
+        "concepts": {
+          "items": {
+            "$ref": "#/$defs/ConceptDirection"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "title": "Concepts",
+          "type": "array"
+        }
+      },
+      "required": [
+        "concepts"
+      ],
+      "title": "ConceptDirections",
+      "type": "object"
+    },
+    "TournamentMatch": {
+      "additionalProperties": false,
+      "properties": {
+        "assessment": {
+          "$ref": "#/$defs/ComparativeAssessment"
+        },
+        "candidate_a": {
+          "title": "Candidate A",
+          "type": "string"
+        },
+        "candidate_b": {
+          "title": "Candidate B",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "project_id": {
+          "title": "Project Id",
+          "type": "string"
+        },
+        "provider_call_id": {
+          "title": "Provider Call Id",
+          "type": "string"
+        },
+        "tie_break": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tie Break"
+        },
+        "tournament_id": {
+          "title": "Tournament Id",
+          "type": "string"
+        },
+        "winner_id": {
+          "title": "Winner Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "project_id",
+        "tournament_id",
+        "candidate_a",
+        "candidate_b",
+        "winner_id",
+        "assessment",
+        "provider_call_id"
+      ],
+      "title": "TournamentMatch",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "candidates": {
+      "items": {
+        "$ref": "#/$defs/CandidateBinding"
+      },
+      "maxItems": 6,
+      "minItems": 6,
+      "title": "Candidates",
+      "type": "array"
+    },
+    "contact_sheet_asset_id": {
+      "title": "Contact Sheet Asset Id",
+      "type": "string"
+    },
+    "directions": {
+      "$ref": "#/$defs/ConceptDirections"
+    },
+    "human_approval": {
+      "default": false,
+      "title": "Human Approval",
+      "type": "boolean"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "identity_id": {
+      "title": "Identity Id",
+      "type": "string"
+    },
+    "matches": {
+      "items": {
+        "$ref": "#/$defs/TournamentMatch"
+      },
+      "maxItems": 5,
+      "minItems": 5,
+      "title": "Matches",
+      "type": "array"
+    },
+    "minimum_structural_distance": {
+      "title": "Minimum Structural Distance",
+      "type": "number"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "proof_book_asset_id": {
+      "title": "Proof Book Asset Id",
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "selected",
+        "revision_required"
+      ],
+      "title": "State",
+      "type": "string"
+    },
+    "story_id": {
+      "title": "Story Id",
+      "type": "string"
+    },
+    "winner_id": {
+      "title": "Winner Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "story_id",
+    "identity_id",
+    "directions",
+    "candidates",
+    "matches",
+    "winner_id",
+    "contact_sheet_asset_id",
+    "proof_book_asset_id",
+    "minimum_structural_distance",
+    "state"
+  ],
+  "title": "TournamentResult",
+  "type": "object"
+}

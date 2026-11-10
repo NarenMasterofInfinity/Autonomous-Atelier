@@ -1,0 +1,591 @@
+{
+  "$defs": {
+    "AssetType": {
+      "enum": [
+        "raster",
+        "vector",
+        "mask",
+        "text_path",
+        "composite"
+      ],
+      "title": "AssetType",
+      "type": "string"
+    },
+    "ClosePath": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "Z",
+          "default": "Z",
+          "title": "Cmd",
+          "type": "string"
+        }
+      },
+      "title": "ClosePath",
+      "type": "object"
+    },
+    "CompositionUnit": {
+      "enum": [
+        "single_page",
+        "facing_spread",
+        "multi_spread",
+        "cover"
+      ],
+      "title": "CompositionUnit",
+      "type": "string"
+    },
+    "CubicTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "C",
+          "default": "C",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "control1": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "control2": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "control1",
+        "control2",
+        "p"
+      ],
+      "title": "CubicTo",
+      "type": "object"
+    },
+    "LineTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "L",
+          "default": "L",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "LineTo",
+      "type": "object"
+    },
+    "MoveTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "M",
+          "default": "M",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "MoveTo",
+      "type": "object"
+    },
+    "PathGeometry": {
+      "additionalProperties": false,
+      "properties": {
+        "commands": {
+          "items": {
+            "discriminator": {
+              "mapping": {
+                "C": "#/$defs/CubicTo",
+                "L": "#/$defs/LineTo",
+                "M": "#/$defs/MoveTo",
+                "Q": "#/$defs/QuadraticTo",
+                "Z": "#/$defs/ClosePath"
+              },
+              "propertyName": "cmd"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/MoveTo"
+              },
+              {
+                "$ref": "#/$defs/LineTo"
+              },
+              {
+                "$ref": "#/$defs/QuadraticTo"
+              },
+              {
+                "$ref": "#/$defs/CubicTo"
+              },
+              {
+                "$ref": "#/$defs/ClosePath"
+              }
+            ]
+          },
+          "minItems": 2,
+          "title": "Commands",
+          "type": "array"
+        },
+        "fill_rule": {
+          "default": "nonzero",
+          "enum": [
+            "nonzero",
+            "evenodd"
+          ],
+          "title": "Fill Rule",
+          "type": "string"
+        }
+      },
+      "required": [
+        "commands"
+      ],
+      "title": "PathGeometry",
+      "type": "object"
+    },
+    "PointMM": {
+      "additionalProperties": false,
+      "properties": {
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm"
+      ],
+      "title": "PointMM",
+      "type": "object"
+    },
+    "QuadraticTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "Q",
+          "default": "Q",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "control": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "control",
+        "p"
+      ],
+      "title": "QuadraticTo",
+      "type": "object"
+    },
+    "RecipeArgument": {
+      "additionalProperties": false,
+      "properties": {
+        "parameter_name": {
+          "title": "Parameter Name",
+          "type": "string"
+        },
+        "value": {
+          "discriminator": {
+            "mapping": {
+              "boolean": "#/$defs/RecipeValueBoolean",
+              "number": "#/$defs/RecipeValueNumber",
+              "path": "#/$defs/RecipeValuePath",
+              "point": "#/$defs/RecipeValuePoint",
+              "slot_ref": "#/$defs/RecipeValueSlot",
+              "string": "#/$defs/RecipeValueString"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/RecipeValueString"
+            },
+            {
+              "$ref": "#/$defs/RecipeValueNumber"
+            },
+            {
+              "$ref": "#/$defs/RecipeValueBoolean"
+            },
+            {
+              "$ref": "#/$defs/RecipeValuePoint"
+            },
+            {
+              "$ref": "#/$defs/RecipeValuePath"
+            },
+            {
+              "$ref": "#/$defs/RecipeValueSlot"
+            }
+          ],
+          "title": "Value"
+        }
+      },
+      "required": [
+        "parameter_name",
+        "value"
+      ],
+      "title": "RecipeArgument",
+      "type": "object"
+    },
+    "RecipeStep": {
+      "additionalProperties": false,
+      "properties": {
+        "arguments": {
+          "items": {
+            "$ref": "#/$defs/RecipeArgument"
+          },
+          "title": "Arguments",
+          "type": "array"
+        },
+        "depends_on_step_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Depends On Step Ids",
+          "type": "array"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "operation_name": {
+          "enum": [
+            "add_image",
+            "add_text",
+            "transform_layer",
+            "clip_to_path",
+            "set_z_index",
+            "apply_mask",
+            "add_path",
+            "edit_path",
+            "boolean_path",
+            "text_on_path",
+            "set_glyph_transforms",
+            "flow_text_into_shape",
+            "set_blend_mode",
+            "create_group",
+            "set_clip_stack",
+            "color_adjust",
+            "gradient_mask",
+            "displacement_map",
+            "apply_filter",
+            "bind_asset",
+            "set_opacity"
+          ],
+          "title": "Operation Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "operation_name",
+        "arguments"
+      ],
+      "title": "RecipeStep",
+      "type": "object"
+    },
+    "RecipeValueBoolean": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "boolean",
+          "default": "boolean",
+          "title": "Kind",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "RecipeValueBoolean",
+      "type": "object"
+    },
+    "RecipeValueNumber": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "number",
+          "default": "number",
+          "title": "Kind",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "RecipeValueNumber",
+      "type": "object"
+    },
+    "RecipeValuePath": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "path",
+          "default": "path",
+          "title": "Kind",
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/$defs/PathGeometry"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "RecipeValuePath",
+      "type": "object"
+    },
+    "RecipeValuePoint": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "point",
+          "default": "point",
+          "title": "Kind",
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "RecipeValuePoint",
+      "type": "object"
+    },
+    "RecipeValueSlot": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "slot_ref",
+          "default": "slot_ref",
+          "title": "Kind",
+          "type": "string"
+        },
+        "slot_name": {
+          "title": "Slot Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "slot_name"
+      ],
+      "title": "RecipeValueSlot",
+      "type": "object"
+    },
+    "RecipeValueString": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "string",
+          "default": "string",
+          "title": "Kind",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "RecipeValueString",
+      "type": "object"
+    },
+    "SkillSlot": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AssetType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "required": {
+          "default": true,
+          "title": "Required",
+          "type": "boolean"
+        },
+        "value_kind": {
+          "enum": [
+            "asset",
+            "layer",
+            "text",
+            "number",
+            "boolean",
+            "point",
+            "path",
+            "region",
+            "color"
+          ],
+          "title": "Value Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "value_kind"
+      ],
+      "title": "SkillSlot",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "category": {
+      "title": "Category",
+      "type": "string"
+    },
+    "compatible_skill_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Compatible Skill Ids",
+      "type": "array"
+    },
+    "composition_units": {
+      "items": {
+        "$ref": "#/$defs/CompositionUnit"
+      },
+      "title": "Composition Units",
+      "type": "array"
+    },
+    "dependencies": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Dependencies",
+      "type": "array"
+    },
+    "evaluation_checks": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evaluation Checks",
+      "type": "array"
+    },
+    "fallbacks": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Fallbacks",
+      "type": "array"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "incompatible_skill_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Incompatible Skill Ids",
+      "type": "array"
+    },
+    "inputs": {
+      "items": {
+        "$ref": "#/$defs/SkillSlot"
+      },
+      "title": "Inputs",
+      "type": "array"
+    },
+    "intent": {
+      "title": "Intent",
+      "type": "string"
+    },
+    "outputs": {
+      "items": {
+        "$ref": "#/$defs/SkillSlot"
+      },
+      "title": "Outputs",
+      "type": "array"
+    },
+    "parameters": {
+      "items": {
+        "$ref": "#/$defs/SkillSlot"
+      },
+      "title": "Parameters",
+      "type": "array"
+    },
+    "recipe": {
+      "items": {
+        "$ref": "#/$defs/RecipeStep"
+      },
+      "title": "Recipe",
+      "type": "array"
+    },
+    "required_capabilities": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Required Capabilities",
+      "type": "array"
+    },
+    "suitable_conditions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Suitable Conditions",
+      "type": "array"
+    },
+    "version": {
+      "title": "Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "version",
+    "category",
+    "intent",
+    "composition_units",
+    "suitable_conditions",
+    "required_capabilities",
+    "parameters",
+    "inputs",
+    "outputs",
+    "dependencies",
+    "compatible_skill_ids",
+    "incompatible_skill_ids",
+    "recipe",
+    "evaluation_checks",
+    "fallbacks"
+  ],
+  "title": "SkillManifest",
+  "type": "object"
+}

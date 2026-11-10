@@ -1,0 +1,3595 @@
+{
+  "$defs": {
+    "AddImageOp": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "bounds": {
+          "$ref": "#/$defs/BoundsMM"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "add_image",
+          "default": "add_image",
+          "title": "Op",
+          "type": "string"
+        },
+        "opacity": {
+          "default": 1.0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Opacity",
+          "type": "number"
+        },
+        "rotation_deg": {
+          "default": 0.0,
+          "title": "Rotation Deg",
+          "type": "number"
+        }
+      },
+      "required": [
+        "layer_id",
+        "asset_id",
+        "bounds"
+      ],
+      "title": "AddImageOp",
+      "type": "object"
+    },
+    "AddPathOp": {
+      "additionalProperties": false,
+      "properties": {
+        "fill_color": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fill Color"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "add_path",
+          "default": "add_path",
+          "title": "Op",
+          "type": "string"
+        },
+        "path": {
+          "$ref": "#/$defs/PathGeometry"
+        },
+        "stroke_color": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Stroke Color"
+        },
+        "stroke_width_mm": {
+          "default": 0.5,
+          "minimum": 0,
+          "title": "Stroke Width Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "layer_id",
+        "path"
+      ],
+      "title": "AddPathOp",
+      "type": "object"
+    },
+    "AddTextOp": {
+      "additionalProperties": false,
+      "properties": {
+        "bounds": {
+          "$ref": "#/$defs/BoundsMM"
+        },
+        "derived_text_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Derived Text Id"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "add_text",
+          "default": "add_text",
+          "title": "Op",
+          "type": "string"
+        },
+        "style_name": {
+          "title": "Style Name",
+          "type": "string"
+        },
+        "text_content": {
+          "title": "Text Content",
+          "type": "string"
+        }
+      },
+      "required": [
+        "layer_id",
+        "text_content",
+        "style_name",
+        "bounds"
+      ],
+      "title": "AddTextOp",
+      "type": "object"
+    },
+    "AnchorRelationship": {
+      "additionalProperties": false,
+      "properties": {
+        "offset_mm": {
+          "default": 0.0,
+          "title": "Offset Mm",
+          "type": "number"
+        },
+        "relationship_type": {
+          "enum": [
+            "behind",
+            "above",
+            "align_left",
+            "align_center",
+            "overlaps",
+            "wrap_around",
+            "avoid"
+          ],
+          "title": "Relationship Type",
+          "type": "string"
+        },
+        "source_layer_id": {
+          "title": "Source Layer Id",
+          "type": "string"
+        },
+        "target_layer_id": {
+          "title": "Target Layer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_layer_id",
+        "target_layer_id",
+        "relationship_type"
+      ],
+      "title": "AnchorRelationship",
+      "type": "object"
+    },
+    "ApplyFilterOp": {
+      "additionalProperties": false,
+      "properties": {
+        "filter": {
+          "discriminator": {
+            "mapping": {
+              "blur": "#/$defs/BlurFilter",
+              "grain": "#/$defs/GrainFilter",
+              "halftone": "#/$defs/HalftoneFilter",
+              "shadow": "#/$defs/ShadowFilter"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/BlurFilter"
+            },
+            {
+              "$ref": "#/$defs/ShadowFilter"
+            },
+            {
+              "$ref": "#/$defs/GrainFilter"
+            },
+            {
+              "$ref": "#/$defs/HalftoneFilter"
+            }
+          ],
+          "title": "Filter"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "apply_filter",
+          "default": "apply_filter",
+          "title": "Op",
+          "type": "string"
+        }
+      },
+      "required": [
+        "layer_id",
+        "filter"
+      ],
+      "title": "ApplyFilterOp",
+      "type": "object"
+    },
+    "ApplyMaskOp": {
+      "additionalProperties": false,
+      "properties": {
+        "invert": {
+          "default": false,
+          "title": "Invert",
+          "type": "boolean"
+        },
+        "mask_asset_id": {
+          "title": "Mask Asset Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "apply_mask",
+          "default": "apply_mask",
+          "title": "Op",
+          "type": "string"
+        },
+        "target_layer_id": {
+          "title": "Target Layer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_layer_id",
+        "mask_asset_id"
+      ],
+      "title": "ApplyMaskOp",
+      "type": "object"
+    },
+    "ArtDirectionBible": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_state": {
+          "enum": [
+            "provisional",
+            "final",
+            "revision_required"
+          ],
+          "title": "Approval State",
+          "type": "string"
+        },
+        "approved_visual_examples": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Approved Visual Examples",
+          "type": "array"
+        },
+        "artistic_boundaries": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Artistic Boundaries",
+          "type": "array"
+        },
+        "conceptual_identity": {
+          "title": "Conceptual Identity",
+          "type": "string"
+        },
+        "final_proof_spread_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Final Proof Spread Ids",
+          "type": "array"
+        },
+        "font_pairing_id": {
+          "title": "Font Pairing Id",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "narrative_progression": {
+          "items": {
+            "$ref": "#/$defs/IssuePhaseDirection"
+          },
+          "title": "Narrative Progression",
+          "type": "array"
+        },
+        "palette": {
+          "items": {
+            "$ref": "#/$defs/PaletteToken"
+          },
+          "title": "Palette",
+          "type": "array"
+        },
+        "photographic_character": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Photographic Character",
+          "type": "array"
+        },
+        "provisional_proof_spread_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Provisional Proof Spread Ids",
+          "type": "array"
+        },
+        "recurring_motifs": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Recurring Motifs",
+          "type": "array"
+        },
+        "signature_behaviors": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Signature Behaviors",
+          "type": "array"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "approval_state",
+        "conceptual_identity",
+        "font_pairing_id",
+        "palette",
+        "photographic_character",
+        "signature_behaviors",
+        "narrative_progression",
+        "recurring_motifs",
+        "artistic_boundaries",
+        "approved_visual_examples"
+      ],
+      "title": "ArtDirectionBible",
+      "type": "object"
+    },
+    "ArtifactRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_type": {
+          "$ref": "#/$defs/AssetType"
+        },
+        "color_constraints": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Color Constraints",
+          "type": "array"
+        },
+        "generation_spec": {
+          "title": "Generation Spec",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "integration_method": {
+          "enum": [
+            "clipping",
+            "masking",
+            "blending",
+            "direct"
+          ],
+          "title": "Integration Method",
+          "type": "string"
+        },
+        "output": {
+          "discriminator": {
+            "mapping": {
+              "composite": "#/$defs/CompositeOutputSpec",
+              "mask": "#/$defs/MaskOutputSpec",
+              "raster": "#/$defs/RasterOutputSpec",
+              "text_path": "#/$defs/TextPathOutputSpec",
+              "vector": "#/$defs/VectorOutputSpec"
+            },
+            "propertyName": "kind"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/RasterOutputSpec"
+            },
+            {
+              "$ref": "#/$defs/VectorOutputSpec"
+            },
+            {
+              "$ref": "#/$defs/MaskOutputSpec"
+            },
+            {
+              "$ref": "#/$defs/TextPathOutputSpec"
+            },
+            {
+              "$ref": "#/$defs/CompositeOutputSpec"
+            }
+          ],
+          "title": "Output"
+        },
+        "preferred_generation_method": {
+          "title": "Preferred Generation Method",
+          "type": "string"
+        },
+        "provenance_notes": {
+          "title": "Provenance Notes",
+          "type": "string"
+        },
+        "target_layer_dependency_id": {
+          "title": "Target Layer Dependency Id",
+          "type": "string"
+        },
+        "target_region": {
+          "$ref": "#/$defs/NormalizedRegion"
+        },
+        "visual_acceptance_checks": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Visual Acceptance Checks",
+          "type": "array"
+        },
+        "visual_role": {
+          "title": "Visual Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "asset_type",
+        "visual_role",
+        "generation_spec",
+        "target_region",
+        "color_constraints",
+        "preferred_generation_method",
+        "target_layer_dependency_id",
+        "integration_method",
+        "output",
+        "provenance_notes"
+      ],
+      "title": "ArtifactRequest",
+      "type": "object"
+    },
+    "AssetType": {
+      "enum": [
+        "raster",
+        "vector",
+        "mask",
+        "text_path",
+        "composite"
+      ],
+      "title": "AssetType",
+      "type": "string"
+    },
+    "AxisSetting": {
+      "additionalProperties": false,
+      "properties": {
+        "tag": {
+          "pattern": "^[A-Za-z0-9]{4}$",
+          "title": "Tag",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "title": "AxisSetting",
+      "type": "object"
+    },
+    "BindAssetOp": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "asset_type": {
+          "$ref": "#/$defs/AssetType"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "bind_asset",
+          "default": "bind_asset",
+          "title": "Op",
+          "type": "string"
+        }
+      },
+      "required": [
+        "layer_id",
+        "asset_id",
+        "asset_type"
+      ],
+      "title": "BindAssetOp",
+      "type": "object"
+    },
+    "BlendMode": {
+      "enum": [
+        "normal",
+        "multiply",
+        "screen",
+        "overlay",
+        "darken",
+        "lighten"
+      ],
+      "title": "BlendMode",
+      "type": "string"
+    },
+    "BlurFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "blur",
+          "default": "blur",
+          "title": "Kind",
+          "type": "string"
+        },
+        "radius_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Radius Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "radius_mm"
+      ],
+      "title": "BlurFilter",
+      "type": "object"
+    },
+    "BooleanPathOp": {
+      "additionalProperties": false,
+      "properties": {
+        "op": {
+          "const": "boolean_path",
+          "default": "boolean_path",
+          "title": "Op",
+          "type": "string"
+        },
+        "operand_layer_id": {
+          "title": "Operand Layer Id",
+          "type": "string"
+        },
+        "operation_type": {
+          "enum": [
+            "union",
+            "difference",
+            "intersection"
+          ],
+          "title": "Operation Type",
+          "type": "string"
+        },
+        "target_layer_id": {
+          "title": "Target Layer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_layer_id",
+        "operand_layer_id",
+        "operation_type"
+      ],
+      "title": "BooleanPathOp",
+      "type": "object"
+    },
+    "BoundsMM": {
+      "additionalProperties": false,
+      "properties": {
+        "height_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Height Mm",
+          "type": "number"
+        },
+        "width_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Width Mm",
+          "type": "number"
+        },
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm",
+        "width_mm",
+        "height_mm"
+      ],
+      "title": "BoundsMM",
+      "type": "object"
+    },
+    "ClipToPathOp": {
+      "additionalProperties": false,
+      "properties": {
+        "op": {
+          "const": "clip_to_path",
+          "default": "clip_to_path",
+          "title": "Op",
+          "type": "string"
+        },
+        "path": {
+          "$ref": "#/$defs/PathGeometry"
+        },
+        "target_layer_id": {
+          "title": "Target Layer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_layer_id",
+        "path"
+      ],
+      "title": "ClipToPathOp",
+      "type": "object"
+    },
+    "ClosePath": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "Z",
+          "default": "Z",
+          "title": "Cmd",
+          "type": "string"
+        }
+      },
+      "title": "ClosePath",
+      "type": "object"
+    },
+    "ColorAdjustOp": {
+      "additionalProperties": false,
+      "properties": {
+        "brightness": {
+          "default": 0.0,
+          "maximum": 1,
+          "minimum": -1,
+          "title": "Brightness",
+          "type": "number"
+        },
+        "contrast": {
+          "default": 1.0,
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Contrast",
+          "type": "number"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "color_adjust",
+          "default": "color_adjust",
+          "title": "Op",
+          "type": "string"
+        },
+        "saturation": {
+          "default": 1.0,
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Saturation",
+          "type": "number"
+        }
+      },
+      "required": [
+        "layer_id"
+      ],
+      "title": "ColorAdjustOp",
+      "type": "object"
+    },
+    "CombinatorialRecipe": {
+      "additionalProperties": false,
+      "properties": {
+        "capability_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Capability Ids",
+          "type": "array"
+        },
+        "compatibility_checks": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Compatibility Checks",
+          "type": "array"
+        },
+        "dependency_order": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Dependency Order",
+          "type": "array"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "operations": {
+          "items": {
+            "discriminator": {
+              "mapping": {
+                "add_image": "#/$defs/AddImageOp",
+                "add_path": "#/$defs/AddPathOp",
+                "add_text": "#/$defs/AddTextOp",
+                "apply_filter": "#/$defs/ApplyFilterOp",
+                "apply_mask": "#/$defs/ApplyMaskOp",
+                "bind_asset": "#/$defs/BindAssetOp",
+                "boolean_path": "#/$defs/BooleanPathOp",
+                "clip_to_path": "#/$defs/ClipToPathOp",
+                "color_adjust": "#/$defs/ColorAdjustOp",
+                "create_group": "#/$defs/CreateGroupOp",
+                "displacement_map": "#/$defs/DisplacementMapOp",
+                "edit_path": "#/$defs/EditPathOp",
+                "flow_text_into_shape": "#/$defs/FlowTextIntoShapeOp",
+                "gradient_mask": "#/$defs/GradientMaskOp",
+                "set_blend_mode": "#/$defs/SetBlendModeOp",
+                "set_clip_stack": "#/$defs/SetClipStackOp",
+                "set_glyph_transforms": "#/$defs/SetGlyphTransformsOp",
+                "set_opacity": "#/$defs/SetOpacityOp",
+                "set_z_index": "#/$defs/SetZIndexOp",
+                "text_on_path": "#/$defs/TextOnPathOp",
+                "transform_layer": "#/$defs/TransformLayerOp"
+              },
+              "propertyName": "op"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/AddImageOp"
+              },
+              {
+                "$ref": "#/$defs/AddTextOp"
+              },
+              {
+                "$ref": "#/$defs/TransformLayerOp"
+              },
+              {
+                "$ref": "#/$defs/ClipToPathOp"
+              },
+              {
+                "$ref": "#/$defs/SetZIndexOp"
+              },
+              {
+                "$ref": "#/$defs/ApplyMaskOp"
+              },
+              {
+                "$ref": "#/$defs/AddPathOp"
+              },
+              {
+                "$ref": "#/$defs/EditPathOp"
+              },
+              {
+                "$ref": "#/$defs/BooleanPathOp"
+              },
+              {
+                "$ref": "#/$defs/TextOnPathOp"
+              },
+              {
+                "$ref": "#/$defs/SetGlyphTransformsOp"
+              },
+              {
+                "$ref": "#/$defs/FlowTextIntoShapeOp"
+              },
+              {
+                "$ref": "#/$defs/SetBlendModeOp"
+              },
+              {
+                "$ref": "#/$defs/CreateGroupOp"
+              },
+              {
+                "$ref": "#/$defs/SetClipStackOp"
+              },
+              {
+                "$ref": "#/$defs/ColorAdjustOp"
+              },
+              {
+                "$ref": "#/$defs/GradientMaskOp"
+              },
+              {
+                "$ref": "#/$defs/DisplacementMapOp"
+              },
+              {
+                "$ref": "#/$defs/ApplyFilterOp"
+              },
+              {
+                "$ref": "#/$defs/BindAssetOp"
+              },
+              {
+                "$ref": "#/$defs/SetOpacityOp"
+              }
+            ]
+          },
+          "title": "Operations",
+          "type": "array"
+        },
+        "rationale": {
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "capability_ids",
+        "operations",
+        "dependency_order",
+        "rationale",
+        "compatibility_checks"
+      ],
+      "title": "CombinatorialRecipe",
+      "type": "object"
+    },
+    "CompositeOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "editable_layer_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Editable Layer Ids",
+          "type": "array"
+        },
+        "kind": {
+          "const": "composite",
+          "default": "composite",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "editable_layer_ids"
+      ],
+      "title": "CompositeOutputSpec",
+      "type": "object"
+    },
+    "ConceptBrief": {
+      "additionalProperties": false,
+      "properties": {
+        "compositional_structure": {
+          "title": "Compositional Structure",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "narrative_expression": {
+          "title": "Narrative Expression",
+          "type": "string"
+        },
+        "photography_treatment": {
+          "title": "Photography Treatment",
+          "type": "string"
+        },
+        "project_id": {
+          "title": "Project Id",
+          "type": "string"
+        },
+        "spread_id": {
+          "title": "Spread Id",
+          "type": "string"
+        },
+        "visual_metaphor": {
+          "title": "Visual Metaphor",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "project_id",
+        "spread_id",
+        "visual_metaphor",
+        "compositional_structure",
+        "photography_treatment",
+        "narrative_expression"
+      ],
+      "title": "ConceptBrief",
+      "type": "object"
+    },
+    "ConceptCompilerOutput": {
+      "additionalProperties": false,
+      "properties": {
+        "concept_brief_id": {
+          "title": "Concept Brief Id",
+          "type": "string"
+        },
+        "extracted_visual_elements": {
+          "items": {
+            "$ref": "#/$defs/ExtractedVisualElement"
+          },
+          "title": "Extracted Visual Elements",
+          "type": "array"
+        },
+        "target_scene_skeleton": {
+          "$ref": "#/$defs/Scene"
+        },
+        "unsupported_features": {
+          "items": {
+            "$ref": "#/$defs/UnsupportedFeature"
+          },
+          "title": "Unsupported Features",
+          "type": "array"
+        }
+      },
+      "required": [
+        "concept_brief_id",
+        "target_scene_skeleton",
+        "extracted_visual_elements",
+        "unsupported_features"
+      ],
+      "title": "ConceptCompilerOutput",
+      "type": "object"
+    },
+    "ConceptFont": {
+      "additionalProperties": false,
+      "properties": {
+        "axes": {
+          "items": {
+            "$ref": "#/$defs/AxisSetting"
+          },
+          "title": "Axes",
+          "type": "array"
+        },
+        "fallback": {
+          "default": false,
+          "title": "Fallback",
+          "type": "boolean"
+        },
+        "family": {
+          "title": "Family",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "path": {
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "title": "Sha256",
+          "type": "string"
+        },
+        "slant": {
+          "default": "normal",
+          "enum": [
+            "normal",
+            "italic"
+          ],
+          "title": "Slant",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "family",
+        "path",
+        "sha256"
+      ],
+      "title": "ConceptFont",
+      "type": "object"
+    },
+    "ConceptNode": {
+      "additionalProperties": false,
+      "properties": {
+        "derived_text_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Derived Text Id"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "image",
+            "text",
+            "subject",
+            "vector",
+            "mask",
+            "texture",
+            "group"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "source_asset_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Asset Id"
+        },
+        "target_region": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/NormalizedRegion"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "z_order_hint": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Z Order Hint"
+        }
+      },
+      "required": [
+        "id",
+        "role"
+      ],
+      "title": "ConceptNode",
+      "type": "object"
+    },
+    "ConceptProposal": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_requirements": {
+          "items": {
+            "$ref": "#/$defs/ArtifactRequest"
+          },
+          "title": "Artifact Requirements",
+          "type": "array"
+        },
+        "compositional_structure": {
+          "title": "Compositional Structure",
+          "type": "string"
+        },
+        "graph": {
+          "$ref": "#/$defs/SpatialConceptGraph"
+        },
+        "inspection_crop": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/BoundsMM"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "narrative_expression": {
+          "title": "Narrative Expression",
+          "type": "string"
+        },
+        "photography_treatment": {
+          "title": "Photography Treatment",
+          "type": "string"
+        },
+        "required_capabilities": {
+          "items": {
+            "enum": [
+              "CAP_01",
+              "CAP_02",
+              "CAP_03",
+              "CAP_04",
+              "CAP_05",
+              "CAP_06",
+              "CAP_07",
+              "CAP_08",
+              "CAP_09",
+              "CAP_10"
+            ],
+            "type": "string"
+          },
+          "title": "Required Capabilities",
+          "type": "array"
+        },
+        "spatial_intent": {
+          "$ref": "#/$defs/SpatialIntent"
+        },
+        "treatments": {
+          "items": {
+            "$ref": "#/$defs/NodeTreatment"
+          },
+          "title": "Treatments",
+          "type": "array"
+        },
+        "typography": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ConceptTypography"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "visual_metaphor": {
+          "title": "Visual Metaphor",
+          "type": "string"
+        }
+      },
+      "required": [
+        "visual_metaphor",
+        "compositional_structure",
+        "photography_treatment",
+        "narrative_expression",
+        "graph",
+        "treatments",
+        "spatial_intent"
+      ],
+      "title": "ConceptProposal",
+      "type": "object"
+    },
+    "ConceptRelationship": {
+      "additionalProperties": false,
+      "properties": {
+        "rationale": {
+          "title": "Rationale",
+          "type": "string"
+        },
+        "relation": {
+          "enum": [
+            "behind",
+            "above",
+            "overlaps",
+            "avoids",
+            "aligns_to",
+            "flows_around",
+            "spans_gutter",
+            "follows_path",
+            "clips_to"
+          ],
+          "title": "Relation",
+          "type": "string"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "target_id": {
+          "title": "Target Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "target_id",
+        "relation",
+        "rationale"
+      ],
+      "title": "ConceptRelationship",
+      "type": "object"
+    },
+    "ConceptSketch": {
+      "additionalProperties": false,
+      "properties": {
+        "aspect_ratio": {
+          "exclusiveMinimum": 0,
+          "title": "Aspect Ratio",
+          "type": "number"
+        },
+        "asset_id": {
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "concept_brief_id": {
+          "title": "Concept Brief Id",
+          "type": "string"
+        },
+        "source_photo_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Source Photo Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "asset_id",
+        "concept_brief_id",
+        "aspect_ratio",
+        "source_photo_ids"
+      ],
+      "title": "ConceptSketch",
+      "type": "object"
+    },
+    "ConceptTypography": {
+      "additionalProperties": false,
+      "properties": {
+        "fonts": {
+          "items": {
+            "$ref": "#/$defs/ConceptFont"
+          },
+          "title": "Fonts",
+          "type": "array"
+        },
+        "styles": {
+          "items": {
+            "$ref": "#/$defs/TypeStyle"
+          },
+          "title": "Styles",
+          "type": "array"
+        }
+      },
+      "required": [
+        "fonts",
+        "styles"
+      ],
+      "title": "ConceptTypography",
+      "type": "object"
+    },
+    "CreateGroupOp": {
+      "additionalProperties": false,
+      "properties": {
+        "group_layer_id": {
+          "title": "Group Layer Id",
+          "type": "string"
+        },
+        "member_layer_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Member Layer Ids",
+          "type": "array"
+        },
+        "op": {
+          "const": "create_group",
+          "default": "create_group",
+          "title": "Op",
+          "type": "string"
+        }
+      },
+      "required": [
+        "group_layer_id",
+        "member_layer_ids"
+      ],
+      "title": "CreateGroupOp",
+      "type": "object"
+    },
+    "CubicTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "C",
+          "default": "C",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "control1": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "control2": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "control1",
+        "control2",
+        "p"
+      ],
+      "title": "CubicTo",
+      "type": "object"
+    },
+    "DesignTokens": {
+      "additionalProperties": false,
+      "properties": {
+        "body_span_columns": {
+          "default": 2,
+          "minimum": 1,
+          "title": "Body Span Columns",
+          "type": "integer"
+        },
+        "grid": {
+          "$ref": "#/$defs/GridSpec"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "minimum_body_pt": {
+          "maximum": 16,
+          "minimum": 9,
+          "title": "Minimum Body Pt",
+          "type": "number"
+        },
+        "palette": {
+          "items": {
+            "$ref": "#/$defs/PaletteToken"
+          },
+          "title": "Palette",
+          "type": "array"
+        },
+        "prefer_paragraph_breaks": {
+          "default": false,
+          "title": "Prefer Paragraph Breaks",
+          "type": "boolean"
+        },
+        "rule_width_mm": {
+          "exclusiveMinimum": 0,
+          "maximum": 2,
+          "title": "Rule Width Mm",
+          "type": "number"
+        },
+        "type_scale": {
+          "$ref": "#/$defs/ModularTypeScale"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "grid",
+        "type_scale",
+        "palette",
+        "rule_width_mm",
+        "minimum_body_pt"
+      ],
+      "title": "DesignTokens",
+      "type": "object"
+    },
+    "DisplacementMapOp": {
+      "additionalProperties": false,
+      "properties": {
+        "map_asset_id": {
+          "title": "Map Asset Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "displacement_map",
+          "default": "displacement_map",
+          "title": "Op",
+          "type": "string"
+        },
+        "scale_mm": {
+          "minimum": 0,
+          "title": "Scale Mm",
+          "type": "number"
+        },
+        "target_layer_id": {
+          "title": "Target Layer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_layer_id",
+        "map_asset_id",
+        "scale_mm"
+      ],
+      "title": "DisplacementMapOp",
+      "type": "object"
+    },
+    "EditPathOp": {
+      "additionalProperties": false,
+      "properties": {
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "edit_path",
+          "default": "edit_path",
+          "title": "Op",
+          "type": "string"
+        },
+        "path": {
+          "$ref": "#/$defs/PathGeometry"
+        }
+      },
+      "required": [
+        "layer_id",
+        "path"
+      ],
+      "title": "EditPathOp",
+      "type": "object"
+    },
+    "ExtractedVisualElement": {
+      "additionalProperties": false,
+      "properties": {
+        "concept_node_id": {
+          "title": "Concept Node Id",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "mapped_asset_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mapped Asset Id"
+        },
+        "mapped_layer_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mapped Layer Id"
+        },
+        "mapping_confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Mapping Confidence",
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "concept_node_id",
+        "mapping_confidence"
+      ],
+      "title": "ExtractedVisualElement",
+      "type": "object"
+    },
+    "FlowTextIntoShapeOp": {
+      "additionalProperties": false,
+      "properties": {
+        "boundary": {
+          "$ref": "#/$defs/PathGeometry"
+        },
+        "exclusion_paths": {
+          "items": {
+            "$ref": "#/$defs/PathGeometry"
+          },
+          "title": "Exclusion Paths",
+          "type": "array"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "flow_text_into_shape",
+          "default": "flow_text_into_shape",
+          "title": "Op",
+          "type": "string"
+        },
+        "style_name": {
+          "title": "Style Name",
+          "type": "string"
+        },
+        "text_content": {
+          "title": "Text Content",
+          "type": "string"
+        }
+      },
+      "required": [
+        "layer_id",
+        "text_content",
+        "style_name",
+        "boundary"
+      ],
+      "title": "FlowTextIntoShapeOp",
+      "type": "object"
+    },
+    "FontConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "fonts": {
+          "items": {
+            "$ref": "#/$defs/FontSpec"
+          },
+          "title": "Fonts",
+          "type": "array"
+        },
+        "styles": {
+          "items": {
+            "$ref": "#/$defs/TypeStyle"
+          },
+          "title": "Styles",
+          "type": "array"
+        }
+      },
+      "required": [
+        "fonts",
+        "styles"
+      ],
+      "title": "FontConfiguration",
+      "type": "object"
+    },
+    "FontPairing": {
+      "additionalProperties": false,
+      "properties": {
+        "body_font_id": {
+          "title": "Body Font Id",
+          "type": "string"
+        },
+        "detail_font_id": {
+          "title": "Detail Font Id",
+          "type": "string"
+        },
+        "headline_font_id": {
+          "title": "Headline Font Id",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "intent": {
+          "title": "Intent",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "headline_font_id",
+        "body_font_id",
+        "detail_font_id",
+        "intent"
+      ],
+      "title": "FontPairing",
+      "type": "object"
+    },
+    "FontSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "axes": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Axes",
+          "type": "object"
+        },
+        "fallback": {
+          "default": false,
+          "title": "Fallback",
+          "type": "boolean"
+        },
+        "family": {
+          "title": "Family",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "path": {
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "title": "Sha256",
+          "type": "string"
+        },
+        "slant": {
+          "default": "normal",
+          "enum": [
+            "normal",
+            "italic"
+          ],
+          "title": "Slant",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "family",
+        "path",
+        "sha256"
+      ],
+      "title": "FontSpec",
+      "type": "object"
+    },
+    "GlyphTransform": {
+      "additionalProperties": false,
+      "properties": {
+        "dx_mm": {
+          "default": 0.0,
+          "title": "Dx Mm",
+          "type": "number"
+        },
+        "dy_mm": {
+          "default": 0.0,
+          "title": "Dy Mm",
+          "type": "number"
+        },
+        "glyph_index": {
+          "minimum": 0,
+          "title": "Glyph Index",
+          "type": "integer"
+        },
+        "rotation_deg": {
+          "default": 0.0,
+          "title": "Rotation Deg",
+          "type": "number"
+        },
+        "scale_x": {
+          "default": 1.0,
+          "exclusiveMinimum": 0,
+          "title": "Scale X",
+          "type": "number"
+        },
+        "scale_y": {
+          "default": 1.0,
+          "exclusiveMinimum": 0,
+          "title": "Scale Y",
+          "type": "number"
+        }
+      },
+      "required": [
+        "glyph_index"
+      ],
+      "title": "GlyphTransform",
+      "type": "object"
+    },
+    "GradientMaskOp": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "gradient_type": {
+          "enum": [
+            "linear",
+            "radial"
+          ],
+          "title": "Gradient Type",
+          "type": "string"
+        },
+        "op": {
+          "const": "gradient_mask",
+          "default": "gradient_mask",
+          "title": "Op",
+          "type": "string"
+        },
+        "start": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "stops": {
+          "items": {
+            "$ref": "#/$defs/GradientStop"
+          },
+          "minItems": 2,
+          "title": "Stops",
+          "type": "array"
+        },
+        "target_layer_id": {
+          "title": "Target Layer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_layer_id",
+        "gradient_type",
+        "start",
+        "end",
+        "stops"
+      ],
+      "title": "GradientMaskOp",
+      "type": "object"
+    },
+    "GradientStop": {
+      "additionalProperties": false,
+      "properties": {
+        "offset": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Offset",
+          "type": "number"
+        },
+        "opacity": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Opacity",
+          "type": "number"
+        }
+      },
+      "required": [
+        "offset",
+        "opacity"
+      ],
+      "title": "GradientStop",
+      "type": "object"
+    },
+    "GrainFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "grain",
+          "default": "grain",
+          "title": "Kind",
+          "type": "string"
+        },
+        "random_seed": {
+          "title": "Random Seed",
+          "type": "integer"
+        },
+        "strength": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Strength",
+          "type": "number"
+        }
+      },
+      "required": [
+        "strength",
+        "random_seed"
+      ],
+      "title": "GrainFilter",
+      "type": "object"
+    },
+    "GridSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_origin_mm": {
+          "default": 20,
+          "minimum": 0,
+          "title": "Baseline Origin Mm",
+          "type": "number"
+        },
+        "baseline_step_mm": {
+          "default": 5,
+          "exclusiveMinimum": 0,
+          "title": "Baseline Step Mm",
+          "type": "number"
+        },
+        "baseline_tolerance_mm": {
+          "default": 0.01,
+          "exclusiveMinimum": 0,
+          "maximum": 0.05,
+          "title": "Baseline Tolerance Mm",
+          "type": "number"
+        },
+        "bottom_margin_mm": {
+          "default": 20,
+          "minimum": 0,
+          "title": "Bottom Margin Mm",
+          "type": "number"
+        },
+        "column_gap_mm": {
+          "default": 6,
+          "minimum": 0,
+          "title": "Column Gap Mm",
+          "type": "number"
+        },
+        "columns_per_page": {
+          "default": 3,
+          "maximum": 12,
+          "minimum": 1,
+          "title": "Columns Per Page",
+          "type": "integer"
+        },
+        "fold_safe_mm": {
+          "default": 10,
+          "minimum": 0,
+          "title": "Fold Safe Mm",
+          "type": "number"
+        },
+        "height_mm": {
+          "default": 297,
+          "exclusiveMinimum": 0,
+          "title": "Height Mm",
+          "type": "number"
+        },
+        "outer_margin_mm": {
+          "default": 20,
+          "minimum": 0,
+          "title": "Outer Margin Mm",
+          "type": "number"
+        },
+        "page_width_mm": {
+          "default": 210,
+          "exclusiveMinimum": 0,
+          "title": "Page Width Mm",
+          "type": "number"
+        },
+        "top_margin_mm": {
+          "default": 20,
+          "minimum": 0,
+          "title": "Top Margin Mm",
+          "type": "number"
+        },
+        "width_mm": {
+          "default": 420,
+          "exclusiveMinimum": 0,
+          "title": "Width Mm",
+          "type": "number"
+        }
+      },
+      "title": "GridSpec",
+      "type": "object"
+    },
+    "GroupLayer": {
+      "additionalProperties": false,
+      "properties": {
+        "blend_mode": {
+          "$ref": "#/$defs/BlendMode",
+          "default": "normal"
+        },
+        "bounds": {
+          "$ref": "#/$defs/BoundsMM"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "layer_type": {
+          "const": "group",
+          "default": "group",
+          "title": "Layer Type",
+          "type": "string"
+        },
+        "member_layer_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Member Layer Ids",
+          "type": "array"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "opacity": {
+          "default": 1.0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Opacity",
+          "type": "number"
+        },
+        "owner_skill_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Owner Skill Id"
+        },
+        "semantic_role": {
+          "title": "Semantic Role",
+          "type": "string"
+        },
+        "visible": {
+          "default": true,
+          "title": "Visible",
+          "type": "boolean"
+        },
+        "z_index": {
+          "title": "Z Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "semantic_role",
+        "z_index",
+        "bounds",
+        "member_layer_ids"
+      ],
+      "title": "GroupLayer",
+      "type": "object"
+    },
+    "HalftoneFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "angle_deg": {
+          "default": 0.0,
+          "title": "Angle Deg",
+          "type": "number"
+        },
+        "dot_spacing_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Dot Spacing Mm",
+          "type": "number"
+        },
+        "kind": {
+          "const": "halftone",
+          "default": "halftone",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "dot_spacing_mm"
+      ],
+      "title": "HalftoneFilter",
+      "type": "object"
+    },
+    "HybridConceptOutput": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_requirements": {
+          "items": {
+            "$ref": "#/$defs/ArtifactRequest"
+          },
+          "title": "Artifact Requirements",
+          "type": "array"
+        },
+        "concept_brief": {
+          "$ref": "#/$defs/ConceptBrief"
+        },
+        "required_capabilities": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Required Capabilities",
+          "type": "array"
+        },
+        "sketch": {
+          "$ref": "#/$defs/ConceptSketch"
+        },
+        "spatial_concept_graph": {
+          "$ref": "#/$defs/SpatialConceptGraph"
+        }
+      },
+      "required": [
+        "concept_brief",
+        "spatial_concept_graph",
+        "sketch",
+        "artifact_requirements",
+        "required_capabilities"
+      ],
+      "title": "HybridConceptOutput",
+      "type": "object"
+    },
+    "ImageLayer": {
+      "additionalProperties": false,
+      "properties": {
+        "asset_id": {
+          "title": "Asset Id",
+          "type": "string"
+        },
+        "blend_mode": {
+          "$ref": "#/$defs/BlendMode",
+          "default": "normal"
+        },
+        "bounds": {
+          "$ref": "#/$defs/BoundsMM"
+        },
+        "effective_ppi": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effective Ppi"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "layer_type": {
+          "const": "image",
+          "default": "image",
+          "title": "Layer Type",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "opacity": {
+          "default": 1.0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Opacity",
+          "type": "number"
+        },
+        "owner_skill_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Owner Skill Id"
+        },
+        "semantic_role": {
+          "title": "Semantic Role",
+          "type": "string"
+        },
+        "visible": {
+          "default": true,
+          "title": "Visible",
+          "type": "boolean"
+        },
+        "z_index": {
+          "title": "Z Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "semantic_role",
+        "z_index",
+        "bounds",
+        "asset_id"
+      ],
+      "title": "ImageLayer",
+      "type": "object"
+    },
+    "IssuePhaseDirection": {
+      "additionalProperties": false,
+      "properties": {
+        "emotional_role": {
+          "title": "Emotional Role",
+          "type": "string"
+        },
+        "phase_name": {
+          "title": "Phase Name",
+          "type": "string"
+        },
+        "visual_behavior": {
+          "title": "Visual Behavior",
+          "type": "string"
+        }
+      },
+      "required": [
+        "phase_name",
+        "emotional_role",
+        "visual_behavior"
+      ],
+      "title": "IssuePhaseDirection",
+      "type": "object"
+    },
+    "LineTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "L",
+          "default": "L",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "LineTo",
+      "type": "object"
+    },
+    "MaskLayer": {
+      "additionalProperties": false,
+      "properties": {
+        "blend_mode": {
+          "$ref": "#/$defs/BlendMode",
+          "default": "normal"
+        },
+        "bounds": {
+          "$ref": "#/$defs/BoundsMM"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "invert": {
+          "default": false,
+          "title": "Invert",
+          "type": "boolean"
+        },
+        "layer_type": {
+          "const": "mask",
+          "default": "mask",
+          "title": "Layer Type",
+          "type": "string"
+        },
+        "mask_asset_id": {
+          "title": "Mask Asset Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "opacity": {
+          "default": 1.0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Opacity",
+          "type": "number"
+        },
+        "owner_skill_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Owner Skill Id"
+        },
+        "semantic_role": {
+          "title": "Semantic Role",
+          "type": "string"
+        },
+        "visible": {
+          "default": true,
+          "title": "Visible",
+          "type": "boolean"
+        },
+        "z_index": {
+          "title": "Z Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "semantic_role",
+        "z_index",
+        "bounds",
+        "mask_asset_id"
+      ],
+      "title": "MaskLayer",
+      "type": "object"
+    },
+    "MaskOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "height_px": {
+          "exclusiveMinimum": 0,
+          "title": "Height Px",
+          "type": "integer"
+        },
+        "kind": {
+          "const": "mask",
+          "default": "mask",
+          "title": "Kind",
+          "type": "string"
+        },
+        "width_px": {
+          "exclusiveMinimum": 0,
+          "title": "Width Px",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "width_px",
+        "height_px"
+      ],
+      "title": "MaskOutputSpec",
+      "type": "object"
+    },
+    "ModularTypeScale": {
+      "additionalProperties": false,
+      "properties": {
+        "body_pt": {
+          "maximum": 16,
+          "minimum": 9,
+          "title": "Body Pt",
+          "type": "number"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "ratio": {
+          "exclusiveMinimum": 1,
+          "maximum": 2,
+          "title": "Ratio",
+          "type": "number"
+        },
+        "role_steps": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "title": "Role Steps",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "body_pt",
+        "ratio",
+        "role_steps"
+      ],
+      "title": "ModularTypeScale",
+      "type": "object"
+    },
+    "MoveTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "M",
+          "default": "M",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "MoveTo",
+      "type": "object"
+    },
+    "NodeTreatment": {
+      "additionalProperties": false,
+      "properties": {
+        "blend_mode": {
+          "$ref": "#/$defs/BlendMode",
+          "default": "normal"
+        },
+        "exclusions": {
+          "items": {
+            "$ref": "#/$defs/PathGeometry"
+          },
+          "title": "Exclusions",
+          "type": "array"
+        },
+        "fill_color": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fill Color"
+        },
+        "glyph_transforms": {
+          "items": {
+            "$ref": "#/$defs/GlyphTransform"
+          },
+          "title": "Glyph Transforms",
+          "type": "array"
+        },
+        "gradient": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/GradientMaskOp"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "image_bleed_mm": {
+          "default": 0,
+          "maximum": 10,
+          "minimum": 0,
+          "title": "Image Bleed Mm",
+          "type": "number"
+        },
+        "image_treatment": {
+          "default": "native",
+          "enum": [
+            "native",
+            "grain",
+            "halftone",
+            "monochrome"
+          ],
+          "title": "Image Treatment",
+          "type": "string"
+        },
+        "layout": {
+          "default": "rect",
+          "enum": [
+            "rect",
+            "path",
+            "shape",
+            "glyphs"
+          ],
+          "title": "Layout",
+          "type": "string"
+        },
+        "minimum_display_pt": {
+          "anyOf": [
+            {
+              "minimum": 18,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Minimum Display Pt"
+        },
+        "node_id": {
+          "title": "Node Id",
+          "type": "string"
+        },
+        "opacity": {
+          "default": 1,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Opacity",
+          "type": "number"
+        },
+        "path": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/PathGeometry"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "rotation_deg": {
+          "default": 0,
+          "maximum": 180,
+          "minimum": -180,
+          "title": "Rotation Deg",
+          "type": "number"
+        },
+        "style_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Style Name"
+        },
+        "style_role": {
+          "default": "body",
+          "enum": [
+            "headline",
+            "deck",
+            "body",
+            "caption",
+            "label"
+          ],
+          "title": "Style Role",
+          "type": "string"
+        },
+        "text_range": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextRange"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "node_id"
+      ],
+      "title": "NodeTreatment",
+      "type": "object"
+    },
+    "NormalizedRegion": {
+      "additionalProperties": false,
+      "properties": {
+        "height": {
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "title": "Height",
+          "type": "number"
+        },
+        "width": {
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "title": "Width",
+          "type": "number"
+        },
+        "x": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "X",
+          "type": "number"
+        },
+        "y": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Y",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "title": "NormalizedRegion",
+      "type": "object"
+    },
+    "PaletteToken": {
+      "additionalProperties": false,
+      "properties": {
+        "hex_color": {
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "title": "Hex Color",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "hex_color"
+      ],
+      "title": "PaletteToken",
+      "type": "object"
+    },
+    "PathGeometry": {
+      "additionalProperties": false,
+      "properties": {
+        "commands": {
+          "items": {
+            "discriminator": {
+              "mapping": {
+                "C": "#/$defs/CubicTo",
+                "L": "#/$defs/LineTo",
+                "M": "#/$defs/MoveTo",
+                "Q": "#/$defs/QuadraticTo",
+                "Z": "#/$defs/ClosePath"
+              },
+              "propertyName": "cmd"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/MoveTo"
+              },
+              {
+                "$ref": "#/$defs/LineTo"
+              },
+              {
+                "$ref": "#/$defs/QuadraticTo"
+              },
+              {
+                "$ref": "#/$defs/CubicTo"
+              },
+              {
+                "$ref": "#/$defs/ClosePath"
+              }
+            ]
+          },
+          "minItems": 2,
+          "title": "Commands",
+          "type": "array"
+        },
+        "fill_rule": {
+          "default": "nonzero",
+          "enum": [
+            "nonzero",
+            "evenodd"
+          ],
+          "title": "Fill Rule",
+          "type": "string"
+        }
+      },
+      "required": [
+        "commands"
+      ],
+      "title": "PathGeometry",
+      "type": "object"
+    },
+    "PointMM": {
+      "additionalProperties": false,
+      "properties": {
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm"
+      ],
+      "title": "PointMM",
+      "type": "object"
+    },
+    "QuadraticTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "Q",
+          "default": "Q",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "control": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "control",
+        "p"
+      ],
+      "title": "QuadraticTo",
+      "type": "object"
+    },
+    "RasterOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "alpha_required": {
+          "default": false,
+          "title": "Alpha Required",
+          "type": "boolean"
+        },
+        "height_px": {
+          "exclusiveMinimum": 0,
+          "title": "Height Px",
+          "type": "integer"
+        },
+        "kind": {
+          "const": "raster",
+          "default": "raster",
+          "title": "Kind",
+          "type": "string"
+        },
+        "width_px": {
+          "exclusiveMinimum": 0,
+          "title": "Width Px",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "width_px",
+        "height_px"
+      ],
+      "title": "RasterOutputSpec",
+      "type": "object"
+    },
+    "RuleBreakJustification": {
+      "additionalProperties": false,
+      "properties": {
+        "justification": {
+          "title": "Justification",
+          "type": "string"
+        },
+        "rule": {
+          "title": "Rule",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule",
+        "justification"
+      ],
+      "title": "RuleBreakJustification",
+      "type": "object"
+    },
+    "Scene": {
+      "additionalProperties": false,
+      "properties": {
+        "created_at": {
+          "format": "date-time",
+          "title": "Created At",
+          "type": "string"
+        },
+        "design_language_id": {
+          "title": "Design Language Id",
+          "type": "string"
+        },
+        "height_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Height Mm",
+          "type": "number"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "layers": {
+          "items": {
+            "discriminator": {
+              "mapping": {
+                "group": "#/$defs/GroupLayer",
+                "image": "#/$defs/ImageLayer",
+                "mask": "#/$defs/MaskLayer",
+                "text": "#/$defs/TextLayer",
+                "vector": "#/$defs/VectorLayer"
+              },
+              "propertyName": "layer_type"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/ImageLayer"
+              },
+              {
+                "$ref": "#/$defs/TextLayer"
+              },
+              {
+                "$ref": "#/$defs/VectorLayer"
+              },
+              {
+                "$ref": "#/$defs/MaskLayer"
+              },
+              {
+                "$ref": "#/$defs/GroupLayer"
+              }
+            ]
+          },
+          "title": "Layers",
+          "type": "array"
+        },
+        "parent_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Version"
+        },
+        "spread_id": {
+          "title": "Spread Id",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        },
+        "width_mm": {
+          "exclusiveMinimum": 0,
+          "title": "Width Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "spread_id",
+        "version",
+        "width_mm",
+        "height_mm",
+        "design_language_id",
+        "created_at"
+      ],
+      "title": "Scene",
+      "type": "object"
+    },
+    "SetBlendModeOp": {
+      "additionalProperties": false,
+      "properties": {
+        "blend_mode": {
+          "$ref": "#/$defs/BlendMode"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "set_blend_mode",
+          "default": "set_blend_mode",
+          "title": "Op",
+          "type": "string"
+        }
+      },
+      "required": [
+        "layer_id",
+        "blend_mode"
+      ],
+      "title": "SetBlendModeOp",
+      "type": "object"
+    },
+    "SetClipStackOp": {
+      "additionalProperties": false,
+      "properties": {
+        "clip_path_layer_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Clip Path Layer Ids",
+          "type": "array"
+        },
+        "op": {
+          "const": "set_clip_stack",
+          "default": "set_clip_stack",
+          "title": "Op",
+          "type": "string"
+        },
+        "target_layer_id": {
+          "title": "Target Layer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_layer_id",
+        "clip_path_layer_ids"
+      ],
+      "title": "SetClipStackOp",
+      "type": "object"
+    },
+    "SetGlyphTransformsOp": {
+      "additionalProperties": false,
+      "properties": {
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "set_glyph_transforms",
+          "default": "set_glyph_transforms",
+          "title": "Op",
+          "type": "string"
+        },
+        "transforms": {
+          "items": {
+            "$ref": "#/$defs/GlyphTransform"
+          },
+          "minItems": 1,
+          "title": "Transforms",
+          "type": "array"
+        }
+      },
+      "required": [
+        "layer_id",
+        "transforms"
+      ],
+      "title": "SetGlyphTransformsOp",
+      "type": "object"
+    },
+    "SetOpacityOp": {
+      "additionalProperties": false,
+      "properties": {
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "set_opacity",
+          "default": "set_opacity",
+          "title": "Op",
+          "type": "string"
+        },
+        "opacity": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Opacity",
+          "type": "number"
+        }
+      },
+      "required": [
+        "layer_id",
+        "opacity"
+      ],
+      "title": "SetOpacityOp",
+      "type": "object"
+    },
+    "SetZIndexOp": {
+      "additionalProperties": false,
+      "properties": {
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "set_z_index",
+          "default": "set_z_index",
+          "title": "Op",
+          "type": "string"
+        },
+        "z_index": {
+          "title": "Z Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "layer_id",
+        "z_index"
+      ],
+      "title": "SetZIndexOp",
+      "type": "object"
+    },
+    "ShadowFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "shadow",
+          "default": "shadow",
+          "title": "Kind",
+          "type": "string"
+        },
+        "offset": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "radius_mm": {
+          "minimum": 0,
+          "title": "Radius Mm",
+          "type": "number"
+        },
+        "rgba_hex": {
+          "pattern": "^#[0-9a-fA-F]{8}$",
+          "title": "Rgba Hex",
+          "type": "string"
+        }
+      },
+      "required": [
+        "offset",
+        "radius_mm",
+        "rgba_hex"
+      ],
+      "title": "ShadowFilter",
+      "type": "object"
+    },
+    "SpatialConceptGraph": {
+      "additionalProperties": false,
+      "properties": {
+        "nodes": {
+          "items": {
+            "$ref": "#/$defs/ConceptNode"
+          },
+          "title": "Nodes",
+          "type": "array"
+        },
+        "relationships": {
+          "items": {
+            "$ref": "#/$defs/ConceptRelationship"
+          },
+          "title": "Relationships",
+          "type": "array"
+        }
+      },
+      "required": [
+        "nodes",
+        "relationships"
+      ],
+      "title": "SpatialConceptGraph",
+      "type": "object"
+    },
+    "SpatialIntent": {
+      "additionalProperties": false,
+      "properties": {
+        "anchor_relationships": {
+          "items": {
+            "$ref": "#/$defs/AnchorRelationship"
+          },
+          "title": "Anchor Relationships",
+          "type": "array"
+        },
+        "custom_paths": {
+          "items": {
+            "$ref": "#/$defs/PathGeometry"
+          },
+          "title": "Custom Paths",
+          "type": "array"
+        },
+        "mode": {
+          "$ref": "#/$defs/SpatialMode"
+        },
+        "primary_solver": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Primary Solver"
+        },
+        "rule_breaks": {
+          "items": {
+            "$ref": "#/$defs/RuleBreakJustification"
+          },
+          "title": "Rule Breaks",
+          "type": "array"
+        }
+      },
+      "required": [
+        "mode"
+      ],
+      "title": "SpatialIntent",
+      "type": "object"
+    },
+    "SpatialMode": {
+      "enum": [
+        "semantic",
+        "guided",
+        "freeform"
+      ],
+      "title": "SpatialMode",
+      "type": "string"
+    },
+    "StyleAxis": {
+      "additionalProperties": false,
+      "properties": {
+        "tag": {
+          "pattern": "^[A-Za-z0-9]{4}$",
+          "title": "Tag",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "title": "StyleAxis",
+      "type": "object"
+    },
+    "TextLayer": {
+      "additionalProperties": false,
+      "properties": {
+        "blend_mode": {
+          "$ref": "#/$defs/BlendMode",
+          "default": "normal"
+        },
+        "bounds": {
+          "$ref": "#/$defs/BoundsMM"
+        },
+        "derived_text_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Derived Text Id"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "layer_type": {
+          "const": "text",
+          "default": "text",
+          "title": "Layer Type",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "opacity": {
+          "default": 1.0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Opacity",
+          "type": "number"
+        },
+        "owner_skill_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Owner Skill Id"
+        },
+        "semantic_role": {
+          "title": "Semantic Role",
+          "type": "string"
+        },
+        "style_name": {
+          "title": "Style Name",
+          "type": "string"
+        },
+        "text_content": {
+          "title": "Text Content",
+          "type": "string"
+        },
+        "visible": {
+          "default": true,
+          "title": "Visible",
+          "type": "boolean"
+        },
+        "z_index": {
+          "title": "Z Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "semantic_role",
+        "z_index",
+        "bounds",
+        "text_content",
+        "style_name"
+      ],
+      "title": "TextLayer",
+      "type": "object"
+    },
+    "TextOnPathOp": {
+      "additionalProperties": false,
+      "properties": {
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "text_on_path",
+          "default": "text_on_path",
+          "title": "Op",
+          "type": "string"
+        },
+        "path": {
+          "$ref": "#/$defs/PathGeometry"
+        },
+        "side": {
+          "default": "left",
+          "enum": [
+            "left",
+            "right"
+          ],
+          "title": "Side",
+          "type": "string"
+        },
+        "start_offset_mm": {
+          "default": 0.0,
+          "title": "Start Offset Mm",
+          "type": "number"
+        },
+        "style_name": {
+          "title": "Style Name",
+          "type": "string"
+        },
+        "text_content": {
+          "title": "Text Content",
+          "type": "string"
+        }
+      },
+      "required": [
+        "layer_id",
+        "text_content",
+        "style_name",
+        "path"
+      ],
+      "title": "TextOnPathOp",
+      "type": "object"
+    },
+    "TextPathOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "format": {
+          "const": "svg",
+          "default": "svg",
+          "title": "Format",
+          "type": "string"
+        },
+        "kind": {
+          "const": "text_path",
+          "default": "text_path",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "title": "TextPathOutputSpec",
+      "type": "object"
+    },
+    "TextRange": {
+      "additionalProperties": false,
+      "properties": {
+        "end_char": {
+          "exclusiveMinimum": 0,
+          "title": "End Char",
+          "type": "integer"
+        },
+        "start_char": {
+          "minimum": 0,
+          "title": "Start Char",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start_char",
+        "end_char"
+      ],
+      "title": "TextRange",
+      "type": "object"
+    },
+    "TransformLayerOp": {
+      "additionalProperties": false,
+      "properties": {
+        "dx_mm": {
+          "default": 0.0,
+          "title": "Dx Mm",
+          "type": "number"
+        },
+        "dy_mm": {
+          "default": 0.0,
+          "title": "Dy Mm",
+          "type": "number"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "op": {
+          "const": "transform_layer",
+          "default": "transform_layer",
+          "title": "Op",
+          "type": "string"
+        },
+        "rotation_deg": {
+          "default": 0.0,
+          "title": "Rotation Deg",
+          "type": "number"
+        },
+        "scale_x": {
+          "default": 1.0,
+          "exclusiveMinimum": 0,
+          "title": "Scale X",
+          "type": "number"
+        },
+        "scale_y": {
+          "default": 1.0,
+          "exclusiveMinimum": 0,
+          "title": "Scale Y",
+          "type": "number"
+        }
+      },
+      "required": [
+        "layer_id"
+      ],
+      "title": "TransformLayerOp",
+      "type": "object"
+    },
+    "TypeStyle": {
+      "additionalProperties": false,
+      "properties": {
+        "alignment": {
+          "default": "left",
+          "enum": [
+            "left",
+            "center",
+            "right"
+          ],
+          "title": "Alignment",
+          "type": "string"
+        },
+        "baseline_step_mm": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Baseline Step Mm"
+        },
+        "color": {
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "title": "Color",
+          "type": "string"
+        },
+        "font_axes": {
+          "items": {
+            "$ref": "#/$defs/StyleAxis"
+          },
+          "title": "Font Axes",
+          "type": "array"
+        },
+        "font_id": {
+          "title": "Font Id",
+          "type": "string"
+        },
+        "font_size_pt": {
+          "exclusiveMinimum": 0,
+          "title": "Font Size Pt",
+          "type": "number"
+        },
+        "line_spacing": {
+          "default": 1.2,
+          "minimum": 1,
+          "title": "Line Spacing",
+          "type": "number"
+        },
+        "min_paragraph_lines": {
+          "default": 2,
+          "minimum": 1,
+          "title": "Min Paragraph Lines",
+          "type": "integer"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "paint": {
+          "default": "fill",
+          "enum": [
+            "fill",
+            "stroke",
+            "fill_stroke"
+          ],
+          "title": "Paint",
+          "type": "string"
+        },
+        "stroke_color": {
+          "anyOf": [
+            {
+              "pattern": "^#[0-9a-fA-F]{6}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Stroke Color"
+        },
+        "stroke_width_pt": {
+          "default": 0,
+          "maximum": 12,
+          "minimum": 0,
+          "title": "Stroke Width Pt",
+          "type": "number"
+        },
+        "tracking_pt": {
+          "default": 0,
+          "maximum": 48,
+          "minimum": -12,
+          "title": "Tracking Pt",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "font_id",
+        "font_size_pt",
+        "color"
+      ],
+      "title": "TypeStyle",
+      "type": "object"
+    },
+    "UnsupportedFeature": {
+      "additionalProperties": false,
+      "properties": {
+        "feature": {
+          "title": "Feature",
+          "type": "string"
+        },
+        "proposed_fallback": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Proposed Fallback"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "feature",
+        "reason"
+      ],
+      "title": "UnsupportedFeature",
+      "type": "object"
+    },
+    "VectorLayer": {
+      "additionalProperties": false,
+      "properties": {
+        "blend_mode": {
+          "$ref": "#/$defs/BlendMode",
+          "default": "normal"
+        },
+        "bounds": {
+          "$ref": "#/$defs/BoundsMM"
+        },
+        "fill_color": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fill Color"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "layer_type": {
+          "const": "vector",
+          "default": "vector",
+          "title": "Layer Type",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "opacity": {
+          "default": 1.0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Opacity",
+          "type": "number"
+        },
+        "owner_skill_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Owner Skill Id"
+        },
+        "path": {
+          "$ref": "#/$defs/PathGeometry"
+        },
+        "semantic_role": {
+          "title": "Semantic Role",
+          "type": "string"
+        },
+        "stroke_color": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Stroke Color"
+        },
+        "visible": {
+          "default": true,
+          "title": "Visible",
+          "type": "boolean"
+        },
+        "z_index": {
+          "title": "Z Index",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "semantic_role",
+        "z_index",
+        "bounds",
+        "path"
+      ],
+      "title": "VectorLayer",
+      "type": "object"
+    },
+    "VectorOutputSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "editable_paths_required": {
+          "default": true,
+          "title": "Editable Paths Required",
+          "type": "boolean"
+        },
+        "format": {
+          "const": "svg",
+          "default": "svg",
+          "title": "Format",
+          "type": "string"
+        },
+        "kind": {
+          "const": "vector",
+          "default": "vector",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "title": "VectorOutputSpec",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "authorship": {
+      "default": "model",
+      "enum": [
+        "model",
+        "authored",
+        "reference_adapted"
+      ],
+      "title": "Authorship",
+      "type": "string"
+    },
+    "background_color": {
+      "title": "Background Color",
+      "type": "string"
+    },
+    "compiler": {
+      "$ref": "#/$defs/ConceptCompilerOutput"
+    },
+    "hybrid": {
+      "$ref": "#/$defs/HybridConceptOutput"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "identity_bible": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ArtDirectionBible"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "identity_id": {
+      "title": "Identity Id",
+      "type": "string"
+    },
+    "pairing": {
+      "$ref": "#/$defs/FontPairing"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "proposal": {
+      "$ref": "#/$defs/ConceptProposal"
+    },
+    "provider_call_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Provider Call Id"
+    },
+    "recipe": {
+      "$ref": "#/$defs/CombinatorialRecipe"
+    },
+    "reference_program_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reference Program Id"
+    },
+    "story_id": {
+      "title": "Story Id",
+      "type": "string"
+    },
+    "tokens": {
+      "$ref": "#/$defs/DesignTokens"
+    },
+    "typography": {
+      "$ref": "#/$defs/FontConfiguration"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "story_id",
+    "identity_id",
+    "proposal",
+    "hybrid",
+    "compiler",
+    "recipe",
+    "typography",
+    "background_color",
+    "tokens",
+    "pairing"
+  ],
+  "title": "CompiledConcept",
+  "type": "object"
+}

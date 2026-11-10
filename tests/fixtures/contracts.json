@@ -1,0 +1,1139 @@
+{
+  "AddImageOp": {
+    "asset_id": "fixture",
+    "bounds": {
+      "height_mm": 1.0,
+      "width_mm": 1.0,
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    },
+    "layer_id": "fixture",
+    "op": "add_image",
+    "opacity": 1.0,
+    "rotation_deg": 0.0
+  },
+  "AddPathOp": {
+    "fill_color": null,
+    "layer_id": "fixture",
+    "op": "add_path",
+    "path": {
+      "commands": [
+        {
+          "cmd": "M",
+          "p": {
+            "x_mm": 0.0,
+            "y_mm": 0.0
+          }
+        },
+        {
+          "cmd": "L",
+          "p": {
+            "x_mm": 10.0,
+            "y_mm": 0.0
+          }
+        },
+        {
+          "cmd": "L",
+          "p": {
+            "x_mm": 10.0,
+            "y_mm": 10.0
+          }
+        },
+        {
+          "cmd": "Z"
+        }
+      ],
+      "fill_rule": "nonzero"
+    },
+    "stroke_color": null,
+    "stroke_width_mm": 0.5
+  },
+  "AddTextOp": {
+    "bounds": {
+      "height_mm": 1.0,
+      "width_mm": 1.0,
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    },
+    "derived_text_id": null,
+    "layer_id": "fixture",
+    "op": "add_text",
+    "style_name": "fixture",
+    "text_content": "fixture"
+  },
+  "AnchorRelationship": {
+    "offset_mm": 0.0,
+    "relationship_type": "behind",
+    "source_layer_id": "fixture",
+    "target_layer_id": "fixture"
+  },
+  "ApplyFilterOp": {
+    "filter": {
+      "kind": "blur",
+      "radius_mm": 1.0
+    },
+    "layer_id": "fixture",
+    "op": "apply_filter"
+  },
+  "ApplyMaskOp": {
+    "invert": false,
+    "mask_asset_id": "fixture",
+    "op": "apply_mask",
+    "target_layer_id": "fixture"
+  },
+  "ArtDirectionBible": {
+    "approval_state": "provisional",
+    "approved_visual_examples": [],
+    "artistic_boundaries": [],
+    "conceptual_identity": "fixture",
+    "final_proof_spread_ids": [],
+    "font_pairing_id": "fixture",
+    "id": "fixture",
+    "narrative_progression": [],
+    "palette": [],
+    "photographic_character": [],
+    "provisional_proof_spread_ids": [],
+    "recurring_motifs": [],
+    "signature_behaviors": [],
+    "version": "fixture"
+  },
+  "ArtifactEvent": {
+    "action": "created",
+    "artifact_id": "fixture",
+    "kind": "artifact"
+  },
+  "ArtifactRequest": {
+    "asset_type": "raster",
+    "color_constraints": [],
+    "generation_spec": "fixture",
+    "id": "fixture",
+    "integration_method": "clipping",
+    "output": {
+      "alpha_required": false,
+      "height_px": 1,
+      "kind": "raster",
+      "width_px": 1
+    },
+    "preferred_generation_method": "fixture",
+    "provenance_notes": "fixture",
+    "target_layer_dependency_id": "fixture",
+    "target_region": {
+      "height": 1.0,
+      "width": 1.0,
+      "x": 0.0,
+      "y": 0.0
+    },
+    "visual_acceptance_checks": [],
+    "visual_role": "fixture"
+  },
+  "AttemptRecord": {
+    "attempt_id": "fixture",
+    "call_id": "fixture",
+    "ended_at": null,
+    "model_snapshot": "fixture",
+    "possible_charge_usd": null,
+    "provider_request_id": null,
+    "reconciliation_status": "fixture",
+    "request_hash": "fixture",
+    "state": "SUBMITTING",
+    "submitted_at": null
+  },
+  "BaseLayer": {
+    "blend_mode": "normal",
+    "bounds": {
+      "height_mm": 1.0,
+      "width_mm": 1.0,
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    },
+    "id": "fixture",
+    "name": "fixture",
+    "opacity": 1.0,
+    "owner_skill_id": null,
+    "semantic_role": "fixture",
+    "visible": true,
+    "z_index": 0
+  },
+  "BindAssetOp": {
+    "asset_id": "fixture",
+    "asset_type": "raster",
+    "layer_id": "fixture",
+    "op": "bind_asset"
+  },
+  "BlurFilter": {
+    "kind": "blur",
+    "radius_mm": 1.0
+  },
+  "BooleanPathOp": {
+    "op": "boolean_path",
+    "operand_layer_id": "fixture",
+    "operation_type": "union",
+    "target_layer_id": "fixture"
+  },
+  "BoundsMM": {
+    "height_mm": 1.0,
+    "width_mm": 1.0,
+    "x_mm": 0.0,
+    "y_mm": 0.0
+  },
+  "CallEvent": {
+    "attempt_id": null,
+    "call_id": "fixture",
+    "kind": "call",
+    "new_status": "fixture"
+  },
+  "ClipToPathOp": {
+    "op": "clip_to_path",
+    "path": {
+      "commands": [
+        {
+          "cmd": "M",
+          "p": {
+            "x_mm": 0.0,
+            "y_mm": 0.0
+          }
+        },
+        {
+          "cmd": "L",
+          "p": {
+            "x_mm": 10.0,
+            "y_mm": 0.0
+          }
+        },
+        {
+          "cmd": "L",
+          "p": {
+            "x_mm": 10.0,
+            "y_mm": 10.0
+          }
+        },
+        {
+          "cmd": "Z"
+        }
+      ],
+      "fill_rule": "nonzero"
+    },
+    "target_layer_id": "fixture"
+  },
+  "ClosePath": {
+    "cmd": "Z"
+  },
+  "ColorAdjustOp": {
+    "brightness": 0.0,
+    "contrast": 1.0,
+    "layer_id": "fixture",
+    "op": "color_adjust",
+    "saturation": 1.0
+  },
+  "CompositeOutputSpec": {
+    "editable_layer_ids": [
+      "fixture"
+    ],
+    "kind": "composite"
+  },
+  "ConceptBrief": {
+    "compositional_structure": "fixture",
+    "id": "fixture",
+    "narrative_expression": "fixture",
+    "photography_treatment": "fixture",
+    "project_id": "fixture",
+    "spread_id": "fixture",
+    "visual_metaphor": "fixture"
+  },
+  "ConceptCompilerOutput": {
+    "concept_brief_id": "fixture",
+    "extracted_visual_elements": [],
+    "target_scene_skeleton": {
+      "created_at": "2026-11-09T00:00:00Z",
+      "design_language_id": "fixture",
+      "height_mm": 1.0,
+      "id": "fixture",
+      "layers": [],
+      "parent_version": null,
+      "spread_id": "fixture",
+      "version": "fixture",
+      "width_mm": 1.0
+    },
+    "unsupported_features": []
+  },
+  "ConceptNode": {
+    "derived_text_id": null,
+    "id": "fixture",
+    "role": "image",
+    "source_asset_id": null,
+    "target_region": null,
+    "z_order_hint": null
+  },
+  "ConceptRelationship": {
+    "rationale": "fixture",
+    "relation": "behind",
+    "source_id": "fixture",
+    "target_id": "fixture"
+  },
+  "ConceptSketch": {
+    "aspect_ratio": 1.0,
+    "asset_id": "fixture",
+    "concept_brief_id": "fixture",
+    "source_photo_ids": []
+  },
+  "ContentBlock": {
+    "attached_image_ids": [],
+    "coverage": [],
+    "derived_texts": [],
+    "id": "fixture",
+    "source_revision_id": "fixture",
+    "source_text": "fixture"
+  },
+  "CostRecord": {
+    "billing_uncertain": false,
+    "certainty": "reported",
+    "estimated_cost_usd": null,
+    "pricing_version": "fixture",
+    "rate_breakdown_asset_id": null,
+    "reported_cost_usd": null
+  },
+  "CoverageAssignment": {
+    "approval_actor": null,
+    "assigned_spread_id": null,
+    "reason": null,
+    "span": {
+      "end_char": 1,
+      "source_block_id": "fixture",
+      "source_revision_id": "fixture",
+      "start_char": 0
+    },
+    "status": "unassigned"
+  },
+  "CreateGroupOp": {
+    "group_layer_id": "fixture",
+    "member_layer_ids": [
+      "fixture"
+    ],
+    "op": "create_group"
+  },
+  "CritiqueFinding": {
+    "actionable_fix": "fixture",
+    "category": "fixture",
+    "description": "fixture",
+    "severity": "CRITICAL",
+    "target_layer_ids": []
+  },
+  "CubicTo": {
+    "cmd": "C",
+    "control1": {
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    },
+    "control2": {
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    },
+    "p": {
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    }
+  },
+  "DecisionEvent": {
+    "decision_id": "fixture",
+    "kind": "decision",
+    "verdict": "ACCEPT"
+  },
+  "DerivedText": {
+    "derived_from": [],
+    "edit_type": "verbatim",
+    "id": "fixture",
+    "placed_layer_ids": [],
+    "text": "fixture"
+  },
+  "DisplacementMapOp": {
+    "map_asset_id": "fixture",
+    "op": "displacement_map",
+    "scale_mm": 0.0,
+    "target_layer_id": "fixture"
+  },
+  "EditPathOp": {
+    "layer_id": "fixture",
+    "op": "edit_path",
+    "path": {
+      "commands": [
+        {
+          "cmd": "M",
+          "p": {
+            "x_mm": 0.0,
+            "y_mm": 0.0
+          }
+        },
+        {
+          "cmd": "L",
+          "p": {
+            "x_mm": 10.0,
+            "y_mm": 0.0
+          }
+        },
+        {
+          "cmd": "L",
+          "p": {
+            "x_mm": 10.0,
+            "y_mm": 10.0
+          }
+        },
+        {
+          "cmd": "Z"
+        }
+      ],
+      "fill_rule": "nonzero"
+    }
+  },
+  "ExtractedVisualElement": {
+    "concept_node_id": "fixture",
+    "id": "fixture",
+    "mapped_asset_id": null,
+    "mapped_layer_id": null,
+    "mapping_confidence": 0.0
+  },
+  "FlowTextIntoShapeOp": {
+    "boundary": {
+      "commands": [
+        {
+          "cmd": "M",
+          "p": {
+            "x_mm": 0.0,
+            "y_mm": 0.0
+          }
+        },
+        {
+          "cmd": "L",
+          "p": {
+            "x_mm": 10.0,
+            "y_mm": 0.0
+          }
+        },
+        {
+          "cmd": "L",
+          "p": {
+            "x_mm": 10.0,
+            "y_mm": 10.0
+          }
+        },
+        {
+          "cmd": "Z"
+        }
+      ],
+      "fill_rule": "nonzero"
+    },
+    "exclusion_paths": [],
+    "layer_id": "fixture",
+    "op": "flow_text_into_shape",
+    "style_name": "fixture",
+    "text_content": "fixture"
+  },
+  "GlyphTransform": {
+    "dx_mm": 0.0,
+    "dy_mm": 0.0,
+    "glyph_index": 0,
+    "rotation_deg": 0.0,
+    "scale_x": 1.0,
+    "scale_y": 1.0
+  },
+  "GradientMaskOp": {
+    "end": {
+      "x_mm": 1.0,
+      "y_mm": 1.0
+    },
+    "gradient_type": "linear",
+    "op": "gradient_mask",
+    "start": {
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    },
+    "stops": [
+      {
+        "offset": 0.0,
+        "opacity": 0.0
+      },
+      {
+        "offset": 1.0,
+        "opacity": 1.0
+      }
+    ],
+    "target_layer_id": "fixture"
+  },
+  "GradientStop": {
+    "offset": 0.0,
+    "opacity": 0.0
+  },
+  "GrainFilter": {
+    "kind": "grain",
+    "random_seed": 0,
+    "strength": 0.0
+  },
+  "GroupLayer": {
+    "blend_mode": "normal",
+    "bounds": {
+      "height_mm": 1.0,
+      "width_mm": 1.0,
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    },
+    "id": "fixture",
+    "layer_type": "group",
+    "member_layer_ids": [
+      "fixture"
+    ],
+    "name": "fixture",
+    "opacity": 1.0,
+    "owner_skill_id": null,
+    "semantic_role": "fixture",
+    "visible": true,
+    "z_index": 0
+  },
+  "HalftoneFilter": {
+    "angle_deg": 0.0,
+    "dot_spacing_mm": 1.0,
+    "kind": "halftone"
+  },
+  "HybridConceptOutput": {
+    "artifact_requirements": [],
+    "concept_brief": {
+      "compositional_structure": "fixture",
+      "id": "fixture",
+      "narrative_expression": "fixture",
+      "photography_treatment": "fixture",
+      "project_id": "fixture",
+      "spread_id": "fixture",
+      "visual_metaphor": "fixture"
+    },
+    "required_capabilities": [],
+    "sketch": {
+      "aspect_ratio": 1.0,
+      "asset_id": "fixture",
+      "concept_brief_id": "fixture",
+      "source_photo_ids": []
+    },
+    "spatial_concept_graph": {
+      "nodes": [],
+      "relationships": []
+    }
+  },
+  "ImageLayer": {
+    "asset_id": "fixture",
+    "blend_mode": "normal",
+    "bounds": {
+      "height_mm": 1.0,
+      "width_mm": 1.0,
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    },
+    "effective_ppi": null,
+    "id": "fixture",
+    "layer_type": "image",
+    "name": "fixture",
+    "opacity": 1.0,
+    "owner_skill_id": null,
+    "semantic_role": "fixture",
+    "visible": true,
+    "z_index": 0
+  },
+  "IssuePhaseDirection": {
+    "emotional_role": "fixture",
+    "phase_name": "fixture",
+    "visual_behavior": "fixture"
+  },
+  "LineTo": {
+    "cmd": "L",
+    "p": {
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    }
+  },
+  "MaskLayer": {
+    "blend_mode": "normal",
+    "bounds": {
+      "height_mm": 1.0,
+      "width_mm": 1.0,
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    },
+    "id": "fixture",
+    "invert": false,
+    "layer_type": "mask",
+    "mask_asset_id": "fixture",
+    "name": "fixture",
+    "opacity": 1.0,
+    "owner_skill_id": null,
+    "semantic_role": "fixture",
+    "visible": true,
+    "z_index": 0
+  },
+  "MaskOutputSpec": {
+    "height_px": 1,
+    "kind": "mask",
+    "width_px": 1
+  },
+  "MoveTo": {
+    "cmd": "M",
+    "p": {
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    }
+  },
+  "NormalizedPoint": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "NormalizedRegion": {
+    "height": 1.0,
+    "width": 1.0,
+    "x": 0.0,
+    "y": 0.0
+  },
+  "PageMap": {
+    "pages": [
+      {
+        "folio_text": null,
+        "is_cover": false,
+        "number": 1,
+        "side": "left",
+        "spread_id": null
+      }
+    ],
+    "project_id": "fixture"
+  },
+  "PaletteToken": {
+    "hex_color": "#123456",
+    "name": "fixture"
+  },
+  "PathGeometry": {
+    "commands": [
+      {
+        "cmd": "M",
+        "p": {
+          "x_mm": 0.0,
+          "y_mm": 0.0
+        }
+      },
+      {
+        "cmd": "L",
+        "p": {
+          "x_mm": 10.0,
+          "y_mm": 0.0
+        }
+      },
+      {
+        "cmd": "L",
+        "p": {
+          "x_mm": 10.0,
+          "y_mm": 10.0
+        }
+      },
+      {
+        "cmd": "Z"
+      }
+    ],
+    "fill_rule": "nonzero"
+  },
+  "PhysicalPage": {
+    "folio_text": null,
+    "is_cover": false,
+    "number": 1,
+    "side": "left",
+    "spread_id": null
+  },
+  "PointMM": {
+    "x_mm": 0.0,
+    "y_mm": 0.0
+  },
+  "ProviderCallRecord": {
+    "agent_name": "fixture",
+    "api_operation": "fixture",
+    "attempt_ids": [],
+    "cache_hit": false,
+    "call_id": "fixture",
+    "cost": {
+      "billing_uncertain": false,
+      "certainty": "reported",
+      "estimated_cost_usd": null,
+      "pricing_version": "fixture",
+      "rate_breakdown_asset_id": null,
+      "reported_cost_usd": null
+    },
+    "ended_at": null,
+    "error_summary": null,
+    "generated_artifact_ids": [],
+    "image_complexity": null,
+    "image_quality": null,
+    "latency_ms": null,
+    "model_requested": "fixture",
+    "model_snapshot": null,
+    "parent_call_id": null,
+    "project_id": "fixture",
+    "prompt_version": "fixture",
+    "provider": "fixture",
+    "reasoning_effort": null,
+    "request_hash": "fixture",
+    "request_payload_asset_id": null,
+    "response_payload_asset_id": null,
+    "run_id": "fixture",
+    "schema_version": "fixture",
+    "spread_id": null,
+    "stage": "fixture",
+    "started_at": "2026-11-09T00:00:00Z",
+    "status": "queued",
+    "usage": null,
+    "validation_errors": [],
+    "visible_decision_summary": null
+  },
+  "QuadraticTo": {
+    "cmd": "Q",
+    "control": {
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    },
+    "p": {
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    }
+  },
+  "RasterOutputSpec": {
+    "alpha_required": false,
+    "height_px": 1,
+    "kind": "raster",
+    "width_px": 1
+  },
+  "RecipeArgument": {
+    "parameter_name": "fixture",
+    "value": {
+      "kind": "string",
+      "value": "fixture"
+    }
+  },
+  "RecipeStep": {
+    "arguments": [],
+    "depends_on_step_ids": [],
+    "id": "fixture",
+    "operation_name": "add_image"
+  },
+  "RecipeValueBoolean": {
+    "kind": "boolean",
+    "value": false
+  },
+  "RecipeValueNumber": {
+    "kind": "number",
+    "value": 0.0
+  },
+  "RecipeValuePath": {
+    "kind": "path",
+    "value": {
+      "commands": [
+        {
+          "cmd": "M",
+          "p": {
+            "x_mm": 0.0,
+            "y_mm": 0.0
+          }
+        },
+        {
+          "cmd": "L",
+          "p": {
+            "x_mm": 10.0,
+            "y_mm": 0.0
+          }
+        },
+        {
+          "cmd": "L",
+          "p": {
+            "x_mm": 10.0,
+            "y_mm": 10.0
+          }
+        },
+        {
+          "cmd": "Z"
+        }
+      ],
+      "fill_rule": "nonzero"
+    }
+  },
+  "RecipeValuePoint": {
+    "kind": "point",
+    "value": {
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    }
+  },
+  "RecipeValueSlot": {
+    "kind": "slot_ref",
+    "slot_name": "fixture"
+  },
+  "RecipeValueString": {
+    "kind": "string",
+    "value": "fixture"
+  },
+  "ReviewDecision": {
+    "artistic_findings": [],
+    "concept_fidelity_findings": [],
+    "execution_findings": [],
+    "rule_break_evaluations": [],
+    "stagnation_detected": false,
+    "target_edit_instructions": null,
+    "verdict": "ACCEPT"
+  },
+  "RuleBreakEvaluation": {
+    "accepted": false,
+    "reason": "fixture",
+    "rule": "fixture"
+  },
+  "RuleBreakJustification": {
+    "justification": "fixture",
+    "rule": "fixture"
+  },
+  "Scene": {
+    "created_at": "2026-11-09T00:00:00Z",
+    "design_language_id": "fixture",
+    "height_mm": 1.0,
+    "id": "fixture",
+    "layers": [],
+    "parent_version": null,
+    "spread_id": "fixture",
+    "version": "fixture",
+    "width_mm": 1.0
+  },
+  "SceneEvent": {
+    "kind": "scene",
+    "patch_id": null,
+    "scene_id": "fixture",
+    "scene_version": "fixture"
+  },
+  "ScenePatch": {
+    "created_layer_ids": [],
+    "declared_dependencies": [],
+    "modified_layer_ids": [],
+    "operations": [
+      {
+        "asset_id": "fixture",
+        "bounds": {
+          "height_mm": 1.0,
+          "width_mm": 1.0,
+          "x_mm": 0.0,
+          "y_mm": 0.0
+        },
+        "layer_id": "fixture",
+        "op": "add_image",
+        "opacity": 1.0,
+        "rotation_deg": 0.0
+      }
+    ],
+    "parent_version": "fixture",
+    "patch_id": "fixture",
+    "snapshot_asset_id": null,
+    "target_scene_id": "fixture"
+  },
+  "SetBlendModeOp": {
+    "blend_mode": "normal",
+    "layer_id": "fixture",
+    "op": "set_blend_mode"
+  },
+  "SetClipStackOp": {
+    "clip_path_layer_ids": [],
+    "op": "set_clip_stack",
+    "target_layer_id": "fixture"
+  },
+  "SetGlyphTransformsOp": {
+    "layer_id": "fixture",
+    "op": "set_glyph_transforms",
+    "transforms": [
+      {
+        "dx_mm": 0.0,
+        "dy_mm": 0.0,
+        "glyph_index": 0,
+        "rotation_deg": 0.0,
+        "scale_x": 1.0,
+        "scale_y": 1.0
+      }
+    ]
+  },
+  "SetOpacityOp": {
+    "layer_id": "fixture",
+    "op": "set_opacity",
+    "opacity": 0.0
+  },
+  "SetZIndexOp": {
+    "layer_id": "fixture",
+    "op": "set_z_index",
+    "z_index": 0
+  },
+  "ShadowFilter": {
+    "kind": "shadow",
+    "offset": {
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    },
+    "radius_mm": 0.0,
+    "rgba_hex": "#12345678"
+  },
+  "ShapedGlyphPlacement": {
+    "advance_mm": 0.0,
+    "cluster_end": 0,
+    "cluster_start": 0,
+    "glyph_index": 0,
+    "position": {
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    },
+    "tangent_deg": 0.0
+  },
+  "SkillManifest": {
+    "category": "fixture",
+    "compatible_skill_ids": [],
+    "composition_units": [],
+    "dependencies": [],
+    "evaluation_checks": [],
+    "fallbacks": [],
+    "id": "fixture",
+    "incompatible_skill_ids": [],
+    "inputs": [],
+    "intent": "fixture",
+    "outputs": [],
+    "parameters": [],
+    "recipe": [],
+    "required_capabilities": [],
+    "suitable_conditions": [],
+    "version": "fixture"
+  },
+  "SkillSlot": {
+    "asset_type": null,
+    "name": "fixture",
+    "required": true,
+    "value_kind": "asset"
+  },
+  "SourceSpan": {
+    "end_char": 1,
+    "source_block_id": "fixture",
+    "source_revision_id": "fixture",
+    "start_char": 0
+  },
+  "SpatialConceptGraph": {
+    "nodes": [],
+    "relationships": []
+  },
+  "SpatialIntent": {
+    "anchor_relationships": [],
+    "custom_paths": [],
+    "mode": "semantic",
+    "primary_solver": null,
+    "rule_breaks": []
+  },
+  "SpreadBrief": {
+    "art_direction_bible_id": "fixture",
+    "assigned_photo_ids": [],
+    "assigned_story_ids": [],
+    "composition_unit": "single_page",
+    "narrative_role": "fixture",
+    "next_spread_thumbnail_asset_id": null,
+    "physical_page_numbers": [
+      0
+    ],
+    "previous_spread_thumbnail_asset_id": null,
+    "project_id": "fixture",
+    "reference_ids": [],
+    "spread_id": "fixture"
+  },
+  "StageEvent": {
+    "from_stage": "fixture",
+    "kind": "stage",
+    "reason": null,
+    "to_stage": "fixture"
+  },
+  "StrictModel": {},
+  "TextLayer": {
+    "blend_mode": "normal",
+    "bounds": {
+      "height_mm": 1.0,
+      "width_mm": 1.0,
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    },
+    "derived_text_id": null,
+    "id": "fixture",
+    "layer_type": "text",
+    "name": "fixture",
+    "opacity": 1.0,
+    "owner_skill_id": null,
+    "semantic_role": "fixture",
+    "style_name": "fixture",
+    "text_content": "fixture",
+    "visible": true,
+    "z_index": 0
+  },
+  "TextLayoutResult": {
+    "consumed_end_char": 0,
+    "findings": [],
+    "font_hash": "fixture",
+    "glyphs": [],
+    "ink_bounds": {
+      "height_mm": 1.0,
+      "width_mm": 1.0,
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    },
+    "line_count": 0,
+    "logical_bounds": {
+      "height_mm": 1.0,
+      "width_mm": 1.0,
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    },
+    "overflow_start_char": null,
+    "text_layer_id": "fixture",
+    "writing_direction": "ltr"
+  },
+  "TextOnPathOp": {
+    "layer_id": "fixture",
+    "op": "text_on_path",
+    "path": {
+      "commands": [
+        {
+          "cmd": "M",
+          "p": {
+            "x_mm": 0.0,
+            "y_mm": 0.0
+          }
+        },
+        {
+          "cmd": "L",
+          "p": {
+            "x_mm": 10.0,
+            "y_mm": 0.0
+          }
+        },
+        {
+          "cmd": "L",
+          "p": {
+            "x_mm": 10.0,
+            "y_mm": 10.0
+          }
+        },
+        {
+          "cmd": "Z"
+        }
+      ],
+      "fill_rule": "nonzero"
+    },
+    "side": "left",
+    "start_offset_mm": 0.0,
+    "style_name": "fixture",
+    "text_content": "fixture"
+  },
+  "TextPathOutputSpec": {
+    "format": "svg",
+    "kind": "text_path"
+  },
+  "ToolExecutionRecord": {
+    "elapsed_ms": null,
+    "error_summary": null,
+    "input_asset_id": null,
+    "output_asset_ids": [],
+    "parent_call_id": null,
+    "project_id": "fixture",
+    "run_id": "fixture",
+    "spread_id": null,
+    "status": "started",
+    "tool_call_id": "fixture",
+    "tool_name": "fixture"
+  },
+  "TransformLayerOp": {
+    "dx_mm": 0.0,
+    "dy_mm": 0.0,
+    "layer_id": "fixture",
+    "op": "transform_layer",
+    "rotation_deg": 0.0,
+    "scale_x": 1.0,
+    "scale_y": 1.0
+  },
+  "TypographyFinding": {
+    "code": "UNSUPPORTED_SCRIPT",
+    "detail": "fixture",
+    "severity": "CRITICAL"
+  },
+  "UnsupportedFeature": {
+    "feature": "fixture",
+    "proposed_fallback": null,
+    "reason": "fixture"
+  },
+  "UsageRecord": {
+    "cache_write_tokens": null,
+    "cached_input_tokens": null,
+    "image_input_tokens": null,
+    "image_output_tokens": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "reasoning_tokens": null,
+    "text_input_tokens": null
+  },
+  "VectorLayer": {
+    "blend_mode": "normal",
+    "bounds": {
+      "height_mm": 1.0,
+      "width_mm": 1.0,
+      "x_mm": 0.0,
+      "y_mm": 0.0
+    },
+    "fill_color": null,
+    "id": "fixture",
+    "layer_type": "vector",
+    "name": "fixture",
+    "opacity": 1.0,
+    "owner_skill_id": null,
+    "path": {
+      "commands": [
+        {
+          "cmd": "M",
+          "p": {
+            "x_mm": 0.0,
+            "y_mm": 0.0
+          }
+        },
+        {
+          "cmd": "L",
+          "p": {
+            "x_mm": 10.0,
+            "y_mm": 0.0
+          }
+        },
+        {
+          "cmd": "L",
+          "p": {
+            "x_mm": 10.0,
+            "y_mm": 10.0
+          }
+        },
+        {
+          "cmd": "Z"
+        }
+      ],
+      "fill_rule": "nonzero"
+    },
+    "semantic_role": "fixture",
+    "stroke_color": null,
+    "visible": true,
+    "z_index": 0
+  },
+  "VectorOutputSpec": {
+    "editable_paths_required": true,
+    "format": "svg",
+    "kind": "vector"
+  },
+  "WorkflowEvent": {
+    "event_id": "fixture",
+    "parent_event_id": null,
+    "payload": {
+      "from_stage": "fixture",
+      "kind": "stage",
+      "reason": null,
+      "to_stage": "fixture"
+    },
+    "project_id": "fixture",
+    "run_id": "fixture",
+    "spread_id": null,
+    "timestamp": "2026-11-09T00:00:00Z"
+  }
+}

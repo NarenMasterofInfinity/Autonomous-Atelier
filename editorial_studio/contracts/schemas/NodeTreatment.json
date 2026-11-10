@@ -1,0 +1,476 @@
+{
+  "$defs": {
+    "BlendMode": {
+      "enum": [
+        "normal",
+        "multiply",
+        "screen",
+        "overlay",
+        "darken",
+        "lighten"
+      ],
+      "title": "BlendMode",
+      "type": "string"
+    },
+    "ClosePath": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "Z",
+          "default": "Z",
+          "title": "Cmd",
+          "type": "string"
+        }
+      },
+      "title": "ClosePath",
+      "type": "object"
+    },
+    "CubicTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "C",
+          "default": "C",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "control1": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "control2": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "control1",
+        "control2",
+        "p"
+      ],
+      "title": "CubicTo",
+      "type": "object"
+    },
+    "GlyphTransform": {
+      "additionalProperties": false,
+      "properties": {
+        "dx_mm": {
+          "default": 0.0,
+          "title": "Dx Mm",
+          "type": "number"
+        },
+        "dy_mm": {
+          "default": 0.0,
+          "title": "Dy Mm",
+          "type": "number"
+        },
+        "glyph_index": {
+          "minimum": 0,
+          "title": "Glyph Index",
+          "type": "integer"
+        },
+        "rotation_deg": {
+          "default": 0.0,
+          "title": "Rotation Deg",
+          "type": "number"
+        },
+        "scale_x": {
+          "default": 1.0,
+          "exclusiveMinimum": 0,
+          "title": "Scale X",
+          "type": "number"
+        },
+        "scale_y": {
+          "default": 1.0,
+          "exclusiveMinimum": 0,
+          "title": "Scale Y",
+          "type": "number"
+        }
+      },
+      "required": [
+        "glyph_index"
+      ],
+      "title": "GlyphTransform",
+      "type": "object"
+    },
+    "GradientMaskOp": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "gradient_type": {
+          "enum": [
+            "linear",
+            "radial"
+          ],
+          "title": "Gradient Type",
+          "type": "string"
+        },
+        "op": {
+          "const": "gradient_mask",
+          "default": "gradient_mask",
+          "title": "Op",
+          "type": "string"
+        },
+        "start": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "stops": {
+          "items": {
+            "$ref": "#/$defs/GradientStop"
+          },
+          "minItems": 2,
+          "title": "Stops",
+          "type": "array"
+        },
+        "target_layer_id": {
+          "title": "Target Layer Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target_layer_id",
+        "gradient_type",
+        "start",
+        "end",
+        "stops"
+      ],
+      "title": "GradientMaskOp",
+      "type": "object"
+    },
+    "GradientStop": {
+      "additionalProperties": false,
+      "properties": {
+        "offset": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Offset",
+          "type": "number"
+        },
+        "opacity": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Opacity",
+          "type": "number"
+        }
+      },
+      "required": [
+        "offset",
+        "opacity"
+      ],
+      "title": "GradientStop",
+      "type": "object"
+    },
+    "LineTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "L",
+          "default": "L",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "LineTo",
+      "type": "object"
+    },
+    "MoveTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "M",
+          "default": "M",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "title": "MoveTo",
+      "type": "object"
+    },
+    "PathGeometry": {
+      "additionalProperties": false,
+      "properties": {
+        "commands": {
+          "items": {
+            "discriminator": {
+              "mapping": {
+                "C": "#/$defs/CubicTo",
+                "L": "#/$defs/LineTo",
+                "M": "#/$defs/MoveTo",
+                "Q": "#/$defs/QuadraticTo",
+                "Z": "#/$defs/ClosePath"
+              },
+              "propertyName": "cmd"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/MoveTo"
+              },
+              {
+                "$ref": "#/$defs/LineTo"
+              },
+              {
+                "$ref": "#/$defs/QuadraticTo"
+              },
+              {
+                "$ref": "#/$defs/CubicTo"
+              },
+              {
+                "$ref": "#/$defs/ClosePath"
+              }
+            ]
+          },
+          "minItems": 2,
+          "title": "Commands",
+          "type": "array"
+        },
+        "fill_rule": {
+          "default": "nonzero",
+          "enum": [
+            "nonzero",
+            "evenodd"
+          ],
+          "title": "Fill Rule",
+          "type": "string"
+        }
+      },
+      "required": [
+        "commands"
+      ],
+      "title": "PathGeometry",
+      "type": "object"
+    },
+    "PointMM": {
+      "additionalProperties": false,
+      "properties": {
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm"
+      ],
+      "title": "PointMM",
+      "type": "object"
+    },
+    "QuadraticTo": {
+      "additionalProperties": false,
+      "properties": {
+        "cmd": {
+          "const": "Q",
+          "default": "Q",
+          "title": "Cmd",
+          "type": "string"
+        },
+        "control": {
+          "$ref": "#/$defs/PointMM"
+        },
+        "p": {
+          "$ref": "#/$defs/PointMM"
+        }
+      },
+      "required": [
+        "control",
+        "p"
+      ],
+      "title": "QuadraticTo",
+      "type": "object"
+    },
+    "TextRange": {
+      "additionalProperties": false,
+      "properties": {
+        "end_char": {
+          "exclusiveMinimum": 0,
+          "title": "End Char",
+          "type": "integer"
+        },
+        "start_char": {
+          "minimum": 0,
+          "title": "Start Char",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start_char",
+        "end_char"
+      ],
+      "title": "TextRange",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "blend_mode": {
+      "$ref": "#/$defs/BlendMode",
+      "default": "normal"
+    },
+    "exclusions": {
+      "items": {
+        "$ref": "#/$defs/PathGeometry"
+      },
+      "title": "Exclusions",
+      "type": "array"
+    },
+    "fill_color": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Fill Color"
+    },
+    "glyph_transforms": {
+      "items": {
+        "$ref": "#/$defs/GlyphTransform"
+      },
+      "title": "Glyph Transforms",
+      "type": "array"
+    },
+    "gradient": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/GradientMaskOp"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "image_bleed_mm": {
+      "default": 0,
+      "maximum": 10,
+      "minimum": 0,
+      "title": "Image Bleed Mm",
+      "type": "number"
+    },
+    "image_treatment": {
+      "default": "native",
+      "enum": [
+        "native",
+        "grain",
+        "halftone",
+        "monochrome"
+      ],
+      "title": "Image Treatment",
+      "type": "string"
+    },
+    "layout": {
+      "default": "rect",
+      "enum": [
+        "rect",
+        "path",
+        "shape",
+        "glyphs"
+      ],
+      "title": "Layout",
+      "type": "string"
+    },
+    "minimum_display_pt": {
+      "anyOf": [
+        {
+          "minimum": 18,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Minimum Display Pt"
+    },
+    "node_id": {
+      "title": "Node Id",
+      "type": "string"
+    },
+    "opacity": {
+      "default": 1,
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Opacity",
+      "type": "number"
+    },
+    "path": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PathGeometry"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "rotation_deg": {
+      "default": 0,
+      "maximum": 180,
+      "minimum": -180,
+      "title": "Rotation Deg",
+      "type": "number"
+    },
+    "style_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Style Name"
+    },
+    "style_role": {
+      "default": "body",
+      "enum": [
+        "headline",
+        "deck",
+        "body",
+        "caption",
+        "label"
+      ],
+      "title": "Style Role",
+      "type": "string"
+    },
+    "text_range": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TextRange"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "node_id"
+  ],
+  "title": "NodeTreatment",
+  "type": "object"
+}

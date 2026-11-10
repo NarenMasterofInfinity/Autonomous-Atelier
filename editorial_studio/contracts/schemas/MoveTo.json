@@ -1,0 +1,40 @@
+{
+  "$defs": {
+    "PointMM": {
+      "additionalProperties": false,
+      "properties": {
+        "x_mm": {
+          "title": "X Mm",
+          "type": "number"
+        },
+        "y_mm": {
+          "title": "Y Mm",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x_mm",
+        "y_mm"
+      ],
+      "title": "PointMM",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "cmd": {
+      "const": "M",
+      "default": "M",
+      "title": "Cmd",
+      "type": "string"
+    },
+    "p": {
+      "$ref": "#/$defs/PointMM"
+    }
+  },
+  "required": [
+    "p"
+  ],
+  "title": "MoveTo",
+  "type": "object"
+}

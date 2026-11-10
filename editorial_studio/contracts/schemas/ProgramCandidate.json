@@ -1,0 +1,300 @@
+{
+  "$defs": {
+    "CreativeSpread": {
+      "additionalProperties": false,
+      "properties": {
+        "concept_id": {
+          "title": "Concept Id",
+          "type": "string"
+        },
+        "document_asset_id": {
+          "title": "Document Asset Id",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "identity_id": {
+          "title": "Identity Id",
+          "type": "string"
+        },
+        "metadata_asset_id": {
+          "title": "Metadata Asset Id",
+          "type": "string"
+        },
+        "pdf_asset_id": {
+          "title": "Pdf Asset Id",
+          "type": "string"
+        },
+        "png_asset_id": {
+          "title": "Png Asset Id",
+          "type": "string"
+        },
+        "project_id": {
+          "title": "Project Id",
+          "type": "string"
+        },
+        "review_id": {
+          "title": "Review Id",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "scene_id": {
+          "title": "Scene Id",
+          "type": "string"
+        },
+        "scene_version": {
+          "title": "Scene Version",
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "review",
+            "revision_required",
+            "approved_for_identity_review"
+          ],
+          "title": "State",
+          "type": "string"
+        },
+        "story_id": {
+          "title": "Story Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "project_id",
+        "story_id",
+        "identity_id",
+        "scene_id",
+        "scene_version",
+        "concept_id",
+        "review_id",
+        "png_asset_id",
+        "pdf_asset_id",
+        "document_asset_id",
+        "metadata_asset_id",
+        "state",
+        "run_id"
+      ],
+      "title": "CreativeSpread",
+      "type": "object"
+    },
+    "LayoutFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "detail": {
+          "title": "Detail",
+          "type": "string"
+        },
+        "layers": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Layers",
+          "type": "array"
+        },
+        "severity": {
+          "default": "error",
+          "enum": [
+            "error",
+            "review"
+          ],
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "layers",
+        "detail"
+      ],
+      "title": "LayoutFinding",
+      "type": "object"
+    },
+    "LayoutQuality": {
+      "additionalProperties": false,
+      "properties": {
+        "background_fraction": {
+          "default": 0,
+          "title": "Background Fraction",
+          "type": "number"
+        },
+        "display_ink_fraction": {
+          "default": 0,
+          "title": "Display Ink Fraction",
+          "type": "number"
+        },
+        "display_photo_overlap_fraction": {
+          "default": 0,
+          "title": "Display Photo Overlap Fraction",
+          "type": "number"
+        },
+        "findings": {
+          "items": {
+            "$ref": "#/$defs/LayoutFinding"
+          },
+          "title": "Findings",
+          "type": "array"
+        },
+        "passed": {
+          "title": "Passed",
+          "type": "boolean"
+        },
+        "scope": {
+          "default": "Rendered visibility, contrast and ink collisions; not aesthetic or professional approval.",
+          "title": "Scope",
+          "type": "string"
+        },
+        "text": {
+          "items": {
+            "$ref": "#/$defs/TextVisibility"
+          },
+          "title": "Text",
+          "type": "array"
+        }
+      },
+      "required": [
+        "passed",
+        "text",
+        "findings"
+      ],
+      "title": "LayoutQuality",
+      "type": "object"
+    },
+    "NativeViews": {
+      "additionalProperties": false,
+      "properties": {
+        "assets": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Assets",
+          "type": "object"
+        },
+        "boxes_px": {
+          "additionalProperties": {
+            "maxItems": 4,
+            "minItems": 4,
+            "prefixItems": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              }
+            ],
+            "type": "array"
+          },
+          "title": "Boxes Px",
+          "type": "object"
+        },
+        "dpi": {
+          "title": "Dpi",
+          "type": "number"
+        },
+        "source_png_asset_id": {
+          "title": "Source Png Asset Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_png_asset_id",
+        "dpi",
+        "assets",
+        "boxes_px"
+      ],
+      "title": "NativeViews",
+      "type": "object"
+    },
+    "TextVisibility": {
+      "additionalProperties": false,
+      "properties": {
+        "contrast_fraction": {
+          "title": "Contrast Fraction",
+          "type": "number"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "role": {
+          "title": "Role",
+          "type": "string"
+        },
+        "visible_fraction": {
+          "title": "Visible Fraction",
+          "type": "number"
+        }
+      },
+      "required": [
+        "layer_id",
+        "role",
+        "visible_fraction",
+        "contrast_fraction"
+      ],
+      "title": "TextVisibility",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "family_id": {
+      "title": "Family Id",
+      "type": "string"
+    },
+    "minimum_display_ratio": {
+      "title": "Minimum Display Ratio",
+      "type": "number"
+    },
+    "native_views": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/NativeViews"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "program_id": {
+      "title": "Program Id",
+      "type": "string"
+    },
+    "quality": {
+      "$ref": "#/$defs/LayoutQuality"
+    },
+    "reference_id": {
+      "title": "Reference Id",
+      "type": "string"
+    },
+    "spread": {
+      "$ref": "#/$defs/CreativeSpread"
+    }
+  },
+  "required": [
+    "program_id",
+    "family_id",
+    "reference_id",
+    "spread",
+    "quality",
+    "minimum_display_ratio"
+  ],
+  "title": "ProgramCandidate",
+  "type": "object"
+}

@@ -1,0 +1,203 @@
+{
+  "$defs": {
+    "CreativeSpread": {
+      "additionalProperties": false,
+      "properties": {
+        "concept_id": {
+          "title": "Concept Id",
+          "type": "string"
+        },
+        "document_asset_id": {
+          "title": "Document Asset Id",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "identity_id": {
+          "title": "Identity Id",
+          "type": "string"
+        },
+        "metadata_asset_id": {
+          "title": "Metadata Asset Id",
+          "type": "string"
+        },
+        "pdf_asset_id": {
+          "title": "Pdf Asset Id",
+          "type": "string"
+        },
+        "png_asset_id": {
+          "title": "Png Asset Id",
+          "type": "string"
+        },
+        "project_id": {
+          "title": "Project Id",
+          "type": "string"
+        },
+        "review_id": {
+          "title": "Review Id",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "scene_id": {
+          "title": "Scene Id",
+          "type": "string"
+        },
+        "scene_version": {
+          "title": "Scene Version",
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "review",
+            "revision_required",
+            "approved_for_identity_review"
+          ],
+          "title": "State",
+          "type": "string"
+        },
+        "story_id": {
+          "title": "Story Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "project_id",
+        "story_id",
+        "identity_id",
+        "scene_id",
+        "scene_version",
+        "concept_id",
+        "review_id",
+        "png_asset_id",
+        "pdf_asset_id",
+        "document_asset_id",
+        "metadata_asset_id",
+        "state",
+        "run_id"
+      ],
+      "title": "CreativeSpread",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "authoring_fingerprint": {
+      "default": "",
+      "title": "Authoring Fingerprint",
+      "type": "string"
+    },
+    "authorship": {
+      "const": "authored",
+      "default": "authored",
+      "title": "Authorship",
+      "type": "string"
+    },
+    "brief": {
+      "title": "Brief",
+      "type": "string"
+    },
+    "design_id": {
+      "default": "",
+      "title": "Design Id",
+      "type": "string"
+    },
+    "family_id": {
+      "title": "Family Id",
+      "type": "string"
+    },
+    "family_snapshot_json": {
+      "title": "Family Snapshot Json",
+      "type": "string"
+    },
+    "family_version": {
+      "minimum": 1,
+      "title": "Family Version",
+      "type": "integer"
+    },
+    "human_approval": {
+      "default": false,
+      "title": "Human Approval",
+      "type": "boolean"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "reference_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reference Ids",
+      "type": "array"
+    },
+    "review_note": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Review Note"
+    },
+    "reviewer": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reviewer"
+    },
+    "spread": {
+      "$ref": "#/$defs/CreativeSpread"
+    },
+    "status": {
+      "default": "authored_for_review",
+      "enum": [
+        "authored_for_review",
+        "visually_reviewed",
+        "needs_rework"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "story_id": {
+      "title": "Story Id",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "family_id",
+    "family_version",
+    "title",
+    "story_id",
+    "spread",
+    "brief",
+    "reference_ids",
+    "family_snapshot_json"
+  ],
+  "title": "AuthoredReference",
+  "type": "object"
+}

@@ -1,0 +1,49 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "consumed_end_char": {
+      "minimum": 0,
+      "title": "Consumed End Char",
+      "type": "integer"
+    },
+    "field": {
+      "enum": [
+        "title",
+        "deck",
+        "body"
+      ],
+      "title": "Field",
+      "type": "string"
+    },
+    "layer_id": {
+      "title": "Layer Id",
+      "type": "string"
+    },
+    "overflow_start_char": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Overflow Start Char"
+    },
+    "source_char_count": {
+      "minimum": 0,
+      "title": "Source Char Count",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "field",
+    "layer_id",
+    "source_char_count",
+    "consumed_end_char"
+  ],
+  "title": "TextFitEvidence",
+  "type": "object"
+}

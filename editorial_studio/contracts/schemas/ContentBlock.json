@@ -1,0 +1,190 @@
+{
+  "$defs": {
+    "CoverageAssignment": {
+      "additionalProperties": false,
+      "properties": {
+        "approval_actor": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Approval Actor"
+        },
+        "assigned_spread_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Assigned Spread Id"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "span": {
+          "$ref": "#/$defs/SourceSpan"
+        },
+        "status": {
+          "$ref": "#/$defs/CoverageStatus"
+        }
+      },
+      "required": [
+        "span",
+        "status"
+      ],
+      "title": "CoverageAssignment",
+      "type": "object"
+    },
+    "CoverageStatus": {
+      "enum": [
+        "unassigned",
+        "placed",
+        "deferred",
+        "omitted_approved"
+      ],
+      "title": "CoverageStatus",
+      "type": "string"
+    },
+    "DerivedText": {
+      "additionalProperties": false,
+      "properties": {
+        "derived_from": {
+          "items": {
+            "$ref": "#/$defs/SourceSpan"
+          },
+          "title": "Derived From",
+          "type": "array"
+        },
+        "edit_type": {
+          "$ref": "#/$defs/EditType"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "placed_layer_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Placed Layer Ids",
+          "type": "array"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "edit_type"
+      ],
+      "title": "DerivedText",
+      "type": "object"
+    },
+    "EditType": {
+      "enum": [
+        "verbatim",
+        "excerpt",
+        "condensed",
+        "paraphrase",
+        "new_copy"
+      ],
+      "title": "EditType",
+      "type": "string"
+    },
+    "SourceSpan": {
+      "additionalProperties": false,
+      "properties": {
+        "end_char": {
+          "exclusiveMinimum": 0,
+          "title": "End Char",
+          "type": "integer"
+        },
+        "source_block_id": {
+          "title": "Source Block Id",
+          "type": "string"
+        },
+        "source_revision_id": {
+          "title": "Source Revision Id",
+          "type": "string"
+        },
+        "start_char": {
+          "minimum": 0,
+          "title": "Start Char",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "source_block_id",
+        "source_revision_id",
+        "start_char",
+        "end_char"
+      ],
+      "title": "SourceSpan",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "attached_image_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Attached Image Ids",
+      "type": "array"
+    },
+    "coverage": {
+      "items": {
+        "$ref": "#/$defs/CoverageAssignment"
+      },
+      "title": "Coverage",
+      "type": "array"
+    },
+    "derived_texts": {
+      "items": {
+        "$ref": "#/$defs/DerivedText"
+      },
+      "title": "Derived Texts",
+      "type": "array"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "source_revision_id": {
+      "title": "Source Revision Id",
+      "type": "string"
+    },
+    "source_text": {
+      "title": "Source Text",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "source_revision_id",
+    "source_text",
+    "attached_image_ids"
+  ],
+  "title": "ContentBlock",
+  "type": "object"
+}

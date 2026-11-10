@@ -1,0 +1,253 @@
+{
+  "$defs": {
+    "GeneratedImage": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "format": "binary",
+          "title": "Data",
+          "type": "string"
+        },
+        "media_type": {
+          "default": "image/png",
+          "title": "Media Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "data"
+      ],
+      "title": "GeneratedImage",
+      "type": "object"
+    },
+    "JsonValue": {},
+    "ProviderResult": {
+      "additionalProperties": false,
+      "properties": {
+        "images": {
+          "items": {
+            "$ref": "#/$defs/GeneratedImage"
+          },
+          "title": "Images",
+          "type": "array"
+        },
+        "model_snapshot": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Snapshot"
+        },
+        "raw_usage": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/JsonValue"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "request_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Request Id"
+        },
+        "response_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Response Id"
+        },
+        "status": {
+          "default": "completed",
+          "enum": [
+            "completed",
+            "incomplete",
+            "failed"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "usage": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/UsageRecord"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "visible_summary": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Visible Summary"
+        },
+        "visible_text": {
+          "default": "",
+          "title": "Visible Text",
+          "type": "string"
+        }
+      },
+      "title": "ProviderResult",
+      "type": "object"
+    },
+    "UsageRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "cache_write_tokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cache Write Tokens"
+        },
+        "cached_input_tokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cached Input Tokens"
+        },
+        "image_input_tokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Image Input Tokens"
+        },
+        "image_output_tokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Image Output Tokens"
+        },
+        "input_tokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Input Tokens"
+        },
+        "output_tokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Output Tokens"
+        },
+        "reasoning_tokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reasoning Tokens"
+        },
+        "text_input_tokens": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Text Input Tokens"
+        }
+      },
+      "title": "UsageRecord",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "generated_artifact_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Generated Artifact Ids",
+      "type": "array"
+    },
+    "result": {
+      "$ref": "#/$defs/ProviderResult"
+    }
+  },
+  "required": [
+    "result"
+  ],
+  "title": "StoredResponse",
+  "type": "object"
+}

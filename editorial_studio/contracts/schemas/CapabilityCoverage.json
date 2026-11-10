@@ -1,0 +1,53 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "available_operations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Available Operations",
+      "type": "array"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "missing_operations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Missing Operations",
+      "type": "array"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "required_operations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Required Operations",
+      "type": "array"
+    },
+    "validation_complete": {
+      "title": "Validation Complete",
+      "type": "boolean"
+    },
+    "verification_status": {
+      "title": "Verification Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "required_operations",
+    "available_operations",
+    "missing_operations",
+    "validation_complete",
+    "verification_status"
+  ],
+  "title": "CapabilityCoverage",
+  "type": "object"
+}

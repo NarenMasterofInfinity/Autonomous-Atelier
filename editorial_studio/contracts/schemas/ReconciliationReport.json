@@ -1,0 +1,28 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "corrupt_asset_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Corrupt Asset Ids",
+      "type": "array"
+    },
+    "missing_asset_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Missing Asset Ids",
+      "type": "array"
+    },
+    "quarantined_paths": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Quarantined Paths",
+      "type": "array"
+    }
+  },
+  "title": "ReconciliationReport",
+  "type": "object"
+}

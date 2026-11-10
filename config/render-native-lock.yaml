@@ -1,0 +1,7 @@
+libraries:
+- filename: libcairo.so.2
+  sha256: 4c03a05ea5445d38272b253a037c0595656a50cae7352ea8e70d1adf534a5774
+- filename: libpango-1.0.so.0
+  sha256: 7f4e244f0137a40ca845b7022e4f4b84103f380f521448b3b6cfb13b6f16500b
+- filename: libharfbuzz.so.0
+  sha256: 04b028c90a88d749a0641ce4b8a257cb97f8cda368fbdcc18ee0dff7298504fa

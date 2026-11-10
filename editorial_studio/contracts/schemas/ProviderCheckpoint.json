@@ -1,0 +1,24 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "attempt_id": {
+      "title": "Attempt Id",
+      "type": "string"
+    },
+    "call_id": {
+      "title": "Call Id",
+      "type": "string"
+    },
+    "response_id": {
+      "title": "Response Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "response_id",
+    "call_id",
+    "attempt_id"
+  ],
+  "title": "ProviderCheckpoint",
+  "type": "object"
+}

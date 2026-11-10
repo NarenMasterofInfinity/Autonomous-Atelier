@@ -1,0 +1,44 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "compositional_structure": {
+      "title": "Compositional Structure",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "narrative_expression": {
+      "title": "Narrative Expression",
+      "type": "string"
+    },
+    "photography_treatment": {
+      "title": "Photography Treatment",
+      "type": "string"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "spread_id": {
+      "title": "Spread Id",
+      "type": "string"
+    },
+    "visual_metaphor": {
+      "title": "Visual Metaphor",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "spread_id",
+    "visual_metaphor",
+    "compositional_structure",
+    "photography_treatment",
+    "narrative_expression"
+  ],
+  "title": "ConceptBrief",
+  "type": "object"
+}

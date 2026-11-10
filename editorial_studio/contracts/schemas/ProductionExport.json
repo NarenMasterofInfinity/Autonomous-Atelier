@@ -1,0 +1,102 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "bleed_mm": {
+      "title": "Bleed Mm",
+      "type": "number"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "human_approval": {
+      "default": false,
+      "title": "Human Approval",
+      "type": "boolean"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "issue_evidence_fingerprint": {
+      "title": "Issue Evidence Fingerprint",
+      "type": "string"
+    },
+    "issue_id": {
+      "title": "Issue Id",
+      "type": "string"
+    },
+    "issue_snapshot_asset_id": {
+      "title": "Issue Snapshot Asset Id",
+      "type": "string"
+    },
+    "lineage_fingerprint": {
+      "title": "Lineage Fingerprint",
+      "type": "string"
+    },
+    "page_count": {
+      "minimum": 0,
+      "title": "Page Count",
+      "type": "integer"
+    },
+    "pdf_asset_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Pdf Asset Id"
+    },
+    "preflight_asset_id": {
+      "title": "Preflight Asset Id",
+      "type": "string"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "source_issue_hash": {
+      "title": "Source Issue Hash",
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "blocked",
+        "proof"
+      ],
+      "title": "State",
+      "type": "string"
+    },
+    "trim_height_mm": {
+      "title": "Trim Height Mm",
+      "type": "number"
+    },
+    "trim_width_mm": {
+      "title": "Trim Width Mm",
+      "type": "number"
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "issue_id",
+    "issue_evidence_fingerprint",
+    "source_issue_hash",
+    "lineage_fingerprint",
+    "issue_snapshot_asset_id",
+    "preflight_asset_id",
+    "page_count",
+    "trim_width_mm",
+    "trim_height_mm",
+    "bleed_mm",
+    "state",
+    "created_at"
+  ],
+  "title": "ProductionExport",
+  "type": "object"
+}

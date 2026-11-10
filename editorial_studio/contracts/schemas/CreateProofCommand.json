@@ -1,0 +1,20 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "create_proof",
+      "default": "create_proof",
+      "title": "Kind",
+      "type": "string"
+    },
+    "scene_id": {
+      "title": "Scene Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "scene_id"
+  ],
+  "title": "CreateProofCommand",
+  "type": "object"
+}

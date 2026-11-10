@@ -1,0 +1,208 @@
+{
+  "$defs": {
+    "ArtifactEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "enum": [
+            "created",
+            "replaced",
+            "validated",
+            "rejected"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "artifact_id": {
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "kind": {
+          "const": "artifact",
+          "default": "artifact",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "action"
+      ],
+      "title": "ArtifactEvent",
+      "type": "object"
+    },
+    "CallEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Attempt Id"
+        },
+        "call_id": {
+          "title": "Call Id",
+          "type": "string"
+        },
+        "kind": {
+          "const": "call",
+          "default": "call",
+          "title": "Kind",
+          "type": "string"
+        },
+        "new_status": {
+          "title": "New Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "call_id",
+        "new_status"
+      ],
+      "title": "CallEvent",
+      "type": "object"
+    },
+    "CriticVerdict": {
+      "enum": [
+        "ACCEPT",
+        "REVISE",
+        "RECOMPOSE",
+        "RECONCEPT",
+        "REPLAN"
+      ],
+      "title": "CriticVerdict",
+      "type": "string"
+    },
+    "DecisionEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "decision_id": {
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "kind": {
+          "const": "decision",
+          "default": "decision",
+          "title": "Kind",
+          "type": "string"
+        },
+        "verdict": {
+          "$ref": "#/$defs/CriticVerdict"
+        }
+      },
+      "required": [
+        "decision_id",
+        "verdict"
+      ],
+      "title": "DecisionEvent",
+      "type": "object"
+    },
+    "SceneEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "scene",
+          "default": "scene",
+          "title": "Kind",
+          "type": "string"
+        },
+        "patch_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Patch Id"
+        },
+        "scene_id": {
+          "title": "Scene Id",
+          "type": "string"
+        },
+        "scene_version": {
+          "title": "Scene Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "scene_id",
+        "scene_version"
+      ],
+      "title": "SceneEvent",
+      "type": "object"
+    },
+    "StageEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "from_stage": {
+          "title": "From Stage",
+          "type": "string"
+        },
+        "kind": {
+          "const": "stage",
+          "default": "stage",
+          "title": "Kind",
+          "type": "string"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "to_stage": {
+          "title": "To Stage",
+          "type": "string"
+        }
+      },
+      "required": [
+        "from_stage",
+        "to_stage"
+      ],
+      "title": "StageEvent",
+      "type": "object"
+    }
+  },
+  "discriminator": {
+    "mapping": {
+      "artifact": "#/$defs/ArtifactEvent",
+      "call": "#/$defs/CallEvent",
+      "decision": "#/$defs/DecisionEvent",
+      "scene": "#/$defs/SceneEvent",
+      "stage": "#/$defs/StageEvent"
+    },
+    "propertyName": "kind"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/StageEvent"
+    },
+    {
+      "$ref": "#/$defs/CallEvent"
+    },
+    {
+      "$ref": "#/$defs/ArtifactEvent"
+    },
+    {
+      "$ref": "#/$defs/SceneEvent"
+    },
+    {
+      "$ref": "#/$defs/DecisionEvent"
+    }
+  ]
+}

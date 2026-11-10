@@ -1,0 +1,19 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "justification": {
+      "title": "Justification",
+      "type": "string"
+    },
+    "rule": {
+      "title": "Rule",
+      "type": "string"
+    }
+  },
+  "required": [
+    "rule",
+    "justification"
+  ],
+  "title": "RuleBreakJustification",
+  "type": "object"
+}

@@ -1,0 +1,85 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "baseline_step_mm": {
+      "title": "Baseline Step Mm",
+      "type": "number"
+    },
+    "body_size_pt": {
+      "title": "Body Size Pt",
+      "type": "number"
+    },
+    "columns_per_page": {
+      "title": "Columns Per Page",
+      "type": "integer"
+    },
+    "composition_rules": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Composition Rules",
+      "type": "array"
+    },
+    "copyfit_actions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Copyfit Actions",
+      "type": "array"
+    },
+    "fold_safe_mm": {
+      "title": "Fold Safe Mm",
+      "type": "number"
+    },
+    "font_pairing_id": {
+      "title": "Font Pairing Id",
+      "type": "string"
+    },
+    "headline_size_pt": {
+      "title": "Headline Size Pt",
+      "type": "number"
+    },
+    "identity_stage": {
+      "const": "provisional",
+      "default": "provisional",
+      "title": "Identity Stage",
+      "type": "string"
+    },
+    "palette_roles": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Palette Roles",
+      "type": "object"
+    },
+    "photographic_character": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Photographic Character",
+      "type": "array"
+    },
+    "reference_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reference Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "font_pairing_id",
+    "body_size_pt",
+    "headline_size_pt",
+    "baseline_step_mm",
+    "fold_safe_mm",
+    "columns_per_page",
+    "palette_roles",
+    "photographic_character",
+    "composition_rules",
+    "copyfit_actions",
+    "reference_ids"
+  ],
+  "title": "LayoutGuidelines",
+  "type": "object"
+}

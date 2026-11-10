@@ -1,0 +1,47 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "dx_mm": {
+      "default": 0.0,
+      "title": "Dx Mm",
+      "type": "number"
+    },
+    "dy_mm": {
+      "default": 0.0,
+      "title": "Dy Mm",
+      "type": "number"
+    },
+    "layer_id": {
+      "title": "Layer Id",
+      "type": "string"
+    },
+    "op": {
+      "const": "transform_layer",
+      "default": "transform_layer",
+      "title": "Op",
+      "type": "string"
+    },
+    "rotation_deg": {
+      "default": 0.0,
+      "title": "Rotation Deg",
+      "type": "number"
+    },
+    "scale_x": {
+      "default": 1.0,
+      "exclusiveMinimum": 0,
+      "title": "Scale X",
+      "type": "number"
+    },
+    "scale_y": {
+      "default": 1.0,
+      "exclusiveMinimum": 0,
+      "title": "Scale Y",
+      "type": "number"
+    }
+  },
+  "required": [
+    "layer_id"
+  ],
+  "title": "TransformLayerOp",
+  "type": "object"
+}

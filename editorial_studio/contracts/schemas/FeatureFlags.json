@@ -1,0 +1,17 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "automated_skill_generator": {
+      "default": false,
+      "title": "Automated Skill Generator",
+      "type": "boolean"
+    },
+    "reference_ingestion": {
+      "default": false,
+      "title": "Reference Ingestion",
+      "type": "boolean"
+    }
+  },
+  "title": "FeatureFlags",
+  "type": "object"
+}

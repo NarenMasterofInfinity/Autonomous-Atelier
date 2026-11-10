@@ -1,0 +1,179 @@
+{
+  "$defs": {
+    "ConceptNode": {
+      "additionalProperties": false,
+      "properties": {
+        "derived_text_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Derived Text Id"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "image",
+            "text",
+            "subject",
+            "vector",
+            "mask",
+            "texture",
+            "group"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "source_asset_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Asset Id"
+        },
+        "target_region": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/NormalizedRegion"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "z_order_hint": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Z Order Hint"
+        }
+      },
+      "required": [
+        "id",
+        "role"
+      ],
+      "title": "ConceptNode",
+      "type": "object"
+    },
+    "ConceptRelationship": {
+      "additionalProperties": false,
+      "properties": {
+        "rationale": {
+          "title": "Rationale",
+          "type": "string"
+        },
+        "relation": {
+          "enum": [
+            "behind",
+            "above",
+            "overlaps",
+            "avoids",
+            "aligns_to",
+            "flows_around",
+            "spans_gutter",
+            "follows_path",
+            "clips_to"
+          ],
+          "title": "Relation",
+          "type": "string"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "target_id": {
+          "title": "Target Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "target_id",
+        "relation",
+        "rationale"
+      ],
+      "title": "ConceptRelationship",
+      "type": "object"
+    },
+    "NormalizedRegion": {
+      "additionalProperties": false,
+      "properties": {
+        "height": {
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "title": "Height",
+          "type": "number"
+        },
+        "width": {
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "title": "Width",
+          "type": "number"
+        },
+        "x": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "X",
+          "type": "number"
+        },
+        "y": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Y",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "title": "NormalizedRegion",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "nodes": {
+      "items": {
+        "$ref": "#/$defs/ConceptNode"
+      },
+      "title": "Nodes",
+      "type": "array"
+    },
+    "relationships": {
+      "items": {
+        "$ref": "#/$defs/ConceptRelationship"
+      },
+      "title": "Relationships",
+      "type": "array"
+    }
+  },
+  "required": [
+    "nodes",
+    "relationships"
+  ],
+  "title": "SpatialConceptGraph",
+  "type": "object"
+}

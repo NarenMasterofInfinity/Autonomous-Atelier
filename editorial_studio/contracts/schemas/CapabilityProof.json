@@ -1,0 +1,102 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "capability_id": {
+      "title": "Capability Id",
+      "type": "string"
+    },
+    "crop_asset_id": {
+      "title": "Crop Asset Id",
+      "type": "string"
+    },
+    "document_asset_id": {
+      "title": "Document Asset Id",
+      "type": "string"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "metadata_asset_id": {
+      "title": "Metadata Asset Id",
+      "type": "string"
+    },
+    "operation_names": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Operation Names",
+      "type": "array"
+    },
+    "pdf_asset_id": {
+      "title": "Pdf Asset Id",
+      "type": "string"
+    },
+    "png_asset_id": {
+      "title": "Png Asset Id",
+      "type": "string"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "review_note": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Review Note"
+    },
+    "reviewer": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reviewer"
+    },
+    "scene_id": {
+      "title": "Scene Id",
+      "type": "string"
+    },
+    "scene_version": {
+      "title": "Scene Version",
+      "type": "string"
+    },
+    "status": {
+      "default": "technically_verified",
+      "pattern": "^(technically_verified|visually_reviewed|artistically_verified)$",
+      "title": "Status",
+      "type": "string"
+    },
+    "thumbnail_asset_id": {
+      "title": "Thumbnail Asset Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "capability_id",
+    "project_id",
+    "scene_id",
+    "scene_version",
+    "operation_names",
+    "png_asset_id",
+    "pdf_asset_id",
+    "document_asset_id",
+    "metadata_asset_id",
+    "thumbnail_asset_id",
+    "crop_asset_id"
+  ],
+  "title": "CapabilityProof",
+  "type": "object"
+}

@@ -1,0 +1,24 @@
+version: m6-v1
+potrace_path: .runtime/potrace/usr/bin/potrace
+potrace_sha256: 0de9432083508f1c8f997c22c5265e3e67391bd1e0577c88c687d2674001e8c6
+threshold: 160
+minimum_component_pixels: 4
+context_max_edge: 1024
+prompt: 'Create one isolated editorial motif for this publication. The supplied images
+  are
+
+  context for palette, scale, and visual balance. Do not reproduce a whole spread.
+
+  Keep the background plain white, no text, no frame, no mockup. When vector output
+
+  is requested, use a simple high-contrast dark silhouette with clean closed forms.
+
+  Required role: {role}
+
+  Direction: {specification}
+
+  Publication palette: {palette}
+
+  Integration: {integration}
+
+  '

@@ -1,0 +1,67 @@
+version: m8-v3
+reasoning_effort: medium
+proposal_reasoning_effort: low
+proposal_max_output_tokens: 14000
+direction_max_output_tokens: 3500
+comparison_max_output_tokens: 3500
+maximum_repairs: 2
+minimum_structural_distance: 0.035
+font_catalog: config/flagship.yaml
+quality_reference: data/exports/flagship/portrait-06/spread.png
+mandates:
+  - Lead with photographic presence and a decisive display hierarchy. Let the source determine the reading route.
+  - Change the spatial rhythm substantially. Explore the relationship of a photographic detail to a quieter reading field, preserving the concept.
+  - Find a third genuinely different arrangement of scale, negative space, and type. Do not merely move the previous boxes or change colors.
+direction_prompt: >-
+  Develop exactly two distinct visual concepts for the supplied editorial story.
+  Give each a name, visual metaphor, photographic role and narrative expression.
+  They must propose different ways of telling this specific story, not cosmetic
+  variations of one layout. Do not write geometry or add facts to the source.
+  The photos are the actual available materials. Respect the publication identity.
+proposal_prompt: >-
+  Compose one continuous 420 x 297 mm editorial spread for the frozen concept below.
+  Return only the typed ConceptProposal. Preserve its visual_metaphor and
+  narrative_expression verbatim. Develop a distinct spatial variation according
+  to the rotating mandate. Place every source character exactly once. Multiple
+  frames retain the original full derived_text_id; treatment.text_range is an
+  exact partition of its character offsets, including spaces and newlines.
+  Each graph node needs an in-canvas normalized target_region, unique ID, z hint
+  and one treatment. Paths and gradients use millimeters. Use text/image/subject/
+  vector nodes only. Vectors require closed typed paths. Use only supplied assets
+  and pinned fonts; custom typography may reuse the supplied font definitions
+  with new named TypeStyles. Set style_name to a frozen style when overriding the
+  identity defaults; source style_role remains headline/deck/body. Body >=11pt,
+  unscaled, with sensible reading measures. Reading copy avoids x=200..220 mm.
+  Display type can be large, with enough room for the native line box: measure
+  height can exceed visible capitals. Keep complete words readable, not hidden
+  behind the person. A photograph and its cutout must have identical frame geometry
+  if registered. Gradients target their own node. Do not invent segmentation or
+  textures. Favor natural source color and resolution; no obligatory grain.
+  For production use >=300 native source PPI at the selected frame, reducing
+  image size if necessary. A partial-page photo can be more effective than
+  enlarging it until detail fails. Typography and image should share a clear
+  compositional idea, without looking like a photograph pasted beside a text box.
+  No generated artifacts are needed for this acceptance run.
+  The final supplied image is an accepted visual-quality reference, not a story
+  asset. Match its level of intention and photographic integration, while making
+  a different composition. Use decisive display scale, usually 90..220pt for this
+  short title; exact source fragments can make large words fit. Avoid the weak
+  pattern of a small title, an isolated photo rectangle and a very wide body box.
+  Reading columns normally measure 65..90mm. Do not fabricate missing source IDs:
+  use the supplied short handles verbatim; local resolution restores full hashes.
+  Keep output compact: typography may be null when using available named styles.
+  For custom sizes, return typography with fonts: [] and only the NEW or changed
+  TypeStyles. The local native planner merges the authorized font/style catalog
+  and fits display line boxes. Do not repeat all supplied font files and styles.
+  Include a useful
+  inspection_crop spanning reading detail or a compositing edge. CAP_01..CAP_10
+  are the only capability IDs; [] is allowed. Use spatial_intent mode guided
+  without extra constraints unless essential. Avoid arbitrary decoration.
+comparison_prompt: >-
+  Compare the two rendered editorial spreads, shown anonymously as A then B,
+  followed by their native crops. Choose A, B, or tie. Judge actual visual
+  hierarchy, photographic integration, readable display words, reading detail,
+  story expression and publication coherence. Do not reward geometry alone or
+  guess which was made later. Return concrete visible reasons and changes.
+  Do not infer human approval. The source story is provided for semantic context;
+  the composers' rationales and self-scores are deliberately withheld.

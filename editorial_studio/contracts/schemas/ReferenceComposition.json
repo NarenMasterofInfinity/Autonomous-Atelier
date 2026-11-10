@@ -1,0 +1,606 @@
+{
+  "$defs": {
+    "CreativeSpread": {
+      "additionalProperties": false,
+      "properties": {
+        "concept_id": {
+          "title": "Concept Id",
+          "type": "string"
+        },
+        "document_asset_id": {
+          "title": "Document Asset Id",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "identity_id": {
+          "title": "Identity Id",
+          "type": "string"
+        },
+        "metadata_asset_id": {
+          "title": "Metadata Asset Id",
+          "type": "string"
+        },
+        "pdf_asset_id": {
+          "title": "Pdf Asset Id",
+          "type": "string"
+        },
+        "png_asset_id": {
+          "title": "Png Asset Id",
+          "type": "string"
+        },
+        "project_id": {
+          "title": "Project Id",
+          "type": "string"
+        },
+        "review_id": {
+          "title": "Review Id",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "scene_id": {
+          "title": "Scene Id",
+          "type": "string"
+        },
+        "scene_version": {
+          "title": "Scene Version",
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "review",
+            "revision_required",
+            "approved_for_identity_review"
+          ],
+          "title": "State",
+          "type": "string"
+        },
+        "story_id": {
+          "title": "Story Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "project_id",
+        "story_id",
+        "identity_id",
+        "scene_id",
+        "scene_version",
+        "concept_id",
+        "review_id",
+        "png_asset_id",
+        "pdf_asset_id",
+        "document_asset_id",
+        "metadata_asset_id",
+        "state",
+        "run_id"
+      ],
+      "title": "CreativeSpread",
+      "type": "object"
+    },
+    "CriticAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "findings": {
+          "items": {
+            "$ref": "#/$defs/CritiqueFinding"
+          },
+          "title": "Findings",
+          "type": "array"
+        },
+        "rationale": {
+          "title": "Rationale",
+          "type": "string"
+        },
+        "rule_break_evaluations": {
+          "items": {
+            "$ref": "#/$defs/RuleBreakEvaluation"
+          },
+          "title": "Rule Break Evaluations",
+          "type": "array"
+        },
+        "score": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Score",
+          "type": "number"
+        },
+        "verdict": {
+          "$ref": "#/$defs/CriticVerdict"
+        }
+      },
+      "required": [
+        "verdict",
+        "score",
+        "findings",
+        "rationale"
+      ],
+      "title": "CriticAssessment",
+      "type": "object"
+    },
+    "CriticVerdict": {
+      "enum": [
+        "ACCEPT",
+        "REVISE",
+        "RECOMPOSE",
+        "RECONCEPT",
+        "REPLAN"
+      ],
+      "title": "CriticVerdict",
+      "type": "string"
+    },
+    "CritiqueFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "actionable_fix": {
+          "title": "Actionable Fix",
+          "type": "string"
+        },
+        "category": {
+          "title": "Category",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/$defs/Severity"
+        },
+        "target_layer_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Target Layer Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "category",
+        "severity",
+        "description",
+        "actionable_fix"
+      ],
+      "title": "CritiqueFinding",
+      "type": "object"
+    },
+    "LayoutFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "detail": {
+          "title": "Detail",
+          "type": "string"
+        },
+        "layers": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Layers",
+          "type": "array"
+        },
+        "severity": {
+          "default": "error",
+          "enum": [
+            "error",
+            "review"
+          ],
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "layers",
+        "detail"
+      ],
+      "title": "LayoutFinding",
+      "type": "object"
+    },
+    "LayoutQuality": {
+      "additionalProperties": false,
+      "properties": {
+        "background_fraction": {
+          "default": 0,
+          "title": "Background Fraction",
+          "type": "number"
+        },
+        "display_ink_fraction": {
+          "default": 0,
+          "title": "Display Ink Fraction",
+          "type": "number"
+        },
+        "display_photo_overlap_fraction": {
+          "default": 0,
+          "title": "Display Photo Overlap Fraction",
+          "type": "number"
+        },
+        "findings": {
+          "items": {
+            "$ref": "#/$defs/LayoutFinding"
+          },
+          "title": "Findings",
+          "type": "array"
+        },
+        "passed": {
+          "title": "Passed",
+          "type": "boolean"
+        },
+        "scope": {
+          "default": "Rendered visibility, contrast and ink collisions; not aesthetic or professional approval.",
+          "title": "Scope",
+          "type": "string"
+        },
+        "text": {
+          "items": {
+            "$ref": "#/$defs/TextVisibility"
+          },
+          "title": "Text",
+          "type": "array"
+        }
+      },
+      "required": [
+        "passed",
+        "text",
+        "findings"
+      ],
+      "title": "LayoutQuality",
+      "type": "object"
+    },
+    "NativeViews": {
+      "additionalProperties": false,
+      "properties": {
+        "assets": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Assets",
+          "type": "object"
+        },
+        "boxes_px": {
+          "additionalProperties": {
+            "maxItems": 4,
+            "minItems": 4,
+            "prefixItems": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "integer"
+              }
+            ],
+            "type": "array"
+          },
+          "title": "Boxes Px",
+          "type": "object"
+        },
+        "dpi": {
+          "title": "Dpi",
+          "type": "number"
+        },
+        "source_png_asset_id": {
+          "title": "Source Png Asset Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_png_asset_id",
+        "dpi",
+        "assets",
+        "boxes_px"
+      ],
+      "title": "NativeViews",
+      "type": "object"
+    },
+    "ProgramCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "family_id": {
+          "title": "Family Id",
+          "type": "string"
+        },
+        "minimum_display_ratio": {
+          "title": "Minimum Display Ratio",
+          "type": "number"
+        },
+        "native_views": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/NativeViews"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "program_id": {
+          "title": "Program Id",
+          "type": "string"
+        },
+        "quality": {
+          "$ref": "#/$defs/LayoutQuality"
+        },
+        "reference_id": {
+          "title": "Reference Id",
+          "type": "string"
+        },
+        "spread": {
+          "$ref": "#/$defs/CreativeSpread"
+        }
+      },
+      "required": [
+        "program_id",
+        "family_id",
+        "reference_id",
+        "spread",
+        "quality",
+        "minimum_display_ratio"
+      ],
+      "title": "ProgramCandidate",
+      "type": "object"
+    },
+    "ProgramRejection": {
+      "additionalProperties": false,
+      "properties": {
+        "program_id": {
+          "title": "Program Id",
+          "type": "string"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "program_id",
+        "reason"
+      ],
+      "title": "ProgramRejection",
+      "type": "object"
+    },
+    "RuleBreakEvaluation": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted": {
+          "title": "Accepted",
+          "type": "boolean"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        },
+        "rule": {
+          "title": "Rule",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule",
+        "accepted",
+        "reason"
+      ],
+      "title": "RuleBreakEvaluation",
+      "type": "object"
+    },
+    "Severity": {
+      "enum": [
+        "CRITICAL",
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ],
+      "title": "Severity",
+      "type": "string"
+    },
+    "TextVisibility": {
+      "additionalProperties": false,
+      "properties": {
+        "contrast_fraction": {
+          "title": "Contrast Fraction",
+          "type": "number"
+        },
+        "layer_id": {
+          "title": "Layer Id",
+          "type": "string"
+        },
+        "role": {
+          "title": "Role",
+          "type": "string"
+        },
+        "visible_fraction": {
+          "title": "Visible Fraction",
+          "type": "number"
+        }
+      },
+      "required": [
+        "layer_id",
+        "role",
+        "visible_fraction",
+        "contrast_fraction"
+      ],
+      "title": "TextVisibility",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "art_direction_rationale": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Art Direction Rationale"
+    },
+    "art_director_requested": {
+      "default": false,
+      "title": "Art Director Requested",
+      "type": "boolean"
+    },
+    "candidates": {
+      "items": {
+        "$ref": "#/$defs/ProgramCandidate"
+      },
+      "title": "Candidates",
+      "type": "array"
+    },
+    "contact_sheet_asset_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Contact Sheet Asset Id"
+    },
+    "human_approval": {
+      "default": false,
+      "title": "Human Approval",
+      "type": "boolean"
+    },
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "identity_id": {
+      "title": "Identity Id",
+      "type": "string"
+    },
+    "input_fingerprint": {
+      "default": "",
+      "title": "Input Fingerprint",
+      "type": "string"
+    },
+    "page_role": {
+      "default": "spread",
+      "enum": [
+        "spread",
+        "cover"
+      ],
+      "title": "Page Role",
+      "type": "string"
+    },
+    "program_asset_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Program Asset Ids",
+      "type": "array"
+    },
+    "project_id": {
+      "title": "Project Id",
+      "type": "string"
+    },
+    "proof_book_asset_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Proof Book Asset Id"
+    },
+    "reference_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reference Ids",
+      "type": "array"
+    },
+    "reference_project": {
+      "default": "m10a-references",
+      "title": "Reference Project",
+      "type": "string"
+    },
+    "rejections": {
+      "items": {
+        "$ref": "#/$defs/ProgramRejection"
+      },
+      "title": "Rejections",
+      "type": "array"
+    },
+    "review_mode": {
+      "default": "standalone",
+      "enum": [
+        "not_run",
+        "standalone",
+        "reference_aware"
+      ],
+      "title": "Review Mode",
+      "type": "string"
+    },
+    "selected_program_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Selected Program Id"
+    },
+    "state": {
+      "enum": [
+        "ready_for_visual_review",
+        "no_admissible_candidate"
+      ],
+      "title": "State",
+      "type": "string"
+    },
+    "story_id": {
+      "title": "Story Id",
+      "type": "string"
+    },
+    "visual_review": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/CriticAssessment"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "id",
+    "project_id",
+    "story_id",
+    "identity_id",
+    "reference_ids",
+    "candidates",
+    "rejections",
+    "state"
+  ],
+  "title": "ReferenceComposition",
+  "type": "object"
+}

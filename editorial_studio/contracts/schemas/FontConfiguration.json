@@ -1,0 +1,207 @@
+{
+  "$defs": {
+    "FontSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "axes": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "title": "Axes",
+          "type": "object"
+        },
+        "fallback": {
+          "default": false,
+          "title": "Fallback",
+          "type": "boolean"
+        },
+        "family": {
+          "title": "Family",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "path": {
+          "title": "Path",
+          "type": "string"
+        },
+        "sha256": {
+          "title": "Sha256",
+          "type": "string"
+        },
+        "slant": {
+          "default": "normal",
+          "enum": [
+            "normal",
+            "italic"
+          ],
+          "title": "Slant",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "family",
+        "path",
+        "sha256"
+      ],
+      "title": "FontSpec",
+      "type": "object"
+    },
+    "StyleAxis": {
+      "additionalProperties": false,
+      "properties": {
+        "tag": {
+          "pattern": "^[A-Za-z0-9]{4}$",
+          "title": "Tag",
+          "type": "string"
+        },
+        "value": {
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "tag",
+        "value"
+      ],
+      "title": "StyleAxis",
+      "type": "object"
+    },
+    "TypeStyle": {
+      "additionalProperties": false,
+      "properties": {
+        "alignment": {
+          "default": "left",
+          "enum": [
+            "left",
+            "center",
+            "right"
+          ],
+          "title": "Alignment",
+          "type": "string"
+        },
+        "baseline_step_mm": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Baseline Step Mm"
+        },
+        "color": {
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "title": "Color",
+          "type": "string"
+        },
+        "font_axes": {
+          "items": {
+            "$ref": "#/$defs/StyleAxis"
+          },
+          "title": "Font Axes",
+          "type": "array"
+        },
+        "font_id": {
+          "title": "Font Id",
+          "type": "string"
+        },
+        "font_size_pt": {
+          "exclusiveMinimum": 0,
+          "title": "Font Size Pt",
+          "type": "number"
+        },
+        "line_spacing": {
+          "default": 1.2,
+          "minimum": 1,
+          "title": "Line Spacing",
+          "type": "number"
+        },
+        "min_paragraph_lines": {
+          "default": 2,
+          "minimum": 1,
+          "title": "Min Paragraph Lines",
+          "type": "integer"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "paint": {
+          "default": "fill",
+          "enum": [
+            "fill",
+            "stroke",
+            "fill_stroke"
+          ],
+          "title": "Paint",
+          "type": "string"
+        },
+        "stroke_color": {
+          "anyOf": [
+            {
+              "pattern": "^#[0-9a-fA-F]{6}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Stroke Color"
+        },
+        "stroke_width_pt": {
+          "default": 0,
+          "maximum": 12,
+          "minimum": 0,
+          "title": "Stroke Width Pt",
+          "type": "number"
+        },
+        "tracking_pt": {
+          "default": 0,
+          "maximum": 48,
+          "minimum": -12,
+          "title": "Tracking Pt",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "font_id",
+        "font_size_pt",
+        "color"
+      ],
+      "title": "TypeStyle",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "fonts": {
+      "items": {
+        "$ref": "#/$defs/FontSpec"
+      },
+      "title": "Fonts",
+      "type": "array"
+    },
+    "styles": {
+      "items": {
+        "$ref": "#/$defs/TypeStyle"
+      },
+      "title": "Styles",
+      "type": "array"
+    }
+  },
+  "required": [
+    "fonts",
+    "styles"
+  ],
+  "title": "FontConfiguration",
+  "type": "object"
+}
