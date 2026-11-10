@@ -42,22 +42,20 @@ The application has four work areas:
 
 Follow [Setup and run](setupandrun.md) for first-time installation, required assets, daily startup and troubleshooting.
 
-The development environment uses Conda environment `clinic`. A new machine also needs the native rendering libraries and local assets described in the [technical architecture](architecture_technical.md#local-environment). Generated projects, photographs, model weights and exports are kept outside Git, so cloning the source does not restore an existing studio library.
+Create and activate a virtual environment using your preferred environment manager. A new machine also needs the native rendering libraries and local assets described in the [technical architecture](architecture_technical.md#local-environment). Generated projects, photographs, model weights and exports are kept outside Git, so cloning the source does not restore an existing studio library.
 
 Create `.env` from [.env.example](.env.example) if needed, then set `OPENAI_API_KEY` or `OPENAI_KEY`. Model and runtime settings live in [config.yaml](config.yaml).
 
-From the repository root:
+From the repository root, with your virtual environment activated:
 
 ```bash
-conda activate clinic
 python -m editorial_studio.worker --initialize
 python -m streamlit run app.py --server.address 127.0.0.1 --server.port 8501
 ```
 
-Run the worker in a second terminal so queued jobs can execute:
+Activate the same environment in a second terminal and run the worker so queued jobs can execute:
 
 ```bash
-conda activate clinic
 python -m editorial_studio.worker
 ```
 

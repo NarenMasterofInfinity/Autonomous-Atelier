@@ -1,15 +1,14 @@
 # Setup and run
 
-All commands below run from the repository root. The prepared development environment is Conda `clinic`. The dependency lock and native environment specification target Linux x86_64.
+All commands below run from the repository root with your virtual environment activated. The dependency lock targets Linux x86_64.
 
-## Quick start on the prepared workstation
+## Quick start after setup
 
-If `clinic`, the local assets and `.env` are already configured, start here. Keep both terminals open.
+If dependencies, local assets and `.env` are already configured, start here. Open the repository root and activate your virtual environment in both terminals. Keep both terminals open.
 
 **Terminal 1: start the interface**
 
 ```bash
-conda activate clinic
 python -m editorial_studio.worker --initialize
 python -m streamlit run app.py --server.address 127.0.0.1 --server.port 8501
 ```
@@ -19,7 +18,6 @@ Open **http://127.0.0.1:8501** in your browser. Initialisation creates storage i
 **Terminal 2: start the worker**
 
 ```bash
-conda activate clinic
 python -m editorial_studio.worker
 ```
 
@@ -29,7 +27,7 @@ The interface lets you submit jobs and inspect results. The worker executes thos
 
 ### 1. Get the source
 
-Install Git and Conda first, then:
+Install Git and Python first, then:
 
 ```bash
 git clone https://github.com/NarenMasterofInfinity/Autonomous-Atelier.git
@@ -38,25 +36,25 @@ cd Autonomous-Atelier
 
 Git contains the application, configuration and tests. Saved projects, reference proofs, photographs, model weights and exports live in ignored local folders and are supplied separately.
 
-### 2. Create the environment
+### 2. Create a virtual environment and install dependencies
 
-Skip this section when using the already prepared `clinic` environment.
+Create and activate a virtual environment using your preferred environment manager. For example, with Python's built-in `venv`:
 
 ```bash
-conda env create --file config/render-environment.yaml
-conda activate clinic
+python -m venv .venv
+source .venv/bin/activate
+```
+
+Install the native rendering libraries required by [the environment specification](config/render-environment.yaml), including Cairo, Pango, HarfBuzz, GLib/GObject, fontconfig and GEOS. These system libraries are separate from Python packages.
+
+Install the locked Python dependencies into your activated environment:
+
+```bash
 python -m pip install uv
+UV_PROJECT_ENVIRONMENT="$(python -c 'import sys; print(sys.prefix)')" uv sync --frozen --all-extras --inexact
 ```
 
-Install the locked Python dependencies into this Conda environment:
-
-```bash
-UV_PROJECT_ENVIRONMENT="${CONDA_PREFIX:?Activate clinic first}" uv sync --frozen --all-extras --inexact
-```
-
-Run the sync command only after activating `clinic`. The explicit environment path directs uv to Conda instead of a separate `.venv`. `--frozen` uses the existing lock; `--all-extras` includes rendering, photo processing, segmentation and development tools; `--inexact` retains unrelated environment packages. Project dependencies can still be replaced to match the lock. These options follow uv's [environment configuration](https://docs.astral.sh/uv/concepts/projects/config/#project-environment-path) and [sync reference](https://docs.astral.sh/uv/reference/cli/#uv-sync).
-
-The native specification pins the tested workstation's builds. If Conda cannot obtain those builds on your platform, the environment needs adaptation and rendering verification before use. See [Conda environment creation](https://docs.conda.io/projects/conda/en/stable/commands/env/create.html).
+The command targets the environment used by your active Python interpreter. `--frozen` uses the existing lock, `--all-extras` includes rendering, photo processing, segmentation and development tools, and `--inexact` retains unrelated environment packages. See uv's [environment configuration](https://docs.astral.sh/uv/concepts/projects/config/#project-environment-path) and [sync reference](https://docs.astral.sh/uv/reference/cli/#uv-sync).
 
 ### 3. Configure provider access
 
@@ -105,7 +103,7 @@ You can ingest stories and build basic identity proofs before installing assets 
 
 ### 5. Initialise and start
 
-Use the two-terminal commands in [Quick start](#quick-start-on-the-prepared-workstation). A successful worker startup reports storage reconciliation and then `Worker ready`. The browser should show the studio's four tabs.
+Use the two-terminal commands in [Quick start](#quick-start-after-setup). A successful worker startup reports storage reconciliation and then `Worker ready`. The browser should show the studio's four tabs.
 
 ## First use
 
@@ -145,9 +143,9 @@ Working data is under `data/projects/` by default: the SQLite database and proje
 
 | What you see | What to check |
 | --- | --- |
-| `conda: command not found` or activation fails | Open a Conda-enabled shell, or initialise Conda for your shell and reopen it. |
-| `No module named editorial_studio` | Run from the repository root with `clinic` active; complete dependency installation for a fresh clone. |
-| Cairo, Pango or GI import errors | Check the native environment specification and that `python` belongs to `clinic`. |
+| Environment activation fails | Follow your environment manager's activation instructions and confirm that `python` points to the intended environment. |
+| `No module named editorial_studio` | Run from the repository root with your virtual environment active; complete dependency installation for a fresh clone. |
+| Cairo, Pango or GI import errors | Check the native environment specification and that `python` belongs to your virtual environment. |
 | Font missing or hash mismatch | Run the font installer and supply the exact files in `config/fonts.yaml`. |
 | Jobs remain queued | Start the separate worker and confirm both processes use the same checkout and `config.yaml`. |
 | Worker lock is already held | Use the existing worker; stop it before starting another worker for the same store. |
