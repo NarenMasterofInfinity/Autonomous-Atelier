@@ -40,6 +40,8 @@ The application has four work areas:
 
 ## Run locally
 
+Follow [Setup and run](setupandrun.md) for first-time installation, required assets, daily startup and troubleshooting.
+
 The development environment uses Conda environment `clinic`. A new machine also needs the native rendering libraries and local assets described in the [technical architecture](architecture_technical.md#local-environment). Generated projects, photographs, model weights and exports are kept outside Git, so cloning the source does not restore an existing studio library.
 
 Create `.env` from [.env.example](.env.example) if needed, then set `OPENAI_API_KEY` or `OPENAI_KEY`. Model and runtime settings live in [config.yaml](config.yaml).

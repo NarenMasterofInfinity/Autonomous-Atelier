@@ -144,6 +144,8 @@ New authored designs enter through the reference catalog and atlas, then use the
 
 ## Local environment
 
+The [setup and run guide](setupandrun.md) provides the installation sequence, launch commands, first-use steps and troubleshooting.
+
 The prepared development environment is Conda `clinic`. Python dependency metadata is in [pyproject.toml](pyproject.toml) and [uv.lock](uv.lock); the lock targets Linux x86_64. Native prerequisites and tested library hashes are recorded in [render-environment.yaml](config/render-environment.yaml) and [render-native-lock.yaml](config/render-native-lock.yaml).
 
 Cairo, Pango, HarfBuzz, fontTools and PyMuPDF support rendering and inspection. OpenCV supports image processing; MobileSAM supplies subject segmentation; Potrace supports raster-to-vector tracing. Font files, checkpoint files and other local assets must match their configuration hashes. Asset installers and verification commands live in [scripts/](scripts/).
